@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CoachPlus' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'Locksmith'
+  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+  pod 'IQKeyboardManagerSwift', '4.0.6'
+
+  # Pods for CoachPlus
+
+  target 'CoachPlusTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CoachPlusUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

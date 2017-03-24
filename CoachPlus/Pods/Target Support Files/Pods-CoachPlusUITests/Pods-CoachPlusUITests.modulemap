@@ -1,0 +1,6 @@
+framework module Pods_CoachPlusUITests {
+  umbrella header "Pods-CoachPlusUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

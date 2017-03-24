@@ -1,0 +1,18 @@
+PODS:
+  - IQKeyboardManagerSwift (4.0.6)
+  - Locksmith (3.0.0)
+  - SkyFloatingLabelTextField (2.0.1)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift (= 4.0.6)
+  - Locksmith
+  - SkyFloatingLabelTextField (~> 2.0.0)
+
+SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
+
+PODFILE CHECKSUM: a5556b0a97877a19e38d6163309e3594126365fd
+
+COCOAPODS: 1.2.0

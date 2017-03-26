@@ -124,12 +124,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         hud.label.textColor = UIColor.white
         
         
-        _ = DataHandler.def.register(firstname: self.firstnameLbl.text!, lastname: self.lastnameLbl.text!, email: self.emailLbl.text!, password: self.passwordLbl.text!, successHandler: {
+        _ = DataHandler.def.register(firstname: self.firstnameLbl.text!, lastname: self.lastnameLbl.text!, email: self.emailLbl.text!, password: self.passwordLbl.text!, successHandler: { _ in
             self.showDone(hud: hud)
             self.registerSuccessful()
-        }, failHandler: { msg in
+        }, failHandler: { apiResponse in
             hud.hide(animated: true)
-            DropdownAlert.error(message: msg)
+            DropdownAlert.error(message: apiResponse.message)
         })
         
     }

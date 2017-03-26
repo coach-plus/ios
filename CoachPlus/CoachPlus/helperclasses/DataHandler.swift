@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+typealias SuccessHandler = (ApiResponse) -> ()
+typealias FailHandler = (ApiResponse) -> ()
+
 class DataHandler {
     static let def = DataHandler()
     
@@ -17,7 +20,7 @@ class DataHandler {
         return "https://dev.coach.plus/api/" + url
     }
     
-    func post(_ url:String, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping (JSON) -> (), failHandler: @escaping (String?) -> ()) -> DataRequest{
+    func post(_ url:String, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
         
         let completeUrl = self.getUrl(url)
         
@@ -26,24 +29,26 @@ class DataHandler {
                 
                 let val = JSON(response.result.value!)
                 
+                let apiResponse = ApiResponse(json: val)
+                
                 if (response.result.isSuccess) {
                     if ((response.response?.statusCode)! >= 400) {
-                        failHandler(val["error"].string)
+                        failHandler(apiResponse)
                     } else {
-                        successHandler(val)
+                        successHandler(apiResponse)
                     }
                 } else if response.result.isFailure {
-                    failHandler(val["error"].string)
+                    failHandler(apiResponse)
                 }
         }
         
     }
     
-    func unauthenticatedPost(_ url:String, params:Parameters, successHandler: @escaping (JSON) -> (), failHandler: @escaping (String?) -> ()) -> DataRequest {
+    func unauthenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         return self.post(url, params: params, headers: nil, successHandler: successHandler, failHandler: failHandler)
     }
     
-    func authenticatedPost(_ url:String, params:Parameters, successHandler: @escaping (JSON) -> (), failHandler: @escaping (String?) -> ()) -> DataRequest {
+    func authenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         
         let headers: HTTPHeaders = [
             "x-access-token":Authentication.getJWT()!
@@ -53,7 +58,7 @@ class DataHandler {
     }
     
     
-    func register(firstname:String, lastname:String, email:String, password:String, successHandler: @escaping () -> (), failHandler: @escaping (_ msg:String?) -> ()) -> DataRequest {
+    func register(firstname:String, lastname:String, email:String, password:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         
         let params = [
             "firstname":firstname,
@@ -62,36 +67,50 @@ class DataHandler {
             "password":password
         ]
         
-        return self.unauthenticatedPost("users/register", params: params, successHandler: { json in
+        return self.unauthenticatedPost("users/register", params: params, successHandler: { apiResponse in
             
-            let jwtString = json["token"].stringValue
-            if (Authentication.storeJWT(jwt: jwtString)) {
-                successHandler()
+            let jwtString = apiResponse.content?[0]["token"].stringValue
+            if (Authentication.storeJWT(jwt: jwtString!)) {
+                successHandler(apiResponse)
             } else {
-                failHandler("Internal Error")
+                failHandler(apiResponse)
             }
             
         }, failHandler: failHandler)
     }
     
-    func login(email:String, password:String, successHandler: @escaping () -> (), failHandler: @escaping (_ msg:String?) -> ()) -> DataRequest {
+    func login(email:String, password:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         
         let params = [
             "email":email,
             "password":password
         ]
         
-        return self.unauthenticatedPost("users/login", params: params, successHandler: { json in
+        return self.unauthenticatedPost("users/login", params: params, successHandler: { apiResponse in
             
-            print(json)
+            let token = apiResponse.content?[0]["token"].stringValue
             
-            let token = json["token"].stringValue
+            if (Authentication.storeJWT(jwt: token!)) {
+                successHandler(apiResponse)
+            } else {
+                failHandler(apiResponse)
+            }
             
-            if (Authentication.storeJWT(jwt: token)) {
+        }, failHandler: failHandler)
+    }
+    
+    func verifyToken(token:String, successHandler: @escaping () -> (), failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "users/verification/" + token
+        
+        return self.unauthenticatedPost(url, params: [:], successHandler: { apiResponse in
+            
+            if (apiResponse.success) {
                 successHandler()
             } else {
-                failHandler("Internal Error")
+                failHandler(apiResponse)
             }
+            
             
         }, failHandler: failHandler)
         

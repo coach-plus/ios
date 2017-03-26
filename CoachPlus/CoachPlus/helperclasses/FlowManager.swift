@@ -34,9 +34,13 @@ class FlowManager {
     static func goToHome() {
         if (Authentication.loggedIn()) {
             
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            
             let vc = homeVc()
             
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+            let window = delegate.window!
+            window.rootViewController = vc
+            window.makeKeyAndVisible()
         } else {
             goToLogin()
         }

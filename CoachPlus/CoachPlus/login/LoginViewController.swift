@@ -45,12 +45,12 @@ class LoginViewController: UIViewController {
         let email = self.emailTf.text!
         let password = self.passwordTf.text!
         
-        _ = DataHandler.def.login(email: email, password: password, successHandler: {
+        _ = DataHandler.def.login(email: email, password: password, successHandler: { apiResponse in
             
             FlowManager.presentHome(sourceVc: self)
             
-        }, failHandler: { errmsg in
-            DropdownAlert.error(message: errmsg)
+        }, failHandler: { apiResponse in
+            DropdownAlert.error(message: apiResponse.message)
         })
         
     }

@@ -38,7 +38,7 @@
                                 </constraints>
                                 <state key="normal" title="Weiter"/>
                                 <connections>
-                                    <segue destination="ChC-AC-exl" kind="show" id="C2p-si-ch9"/>
+                                    <action selector="continueTapped:" destination="I0K-ho-lCe" eventType="touchUpInside" id="Utd-EV-y9R"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9H-yx-5RQ">
@@ -74,14 +74,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmM-vu-QxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="148" y="126.38680659670166"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="QNo-tc-bUh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="ChC-AC-exl" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t6d-jW-rAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="775" y="105"/>
         </scene>
         <!--Login-->
         <scene sceneID="hWA-gd-q85">

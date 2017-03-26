@@ -8,6 +8,12 @@ target 'CoachPlus' do
   pod 'Locksmith'
   pod 'SkyFloatingLabelTextField', '~> 2.0.0'
   pod 'IQKeyboardManagerSwift', '4.0.6'
+  pod 'FontAwesome.swift'
+  pod 'Alamofire', '~> 4.4'
+  pod 'SwiftyJSON'
+  pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'RKDropdownAlert'
+  pod 'JSONWebToken'
 
   # Pods for CoachPlus
 

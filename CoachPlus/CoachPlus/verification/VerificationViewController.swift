@@ -14,6 +14,11 @@ class VerificationViewController: UIViewController {
     
     @IBOutlet weak var tokenLbl: UILabel!
     
+    @IBAction func continueTapped(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

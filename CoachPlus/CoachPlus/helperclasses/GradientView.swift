@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 class GradientView: UIView {
     override open class var layerClass: AnyClass {
         get{

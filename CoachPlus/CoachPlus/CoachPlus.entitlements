@@ -8,5 +8,9 @@
 	<array>
 		<string>applinks:dev.coach.plus</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.mathandoro.coachplus</string>
+	</array>
 </dict>
 </plist>

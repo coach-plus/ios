@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import IQKeyboardManagerSwift
+import MBProgressHUD
 
 
 @UIApplicationMain
@@ -32,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.registerForRemoteNotifications()
         }
         
+        self.setupStyling()
         
+        if (Authentication.loggedIn() == false) {
+            FlowManager.goToLogin()
+        }
         
         
         return true
@@ -58,6 +63,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    //Styling
+    
+    
+    func setupStyling() {
+        let ai = UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [MBProgressHUD.self])
+        ai.color = UIColor.white
     }
     
     
@@ -105,16 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         return UrlHandler.handleUrlComponents(components: components)
-    }
-    
-    
-    func presentDetailViewController() {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let detailVC = storyboard.instantiateInitialViewController()
-        
-        UIApplication.shared.keyWindow?.rootViewController?.present(detailVC!, animated: true, completion: nil)
     }
 
 }

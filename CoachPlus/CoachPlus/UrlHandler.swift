@@ -34,6 +34,8 @@ class UrlHandler {
     
     static func handleVerificationUrl(_ pathArray:Array<Any>) -> Bool {
         
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
         if (pathArray.count > 0) {
             let token = pathArray[0] as! String
             
@@ -42,7 +44,11 @@ class UrlHandler {
             
             verificationVC.token = token
             
-            UIApplication.shared.keyWindow?.rootViewController = verificationVC
+            let rootVc = delegate.window?.rootViewController!
+            
+            print(rootVc)
+            
+            rootVc!.present(verificationVC, animated: true, completion: nil)
             
             //rootVc.present(navVc, animated: true, completion: nil)
             

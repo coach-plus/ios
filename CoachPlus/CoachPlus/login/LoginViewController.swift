@@ -8,32 +8,27 @@
 
 import UIKit
 import SafariServices
+import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBOutlet weak var emailTf: SkyFloatingLabelTextField!
     
-    @IBAction func registerTapped(_ sender: Any) {
-        self.goToRegister()
-    }
+    @IBOutlet weak var passwordTf: SkyFloatingLabelTextField!
     
+    @IBAction func signInTapped(_ sender: Any) {
+        self.signIn()
+    }
     
     @IBAction func forgotPwTapped(_ sender: Any) {
         goToForgotPw()
     }
     
-    func goToRegister() {
-        self.openWebpage(urlString: CoachPlus.registerUrl)
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
+    
+    
     
     func goToForgotPw() {
         self.openWebpage(urlString: CoachPlus.registerUrl)
@@ -44,5 +39,19 @@ class LoginViewController: UIViewController {
         
         let vc = SFSafariViewController(url: url, entersReaderIfAvailable: false)
         present(vc, animated: true, completion: nil)
+    }
+    
+    func signIn() {
+        let email = self.emailTf.text!
+        let password = self.passwordTf.text!
+        
+        _ = DataHandler.def.login(email: email, password: password, successHandler: {
+            
+            FlowManager.presentHome(sourceVc: self)
+            
+        }, failHandler: { errmsg in
+            DropdownAlert.error(message: errmsg)
+        })
+        
     }
 }

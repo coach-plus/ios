@@ -1,18 +1,39 @@
 PODS:
+  - Alamofire (4.4.0)
+  - CryptoSwift (0.6.8)
+  - FontAwesome.swift (1.0.0)
   - IQKeyboardManagerSwift (4.0.6)
+  - JSONWebToken (2.0.2):
+    - CryptoSwift (~> 0.6.1)
   - Locksmith (3.0.0)
+  - MBProgressHUD (1.0.0)
+  - RKDropdownAlert (0.3.0)
   - SkyFloatingLabelTextField (2.0.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - FontAwesome.swift
   - IQKeyboardManagerSwift (= 4.0.6)
+  - JSONWebToken
   - Locksmith
+  - MBProgressHUD (~> 1.0.0)
+  - RKDropdownAlert
   - SkyFloatingLabelTextField (~> 2.0.0)
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
+  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
   IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
+  JSONWebToken: ca86f02eeb3d1f58ba5197ec2cd53c7de915ecc1
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: a5556b0a97877a19e38d6163309e3594126365fd
+PODFILE CHECKSUM: dd03ae0507228339bbe35746d740557e1b0e8522
 
 COCOAPODS: 1.2.0

@@ -61,6 +61,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Sign in"/>
+                                                <connections>
+                                                    <action selector="signInTapped:" destination="w9N-HS-N9b" eventType="touchUpInside" id="E2m-O5-7HB"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7F9-qR-jbz" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                 <rect key="frame" x="36" y="128" width="303" height="45"/>
@@ -69,7 +72,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="bNO-fF-WSa"/>
                                                     <constraint firstAttribute="height" constant="45" id="nAq-aH-jdE"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -89,6 +92,12 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                        <color key="value" red="0.73298429320000003" green="0.05428260478" blue="0.03922865465" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-t4-Aj3" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -99,9 +108,9 @@
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="45" id="qfU-Uz-vdD"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="qyK-NI-Hb3"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Passwort"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
@@ -120,6 +129,12 @@
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Passwort"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                        <color key="value" red="0.73298429320000003" green="0.05428260478" blue="0.03922865465" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OK6-Ju-FGG">
@@ -194,6 +209,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rn7-34-aav"/>
+                    <connections>
+                        <outlet property="emailTf" destination="7F9-qR-jbz" id="3Oj-WB-KFi"/>
+                        <outlet property="passwordTf" destination="UzX-t4-Aj3" id="ljJ-ku-gKr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53C-pv-azD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

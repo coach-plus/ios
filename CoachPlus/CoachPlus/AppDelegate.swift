@@ -36,8 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupStyling()
         
         if (Authentication.loggedIn() == false) {
-            FlowManager.goToLogin()
-        }
+            FlowManager.setLogin()        }
         
         
         return true

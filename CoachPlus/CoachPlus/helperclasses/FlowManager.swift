@@ -12,23 +12,32 @@ class FlowManager {
     
     static func homeVc() -> HomeViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        
         let vc = storyboard.instantiateInitialViewController() as! HomeViewController
-        
         return vc
     }
     
-    static func goToLogin() {
-        
+    static func loginVc() -> LoginViewController {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! LoginViewController
+        return vc
+    }
+    
+    static func setLogin() {
         let delegate = UIApplication.shared.delegate as! AppDelegate
+        let vc = loginVc()
+        delegate.window?.rootViewController = vc
+        delegate.window?.makeKeyAndVisible()
+    }
+    
+    static func goToLogin() {
         
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         
         let vc = storyboard.instantiateInitialViewController()!
         
-        let window = delegate.window!
-        window.rootViewController = vc
-        window.makeKeyAndVisible()
+        UIApplication.shared.keyWindow?.currentViewController()?.present(vc, animated: true, completion: nil)
+        
+        //window.makeKeyAndVisible()
     }
     
     static func goToHome() {

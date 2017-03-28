@@ -44,6 +44,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Sign in"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="registerBtn"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="signInTapped:" destination="w9N-HS-N9b" eventType="touchUpInside" id="E2m-O5-7HB"/>
                                                 </connections>
@@ -81,6 +84,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
                                                         <color key="value" red="0.73298429320000003" green="0.05428260478" blue="0.03922865465" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="email"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-t4-Aj3" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -118,6 +122,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
                                                         <color key="value" red="0.73298429320000003" green="0.05428260478" blue="0.03922865465" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="password"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OK6-Ju-FGG">
@@ -190,8 +195,14 @@
                             <constraint firstItem="FL7-mW-gGq" firstAttribute="top" secondItem="dLs-pN-wR0" secondAttribute="top" id="aCF-8f-cel"/>
                             <constraint firstItem="gsX-Vw-ZmT" firstAttribute="width" secondItem="dLs-pN-wR0" secondAttribute="width" id="ofm-kT-Y3a"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="rootView"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="rn7-34-aav"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailTf" destination="7F9-qR-jbz" id="3Oj-WB-KFi"/>
                         <outlet property="passwordTf" destination="UzX-t4-Aj3" id="ljJ-ku-gKr"/>

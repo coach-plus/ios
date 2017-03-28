@@ -7,10 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423433E5506ED899D7B24FDB /* Pods_CoachPlusDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573DE4EF07AED30D7720208E /* Pods_CoachPlusDev.framework */; };
 		472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */; };
 		472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */; };
 		472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
 		472B9C121E870E4300706E6B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
+		473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90F1E85453700DC8247 /* UIViewExtension.swift */; };
+		473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
+		473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2331E8537B800DCF74A /* VerificationViewController.swift */; };
+		473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6231E87C6A500F80101 /* DropdownAlert.swift */; };
+		473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D71E842D30009788E2 /* CoachPlus.swift */; };
+		473A5F5F1E8A749A002FD833 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6271E87CBC700F80101 /* HomeViewController.swift */; };
+		473A5F601E8A749A002FD833 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */; };
+		473A5F611E8A749A002FD833 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6291E87D18300F80101 /* DataHandler.swift */; };
+		473A5F621E8A749A002FD833 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D51E8429AD009788E2 /* LoginViewController.swift */; };
+		473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2371E85409300DCF74A /* UIColorExtension.swift */; };
+		473A5F641E8A749A002FD833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C5011E81B7FE0068B0FA /* ViewController.swift */; };
+		473A5F651E8A749A002FD833 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6211E87265500F80101 /* Authentication.swift */; };
+		473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */; };
+		473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B62D1E8815F500F80101 /* ApiResponse.swift */; };
+		473A5F681E8A749A002FD833 /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */; };
+		473A5F691E8A749A002FD833 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2351E85404D00DCF74A /* GradientView.swift */; };
+		473A5F6A1E8A749A002FD833 /* UrlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE22E1E85367000DCF74A /* UrlHandler.swift */; };
+		473A5F6B1E8A749A002FD833 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
+		473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */; };
+		473A5F6D1E8A749A002FD833 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6251E87C81B00F80101 /* FlowManager.swift */; };
+		473A5F6F1E8A749A002FD833 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4756825A1E81D320008547AF /* UserNotifications.framework */; };
+		473A5F701E8A749A002FD833 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */; };
+		473A5F721E8A749A002FD833 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9161E8561F800DC8247 /* Home.storyboard */; };
+		473A5F731E8A749A002FD833 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
+		473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478DE2311E8537A600DCF74A /* Verification.storyboard */; };
+		473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474144D21E842910009788E2 /* Assets.xcassets */; };
+		473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */; };
+		473A5F771E8A749A002FD833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5031E81B7FE0068B0FA /* Main.storyboard */; };
+		473A5F781E8A749A002FD833 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
 		474144D11E8428A9009788E2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
 		474144D31E842910009788E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474144D21E842910009788E2 /* Assets.xcassets */; };
 		474144D61E8429AD009788E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D51E8429AD009788E2 /* LoginViewController.swift */; };
@@ -37,9 +67,9 @@
 		47B1B6281E87CBC700F80101 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6271E87CBC700F80101 /* HomeViewController.swift */; };
 		47B1B62A1E87D18300F80101 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6291E87D18300F80101 /* DataHandler.swift */; };
 		47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B62D1E8815F500F80101 /* ApiResponse.swift */; };
+		5DE081F287763ABCCFA42411 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */; };
 		67D7CC1D31EA275F1E6982EB /* Pods_CoachPlusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5C1FED7E55DF0EF80A49 /* Pods_CoachPlusTests.framework */; };
 		87E8D8ED66E32531114CF7AC /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */; };
-		C49C5C4FB68F28320630C886 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,17 +92,20 @@
 /* Begin PBXFileReference section */
 		12CE5C1FED7E55DF0EF80A49 /* Pods_CoachPlusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A89A289846DE13D4477B616 /* Pods-CoachPlusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusTests/Pods-CoachPlusTests.release.xcconfig"; sourceTree = "<group>"; };
+		22422D9457BA51D77DB60795 /* Pods-CoachPlusDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.debug.xcconfig"; sourceTree = "<group>"; };
 		273D03FD47E32FCD87694C83 /* Pods-CoachPlusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests.release.xcconfig"; sourceTree = "<group>"; };
 		472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailSentViewController.swift; path = register/MailSentViewController.swift; sourceTree = "<group>"; };
 		472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = register/RegisterViewController.swift; sourceTree = "<group>"; };
 		472B9C0F1E86CDE000706E6B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = helperclasses/StringExtension.swift; sourceTree = "<group>"; };
 		472B9C111E870E4300706E6B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = helperclasses/Helpers.swift; sourceTree = "<group>"; };
 		472B9C131E870F4F00706E6B /* CoachPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoachPlus-Bridging-Header.h"; sourceTree = "<group>"; };
+		473A5F7E1E8A749A002FD833 /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		473A5F7F1E8A749B002FD833 /* CoachPlusDev copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CoachPlusDev copy-Info.plist"; path = "/Users/d059314/mathandoro/coach-plus/ios/CoachPlus/CoachPlusDev copy-Info.plist"; sourceTree = "<absolute>"; };
 		474144D01E8428A9009788E2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		474144D21E842910009788E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		474144D51E8429AD009788E2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = login/LoginViewController.swift; sourceTree = "<group>"; };
 		474144D71E842D30009788E2 /* CoachPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachPlus.swift; sourceTree = "<group>"; };
-		4749C4FC1E81B7FE0068B0FA /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4749C4FC1E81B7FE0068B0FA /* CoachPlusDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlusDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4749C5011E81B7FE0068B0FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4749C5041E81B7FE0068B0FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,21 +134,33 @@
 		47B1B6271E87CBC700F80101 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = app/home/HomeViewController.swift; sourceTree = "<group>"; };
 		47B1B6291E87D18300F80101 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataHandler.swift; path = helperclasses/DataHandler.swift; sourceTree = "<group>"; };
 		47B1B62D1E8815F500F80101 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiResponse.swift; path = helperclasses/ApiResponse.swift; sourceTree = "<group>"; };
+		4C49008A88A9F6F18C566F97 /* Pods-CoachPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.release.xcconfig"; sourceTree = "<group>"; };
 		528F285EFF5E41FC7E8304EB /* Pods-CoachPlusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		573DE4EF07AED30D7720208E /* Pods_CoachPlusDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A02C2563B3589ED0B2B9A91E /* Pods-CoachPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.release.xcconfig"; sourceTree = "<group>"; };
+		6FE6D4029B17E4A46F536F72 /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
+		794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
 		AA729163F518E0CF72772A91 /* Pods-CoachPlusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusTests/Pods-CoachPlusTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F3FAD1CF72C575C5D8454698 /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		473A5F6E1E8A749A002FD833 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				473A5F6F1E8A749A002FD833 /* UserNotifications.framework in Frameworks */,
+				473A5F701E8A749A002FD833 /* Pods_CoachPlus.framework in Frameworks */,
+				5DE081F287763ABCCFA42411 /* Pods_CoachPlus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4749C4F91E81B7FE0068B0FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4756825B1E81D320008547AF /* UserNotifications.framework in Frameworks */,
-				C49C5C4FB68F28320630C886 /* Pods_CoachPlus.framework in Frameworks */,
+				423433E5506ED899D7B24FDB /* Pods_CoachPlusDev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,15 +209,17 @@
 				4749C4FD1E81B7FE0068B0FA /* Products */,
 				D9CAD9F88F2BC1609CB75653 /* Pods */,
 				FCBA8BE104737285F5250065 /* Frameworks */,
+				473A5F7F1E8A749B002FD833 /* CoachPlusDev copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		4749C4FD1E81B7FE0068B0FA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4749C4FC1E81B7FE0068B0FA /* CoachPlus.app */,
+				4749C4FC1E81B7FE0068B0FA /* CoachPlusDev.app */,
 				4749C5101E81B7FE0068B0FA /* CoachPlusTests.xctest */,
 				4749C51B1E81B7FF0068B0FA /* CoachPlusUITests.xctest */,
+				473A5F7E1E8A749A002FD833 /* CoachPlus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,12 +321,14 @@
 		D9CAD9F88F2BC1609CB75653 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F3FAD1CF72C575C5D8454698 /* Pods-CoachPlus.debug.xcconfig */,
-				A02C2563B3589ED0B2B9A91E /* Pods-CoachPlus.release.xcconfig */,
 				AA729163F518E0CF72772A91 /* Pods-CoachPlusTests.debug.xcconfig */,
 				1A89A289846DE13D4477B616 /* Pods-CoachPlusTests.release.xcconfig */,
 				528F285EFF5E41FC7E8304EB /* Pods-CoachPlusUITests.debug.xcconfig */,
 				273D03FD47E32FCD87694C83 /* Pods-CoachPlusUITests.release.xcconfig */,
+				6FE6D4029B17E4A46F536F72 /* Pods-CoachPlus.debug.xcconfig */,
+				4C49008A88A9F6F18C566F97 /* Pods-CoachPlus.release.xcconfig */,
+				22422D9457BA51D77DB60795 /* Pods-CoachPlusDev.debug.xcconfig */,
+				794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -291,6 +340,7 @@
 				530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */,
 				12CE5C1FED7E55DF0EF80A49 /* Pods_CoachPlusTests.framework */,
 				6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */,
+				573DE4EF07AED30D7720208E /* Pods_CoachPlusDev.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -298,16 +348,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4749C4FB1E81B7FE0068B0FA /* CoachPlus */ = {
+		473A5F571E8A749A002FD833 /* CoachPlus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4749C5241E81B7FF0068B0FA /* Build configuration list for PBXNativeTarget "CoachPlus" */;
+			buildConfigurationList = 473A5F7B1E8A749A002FD833 /* Build configuration list for PBXNativeTarget "CoachPlus" */;
 			buildPhases = (
-				DE08E56D71B17F0A760AC6E5 /* [CP] Check Pods Manifest.lock */,
-				4749C4F81E81B7FE0068B0FA /* Sources */,
-				4749C4F91E81B7FE0068B0FA /* Frameworks */,
-				4749C4FA1E81B7FE0068B0FA /* Resources */,
-				FC0ADDE19C011E1171A13808 /* [CP] Embed Pods Frameworks */,
-				2FCD90C1266858103C5BCE2C /* [CP] Copy Pods Resources */,
+				473A5F581E8A749A002FD833 /* [CP] Check Pods Manifest.lock */,
+				473A5F591E8A749A002FD833 /* Sources */,
+				473A5F6E1E8A749A002FD833 /* Frameworks */,
+				473A5F711E8A749A002FD833 /* Resources */,
+				473A5F791E8A749A002FD833 /* [CP] Embed Pods Frameworks */,
+				473A5F7A1E8A749A002FD833 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -315,7 +365,27 @@
 			);
 			name = CoachPlus;
 			productName = CoachPlus;
-			productReference = 4749C4FC1E81B7FE0068B0FA /* CoachPlus.app */;
+			productReference = 473A5F7E1E8A749A002FD833 /* CoachPlus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4749C4FB1E81B7FE0068B0FA /* CoachPlusDev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4749C5241E81B7FF0068B0FA /* Build configuration list for PBXNativeTarget "CoachPlusDev" */;
+			buildPhases = (
+				9CF8D6EEB5CC842C3DAB1F0C /* [CP] Check Pods Manifest.lock */,
+				4749C4F81E81B7FE0068B0FA /* Sources */,
+				4749C4F91E81B7FE0068B0FA /* Frameworks */,
+				4749C4FA1E81B7FE0068B0FA /* Resources */,
+				93A9D5D711F2B1EBAAD4416E /* [CP] Embed Pods Frameworks */,
+				5B07D76F5770059BF5EA2F13 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoachPlusDev;
+			productName = CoachPlus;
+			productReference = 4749C4FC1E81B7FE0068B0FA /* CoachPlusDev.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4749C50F1E81B7FE0068B0FA /* CoachPlusTests */ = {
@@ -370,6 +440,9 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Mathandoro GbR";
 				TargetAttributes = {
+					473A5F571E8A749A002FD833 = {
+						DevelopmentTeam = FCE6372QZX;
+					};
 					4749C4FB1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = FCE6372QZX;
@@ -413,7 +486,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4749C4FB1E81B7FE0068B0FA /* CoachPlus */,
+				473A5F571E8A749A002FD833 /* CoachPlus */,
+				4749C4FB1E81B7FE0068B0FA /* CoachPlusDev */,
 				4749C50F1E81B7FE0068B0FA /* CoachPlusTests */,
 				4749C51A1E81B7FF0068B0FA /* CoachPlusUITests */,
 			);
@@ -421,6 +495,20 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		473A5F711E8A749A002FD833 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				473A5F721E8A749A002FD833 /* Home.storyboard in Resources */,
+				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
+				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
+				473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */,
+				473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */,
+				473A5F771E8A749A002FD833 /* Main.storyboard in Resources */,
+				473A5F781E8A749A002FD833 /* Register.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4749C4FA1E81B7FE0068B0FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,21 +555,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FCD90C1266858103C5BCE2C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		30583826362AC3A8F43556A0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -495,6 +568,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		473A5F581E8A749A002FD833 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		473A5F791E8A749A002FD833 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		473A5F7A1E8A749A002FD833 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4CF7B177AC2A939126E71BA0 /* [CP] Check Pods Manifest.lock */ = {
@@ -512,6 +630,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		5B07D76F5770059BF5EA2F13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7B2C7AABAC6609E02825D0B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -525,6 +658,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		93A9D5D711F2B1EBAAD4416E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9637B641BE85E93420FD612C /* [CP] Embed Pods Frameworks */ = {
@@ -542,6 +690,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusTests/Pods-CoachPlusTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9CF8D6EEB5CC842C3DAB1F0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		B21744639EE8CCB235AFD11D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,39 +720,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusTests/Pods-CoachPlusTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE08E56D71B17F0A760AC6E5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FC0ADDE19C011E1171A13808 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		473A5F591E8A749A002FD833 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */,
+				473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */,
+				473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */,
+				473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */,
+				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
+				473A5F5F1E8A749A002FD833 /* HomeViewController.swift in Sources */,
+				473A5F601E8A749A002FD833 /* RegisterViewController.swift in Sources */,
+				473A5F611E8A749A002FD833 /* DataHandler.swift in Sources */,
+				473A5F621E8A749A002FD833 /* LoginViewController.swift in Sources */,
+				473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */,
+				473A5F641E8A749A002FD833 /* ViewController.swift in Sources */,
+				473A5F651E8A749A002FD833 /* Authentication.swift in Sources */,
+				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
+				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
+				473A5F681E8A749A002FD833 /* OutlineButton.swift in Sources */,
+				473A5F691E8A749A002FD833 /* GradientView.swift in Sources */,
+				473A5F6A1E8A749A002FD833 /* UrlHandler.swift in Sources */,
+				473A5F6B1E8A749A002FD833 /* StringExtension.swift in Sources */,
+				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
+				473A5F6D1E8A749A002FD833 /* FlowManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4749C4F81E81B7FE0068B0FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,12 +798,12 @@
 /* Begin PBXTargetDependency section */
 		4749C5121E81B7FE0068B0FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4749C4FB1E81B7FE0068B0FA /* CoachPlus */;
+			target = 4749C4FB1E81B7FE0068B0FA /* CoachPlusDev */;
 			targetProxy = 4749C5111E81B7FE0068B0FA /* PBXContainerItemProxy */;
 		};
 		4749C51D1E81B7FF0068B0FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4749C4FB1E81B7FE0068B0FA /* CoachPlus */;
+			target = 4749C4FB1E81B7FE0068B0FA /* CoachPlusDev */;
 			targetProxy = 4749C51C1E81B7FF0068B0FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -668,6 +828,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		473A5F7C1E8A749A002FD833 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FE6D4029B17E4A46F536F72 /* Pods-CoachPlus.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
+				DEVELOPMENT_TEAM = FCE6372QZX;
+				INFOPLIST_FILE = "CoachPlusDev copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		473A5F7D1E8A749A002FD833 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C49008A88A9F6F18C566F97 /* Pods-CoachPlus.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
+				DEVELOPMENT_TEAM = FCE6372QZX;
+				INFOPLIST_FILE = "CoachPlusDev copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		4749C5221E81B7FF0068B0FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -763,7 +958,7 @@
 		};
 		4749C5251E81B7FF0068B0FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3FAD1CF72C575C5D8454698 /* Pods-CoachPlus.debug.xcconfig */;
+			baseConfigurationReference = 22422D9457BA51D77DB60795 /* Pods-CoachPlusDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
@@ -772,7 +967,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -781,7 +976,7 @@
 		};
 		4749C5261E81B7FF0068B0FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A02C2563B3589ED0B2B9A91E /* Pods-CoachPlus.release.xcconfig */;
+			baseConfigurationReference = 794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
@@ -789,7 +984,7 @@
 				INFOPLIST_FILE = CoachPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -861,6 +1056,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		473A5F7B1E8A749A002FD833 /* Build configuration list for PBXNativeTarget "CoachPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				473A5F7C1E8A749A002FD833 /* Debug */,
+				473A5F7D1E8A749A002FD833 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4749C4F71E81B7FE0068B0FA /* Build configuration list for PBXProject "CoachPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -870,7 +1074,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4749C5241E81B7FF0068B0FA /* Build configuration list for PBXNativeTarget "CoachPlus" */ = {
+		4749C5241E81B7FF0068B0FA /* Build configuration list for PBXNativeTarget "CoachPlusDev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4749C5251E81B7FF0068B0FA /* Debug */,

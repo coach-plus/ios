@@ -1,10 +1,8 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
-target 'CoachPlus' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+use_frameworks!
 
+def all_pods
   pod 'Locksmith'
   pod 'SkyFloatingLabelTextField', '~> 2.0.0'
   pod 'IQKeyboardManagerSwift', '4.0.6'
@@ -14,8 +12,11 @@ target 'CoachPlus' do
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'RKDropdownAlert'
   pod 'JSONWebToken'
+  pod "Hero"
+end
 
-  # Pods for CoachPlus
+target 'CoachPlus' do
+  all_pods
 
   target 'CoachPlusTests' do
     inherit! :search_paths
@@ -27,4 +28,8 @@ target 'CoachPlus' do
     # Pods for testing
   end
 
+end
+
+target 'CoachPlusDev' do
+  all_pods
 end

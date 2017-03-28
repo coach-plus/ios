@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="cL3-lh-9Wd"/>
                         <viewControllerLayoutGuide type="bottom" id="mS1-4a-bp8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Fw5-nR-QYO">
+                    <view key="view" contentMode="scaleToFill" id="Fw5-nR-QYO" customClass="GradientView" customModule="CoachPlus" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="21" id="5UG-Kk-j63"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsL-0g-aBE">
@@ -36,13 +36,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PqN-uf-249"/>
                                 </constraints>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutTapped:" destination="U4M-kS-Ed3" eventType="touchUpInside" id="ZFN-Ph-waQ"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6Ak-cA-mFL" secondAttribute="trailing" constant="147" id="4uz-3t-K4n"/>
                             <constraint firstItem="6Ak-cA-mFL" firstAttribute="top" secondItem="cL3-lh-9Wd" secondAttribute="bottom" constant="137" id="I9q-dh-etK"/>
@@ -51,7 +53,14 @@
                             <constraint firstItem="6Ak-cA-mFL" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="150" id="a74-VF-SiE"/>
                             <constraint firstItem="LsL-0g-aBE" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="140" id="rG2-j1-Yyl"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="rootView"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroModalAnimationTypeString" value="fade"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Plt-sa-7pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

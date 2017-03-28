@@ -34,7 +34,7 @@
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2f3-GS-wxc" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="140" width="335" height="45"/>
+                                                <rect key="frame" x="36" y="140" width="303" height="45"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="q3X-5g-L6K"/>
@@ -69,7 +69,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6F-IX-CEU" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="193" width="335" height="45"/>
+                                                <rect key="frame" x="36" y="193" width="303" height="45"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="AYD-fV-FgQ"/>
@@ -99,13 +99,14 @@
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Breit"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="email"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="iOs-2B-O9S" id="vGA-Iq-TBO"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3HQ-zh-713" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="246" width="335" height="45"/>
+                                                <rect key="frame" x="36" y="246" width="303" height="45"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="C4d-c1-ibj"/>
@@ -141,7 +142,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sL5-XO-gZa" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="299" width="335" height="45"/>
+                                                <rect key="frame" x="36" y="299" width="303" height="45"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="ESh-nM-oWA"/>
@@ -171,13 +172,14 @@
                                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="1234"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="password"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="iOs-2B-O9S" id="cbb-ao-r73"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FpY-8v-ecO" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="352" width="335" height="45"/>
+                                                <rect key="frame" x="36" y="352" width="303" height="45"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="6YG-6w-qwt"/>
@@ -213,19 +215,22 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JO3-1l-zqa" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="427" width="335" height="50"/>
+                                                <rect key="frame" x="36" y="427" width="303" height="50"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="RSe-NU-vEz"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Sign up"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="registerBtn"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="signUpTapped:" destination="iOs-2B-O9S" eventType="touchUpInside" id="9af-hZ-7Cz"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggc-6B-Nho">
-                                                <rect key="frame" x="20" y="497" width="77" height="30"/>
+                                                <rect key="frame" x="36" y="497" width="77" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="77" id="9Zd-nY-WTa"/>
                                                     <constraint firstAttribute="height" constant="30" id="vDa-18-PD3"/>
@@ -241,29 +246,29 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="FpY-8v-ecO" secondAttribute="trailing" constant="20" id="7NV-97-HZD"/>
-                                            <constraint firstItem="sL5-XO-gZa" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="9iE-FO-aWl"/>
+                                            <constraint firstAttribute="trailing" secondItem="FpY-8v-ecO" secondAttribute="trailing" constant="36" id="7NV-97-HZD"/>
+                                            <constraint firstItem="sL5-XO-gZa" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="36" id="9iE-FO-aWl"/>
                                             <constraint firstItem="FpY-8v-ecO" firstAttribute="top" secondItem="sL5-XO-gZa" secondAttribute="bottom" constant="8" id="DDH-1L-wqD"/>
-                                            <constraint firstItem="2f3-GS-wxc" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="LhZ-Ty-Ocu"/>
-                                            <constraint firstAttribute="trailing" secondItem="sL5-XO-gZa" secondAttribute="trailing" constant="20" id="M75-3Z-rsL"/>
+                                            <constraint firstItem="2f3-GS-wxc" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="36" id="LhZ-Ty-Ocu"/>
+                                            <constraint firstAttribute="trailing" secondItem="sL5-XO-gZa" secondAttribute="trailing" constant="36" id="M75-3Z-rsL"/>
                                             <constraint firstItem="Ggc-6B-Nho" firstAttribute="top" secondItem="JO3-1l-zqa" secondAttribute="bottom" constant="20" id="NTU-KW-1Qy"/>
                                             <constraint firstItem="ayR-Vs-elf" firstAttribute="top" secondItem="VIJ-Uf-uBf" secondAttribute="top" constant="20" id="O0f-Fs-ACq"/>
-                                            <constraint firstItem="FpY-8v-ecO" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="QbL-pw-Kfm"/>
+                                            <constraint firstItem="FpY-8v-ecO" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="36" id="QbL-pw-Kfm"/>
                                             <constraint firstAttribute="trailing" secondItem="ayR-Vs-elf" secondAttribute="trailing" constant="20" id="RGp-Zh-SRa"/>
-                                            <constraint firstItem="JO3-1l-zqa" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="WP8-xF-zhm"/>
+                                            <constraint firstItem="JO3-1l-zqa" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="36" id="WP8-xF-zhm"/>
                                             <constraint firstAttribute="bottom" secondItem="Ggc-6B-Nho" secondAttribute="bottom" constant="20" id="XBc-ul-UU6"/>
-                                            <constraint firstAttribute="trailing" secondItem="b6F-IX-CEU" secondAttribute="trailing" constant="20" id="aDn-aD-N1y"/>
-                                            <constraint firstAttribute="trailing" secondItem="3HQ-zh-713" secondAttribute="trailing" constant="20" id="cuv-YB-oHR"/>
+                                            <constraint firstAttribute="trailing" secondItem="b6F-IX-CEU" secondAttribute="trailing" constant="36" id="aDn-aD-N1y"/>
+                                            <constraint firstAttribute="trailing" secondItem="3HQ-zh-713" secondAttribute="trailing" constant="36" id="cuv-YB-oHR"/>
                                             <constraint firstItem="sL5-XO-gZa" firstAttribute="top" secondItem="3HQ-zh-713" secondAttribute="bottom" constant="8" id="dDz-bp-Vsq"/>
                                             <constraint firstItem="2f3-GS-wxc" firstAttribute="top" secondItem="ayR-Vs-elf" secondAttribute="bottom" constant="20" id="eRy-aj-aHC"/>
-                                            <constraint firstItem="3HQ-zh-713" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="eif-b0-uxT"/>
+                                            <constraint firstItem="3HQ-zh-713" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="36" id="eif-b0-uxT"/>
                                             <constraint firstItem="b6F-IX-CEU" firstAttribute="top" secondItem="2f3-GS-wxc" secondAttribute="bottom" constant="8" id="evL-gm-F9z"/>
-                                            <constraint firstItem="b6F-IX-CEU" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="ggE-bk-5yV"/>
+                                            <constraint firstItem="b6F-IX-CEU" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="36" id="ggE-bk-5yV"/>
                                             <constraint firstItem="3HQ-zh-713" firstAttribute="top" secondItem="b6F-IX-CEU" secondAttribute="bottom" constant="8" id="iT8-SY-RIO"/>
                                             <constraint firstItem="ayR-Vs-elf" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="nwB-Vg-tdR"/>
-                                            <constraint firstItem="Ggc-6B-Nho" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="20" id="pO1-cW-WMl"/>
-                                            <constraint firstAttribute="trailing" secondItem="2f3-GS-wxc" secondAttribute="trailing" constant="20" id="pV6-B8-IDH"/>
-                                            <constraint firstAttribute="trailing" secondItem="JO3-1l-zqa" secondAttribute="trailing" constant="20" id="xgC-kA-44d"/>
+                                            <constraint firstItem="Ggc-6B-Nho" firstAttribute="leading" secondItem="VIJ-Uf-uBf" secondAttribute="leading" constant="36" id="pO1-cW-WMl"/>
+                                            <constraint firstAttribute="trailing" secondItem="2f3-GS-wxc" secondAttribute="trailing" constant="36" id="pV6-B8-IDH"/>
+                                            <constraint firstAttribute="trailing" secondItem="JO3-1l-zqa" secondAttribute="trailing" constant="36" id="xgC-kA-44d"/>
                                             <constraint firstItem="JO3-1l-zqa" firstAttribute="top" secondItem="FpY-8v-ecO" secondAttribute="bottom" constant="30" id="zZY-yk-LG9"/>
                                         </constraints>
                                     </view>
@@ -285,6 +290,9 @@
                             <constraint firstItem="f1c-fM-ONB" firstAttribute="leading" secondItem="dSF-8j-ylh" secondAttribute="leading" id="uPe-ih-wkZ"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailLbl" destination="3HQ-zh-713" id="BlC-tG-C8C"/>
                         <outlet property="firstnameLbl" destination="2f3-GS-wxc" id="ytk-QX-yY0"/>
@@ -350,6 +358,9 @@ and confirm your registriation</string>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Continue"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="registerBtn"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="continueTapped:" destination="D7W-R0-Dkk" eventType="touchUpInside" id="GqK-AT-vO8"/>
                                         </connections>
@@ -380,6 +391,9 @@ and confirm your registriation</string>
                             <constraint firstAttribute="trailing" secondItem="uvB-a5-d4l" secondAttribute="trailing" id="yaI-qe-BpP"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="iconLabel" destination="Tuf-OM-eSU" id="YRc-HR-2vc"/>
                     </connections>

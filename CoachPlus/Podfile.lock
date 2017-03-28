@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.4.0)
   - CryptoSwift (0.6.8)
   - FontAwesome.swift (1.0.0)
+  - Hero (0.3.6)
   - IQKeyboardManagerSwift (4.0.6)
   - JSONWebToken (2.0.2):
     - CryptoSwift (~> 0.6.1)
@@ -14,6 +15,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - FontAwesome.swift
+  - Hero
   - IQKeyboardManagerSwift (= 4.0.6)
   - JSONWebToken
   - Locksmith
@@ -26,6 +28,7 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
   FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
+  Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
   IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
   JSONWebToken: ca86f02eeb3d1f58ba5197ec2cd53c7de915ecc1
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
@@ -34,6 +37,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: dd03ae0507228339bbe35746d740557e1b0e8522
+PODFILE CHECKSUM: 8a18576b382db21226f223128e1a7f66edabd6bc
 
 COCOAPODS: 1.2.0

@@ -14,6 +14,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+        //self.createTeam(name: "TestTeam1", isPublic: true)
+        
+        //self.createInvitationLink(teamId: "58da450fe420a5469a814a3a", validDays: 7)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +30,29 @@ class HomeViewController: UIViewController {
         Authentication.logout()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func getMyTeams() {
+        _ = DataHandler.def.getMyTeams(successHandler: { teams in
+            
+        }, failHandler: { err in
+            print(err)
+        })
     }
-    */
+    
+    func createTeam(name:String, isPublic:Bool) {
+        
+        _ = DataHandler.def.createTeam(name: name, isPublic: isPublic, successHandler: { apiResponse in
+            print("success")
+        }, failHandler: { err in
+            print(err)
+        })
+        
+    }
+    
+    func createInvitationLink(teamId:String, validDays:Int?) {
+        _ = DataHandler.def.createInviteLink(teamId: teamId, validDays: validDays, failHandler: { err in
+            print(err)
+        })
+    }
 
 }

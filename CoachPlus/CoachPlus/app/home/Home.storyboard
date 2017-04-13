@@ -43,14 +43,26 @@
                                     <action selector="logoutTapped:" destination="U4M-kS-Ed3" eventType="touchUpInside" id="ZFN-Ph-waQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czJ-36-169">
+                                <rect key="frame" x="165" y="250" width="45" height="30"/>
+                                <state key="normal" title="Teams">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kRw-EQ-8Xd" kind="show" id="vVz-z0-Duk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6Ak-cA-mFL" secondAttribute="trailing" constant="147" id="4uz-3t-K4n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="czJ-36-169" secondAttribute="trailing" constant="149" id="B4S-2i-Afp"/>
                             <constraint firstItem="6Ak-cA-mFL" firstAttribute="top" secondItem="cL3-lh-9Wd" secondAttribute="bottom" constant="137" id="I9q-dh-etK"/>
                             <constraint firstItem="LsL-0g-aBE" firstAttribute="top" secondItem="6Ak-cA-mFL" secondAttribute="bottom" constant="34" id="ZUV-ug-97P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LsL-0g-aBE" secondAttribute="trailing" constant="140" id="a73-Wj-F64"/>
                             <constraint firstItem="6Ak-cA-mFL" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="150" id="a74-VF-SiE"/>
+                            <constraint firstItem="czJ-36-169" firstAttribute="top" secondItem="LsL-0g-aBE" secondAttribute="bottom" constant="8" id="hel-ZR-vgK"/>
+                            <constraint firstItem="czJ-36-169" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="149" id="jKp-lD-mPB"/>
                             <constraint firstItem="LsL-0g-aBE" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="140" id="rG2-j1-Yyl"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -65,6 +77,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Plt-sa-7pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="352.80000000000001" y="-224.4377811094453"/>
+        </scene>
+        <!--Memberships-->
+        <scene sceneID="ZzM-HC-NTf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Memberships" id="kRw-EQ-8Xd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmg-9z-VFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="-200"/>
         </scene>
     </scenes>
 </document>

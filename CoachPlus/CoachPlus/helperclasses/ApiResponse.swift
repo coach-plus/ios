@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 
-class ApiResponse {
+class ApiResponse:JSONable {
     
     var success: Bool
     var content: [JSON]?
@@ -26,7 +26,7 @@ class ApiResponse {
         return self.success
     }
     
-    init(json:JSON) {
+    required init(json:JSON) {
         
         self.success = json["success"].boolValue
         self.message = json["message"].stringValue
@@ -38,6 +38,34 @@ class ApiResponse {
             cs.append(json["content"])
             self.content = cs
         }
+    }
+    
+    func toObject<T:JSONable>(_ t:T.Type, property:String?) -> T {
+        if (property == nil) {
+            return T(json:self.content![0])!
+        } else {
+            return T(json:(self.content![0])[property!])!
+        }
+    }
+    
+    func toArray<T:JSONable>(_ t:T.Type, property:String?) -> [T] {
+        var array = [T]()
+        
+        let json:[JSON]
+        
+        if (property == nil) {
+            json = self.content!
+        } else {
+            json = ((self.content?[0])?[property!].array)!
+        }
+        
+        for item in json {
+            let object = T(json:item)
+            array.append(object!)
+        }
+        
+        return array
+        
     }
     
     

@@ -12,7 +12,8 @@ def all_pods
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'RKDropdownAlert'
   pod 'JSONWebToken'
-  pod "Hero"
+  pod 'Hero'
+  pod 'SwiftyUserDefaults'
 end
 
 target 'CoachPlus' do

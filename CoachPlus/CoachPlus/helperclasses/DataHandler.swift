@@ -10,8 +10,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+typealias EmptySuccessHandler = () -> ()
 typealias SuccessHandler = (ApiResponse) -> ()
 typealias FailHandler = (ApiResponse) -> ()
+
+typealias TeamsSuccessHandler = ([Team]) -> ()
+typealias MembershipsSuccessHandler = ([Membership]) -> ()
 
 class DataHandler {
     static let def = DataHandler()
@@ -20,11 +24,27 @@ class DataHandler {
         return "https://dev.coach.plus/api/" + url
     }
     
-    func post(_ url:String, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+    func authHeaders() -> HTTPHeaders {
+        return [
+            "x-access-token":Authentication.getJWT()!
+        ]
+    }
+    
+    // Post Helpers
+    
+    func httpRequest(_ url:String, method: HTTPMethod, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
         
         let completeUrl = self.getUrl(url)
         
-        return Alamofire.request(completeUrl, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+        let encoding:ParameterEncoding
+        
+        if (method == .get) {
+            encoding = URLEncoding.default
+        } else {
+            encoding = JSONEncoding.default
+        }
+        
+        return Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
             .responseJSON { response in
                 
                 let val = JSON(response.result.value!)
@@ -35,7 +55,11 @@ class DataHandler {
                     if ((response.response?.statusCode)! >= 400) {
                         failHandler(apiResponse)
                     } else {
-                        successHandler(apiResponse)
+                        if (apiResponse.isSuccess()) {
+                            successHandler(apiResponse)
+                        } else {
+                            failHandler(apiResponse)
+                        }
                     }
                 } else if response.result.isFailure {
                     failHandler(apiResponse)
@@ -44,17 +68,30 @@ class DataHandler {
         
     }
     
+    func post(_ url:String, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+        return self.httpRequest(url, method: .post, params: params, headers: headers, successHandler: successHandler, failHandler: failHandler)
+    }
+    
     func unauthenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
-        return self.post(url, params: params, headers: nil, successHandler: successHandler, failHandler: failHandler)
+        return self.post(url, params: params, headers: [:], successHandler: successHandler, failHandler: failHandler)
     }
     
     func authenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
-        
-        let headers: HTTPHeaders = [
-            "x-access-token":Authentication.getJWT()!
-        ]
-        
-        return self.post(url, params: params, headers: headers, successHandler: successHandler, failHandler: failHandler)
+        return self.post(url, params: params, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    // Get Helpers
+    
+    func get(_ url:String, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+        return self.httpRequest(url, method: .get, params: [:], headers: headers, successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    func unauthenticatedGet(_ url:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+        return self.get(url, headers: [:], successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    func authenticatedGet(_ url:String, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+        return self.get(url, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
     }
     
     
@@ -99,22 +136,76 @@ class DataHandler {
         }, failHandler: failHandler)
     }
     
-    func verifyToken(token:String, successHandler: @escaping () -> (), failHandler: @escaping FailHandler) -> DataRequest {
+    func verifyToken(token:String, successHandler: @escaping EmptySuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         
         let url = "users/verification/" + token
         
         return self.unauthenticatedPost(url, params: [:], successHandler: { apiResponse in
+            successHandler()
+        }, failHandler: failHandler)
+    }
+    
+    func createTeam(name:String, isPublic:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/register"
+        
+        let params:Parameters = [
+            "name":name,
+            "isPublic":isPublic
+        ]
+        
+        return self.authenticatedPost(url, params: params, successHandler: successHandler, failHandler: failHandler)
+        
+    }
+    
+    func getMyTeams(successHandler: @escaping TeamsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        let url = "teams/my"
+        
+        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
             
-            if (apiResponse.success) {
-                successHandler()
-            } else {
-                failHandler(apiResponse)
-            }
+            let teams = apiResponse.toArray(Team.self, property: "teams")
+            successHandler(teams)
             
+        }, failHandler: failHandler)
+    }
+    
+    func createInviteLink(teamId:String, validDays:Int?, failHandler: @escaping FailHandler) -> DataRequest {
+        var url = "teams/\(teamId)/invite"
+        
+        if (validDays != nil) {
+            url = url + "?validDays=\(validDays!)"
+        }
+        
+        return self.authenticatedPost(url, params: [:], successHandler: { apiResponse in
+            
+            let inviteResponse = apiResponse.toObject(InviteResponse.self, property: nil)
+            print(inviteResponse)
             
         }, failHandler: failHandler)
         
+    }
+    
+    
+    func getMyMemberships(successHandler: @escaping MembershipsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        let url = "memberships/my"
         
+        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
+            
+            let memberships = apiResponse.toArray(Membership.self, property: "memberships")
+            successHandler(memberships)
+            
+        }, failHandler: failHandler)
+    }
+    
+    func getMembers(teamId:String, successHandler: @escaping MembershipsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        let url = "teams/\(teamId)/members"
+        
+        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
+            
+            let memberships = apiResponse.toArray(Membership.self, property: "members")
+            successHandler(memberships)
+            
+        }, failHandler: failHandler)
     }
     
 }

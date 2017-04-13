@@ -85,15 +85,19 @@
 		47F041F41E8E59640020D78E /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041F21E8E59640020D78E /* Team.swift */; };
 		47F041F71E8E5FF90020D78E /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041F61E8E5FF90020D78E /* Team.storyboard */; };
 		47F041F81E8E5FF90020D78E /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041F61E8E5FF90020D78E /* Team.storyboard */; };
-		47F041FC1E8E625E0020D78E /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041FB1E8E625E0020D78E /* TableHeader.swift */; };
-		47F041FD1E8E625E0020D78E /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041FB1E8E625E0020D78E /* TableHeader.swift */; };
-		47F0420F1E8E6F4B0020D78E /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F0420E1E8E6F4B0020D78E /* TableHeader.xib */; };
-		47F042101E8E6F4B0020D78E /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F0420E1E8E6F4B0020D78E /* TableHeader.xib */; };
+		47F041FC1E8E625E0020D78E /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041FB1E8E625E0020D78E /* TableHeaderView.swift */; };
+		47F041FD1E8E625E0020D78E /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041FB1E8E625E0020D78E /* TableHeaderView.swift */; };
+		47F0420F1E8E6F4B0020D78E /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F0420E1E8E6F4B0020D78E /* TableHeaderView.xib */; };
+		47F042101E8E6F4B0020D78E /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F0420E1E8E6F4B0020D78E /* TableHeaderView.xib */; };
 		47F042121E8E70660020D78E /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042111E8E70660020D78E /* TeamViewController.swift */; };
 		47F042131E8E70660020D78E /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042111E8E70660020D78E /* TeamViewController.swift */; };
 		47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
 		47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
 		5DE081F287763ABCCFA42411 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */; };
+		616616E71E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616E61E9F950B00E8D8D5 /* ReusableTableHeader.swift */; };
+		616616E81E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616E61E9F950B00E8D8D5 /* ReusableTableHeader.swift */; };
+		616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616616EC1E9F952C00E8D8D5 /* ReusableTableHeader.xib */; };
+		616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616616EC1E9F952C00E8D8D5 /* ReusableTableHeader.xib */; };
 		67D7CC1D31EA275F1E6982EB /* Pods_CoachPlusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5C1FED7E55DF0EF80A49 /* Pods_CoachPlusTests.framework */; };
 		87E8D8ED66E32531114CF7AC /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */; };
 /* End PBXBuildFile section */
@@ -126,7 +130,6 @@
 		472B9C111E870E4300706E6B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = helperclasses/Helpers.swift; sourceTree = "<group>"; };
 		472B9C131E870F4F00706E6B /* CoachPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoachPlus-Bridging-Header.h"; sourceTree = "<group>"; };
 		473A5F7E1E8A749A002FD833 /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		473A5F7F1E8A749B002FD833 /* CoachPlusDev copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CoachPlusDev copy-Info.plist"; path = "/Users/d059314/mathandoro/coach-plus/ios/CoachPlus/CoachPlusDev copy-Info.plist"; sourceTree = "<absolute>"; };
 		473A5F871E8A9224002FD833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		473A5F8A1E8A92D1002FD833 /* Membership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Membership.swift; path = models/Membership.swift; sourceTree = "<group>"; };
 		474144D01E8428A9009788E2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -169,14 +172,17 @@
 		47F041E91E8E59540020D78E /* MembershipsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembershipsController.swift; sourceTree = "<group>"; };
 		47F041F21E8E59640020D78E /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Team.swift; path = models/Team.swift; sourceTree = "<group>"; };
 		47F041F61E8E5FF90020D78E /* Team.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Team.storyboard; path = app/team/Team.storyboard; sourceTree = "<group>"; };
-		47F041FB1E8E625E0020D78E /* TableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableHeader.swift; path = ui/tableheader/TableHeader.swift; sourceTree = "<group>"; };
-		47F0420E1E8E6F4B0020D78E /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableHeader.xib; path = ui/tableheader/TableHeader.xib; sourceTree = "<group>"; };
+		47F041FB1E8E625E0020D78E /* TableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableHeaderView.swift; path = ui/tableheader/TableHeaderView.swift; sourceTree = "<group>"; };
+		47F0420E1E8E6F4B0020D78E /* TableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableHeaderView.xib; path = ui/tableheader/TableHeaderView.xib; sourceTree = "<group>"; };
 		47F042111E8E70660020D78E /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamViewController.swift; path = app/team/TeamViewController.swift; sourceTree = "<group>"; };
 		47F042181E8E7A590020D78E /* MembershipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MembershipManager.swift; path = helperclasses/MembershipManager.swift; sourceTree = "<group>"; };
 		4C49008A88A9F6F18C566F97 /* Pods-CoachPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.release.xcconfig"; sourceTree = "<group>"; };
 		528F285EFF5E41FC7E8304EB /* Pods-CoachPlusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		573DE4EF07AED30D7720208E /* Pods_CoachPlusDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		616616E51E9F8B5A00E8D8D5 /* Playground.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Playground.storyboard; sourceTree = "<group>"; };
+		616616E61E9F950B00E8D8D5 /* ReusableTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReusableTableHeader.swift; path = ui/tableheader/ReusableTableHeader.swift; sourceTree = "<group>"; };
+		616616EC1E9F952C00E8D8D5 /* ReusableTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReusableTableHeader.xib; path = ui/tableheader/ReusableTableHeader.xib; sourceTree = "<group>"; };
 		6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE6D4029B17E4A46F536F72 /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,7 +265,6 @@
 				4749C4FD1E81B7FE0068B0FA /* Products */,
 				D9CAD9F88F2BC1609CB75653 /* Pods */,
 				FCBA8BE104737285F5250065 /* Frameworks */,
-				473A5F7F1E8A749B002FD833 /* CoachPlusDev copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,6 +294,7 @@
 				4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */,
 				4749C5011E81B7FE0068B0FA /* ViewController.swift */,
 				4749C5031E81B7FE0068B0FA /* Main.storyboard */,
+				616616E51E9F8B5A00E8D8D5 /* Playground.storyboard */,
 				4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */,
 				4749C50B1E81B7FE0068B0FA /* Info.plist */,
 				474144D71E842D30009788E2 /* CoachPlus.swift */,
@@ -413,8 +419,10 @@
 		47F041FA1E8E61E20020D78E /* tableheader */ = {
 			isa = PBXGroup;
 			children = (
-				47F041FB1E8E625E0020D78E /* TableHeader.swift */,
-				47F0420E1E8E6F4B0020D78E /* TableHeader.xib */,
+				47F041FB1E8E625E0020D78E /* TableHeaderView.swift */,
+				47F0420E1E8E6F4B0020D78E /* TableHeaderView.xib */,
+				616616E61E9F950B00E8D8D5 /* ReusableTableHeader.swift */,
+				616616EC1E9F952C00E8D8D5 /* ReusableTableHeader.xib */,
 			);
 			name = tableheader;
 			sourceTree = "<group>";
@@ -604,12 +612,13 @@
 				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
+				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */,
 				473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */,
 				473A5F771E8A749A002FD833 /* Main.storyboard in Resources */,
 				47F041EE1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				473A5F781E8A749A002FD833 /* Register.storyboard in Resources */,
-				47F0420F1E8E6F4B0020D78E /* TableHeader.xib in Resources */,
+				47F0420F1E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
 				47F041F71E8E5FF90020D78E /* Team.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,12 +631,13 @@
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
+				616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				474144D31E842910009788E2 /* Assets.xcassets in Resources */,
 				4749C50A1E81B7FE0068B0FA /* LaunchScreen.storyboard in Resources */,
 				4749C5051E81B7FE0068B0FA /* Main.storyboard in Resources */,
 				47F041EF1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */,
-				47F042101E8E6F4B0020D78E /* TableHeader.xib in Resources */,
+				47F042101E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
 				47F041F81E8E5FF90020D78E /* Team.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,7 +701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		473A5F791E8A749A002FD833 /* [CP] Embed Pods Frameworks */ = {
@@ -736,7 +746,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5B07D76F5770059BF5EA2F13 /* [CP] Copy Pods Resources */ = {
@@ -766,7 +776,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		93A9D5D711F2B1EBAAD4416E /* [CP] Embed Pods Frameworks */ = {
@@ -811,7 +821,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B21744639EE8CCB235AFD11D /* [CP] Copy Pods Resources */ = {
@@ -836,12 +846,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				616616E71E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */,
 				473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */,
 				473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */,
 				47F041F31E8E59640020D78E /* Team.swift in Sources */,
 				47F041EA1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */,
-				47F041FC1E8E625E0020D78E /* TableHeader.swift in Sources */,
+				47F041FC1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
 				473A5F5F1E8A749A002FD833 /* HomeViewController.swift in Sources */,
@@ -872,12 +883,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				616616E81E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */,
 				47A9B9101E85453700DC8247 /* UIViewExtension.swift in Sources */,
 				472B9C121E870E4300706E6B /* Helpers.swift in Sources */,
 				47F041F41E8E59640020D78E /* Team.swift in Sources */,
 				47F041EB1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				478DE2341E8537B800DCF74A /* VerificationViewController.swift in Sources */,
-				47F041FD1E8E625E0020D78E /* TableHeader.swift in Sources */,
+				47F041FD1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				47B1B6241E87C6A500F80101 /* DropdownAlert.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,
 				47B1B6281E87CBC700F80101 /* HomeViewController.swift in Sources */,

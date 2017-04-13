@@ -25,8 +25,8 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         let membershipCellNib = UINib(nibName: "MembershipTableViewCell", bundle: nil)
         self.tableView.register(membershipCellNib, forCellReuseIdentifier: "MembershipCell")
-        let nib = UINib(nibName: "TableHeader", bundle: nil)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
+        let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
+        self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,12 +88,12 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
-        let view = cell as! TableHeader
+        let view = cell as! ReusableTableHeader
         switch Section(rawValue: section)! {
         case .events:
-            view.title = "EVENTS"
+            view.tableHeader.title = "EVENTS"
         default:
-            view.title = "MEMBERS"
+            view.tableHeader.title = "MEMBERS"
         }
         return view
     }

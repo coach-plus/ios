@@ -8,6 +8,7 @@ PODS:
     - CryptoSwift (~> 0.6.1)
   - Locksmith (3.0.0)
   - MBProgressHUD (1.0.0)
+  - NibDesignable (3.0.0)
   - RKDropdownAlert (0.3.0)
   - SkyFloatingLabelTextField (2.0.1)
   - SwiftyJSON (3.1.4)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - JSONWebToken
   - Locksmith
   - MBProgressHUD (~> 1.0.0)
+  - NibDesignable
   - RKDropdownAlert
   - SkyFloatingLabelTextField (~> 2.0.0)
   - SwiftyJSON
@@ -35,11 +37,12 @@ SPEC CHECKSUMS:
   JSONWebToken: ca86f02eeb3d1f58ba5197ec2cd53c7de915ecc1
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  NibDesignable: 6ccf1e54135cb05be0a78f803b9a8d78125a7d6d
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: b5552c698142eb756f5774394baf77f2e9607e6d
+PODFILE CHECKSUM: 4c87f5981b4fab60a0715a0b356ea783549c0c81
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

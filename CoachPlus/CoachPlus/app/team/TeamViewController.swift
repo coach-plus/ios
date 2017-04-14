@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TeamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate {
 
     enum Section:Int {
         case events = 0
@@ -20,17 +20,26 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
     var team:Team?
     
     var members = [Membership]()
+    var events = [Event]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let membershipCellNib = UINib(nibName: "MembershipTableViewCell", bundle: nil)
         self.tableView.register(membershipCellNib, forCellReuseIdentifier: "MembershipCell")
+        
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
+        
+        self.tableView.register(nib: "EventTableViewCell", reuseIdentifier: "EventTableViewCell")
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 83
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.getMembers()
+        self.getEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +55,15 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
     
+    func getEvents() {
+        _ = DataHandler.def.getEventsOfTeam(team: self.team!, successHandler: { events in
+            self.events = events
+            self.tableView.reloadData()
+        }, failHandler: { err in
+            print(err)
+        })
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -54,7 +72,7 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
         let sectionEnum = Section(rawValue: section)!
         switch sectionEnum {
         case .events:
-            return 0
+            return self.events.count
         case .members:
             return self.members.count
         }
@@ -73,7 +91,14 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func eventTableCell(indexPath:IndexPath) -> UITableViewCell {
-        return UITableViewCell(style: .default, reuseIdentifier: "")
+        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
+        
+        let event = self.events[indexPath.row]
+        
+        cell.setup(event: event)
+        
+        return cell
     }
     
     func memberTableCell(indexPath:IndexPath) -> UITableViewCell {
@@ -89,6 +114,8 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
         let view = cell as! ReusableTableHeader
+        view.tableHeader.btn.tag = section
+        view.tableHeader.delegate = self
         switch Section(rawValue: section)! {
         case .events:
             view.tableHeader.title = "EVENTS"
@@ -102,4 +129,29 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 45
     }
     
+    func newEvent() {
+        print("new Event")
+    }
+    
+    func newMember() {
+        print("new member")
+    }
+    
+    func tableViewHeaderBtnTap(_ sender: Any) {
+        
+        let section = Section(rawValue: (sender as AnyObject).tag)
+        
+        guard (section != nil) else {
+            return
+        }
+        
+        switch section! {
+        case .events:
+            self.newEvent()
+        case .members:
+            self.newMember()
+        default:
+            return;
+        }
+    }
 }

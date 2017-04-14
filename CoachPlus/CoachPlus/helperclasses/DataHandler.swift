@@ -16,6 +16,7 @@ typealias FailHandler = (ApiResponse) -> ()
 
 typealias TeamsSuccessHandler = ([Team]) -> ()
 typealias MembershipsSuccessHandler = ([Membership]) -> ()
+typealias EventsSuccessHandler = ([Event]) -> ()
 
 class DataHandler {
     static let def = DataHandler()
@@ -204,6 +205,18 @@ class DataHandler {
             
             let memberships = apiResponse.toArray(Membership.self, property: "members")
             successHandler(memberships)
+            
+        }, failHandler: failHandler)
+    }
+    
+    func getEventsOfTeam(team:Team, successHandler: @escaping EventsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(team.id)/events"
+        
+        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
+            
+            let events = apiResponse.toArray(Event.self, property: "events")
+            successHandler(events)
             
         }, failHandler: failHandler)
     }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TeamSelectionView" customModule="CoachPlus" customModuleProvider="target">
+            <connections>
+                <outlet property="imageV" destination="c06-q5-ZN9" id="Puz-LL-WXs"/>
+                <outlet property="nameLbl" destination="X9u-Rq-tGH" id="K8d-b8-GnL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="c06-q5-ZN9">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="c06-q5-ZN9" secondAttribute="height" multiplier="1:1" id="jgy-O1-NSg"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X9u-Rq-tGH">
+                    <rect key="frame" x="95" y="0.0" width="280" height="90"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="c06-q5-ZN9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GE6-8B-ZYY"/>
+                <constraint firstAttribute="bottom" secondItem="X9u-Rq-tGH" secondAttribute="bottom" id="JCz-2y-FSq"/>
+                <constraint firstAttribute="trailing" secondItem="X9u-Rq-tGH" secondAttribute="trailing" id="UYB-Ja-SeR"/>
+                <constraint firstItem="X9u-Rq-tGH" firstAttribute="leading" secondItem="c06-q5-ZN9" secondAttribute="trailing" constant="5" id="cv2-2P-c01"/>
+                <constraint firstItem="c06-q5-ZN9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iMN-1F-K1q"/>
+                <constraint firstItem="X9u-Rq-tGH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tM7-tr-hTi"/>
+                <constraint firstAttribute="bottom" secondItem="c06-q5-ZN9" secondAttribute="bottom" id="zVN-No-H8a"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="-235"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Background" width="750" height="1334"/>
+    </resources>
+</document>

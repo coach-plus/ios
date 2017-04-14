@@ -12,9 +12,8 @@
         <!--Navigation Controller-->
         <scene sceneID="ScV-Ih-zfI">
             <objects>
-                <navigationController navigationBarHidden="YES" id="WCd-bo-8mg" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yCi-QE-1k5">
+                <navigationController id="WCd-bo-8mg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="yCi-QE-1k5" customClass="CoachPlusNavigationBar" customModule="CoachPlus" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -35,18 +34,11 @@
                         <viewControllerLayoutGuide type="bottom" id="5Hc-Fx-vOc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZLo-6s-73O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jZ-iM-C2O">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="VU5-HD-feg"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Js-Yl-fsT">
-                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xIr-gU-uqv" id="0Fg-mE-T8U"/>
@@ -56,13 +48,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1jZ-iM-C2O" secondAttribute="trailing" id="DUj-ID-szv"/>
-                            <constraint firstItem="8Js-Yl-fsT" firstAttribute="leading" secondItem="ZLo-6s-73O" secondAttribute="leading" id="Fgy-ev-6go"/>
-                            <constraint firstItem="5Hc-Fx-vOc" firstAttribute="top" secondItem="8Js-Yl-fsT" secondAttribute="bottom" id="frV-gb-YDI"/>
-                            <constraint firstItem="1jZ-iM-C2O" firstAttribute="leading" secondItem="ZLo-6s-73O" secondAttribute="leading" id="ldy-aa-C6d"/>
-                            <constraint firstItem="8Js-Yl-fsT" firstAttribute="top" secondItem="1jZ-iM-C2O" secondAttribute="bottom" id="t9B-JJ-Zta"/>
-                            <constraint firstItem="1jZ-iM-C2O" firstAttribute="top" secondItem="ZLo-6s-73O" secondAttribute="top" id="wb8-KE-Tqa"/>
-                            <constraint firstAttribute="trailing" secondItem="8Js-Yl-fsT" secondAttribute="trailing" id="wcP-cj-7to"/>
+                            <constraint firstItem="8Js-Yl-fsT" firstAttribute="top" secondItem="hEf-rT-kNP" secondAttribute="bottom" id="2zh-ZM-9mP"/>
+                            <constraint firstItem="8Js-Yl-fsT" firstAttribute="leading" secondItem="ZLo-6s-73O" secondAttribute="leading" id="G2E-3W-pEZ"/>
+                            <constraint firstItem="5Hc-Fx-vOc" firstAttribute="top" secondItem="8Js-Yl-fsT" secondAttribute="bottom" id="SUE-KX-ifD"/>
+                            <constraint firstAttribute="trailing" secondItem="8Js-Yl-fsT" secondAttribute="trailing" id="wgb-A5-upU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X5N-0N-v3U"/>

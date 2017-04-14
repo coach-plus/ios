@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableHeaderView" customModule="CoachPlus" customModuleProvider="target">
             <connections>
+                <outlet property="btn" destination="zyC-r3-HbZ" id="cAl-Na-kcB"/>
                 <outlet property="titleView" destination="VvT-fv-3dY" id="duw-7U-3jk"/>
             </connections>
         </placeholder>
@@ -19,20 +20,36 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-fv-3dY">
-                    <rect key="frame" x="16" y="0.0" width="343" height="45"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-fv-3dY">
+                    <rect key="frame" x="16" y="0.0" width="305" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="lGs-sm-Tae"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyC-r3-HbZ">
+                    <rect key="frame" x="329" y="7" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="uTO-iP-Yny"/>
+                    </constraints>
+                    <state key="normal" title="+">
+                        <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnTap:" destination="-1" eventType="touchUpInside" id="Pcs-e5-JSM"/>
+                    </connections>
+                </button>
             </subviews>
+            <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="0.10458583047945205" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="VvT-fv-3dY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="7bF-S5-krW"/>
+                <constraint firstAttribute="trailing" secondItem="zyC-r3-HbZ" secondAttribute="trailing" constant="16" id="9bh-qK-TS5"/>
+                <constraint firstItem="zyC-r3-HbZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="Cby-Tc-DNb"/>
                 <constraint firstItem="VvT-fv-3dY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KZz-wF-4AK"/>
-                <constraint firstAttribute="trailing" secondItem="VvT-fv-3dY" secondAttribute="trailing" constant="16" id="WaO-hr-dx7"/>
+                <constraint firstItem="zyC-r3-HbZ" firstAttribute="leading" secondItem="VvT-fv-3dY" secondAttribute="trailing" constant="8" id="PLY-IJ-C8X"/>
+                <constraint firstAttribute="bottom" secondItem="zyC-r3-HbZ" secondAttribute="bottom" constant="8" id="Ya6-Oc-zNI"/>
                 <constraint firstAttribute="bottom" secondItem="VvT-fv-3dY" secondAttribute="bottom" id="igr-Uy-bxi"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

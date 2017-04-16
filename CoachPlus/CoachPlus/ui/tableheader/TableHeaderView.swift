@@ -36,11 +36,11 @@ class TableHeaderView: NibDesignable {
     
     @IBInspectable var showBtn: Bool {
         get {
-            return self.showBtn
+            return self.showButton
         }
         set(show) {
-            self.showBtn = show
-            self.btn.isHidden = !self.showBtn
+            self.showButton = show
+            self.btn.isHidden = !self.showButton
         }
     }
 }

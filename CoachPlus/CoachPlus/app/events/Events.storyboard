@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fut-us-XUz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Events View Controller-->
+        <scene sceneID="fVg-RY-CjP">
+            <objects>
+                <viewController id="Fut-us-XUz" customClass="EventsViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f6f-xD-5pm"/>
+                        <viewControllerLayoutGuide type="bottom" id="TAw-ND-CCn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yOS-m3-W2c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psr-1U-Cvw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ror-tk-8hP">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="BmL-GU-0zJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Kommende Events">
+                                            <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="upcomingTap:" destination="Fut-us-XUz" eventType="touchUpInside" id="ldA-Wv-HF7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnJ-6k-kjY">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="bNh-kr-pVb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Vergangende Events">
+                                            <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pastTap:" destination="Fut-us-XUz" eventType="touchUpInside" id="vuE-zu-duw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rnJ-6k-kjY" firstAttribute="leading" secondItem="Ror-tk-8hP" secondAttribute="trailing" id="As5-dH-PW1"/>
+                                    <constraint firstItem="Ror-tk-8hP" firstAttribute="leading" secondItem="psr-1U-Cvw" secondAttribute="leading" id="Gdk-Pa-WP2"/>
+                                    <constraint firstAttribute="height" constant="45" id="SHO-lF-2su"/>
+                                    <constraint firstItem="rnJ-6k-kjY" firstAttribute="width" secondItem="Ror-tk-8hP" secondAttribute="width" id="Xl6-3d-M1g"/>
+                                    <constraint firstAttribute="bottom" secondItem="rnJ-6k-kjY" secondAttribute="bottom" id="Xzl-Ny-fYv"/>
+                                    <constraint firstItem="rnJ-6k-kjY" firstAttribute="top" secondItem="psr-1U-Cvw" secondAttribute="top" id="bct-hz-Hfz"/>
+                                    <constraint firstAttribute="trailing" secondItem="rnJ-6k-kjY" secondAttribute="trailing" id="lVE-IX-eT6"/>
+                                    <constraint firstItem="rnJ-6k-kjY" firstAttribute="leading" secondItem="Ror-tk-8hP" secondAttribute="trailing" id="s0Q-nM-ayS"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ror-tk-8hP" secondAttribute="bottom" id="umC-gI-d5F"/>
+                                    <constraint firstItem="Ror-tk-8hP" firstAttribute="top" secondItem="psr-1U-Cvw" secondAttribute="top" id="wNH-Wu-7A9"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fyN-DU-cBH">
+                                <rect key="frame" x="0.0" y="109" width="375" height="558"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fut-us-XUz" id="6Eh-TO-XeS"/>
+                                    <outlet property="delegate" destination="Fut-us-XUz" id="GNW-q5-Auh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fyN-DU-cBH" secondAttribute="trailing" id="3d8-k9-KD1"/>
+                            <constraint firstItem="psr-1U-Cvw" firstAttribute="top" secondItem="f6f-xD-5pm" secondAttribute="bottom" id="4SP-VO-K8d"/>
+                            <constraint firstItem="psr-1U-Cvw" firstAttribute="leading" secondItem="yOS-m3-W2c" secondAttribute="leading" id="Ht0-E3-xfh"/>
+                            <constraint firstAttribute="trailing" secondItem="psr-1U-Cvw" secondAttribute="trailing" id="I21-th-kNs"/>
+                            <constraint firstItem="fyN-DU-cBH" firstAttribute="leading" secondItem="yOS-m3-W2c" secondAttribute="leading" id="OwM-VR-jmF"/>
+                            <constraint firstItem="TAw-ND-CCn" firstAttribute="top" secondItem="fyN-DU-cBH" secondAttribute="bottom" id="UiZ-86-U9v"/>
+                            <constraint firstItem="fyN-DU-cBH" firstAttribute="top" secondItem="psr-1U-Cvw" secondAttribute="bottom" id="xuO-Jx-xqP"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="pastBtn" destination="rnJ-6k-kjY" id="15N-rK-fey"/>
+                        <outlet property="tableView" destination="fyN-DU-cBH" id="swq-VU-Nvd"/>
+                        <outlet property="upcomingBtn" destination="Ror-tk-8hP" id="ZEH-ai-H6V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCT-De-ZyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="195.6521739130435"/>
+        </scene>
+    </scenes>
+</document>

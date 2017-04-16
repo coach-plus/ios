@@ -3,7 +3,7 @@ PODS:
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
   - CryptoSwift (0.6.8)
-  - FontAwesome.swift (1.0.0)
+  - FontAwesome.swift (1.1.1)
   - Hero (0.3.6)
   - IQKeyboardManagerSwift (4.0.6)
   - JSONWebToken (2.0.2):
@@ -37,7 +37,7 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
-  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
+  FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
   Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
   IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
   JSONWebToken: ca86f02eeb3d1f58ba5197ec2cd53c7de915ecc1

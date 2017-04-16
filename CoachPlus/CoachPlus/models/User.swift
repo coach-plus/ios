@@ -45,4 +45,10 @@ class User:JSONable, BackJSONable {
             Fields.email.rawValue: self.email]
         return json
     }
+    
+    var fullname:String {
+        get {
+            return "\(self.firstname) \(self.lastname)"
+        }
+    }
 }

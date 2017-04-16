@@ -61,4 +61,8 @@ class Event:JSONable, BackJSONable {
         return json
     }
     
+    func isInPast() -> Bool {
+        return self.end.timeIntervalSinceNow.sign == .minus
+    }
+    
 }

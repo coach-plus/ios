@@ -22,23 +22,13 @@ class CoachPlusNavigationBar: UINavigationBar {
     }
     
     func setup() {
-        self.setBg()
+        self.setStyling()
         self.setTeamSelection(team: nil)
-        self.setImage()
     }
     
-    func setImage() {
-        let img = UIImageView(image: UIImage(named: "LogoWhite"))
-        img.contentMode = .scaleAspectFit
-        
-        let title = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 45))
-        img.frame = title.bounds
-        title.addSubview(img)
-        self.topItem?.titleView = title
-    }
-    
-    func setBg() {
+    func setStyling() {
         self.barTintColor = UIColor(hexString: "#3381b8")
+        self.tintColor = UIColor.white
     }
     
     func setTeamSelection(team: Team?) {
@@ -53,5 +43,7 @@ class CoachPlusNavigationBar: UINavigationBar {
         self.topItem?.setLeftBarButton(bbi, animated: true)
         
     }
+    
+    
     
 }

@@ -72,4 +72,10 @@ extension UIColor {
         return image!
     }
     
+    static var coachPlusBlue:UIColor {
+        get {
+            return UIColor(hexString: "#3481b8")
+        }
+    }
+    
 }

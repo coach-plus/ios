@@ -22,7 +22,6 @@ class OutlineButton: UIButton {
     
     func setup() {
         self.backgroundColor = UIColor.clear
-        self.tintColor = UIColor.white
         self.layer.borderWidth = 1
         self.layer.borderColor = self.tintColor.cgColor
         self.layer.cornerRadius = self.bounds.height / 2

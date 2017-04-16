@@ -114,6 +114,26 @@
 		616617061E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */; };
 		616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
 		616617091E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
+		61ACB71D1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
+		61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
+		61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
+		61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
+		61CA9C7A1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */; };
+		61CA9C7B1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */; };
+		61CA9C7C1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */; };
+		61CA9C7D1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */; };
+		61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */; };
+		61CA9C811EA227C6004AFAC7 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */; };
+		61CA9C831EA3F6E3004AFAC7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C821EA3F6E3004AFAC7 /* EventsViewController.swift */; };
+		61CA9C841EA3F6E3004AFAC7 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C821EA3F6E3004AFAC7 /* EventsViewController.swift */; };
+		61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */; };
+		61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */; };
+		61CA9C891EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */; };
+		61CA9C8A1EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */; };
+		61CA9C8C1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */; };
+		61CA9C8D1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */; };
+		61CA9C901EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */; };
+		61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */; };
 		67D7CC1D31EA275F1E6982EB /* Pods_CoachPlusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5C1FED7E55DF0EF80A49 /* Pods_CoachPlusTests.framework */; };
 		87E8D8ED66E32531114CF7AC /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */; };
 /* End PBXBuildFile section */
@@ -207,6 +227,16 @@
 		616617001E9FAE7200E8D8D5 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = ui/NavigationBar.swift; sourceTree = "<group>"; };
 		616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamSelectionView.swift; path = ui/teamselection/TeamSelectionView.swift; sourceTree = "<group>"; };
 		616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamSelectionView.xib; path = ui/teamselection/TeamSelectionView.xib; sourceTree = "<group>"; };
+		61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberTableViewCell.swift; path = app/shared/members/MemberTableViewCell.swift; sourceTree = "<group>"; };
+		61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MemberTableViewCell.xib; path = app/shared/members/MemberTableViewCell.xib; sourceTree = "<group>"; };
+		61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeAllTableViewCell.swift; path = app/shared/seeall/SeeAllTableViewCell.swift; sourceTree = "<group>"; };
+		61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SeeAllTableViewCell.xib; path = app/shared/seeall/SeeAllTableViewCell.xib; sourceTree = "<group>"; };
+		61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Events.storyboard; path = app/events/Events.storyboard; sourceTree = "<group>"; };
+		61CA9C821EA3F6E3004AFAC7 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = app/events/EventsViewController.swift; sourceTree = "<group>"; };
+		61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = helperclasses/UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachPlusNavigationViewController.swift; path = helperclasses/CoachPlusNavigationViewController.swift; sourceTree = "<group>"; };
+		61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachPlusViewController.swift; path = ui/CoachPlusViewController.swift; sourceTree = "<group>"; };
+		61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateEvent.storyboard; path = app/events/CreateEvent.storyboard; sourceTree = "<group>"; };
 		6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE6D4029B17E4A46F536F72 /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
@@ -364,6 +394,8 @@
 				47F042181E8E7A590020D78E /* MembershipManager.swift */,
 				616616FA1E9FA2E200E8D8D5 /* DateExtension.swift */,
 				616616FD1E9FA52300E8D8D5 /* UITableViewExtension.swift */,
+				61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */,
+				61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -390,6 +422,7 @@
 		47A9B9141E8561D000DC8247 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				61CA9C7E1EA227B7004AFAC7 /* events */,
 				616616EF1E9F9DE900E8D8D5 /* shared */,
 				47F041F51E8E5C850020D78E /* team */,
 				47F041E41E8E59540020D78E /* memberships */,
@@ -442,6 +475,7 @@
 				616617031E9FB31A00E8D8D5 /* teamselection */,
 				47F041FA1E8E61E20020D78E /* tableheader */,
 				616617001E9FAE7200E8D8D5 /* NavigationBar.swift */,
+				61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -460,6 +494,8 @@
 		616616EF1E9F9DE900E8D8D5 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				61CA9C771EA224D7004AFAC7 /* seeall */,
+				61ACB71B1EA0D6A000A7A1D2 /* members */,
 				616616F01E9F9DF000E8D8D5 /* events */,
 			);
 			name = shared;
@@ -481,6 +517,34 @@
 				616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */,
 			);
 			name = teamselection;
+			sourceTree = "<group>";
+		};
+		61ACB71B1EA0D6A000A7A1D2 /* members */ = {
+			isa = PBXGroup;
+			children = (
+				61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */,
+				61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */,
+			);
+			name = members;
+			sourceTree = "<group>";
+		};
+		61CA9C771EA224D7004AFAC7 /* seeall */ = {
+			isa = PBXGroup;
+			children = (
+				61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */,
+				61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */,
+			);
+			name = seeall;
+			sourceTree = "<group>";
+		};
+		61CA9C7E1EA227B7004AFAC7 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */,
+				61CA9C821EA3F6E3004AFAC7 /* EventsViewController.swift */,
+				61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */,
+			);
+			name = events;
 			sourceTree = "<group>";
 		};
 		D9CAD9F88F2BC1609CB75653 /* Pods */ = {
@@ -665,11 +729,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				473A5F721E8A749A002FD833 /* Home.storyboard in Resources */,
+				61CA9C901EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
+				61CA9C7C1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
 				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
+				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */,
+				61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */,
 				473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */,
 				473A5F771E8A749A002FD833 /* Main.storyboard in Resources */,
 				47F041EE1E8E59540020D78E /* Memberships.storyboard in Resources */,
@@ -686,11 +754,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A9B9171E8561F800DC8247 /* Home.storyboard in Resources */,
+				61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
+				61CA9C7D1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
+				61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				474144D31E842910009788E2 /* Assets.xcassets in Resources */,
+				61CA9C811EA227C6004AFAC7 /* Events.storyboard in Resources */,
 				4749C50A1E81B7FE0068B0FA /* LaunchScreen.storyboard in Resources */,
 				4749C5051E81B7FE0068B0FA /* Main.storyboard in Resources */,
 				47F041EF1E8E59540020D78E /* Memberships.storyboard in Resources */,
@@ -910,12 +982,15 @@
 				473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */,
 				616617051E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */,
 				473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */,
+				61ACB71D1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */,
 				47F041F31E8E59640020D78E /* Team.swift in Sources */,
 				47F041EA1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */,
 				47F041FC1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
+				61CA9C7A1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */,
 				616616F81E9FA07400E8D8D5 /* Event.swift in Sources */,
+				61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
 				473A5F5F1E8A749A002FD833 /* HomeViewController.swift in Sources */,
 				473A5F601E8A749A002FD833 /* RegisterViewController.swift in Sources */,
@@ -924,8 +999,11 @@
 				473A5F881E8A9224002FD833 /* User.swift in Sources */,
 				47F042121E8E70660020D78E /* TeamViewController.swift in Sources */,
 				473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */,
+				61CA9C831EA3F6E3004AFAC7 /* EventsViewController.swift in Sources */,
+				61CA9C891EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */,
 				47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */,
 				473A5F641E8A749A002FD833 /* ViewController.swift in Sources */,
+				61CA9C8C1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
 				473A5F651E8A749A002FD833 /* Authentication.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
 				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
@@ -953,12 +1031,15 @@
 				47A9B9101E85453700DC8247 /* UIViewExtension.swift in Sources */,
 				616617061E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */,
 				472B9C121E870E4300706E6B /* Helpers.swift in Sources */,
+				61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */,
 				47F041F41E8E59640020D78E /* Team.swift in Sources */,
 				47F041EB1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				478DE2341E8537B800DCF74A /* VerificationViewController.swift in Sources */,
 				47F041FD1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
+				61CA9C7B1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				47B1B6241E87C6A500F80101 /* DropdownAlert.swift in Sources */,
 				616616F91E9FA07400E8D8D5 /* Event.swift in Sources */,
+				61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,
 				47B1B6281E87CBC700F80101 /* HomeViewController.swift in Sources */,
 				472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */,
@@ -967,8 +1048,11 @@
 				473A5F891E8A9224002FD833 /* User.swift in Sources */,
 				47F042131E8E70660020D78E /* TeamViewController.swift in Sources */,
 				478DE2381E85409300DCF74A /* UIColorExtension.swift in Sources */,
+				61CA9C841EA3F6E3004AFAC7 /* EventsViewController.swift in Sources */,
+				61CA9C8A1EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */,
 				47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */,
 				4749C5021E81B7FE0068B0FA /* ViewController.swift in Sources */,
+				61CA9C8D1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
 				47B1B6221E87265500F80101 /* Authentication.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
 				47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */,

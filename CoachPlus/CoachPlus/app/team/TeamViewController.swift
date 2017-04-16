@@ -8,11 +8,17 @@
 
 import UIKit
 
-class TeamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate {
+class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate {
 
     enum Section:Int {
         case events = 0
         case members = 1
+    }
+    
+    enum EventRowType {
+        case empty
+        case event
+        case seeAll
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,23 +31,25 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let membershipCellNib = UINib(nibName: "MembershipTableViewCell", bundle: nil)
-        self.tableView.register(membershipCellNib, forCellReuseIdentifier: "MembershipCell")
-        
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
         
         self.tableView.register(nib: "EventTableViewCell", reuseIdentifier: "EventTableViewCell")
+        self.tableView.register(nib: "MemberTableViewCell", reuseIdentifier: "MemberTableViewCell")
+        self.tableView.register(nib: "SeeAllTableViewCell", reuseIdentifier: "SeeAllTableViewCell")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 83
+        
+        super.viewDidLoad()
+        //self.setCoachPlusLogo()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.getMembers()
         self.getEvents()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -72,11 +80,41 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
         let sectionEnum = Section(rawValue: section)!
         switch sectionEnum {
         case .events:
-            return self.events.count
+            return self.numberOfEventRows()
         case .members:
             return self.members.count
         }
     }
+    
+    func hasEvents() -> Bool {
+        return self.events.count > 0
+    }
+    
+    
+    func numberOfEventRows() -> Int {
+        
+        let count = self.events.count
+        
+        if (self.hasEvents()) {
+            if (count >= 3) {
+                return 4
+            }
+            return count + 1
+        }
+        
+        return 1
+    }
+    
+    func eventRowType(_ indexPath:IndexPath) -> EventRowType {
+        guard self.hasEvents() else {
+            return .empty
+        }
+        guard indexPath.row < self.numberOfEventRows()-1 else {
+            return .seeAll
+        }
+        return .event
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sectionEnum = Section(rawValue: indexPath.section)!
@@ -92,17 +130,31 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func eventTableCell(indexPath:IndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
+        var cell:UITableViewCell
         
-        let event = self.events[indexPath.row]
-        
-        cell.setup(event: event)
+        switch self.eventRowType(indexPath) {
+        case .empty:
+            cell = UITableViewCell(style: .default, reuseIdentifier: "NoEventsCell")
+            cell.textLabel?.text = "No Events"
+        case .seeAll:
+            let cell1 = self.tableView.dequeueReusableCell(withIdentifier: "SeeAllTableViewCell", for: indexPath) as! SeeAllTableViewCell
+            cell1.textLbl.text = "See all Events"
+            cell = cell1
+        case .event:
+            let cell1 = self.tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
+            let event = self.events[indexPath.row]
+            cell1.setup(event: event)
+            cell = cell1
+        }
         
         return cell
+        
     }
     
     func memberTableCell(indexPath:IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "MembershipCell") as! MembershipTableViewCell
+        
+        let cell1 = self.tableView.dequeueReusableCell(withIdentifier: "MemberTableViewCell", for: indexPath)
+        let cell = cell1 as! MemberTableViewCell
         
         let membership = self.members[indexPath.row]
         
@@ -131,6 +183,8 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func newEvent() {
         print("new Event")
+        let vc = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func newMember() {
@@ -153,5 +207,18 @@ class TeamViewController: UIViewController, UITableViewDelegate, UITableViewData
         default:
             return;
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if self.eventRowType(indexPath) == .seeAll {
+            if (indexPath.section == Section.events.rawValue) {
+                let vc = UIStoryboard(name: "Events", bundle: nil).instantiateInitialViewController() as! EventsViewController
+                vc.events = self.events
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            return
+        }
+        
     }
 }

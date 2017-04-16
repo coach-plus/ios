@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Coach Plus Navigation View Controller-->
         <scene sceneID="ScV-Ih-zfI">
             <objects>
-                <navigationController id="WCd-bo-8mg" sceneMemberID="viewController">
+                <navigationController id="WCd-bo-8mg" customClass="CoachPlusNavigationViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="yCi-QE-1k5" customClass="CoachPlusNavigationBar" customModule="CoachPlus" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

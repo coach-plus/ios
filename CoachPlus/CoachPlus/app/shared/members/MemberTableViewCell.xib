@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MemberTableViewCell" customModule="CoachPlus" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lv1-rw-qUW">
+                    <rect key="frame" x="20" y="10" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="SY7-27-atd"/>
+                        <constraint firstAttribute="width" constant="50" id="oZi-F5-I5D"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sg-5b-7fL">
+                    <rect key="frame" x="90" y="10" width="275" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ya9-jX-cUC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9Sg-5b-7fL" firstAttribute="top" secondItem="Lv1-rw-qUW" secondAttribute="top" id="2vQ-7A-JuR"/>
+                <constraint firstAttribute="bottom" secondItem="Lv1-rw-qUW" secondAttribute="bottom" constant="10" id="8F3-oI-QaI"/>
+                <constraint firstItem="Lv1-rw-qUW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="OsO-0p-gFQ"/>
+                <constraint firstItem="Lv1-rw-qUW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Z8X-0z-0P9"/>
+                <constraint firstItem="9Sg-5b-7fL" firstAttribute="bottom" secondItem="Lv1-rw-qUW" secondAttribute="bottom" id="eZX-yX-C9M"/>
+                <constraint firstItem="9Sg-5b-7fL" firstAttribute="leading" secondItem="Lv1-rw-qUW" secondAttribute="trailing" constant="20" id="qDI-Os-GxR"/>
+                <constraint firstAttribute="trailing" secondItem="9Sg-5b-7fL" secondAttribute="trailing" constant="10" id="yY5-g1-OxM"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageV" destination="Lv1-rw-qUW" id="kXF-pD-A0D"/>
+                <outlet property="textLbl" destination="9Sg-5b-7fL" id="jBb-Zd-ryf"/>
+            </connections>
+            <point key="canvasLocation" x="69.5" y="-245"/>
+        </view>
+    </objects>
+</document>

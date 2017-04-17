@@ -221,4 +221,12 @@ class DataHandler {
         }, failHandler: failHandler)
     }
     
+    func createEvent(team:Team, createEvent:[String:Any], successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(team.id)/events"
+        
+        return self.authenticatedPost(url, params: createEvent, successHandler: successHandler, failHandler: failHandler)
+        
+    }
+    
 }

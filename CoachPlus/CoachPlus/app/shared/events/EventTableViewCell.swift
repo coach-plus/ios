@@ -17,7 +17,7 @@ class EventTableViewCell: UITableViewCell {
     
     func setup(event:Event) {
         self.nameLbl.text = event.name
-        self.dateTimeLbl.text = "\(event.start.string(dateStyle: .short, timeStyle: .short, in: nil)) - \(event.end.string(dateStyle: .none, timeStyle: .short, in: nil))"
+        self.dateTimeLbl.text = event.fromToString()
         self.locationLbl.text = event.description
     }
 }

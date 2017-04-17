@@ -18,18 +18,7 @@ class MemberTableViewCell: UITableViewCell {
     func setup(membership: Membership) {
         textLbl.text = membership.user?.fullname
         
-        let urlString = "https://pbs.twimg.com/profile_images/775833954314285057/FIxA8Vcq1.jpg"
-        
-        let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
-            size: self.imageV.frame.size,
-            radius: self.imageV.frame.size.height / 2
-        )
-        
-        let url = URL(string: urlString)!
-        
-        let placeholder = UIImage.fontAwesomeIcon(name: .userCircleO, textColor: UIColor.coachPlusBlue, size: self.imageV.frame.size)
-        
-        self.imageV.af_setImage(withURL: url, placeholderImage: placeholder, filter: filter)
+        membership.user?.setImage(imageV: self.imageV)
         
     }
     

@@ -23,8 +23,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var team:Team?
-    
     var members = [Membership]()
     var events = [Event]()
     
@@ -42,7 +40,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.estimatedRowHeight = 83
         
         super.viewDidLoad()
-        //self.setCoachPlusLogo()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -183,8 +180,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func newEvent() {
         print("new Event")
-        let vc = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController()
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let vc = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as! CreateEventViewController
+        vc.team = self.team
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func newMember() {
@@ -210,15 +208,32 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if self.eventRowType(indexPath) == .seeAll {
-            if (indexPath.section == Section.events.rawValue) {
+        if (indexPath.section == Section.events.rawValue) {
+            switch self.eventRowType(indexPath) {
+            case .seeAll:
                 let vc = UIStoryboard(name: "Events", bundle: nil).instantiateInitialViewController() as! EventsViewController
                 vc.events = self.events
                 self.navigationController?.pushViewController(vc, animated: true)
+                return
+            case .empty:
+                return
+            case .event:
+                let event = self.events[indexPath.row]
+                
+                var participations = [Participation]()
+                let p1 = Participation()
+                p1.didAttend = true
+                p1.willAttend = true
+                p1.event = event
+                p1.user = User(id: "abcd", firstname: "Maurice", lastname: "Breit", email: "mau04@online.de")
+                participations.append(p1)
+                event.participations = participations
+                
+                self.pushToEventDetail(event: event)
+                return
+            default:
+                return
             }
-            return
         }
-        
     }
 }

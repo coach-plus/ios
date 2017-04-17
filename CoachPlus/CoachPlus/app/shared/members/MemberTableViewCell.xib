@@ -23,7 +23,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sg-5b-7fL">
-                    <rect key="frame" x="90" y="10" width="275" height="50"/>
+                    <rect key="frame" x="90" y="10" width="269" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="ya9-jX-cUC"/>
                     </constraints>
@@ -36,11 +36,11 @@
             <constraints>
                 <constraint firstItem="9Sg-5b-7fL" firstAttribute="top" secondItem="Lv1-rw-qUW" secondAttribute="top" id="2vQ-7A-JuR"/>
                 <constraint firstAttribute="bottom" secondItem="Lv1-rw-qUW" secondAttribute="bottom" constant="10" id="8F3-oI-QaI"/>
+                <constraint firstAttribute="trailing" secondItem="9Sg-5b-7fL" secondAttribute="trailing" constant="16" id="OXV-cG-oYh"/>
                 <constraint firstItem="Lv1-rw-qUW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="OsO-0p-gFQ"/>
                 <constraint firstItem="Lv1-rw-qUW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Z8X-0z-0P9"/>
                 <constraint firstItem="9Sg-5b-7fL" firstAttribute="bottom" secondItem="Lv1-rw-qUW" secondAttribute="bottom" id="eZX-yX-C9M"/>
                 <constraint firstItem="9Sg-5b-7fL" firstAttribute="leading" secondItem="Lv1-rw-qUW" secondAttribute="trailing" constant="20" id="qDI-Os-GxR"/>
-                <constraint firstAttribute="trailing" secondItem="9Sg-5b-7fL" secondAttribute="trailing" constant="10" id="yY5-g1-OxM"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

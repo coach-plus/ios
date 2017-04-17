@@ -26,6 +26,7 @@ class Event:JSONable, BackJSONable {
     var start: Date
     var end: Date
     var team: Team?
+    var participations: [Participation]?
     
     init(id:String, name:String, description:String, start:Date, end:Date, team:Team?) {
         self.id = id
@@ -63,6 +64,10 @@ class Event:JSONable, BackJSONable {
     
     func isInPast() -> Bool {
         return self.end.timeIntervalSinceNow.sign == .minus
+    }
+    
+    func fromToString() -> String {
+        return "\(self.start.string(dateStyle: .short, timeStyle: .short, in: nil)) - \(self.end.string(dateStyle: .none, timeStyle: .short, in: nil))"
     }
     
 }

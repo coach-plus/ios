@@ -134,6 +134,26 @@
 		61CA9C8D1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */; };
 		61CA9C901EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */; };
 		61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */; };
+		61CA9C931EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C921EA51A22004AFAC7 /* CreateEventViewController.swift */; };
+		61CA9C941EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C921EA51A22004AFAC7 /* CreateEventViewController.swift */; };
+		61CA9C961EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C951EA51EA2004AFAC7 /* EventDetail.storyboard */; };
+		61CA9C971EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C951EA51EA2004AFAC7 /* EventDetail.storyboard */; };
+		61CA9C9A1EA52200004AFAC7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C991EA52200004AFAC7 /* TitleView.swift */; };
+		61CA9C9B1EA52200004AFAC7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C991EA52200004AFAC7 /* TitleView.swift */; };
+		61CA9C9D1EA52211004AFAC7 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C9C1EA52211004AFAC7 /* TitleView.xib */; };
+		61CA9C9E1EA52211004AFAC7 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C9C1EA52211004AFAC7 /* TitleView.xib */; };
+		61CA9CA11EA52463004AFAC7 /* ParticipationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CA01EA52463004AFAC7 /* ParticipationView.xib */; };
+		61CA9CA21EA52463004AFAC7 /* ParticipationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CA01EA52463004AFAC7 /* ParticipationView.xib */; };
+		61CA9CA41EA52575004AFAC7 /* ParticipationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CA31EA52575004AFAC7 /* ParticipationView.swift */; };
+		61CA9CA51EA52575004AFAC7 /* ParticipationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CA31EA52575004AFAC7 /* ParticipationView.swift */; };
+		61CA9CA71EA526C1004AFAC7 /* Participation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CA61EA526C1004AFAC7 /* Participation.swift */; };
+		61CA9CA81EA526C1004AFAC7 /* Participation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CA61EA526C1004AFAC7 /* Participation.swift */; };
+		61CA9CAC1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */; };
+		61CA9CAD1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */; };
+		61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */; };
+		61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */; };
+		61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
+		61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
 		67D7CC1D31EA275F1E6982EB /* Pods_CoachPlusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5C1FED7E55DF0EF80A49 /* Pods_CoachPlusTests.framework */; };
 		87E8D8ED66E32531114CF7AC /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */; };
 /* End PBXBuildFile section */
@@ -237,6 +257,16 @@
 		61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachPlusNavigationViewController.swift; path = helperclasses/CoachPlusNavigationViewController.swift; sourceTree = "<group>"; };
 		61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachPlusViewController.swift; path = ui/CoachPlusViewController.swift; sourceTree = "<group>"; };
 		61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateEvent.storyboard; path = app/events/CreateEvent.storyboard; sourceTree = "<group>"; };
+		61CA9C921EA51A22004AFAC7 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventViewController.swift; path = app/events/CreateEventViewController.swift; sourceTree = "<group>"; };
+		61CA9C951EA51EA2004AFAC7 /* EventDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EventDetail.storyboard; path = app/events/EventDetail.storyboard; sourceTree = "<group>"; };
+		61CA9C991EA52200004AFAC7 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleView.swift; path = ui/title/TitleView.swift; sourceTree = "<group>"; };
+		61CA9C9C1EA52211004AFAC7 /* TitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TitleView.xib; path = ui/title/TitleView.xib; sourceTree = "<group>"; };
+		61CA9CA01EA52463004AFAC7 /* ParticipationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParticipationView.xib; path = ui/participationview/ParticipationView.xib; sourceTree = "<group>"; };
+		61CA9CA31EA52575004AFAC7 /* ParticipationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParticipationView.swift; path = ui/participationview/ParticipationView.swift; sourceTree = "<group>"; };
+		61CA9CA61EA526C1004AFAC7 /* Participation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Participation.swift; path = models/Participation.swift; sourceTree = "<group>"; };
+		61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParticipationTableViewCell.swift; path = app/shared/participation/ParticipationTableViewCell.swift; sourceTree = "<group>"; };
+		61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParticipationTableViewCell.xib; path = app/shared/participation/ParticipationTableViewCell.xib; sourceTree = "<group>"; };
+		61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = app/events/EventDetailViewController.swift; sourceTree = "<group>"; };
 		6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE6D4029B17E4A46F536F72 /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
@@ -290,6 +320,7 @@
 				473A5F8A1E8A92D1002FD833 /* Membership.swift */,
 				477A27581E8C3775005516ED /* InviteResponse.swift */,
 				616616F71E9FA07400E8D8D5 /* Event.swift */,
+				61CA9CA61EA526C1004AFAC7 /* Participation.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -472,6 +503,8 @@
 		47F041F91E8E61DD0020D78E /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				61CA9C9F1EA5243A004AFAC7 /* participationview */,
+				61CA9C981EA521DA004AFAC7 /* title */,
 				616617031E9FB31A00E8D8D5 /* teamselection */,
 				47F041FA1E8E61E20020D78E /* tableheader */,
 				616617001E9FAE7200E8D8D5 /* NavigationBar.swift */,
@@ -494,6 +527,7 @@
 		616616EF1E9F9DE900E8D8D5 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				61CA9CA91EA5332E004AFAC7 /* participation */,
 				61CA9C771EA224D7004AFAC7 /* seeall */,
 				61ACB71B1EA0D6A000A7A1D2 /* members */,
 				616616F01E9F9DF000E8D8D5 /* events */,
@@ -543,8 +577,38 @@
 				61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */,
 				61CA9C821EA3F6E3004AFAC7 /* EventsViewController.swift */,
 				61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */,
+				61CA9C921EA51A22004AFAC7 /* CreateEventViewController.swift */,
+				61CA9C951EA51EA2004AFAC7 /* EventDetail.storyboard */,
+				61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */,
 			);
 			name = events;
+			sourceTree = "<group>";
+		};
+		61CA9C981EA521DA004AFAC7 /* title */ = {
+			isa = PBXGroup;
+			children = (
+				61CA9C991EA52200004AFAC7 /* TitleView.swift */,
+				61CA9C9C1EA52211004AFAC7 /* TitleView.xib */,
+			);
+			name = title;
+			sourceTree = "<group>";
+		};
+		61CA9C9F1EA5243A004AFAC7 /* participationview */ = {
+			isa = PBXGroup;
+			children = (
+				61CA9CA01EA52463004AFAC7 /* ParticipationView.xib */,
+				61CA9CA31EA52575004AFAC7 /* ParticipationView.swift */,
+			);
+			name = participationview;
+			sourceTree = "<group>";
+		};
+		61CA9CA91EA5332E004AFAC7 /* participation */ = {
+			isa = PBXGroup;
+			children = (
+				61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */,
+				61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */,
+			);
+			name = participation;
 			sourceTree = "<group>";
 		};
 		D9CAD9F88F2BC1609CB75653 /* Pods */ = {
@@ -731,10 +795,13 @@
 				473A5F721E8A749A002FD833 /* Home.storyboard in Resources */,
 				61CA9C901EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
 				61CA9C7C1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
+				61CA9C9D1EA52211004AFAC7 /* TitleView.xib in Resources */,
+				61CA9C961EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
 				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
+				61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */,
 				61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */,
@@ -743,6 +810,7 @@
 				47F041EE1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				473A5F781E8A749A002FD833 /* Register.storyboard in Resources */,
 				47F0420F1E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
+				61CA9CA11EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F71E8E5FF90020D78E /* Team.storyboard in Resources */,
 				616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */,
 				616616F51E9F9E1000E8D8D5 /* EventTableViewCell.xib in Resources */,
@@ -756,10 +824,13 @@
 				47A9B9171E8561F800DC8247 /* Home.storyboard in Resources */,
 				61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
 				61CA9C7D1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
+				61CA9C9E1EA52211004AFAC7 /* TitleView.xib in Resources */,
+				61CA9C971EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
+				61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				474144D31E842910009788E2 /* Assets.xcassets in Resources */,
 				61CA9C811EA227C6004AFAC7 /* Events.storyboard in Resources */,
@@ -768,6 +839,7 @@
 				47F041EF1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */,
 				47F042101E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
+				61CA9CA21EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F81E8E5FF90020D78E /* Team.storyboard in Resources */,
 				616617091E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */,
 				616616F61E9F9E1000E8D8D5 /* EventTableViewCell.xib in Resources */,
@@ -989,6 +1061,7 @@
 				47F041FC1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				61CA9C7A1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */,
+				61CA9C931EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
 				616616F81E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
@@ -996,6 +1069,7 @@
 				473A5F601E8A749A002FD833 /* RegisterViewController.swift in Sources */,
 				473A5F611E8A749A002FD833 /* DataHandler.swift in Sources */,
 				473A5F621E8A749A002FD833 /* LoginViewController.swift in Sources */,
+				61CA9C9A1EA52200004AFAC7 /* TitleView.swift in Sources */,
 				473A5F881E8A9224002FD833 /* User.swift in Sources */,
 				47F042121E8E70660020D78E /* TeamViewController.swift in Sources */,
 				473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */,
@@ -1006,7 +1080,10 @@
 				61CA9C8C1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
 				473A5F651E8A749A002FD833 /* Authentication.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
+				61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
+				61CA9CA71EA526C1004AFAC7 /* Participation.swift in Sources */,
+				61CA9CAC1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */,
 				616616F31E9F9E1000E8D8D5 /* EventTableViewCell.swift in Sources */,
 				473A5F681E8A749A002FD833 /* OutlineButton.swift in Sources */,
 				473A5F691E8A749A002FD833 /* GradientView.swift in Sources */,
@@ -1018,6 +1095,7 @@
 				616616FB1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
 				477A27591E8C3775005516ED /* InviteResponse.swift in Sources */,
+				61CA9CA41EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				473A5F6D1E8A749A002FD833 /* FlowManager.swift in Sources */,
 				473A5F8B1E8A92D1002FD833 /* Membership.swift in Sources */,
 			);
@@ -1038,6 +1116,7 @@
 				47F041FD1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				61CA9C7B1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				47B1B6241E87C6A500F80101 /* DropdownAlert.swift in Sources */,
+				61CA9C941EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
 				616616F91E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,
@@ -1045,6 +1124,7 @@
 				472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */,
 				47B1B62A1E87D18300F80101 /* DataHandler.swift in Sources */,
 				474144D61E8429AD009788E2 /* LoginViewController.swift in Sources */,
+				61CA9C9B1EA52200004AFAC7 /* TitleView.swift in Sources */,
 				473A5F891E8A9224002FD833 /* User.swift in Sources */,
 				47F042131E8E70660020D78E /* TeamViewController.swift in Sources */,
 				478DE2381E85409300DCF74A /* UIColorExtension.swift in Sources */,
@@ -1055,7 +1135,10 @@
 				61CA9C8D1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
 				47B1B6221E87265500F80101 /* Authentication.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
+				61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */,
+				61CA9CA81EA526C1004AFAC7 /* Participation.swift in Sources */,
+				61CA9CAD1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */,
 				616616F41E9F9E1000E8D8D5 /* EventTableViewCell.swift in Sources */,
 				47A9B90E1E8543CB00DC8247 /* OutlineButton.swift in Sources */,
 				478DE2361E85404D00DCF74A /* GradientView.swift in Sources */,
@@ -1067,6 +1150,7 @@
 				616616FC1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */,
 				477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */,
+				61CA9CA51EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				47B1B6261E87C81B00F80101 /* FlowManager.swift in Sources */,
 				473A5F8C1E8A92D1002FD833 /* Membership.swift in Sources */,
 			);

@@ -9,16 +9,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create Event View Controller-->
         <scene sceneID="jMK-EW-gqF">
             <objects>
-                <viewController id="hZ1-Jd-6lk" sceneMemberID="viewController">
+                <viewController id="hZ1-Jd-6lk" customClass="CreateEventViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vu5-bR-70y"/>
                         <viewControllerLayoutGuide type="bottom" id="omT-dP-C2N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rQa-kz-npl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIB-iz-nJf" customClass="TableHeaderView" customModule="CoachPlus" customModuleProvider="target">
@@ -33,13 +33,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6H-MX-sTu">
-                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="735"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJA-Pg-8CY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="561"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crf-ow-Txd" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="50" y="70" width="275" height="45"/>
+                                                <rect key="frame" x="50" y="30" width="275" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="avh-D6-ffI"/>
                                                 </constraints>
@@ -68,38 +68,8 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Title"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmK-gv-DXt" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="50" y="130" width="275" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="fSa-0f-1g0"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                        <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Date and Time"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ojy-GG-GvS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="50" y="190" width="275" height="45"/>
+                                                <rect key="frame" x="50" y="95" width="275" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="VPg-ON-0AN"/>
                                                 </constraints>
@@ -128,8 +98,44 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Location"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOF-6b-FWK">
+                                                <rect key="frame" x="50" y="150" width="275" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="aaF-5M-RTU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="E5u-Ha-Y8M">
+                                                <rect key="frame" x="50" y="179" width="275" height="130"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="130" id="NbK-rM-umN"/>
+                                                </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="514135538.262106">
+                                                    <!--2017-04-17 15:25:38 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoF-VU-m84">
+                                                <rect key="frame" x="50" y="317" width="275" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="Zkc-eH-U52"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uSi-gp-943">
+                                                <rect key="frame" x="50" y="346" width="275" height="130"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="130" id="Ehf-AI-8WN"/>
+                                                </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="514135790.96859199">
+                                                    <!--2017-04-17 15:29:50 +0000-->
+                                                </date>
+                                            </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogO-sm-mo4" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="275" width="275" height="50"/>
+                                                <rect key="frame" x="50" y="486" width="275" height="50"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="oMV-Vx-jqs"/>
@@ -137,23 +143,35 @@
                                                 </constraints>
                                                 <color key="tintColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Create Event"/>
+                                                <connections>
+                                                    <action selector="btnTap:" destination="hZ1-Jd-6lk" eventType="touchUpInside" id="8Gq-2k-2f8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="ogO-sm-mo4" firstAttribute="leading" secondItem="Ojy-GG-GvS" secondAttribute="leading" id="9B9-Uf-aLH"/>
+                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="leading" secondItem="Crf-ow-Txd" secondAttribute="leading" id="3EO-KX-d12"/>
+                                            <constraint firstItem="GOF-6b-FWK" firstAttribute="top" secondItem="Ojy-GG-GvS" secondAttribute="bottom" constant="10" id="7b0-vQ-tN9"/>
+                                            <constraint firstItem="uSi-gp-943" firstAttribute="top" secondItem="VoF-VU-m84" secondAttribute="bottom" constant="8" id="9Mx-Nm-hnX"/>
                                             <constraint firstItem="Crf-ow-Txd" firstAttribute="leading" secondItem="QJA-Pg-8CY" secondAttribute="leading" constant="50" id="BG3-Jb-KnT"/>
-                                            <constraint firstItem="dmK-gv-DXt" firstAttribute="leading" secondItem="Crf-ow-Txd" secondAttribute="leading" id="FYl-26-r0D"/>
-                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="trailing" secondItem="dmK-gv-DXt" secondAttribute="trailing" id="Im9-Pq-xDF"/>
-                                            <constraint firstItem="dmK-gv-DXt" firstAttribute="top" secondItem="Crf-ow-Txd" secondAttribute="bottom" constant="15" id="W1v-Bb-5dA"/>
+                                            <constraint firstItem="ogO-sm-mo4" firstAttribute="leading" secondItem="uSi-gp-943" secondAttribute="leading" id="F4q-fF-nLi"/>
+                                            <constraint firstItem="uSi-gp-943" firstAttribute="leading" secondItem="VoF-VU-m84" secondAttribute="leading" id="GBW-1n-qa7"/>
+                                            <constraint firstItem="GOF-6b-FWK" firstAttribute="leading" secondItem="Ojy-GG-GvS" secondAttribute="leading" id="KvT-0X-i7D"/>
+                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="trailing" secondItem="Crf-ow-Txd" secondAttribute="trailing" id="LD0-x2-hc5"/>
+                                            <constraint firstItem="E5u-Ha-Y8M" firstAttribute="trailing" secondItem="GOF-6b-FWK" secondAttribute="trailing" id="ML1-aL-50k"/>
+                                            <constraint firstItem="ogO-sm-mo4" firstAttribute="trailing" secondItem="uSi-gp-943" secondAttribute="trailing" id="NuU-Ws-kUv"/>
+                                            <constraint firstItem="ogO-sm-mo4" firstAttribute="top" secondItem="uSi-gp-943" secondAttribute="bottom" constant="10" id="Qoa-V2-FY2"/>
+                                            <constraint firstItem="VoF-VU-m84" firstAttribute="top" secondItem="E5u-Ha-Y8M" secondAttribute="bottom" constant="8" id="RTZ-Rh-Av2"/>
+                                            <constraint firstItem="E5u-Ha-Y8M" firstAttribute="top" secondItem="GOF-6b-FWK" secondAttribute="bottom" constant="8" id="W5a-bx-xEf"/>
                                             <constraint firstAttribute="bottom" secondItem="ogO-sm-mo4" secondAttribute="bottom" constant="25" id="aFu-vJ-1b6"/>
-                                            <constraint firstItem="Crf-ow-Txd" firstAttribute="top" secondItem="QJA-Pg-8CY" secondAttribute="top" constant="70" id="aJR-qU-YkH"/>
+                                            <constraint firstItem="uSi-gp-943" firstAttribute="trailing" secondItem="VoF-VU-m84" secondAttribute="trailing" id="aGB-AK-qX8"/>
+                                            <constraint firstItem="Crf-ow-Txd" firstAttribute="top" secondItem="QJA-Pg-8CY" secondAttribute="top" constant="30" id="aJR-qU-YkH"/>
+                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="top" secondItem="Crf-ow-Txd" secondAttribute="bottom" constant="20" id="eGX-bT-Mhz"/>
+                                            <constraint firstItem="GOF-6b-FWK" firstAttribute="trailing" secondItem="Ojy-GG-GvS" secondAttribute="trailing" id="hEg-En-ZvN"/>
+                                            <constraint firstItem="E5u-Ha-Y8M" firstAttribute="leading" secondItem="GOF-6b-FWK" secondAttribute="leading" id="hSz-E4-Yrr"/>
+                                            <constraint firstItem="VoF-VU-m84" firstAttribute="trailing" secondItem="E5u-Ha-Y8M" secondAttribute="trailing" id="iEI-Vc-yfu"/>
                                             <constraint firstAttribute="trailing" secondItem="Crf-ow-Txd" secondAttribute="trailing" constant="50" id="iHv-2X-H6c"/>
-                                            <constraint firstItem="dmK-gv-DXt" firstAttribute="trailing" secondItem="Crf-ow-Txd" secondAttribute="trailing" id="mtd-sX-h0e"/>
-                                            <constraint firstItem="ogO-sm-mo4" firstAttribute="trailing" secondItem="Ojy-GG-GvS" secondAttribute="trailing" id="nIm-Yk-c6m"/>
-                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="top" secondItem="dmK-gv-DXt" secondAttribute="bottom" constant="15" id="vbg-C0-ymE"/>
-                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="leading" secondItem="dmK-gv-DXt" secondAttribute="leading" id="vqu-Z6-5ZF"/>
-                                            <constraint firstItem="ogO-sm-mo4" firstAttribute="top" secondItem="Ojy-GG-GvS" secondAttribute="bottom" constant="40" id="wyf-or-GdY"/>
+                                            <constraint firstItem="VoF-VU-m84" firstAttribute="leading" secondItem="E5u-Ha-Y8M" secondAttribute="leading" id="r3G-Ug-qPI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -178,10 +196,18 @@
                             <constraint firstAttribute="trailing" secondItem="rIB-iz-nJf" secondAttribute="trailing" id="yPR-3r-hrL"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="endPicker" destination="uSi-gp-943" id="9pC-iz-oSU"/>
+                        <outlet property="locationTf" destination="Ojy-GG-GvS" id="dzb-XU-gIz"/>
+                        <outlet property="startPicker" destination="E5u-Ha-Y8M" id="GUQ-mr-yR7"/>
+                        <outlet property="titleTf" destination="Crf-ow-Txd" id="3LC-F2-vM5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDb-c5-k92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184.80000000000001" y="-13.043478260869566"/>
+            <point key="canvasLocation" x="-175.19999999999999" y="-97.151424287856074"/>
         </scene>
     </scenes>
 </document>

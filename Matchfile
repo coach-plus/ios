@@ -1,0 +1,6 @@
+git_url "https://github.com/Mau04/mathandoro-secret.git"
+
+type "development"
+
+app_identifier ["com.mathandoro.coachplus", "com.mathandoro.coachplus.dev"]
+username "fastlane@mathandoro.com"

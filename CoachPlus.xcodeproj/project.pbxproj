@@ -734,12 +734,18 @@
 				ORGANIZATIONNAME = "Mathandoro GbR";
 				TargetAttributes = {
 					473A5F571E8A749A002FD833 = {
-						DevelopmentTeam = FCE6372QZX;
+						DevelopmentTeam = R6AW526K22;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					4749C4FB1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FCE6372QZX;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = R6AW526K22;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -1213,13 +1219,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
-				DEVELOPMENT_TEAM = FCE6372QZX;
+				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = "CoachPlusDev copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c0e15f44-adff-47d5-9ba4-997fa7651a69";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.mathandoro.coachplus";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1231,12 +1239,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
-				DEVELOPMENT_TEAM = FCE6372QZX;
+				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = "CoachPlusDev copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a209b728-9419-477d-82e6-4548c351572f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.mathandoro.coachplus";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1265,6 +1275,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1289,6 +1300,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1315,6 +1327,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1332,6 +1345,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1341,13 +1355,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
-				DEVELOPMENT_TEAM = FCE6372QZX;
+				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4b92d12-8b7f-4b42-aae5-5e5a032e478c";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.mathandoro.coachplus.dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1359,12 +1375,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
-				DEVELOPMENT_TEAM = FCE6372QZX;
+				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4a7f088-c0f6-4ef2-bab1-b78d4c223fcb";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.mathandoro.coachplus.dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

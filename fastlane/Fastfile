@@ -27,6 +27,8 @@ platform :ios do
 
   desc "build dev"
   lane :build_dev do
+    match(type: "appstore",
+      app_identifier: "com.mathandoro.coachplus.dev")
     gym(scheme: "CoachPlusDev")
   end
 

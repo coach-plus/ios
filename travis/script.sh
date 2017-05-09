@@ -1,2 +1,2 @@
 #!/bin/sh
-fastlane beta
+travis_wait 30 fastlane beta

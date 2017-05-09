@@ -1,2 +1,2 @@
 #!/bin/sh
-fastlane build_dev
+fastlane beta

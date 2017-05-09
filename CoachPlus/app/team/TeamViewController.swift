@@ -39,12 +39,20 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 83
         
+        
+        if (self.team != nil) {
+            let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
+            navbar.setTeamSelection(team: self.team)
+        }
+        
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.getMembers()
-        self.getEvents()
+        if (self.team != nil) {
+            self.getMembers()
+            self.getEvents()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,10 +78,20 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if (self.team == nil) {
+            return 1
+        }
+        
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (self.team == nil) {
+            return 1
+        }
+        
         let sectionEnum = Section(rawValue: section)!
         switch sectionEnum {
         case .events:
@@ -114,6 +132,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if (self.team == nil) {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "abc")
+            cell.textLabel?.text = "Nothing"
+            return cell
+        }
+        
         let sectionEnum = Section(rawValue: indexPath.section)!
         
         if (sectionEnum == .events) {
@@ -161,6 +186,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (self.team == nil) {
+            return nil
+        }
         let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
         let view = cell as! ReusableTableHeader
         view.tableHeader.btn.tag = section
@@ -175,6 +203,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (self.team == nil) {
+            return 0
+        }
         return 45
     }
     

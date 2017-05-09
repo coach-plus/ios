@@ -154,6 +154,14 @@
 		61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */; };
 		61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
 		61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
+		61D5F55C1EC0C58100974EBD /* HomeDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */; };
+		61D5F55D1EC0C58100974EBD /* HomeDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */; };
+		61D5F55F1EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */; };
+		61D5F5601EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */; };
+		61D5F5631EC0D7AC00974EBD /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */; };
+		61D5F5641EC0D7AC00974EBD /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */; };
+		61D5F5661EC0E51900974EBD /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
+		61D5F5671EC0E51900974EBD /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
 		67D7CC1D31EA275F1E6982EB /* Pods_CoachPlusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CE5C1FED7E55DF0EF80A49 /* Pods_CoachPlusTests.framework */; };
 		87E8D8ED66E32531114CF7AC /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */; };
 /* End PBXBuildFile section */
@@ -267,6 +275,10 @@
 		61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParticipationTableViewCell.swift; path = app/shared/participation/ParticipationTableViewCell.swift; sourceTree = "<group>"; };
 		61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParticipationTableViewCell.xib; path = app/shared/participation/ParticipationTableViewCell.xib; sourceTree = "<group>"; };
 		61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = app/events/EventDetailViewController.swift; sourceTree = "<group>"; };
+		61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeDrawerController.swift; path = app/home/HomeDrawerController.swift; sourceTree = "<group>"; };
+		61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtension.swift; path = helperclasses/UIApplicationExtension.swift; sourceTree = "<group>"; };
+		61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NewTeam.storyboard; path = app/team/NewTeam.storyboard; sourceTree = "<group>"; };
+		61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTeamViewController.swift; path = app/team/CreateTeamViewController.swift; sourceTree = "<group>"; };
 		6DF7CCB939BC6885A5C78A5C /* Pods_CoachPlusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE6D4029B17E4A46F536F72 /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
@@ -427,6 +439,7 @@
 				616616FD1E9FA52300E8D8D5 /* UITableViewExtension.swift */,
 				61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */,
 				61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */,
+				61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -467,6 +480,7 @@
 			children = (
 				47A9B9161E8561F800DC8247 /* Home.storyboard */,
 				47B1B6271E87CBC700F80101 /* HomeViewController.swift */,
+				61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -496,6 +510,8 @@
 			children = (
 				47F041F61E8E5FF90020D78E /* Team.storyboard */,
 				47F042111E8E70660020D78E /* TeamViewController.swift */,
+				61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */,
+				61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */,
 			);
 			name = team;
 			sourceTree = "<group>";
@@ -809,6 +825,7 @@
 				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
+				61D5F5631EC0D7AC00974EBD /* NewTeam.storyboard in Resources */,
 				473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */,
 				61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */,
 				473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */,
@@ -838,6 +855,7 @@
 				61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
+				61D5F5641EC0D7AC00974EBD /* NewTeam.storyboard in Resources */,
 				474144D31E842910009788E2 /* Assets.xcassets in Resources */,
 				61CA9C811EA227C6004AFAC7 /* Events.storyboard in Resources */,
 				4749C50A1E81B7FE0068B0FA /* LaunchScreen.storyboard in Resources */,
@@ -1064,10 +1082,12 @@
 				47F041F31E8E59640020D78E /* Team.swift in Sources */,
 				47F041EA1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */,
+				61D5F5661EC0E51900974EBD /* CreateTeamViewController.swift in Sources */,
 				47F041FC1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				61CA9C7A1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */,
 				61CA9C931EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
+				61D5F55F1EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */,
 				616616F81E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
@@ -1102,6 +1122,7 @@
 				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
 				477A27591E8C3775005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA41EA52575004AFAC7 /* ParticipationView.swift in Sources */,
+				61D5F55C1EC0C58100974EBD /* HomeDrawerController.swift in Sources */,
 				473A5F6D1E8A749A002FD833 /* FlowManager.swift in Sources */,
 				473A5F8B1E8A92D1002FD833 /* Membership.swift in Sources */,
 			);
@@ -1119,10 +1140,12 @@
 				47F041F41E8E59640020D78E /* Team.swift in Sources */,
 				47F041EB1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				478DE2341E8537B800DCF74A /* VerificationViewController.swift in Sources */,
+				61D5F5671EC0E51900974EBD /* CreateTeamViewController.swift in Sources */,
 				47F041FD1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				61CA9C7B1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				47B1B6241E87C6A500F80101 /* DropdownAlert.swift in Sources */,
 				61CA9C941EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
+				61D5F5601EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */,
 				616616F91E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,
@@ -1157,6 +1180,7 @@
 				4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */,
 				477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA51EA52575004AFAC7 /* ParticipationView.swift in Sources */,
+				61D5F55D1EC0C58100974EBD /* HomeDrawerController.swift in Sources */,
 				47B1B6261E87C81B00F80101 /* FlowManager.swift in Sources */,
 				473A5F8C1E8A92D1002FD833 /* Membership.swift in Sources */,
 			);

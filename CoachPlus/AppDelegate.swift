@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 import IQKeyboardManagerSwift
 import MBProgressHUD
-
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 0.75
         
         IQKeyboardManager.sharedManager().enable = true
         

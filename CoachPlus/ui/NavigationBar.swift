@@ -11,6 +11,8 @@ import Foundation
 class CoachPlusNavigationBar: UINavigationBar {
     
     
+    var teamSelectionV:TeamSelectionView?
+    
     override init (frame : CGRect) {
         super.init(frame : frame)
         self.setup()
@@ -33,17 +35,18 @@ class CoachPlusNavigationBar: UINavigationBar {
     
     func setTeamSelection(team: Team?) {
         
-        let teamSelectionV = TeamSelectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 25))
+        self.teamSelectionV = TeamSelectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 25))
         
-        teamSelectionV.setup(team: team)
+        self.teamSelectionV?.setup(team: team)
     
         let bbi = UIBarButtonItem(title: "text", style: .plain, target: nil, action: nil)
-        bbi.customView = teamSelectionV
+        bbi.customView = self.teamSelectionV
         
         self.topItem?.setLeftBarButton(bbi, animated: true)
         
+        
+        
     }
-    
     
     
 }

@@ -47,6 +47,22 @@ class TeamSelectionView: NibDesignable {
     
     
     func initSetup() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(teamTapped(sender:)))
+        self.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func teamTapped(sender:UIBarButtonItem) {
+        print("TEAMSELECTION")
+        
+        let controller = UIApplication.shared.keyWindow?.rootViewController//UIApplication.topViewController(base: nil)
+        
+        if let navVc = controller as? CoachPlusNavigationViewController {
+            navVc.slideMenuController()?.openLeft()
+        } else if let navVc = controller as? CoachPlusViewController {
+            navVc.slideMenuController()?.openLeft()
+        } else if let navVc = controller as? HomeDrawerController {
+            navVc.slideMenuController()?.openLeft()
+        }
     }
     
     func setup(team:Team?) {
@@ -65,6 +81,8 @@ class TeamSelectionView: NibDesignable {
         )
         
         self.imageV.af_setImage(withURL: url, placeholderImage: nil, filter: filter)
+        
+        
         
     }
     

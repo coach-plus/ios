@@ -13,6 +13,7 @@ PODS:
   - NibDesignable (3.0.0)
   - RKDropdownAlert (0.3.0)
   - SkyFloatingLabelTextField (2.0.1)
+  - SlideMenuControllerSwift (3.0.1)
   - SwiftDate (4.1.1)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - NibDesignable
   - RKDropdownAlert
   - SkyFloatingLabelTextField (~> 2.0.0)
+  - SlideMenuControllerSwift
   - SwiftDate (~> 4.0)
   - SwiftyJSON
   - SwiftyUserDefaults
@@ -46,10 +48,11 @@ SPEC CHECKSUMS:
   NibDesignable: 6ccf1e54135cb05be0a78f803b9a8d78125a7d6d
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
+  SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftDate: ae615078806a322183e5f64e02e80ca8d939bf48
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: 730ee04fb063534323eda01880f6c18ac0c4c94e
+PODFILE CHECKSUM: befca6042f4c05b34983fb78606930125ba39214
 
 COCOAPODS: 1.2.1

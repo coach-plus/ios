@@ -17,6 +17,7 @@ def all_pods
   pod 'NibDesignable'
   pod 'SwiftDate', '~> 4.0'
   pod 'AlamofireImage', '~> 3.1'
+  pod 'SlideMenuControllerSwift'
 end
 
 target 'CoachPlus' do

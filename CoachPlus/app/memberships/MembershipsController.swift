@@ -30,9 +30,9 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func refreshBtnTapped(_ sender: Any) {
-        
         self.loadTeams()
     }
+    
     
     func loadTeams() {
         
@@ -58,6 +58,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goToTeam") {
             let navVc = segue.destination as! UINavigationController
@@ -66,9 +67,24 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             target.team = team
         }
     }
-    
+ 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "goToTeam", sender: nil)
+    }
+ */
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let team = self.memberships[indexPath.row].team
+
+        let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
+        
+        let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
+        let teamController = navController.viewControllers[0] as! TeamViewController
+
+        teamController.team = team
+        
+        self.slideMenuController()?.changeMainViewController(navController, close: true)
+        
     }
     
     

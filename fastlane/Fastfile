@@ -45,7 +45,7 @@ platform :ios do
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
-  lane :beta do
+  lane :build_beta do
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus.dev",
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
@@ -53,6 +53,9 @@ platform :ios do
     disable_automatic_code_signing(path: "CoachPlus.xcodeproj")
     gym(scheme: "CoachPlusDev") # Build your app - more options available
     enable_automatic_code_signing(path: "CoachPlus.xcodeproj")
+  end
+
+  lane :upload_beta do
     pilot(app_identifier: "com.mathandoro.coachplus.dev", ipa: "CoachPlusDev.ipa")
   end
 

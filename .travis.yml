@@ -6,4 +6,6 @@ before_install:
     - gem update fastlane --no-ri --no-rdoc --no-document
     - export MATCH_KEYCHAIN_NAME=ios-build.keychain
     - fastlane setup_keychain
-script: chmod +x travis/script.sh && travis_wait 30 ./travis/script.sh
+script:
+    - chmod +x travis/script.sh
+    - travis_wait 30 fastlane upload_beta

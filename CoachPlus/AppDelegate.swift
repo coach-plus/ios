@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 0.75
+        SlideMenuOptions.contentViewScale = 1.0
         
         IQKeyboardManager.sharedManager().enable = true
         

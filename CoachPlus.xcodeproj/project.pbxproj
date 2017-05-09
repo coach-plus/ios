@@ -776,14 +776,14 @@
 					};
 					4749C50F1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = EMYEJ6A5DS;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = R6AW526K22;
+						ProvisioningStyle = Manual;
 						TestTargetID = 4749C4FB1E81B7FE0068B0FA;
 					};
 					4749C51A1E81B7FF0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = EMYEJ6A5DS;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = R6AW526K22;
+						ProvisioningStyle = Manual;
 						TestTargetID = 4749C4FB1E81B7FE0068B0FA;
 					};
 				};
@@ -1301,7 +1301,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1353,7 +1353,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

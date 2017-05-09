@@ -32,11 +32,24 @@ platform :ios do
     gym(scheme: "CoachPlusDev")
   end
 
+  lane :setup_keychain do
+    create_keychain(
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: "travis",
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
     match(type: "appstore",
-      app_identifier: "com.mathandoro.coachplus.dev")
+      app_identifier: "com.mathandoro.coachplus.dev",
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: "travis")
     disable_automatic_code_signing(path: "CoachPlus.xcodeproj")
     gym(scheme: "CoachPlusDev") # Build your app - more options available
     enable_automatic_code_signing(path: "CoachPlus.xcodeproj")

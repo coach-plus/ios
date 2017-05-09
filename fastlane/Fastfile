@@ -53,7 +53,7 @@ platform :ios do
     disable_automatic_code_signing(path: "CoachPlus.xcodeproj")
     gym(scheme: "CoachPlusDev") # Build your app - more options available
     enable_automatic_code_signing(path: "CoachPlus.xcodeproj")
-    pilot(ipa: "CoachPlusDev.ipa")
+    pilot(app_identifier: "com.mathandoro.coachplus.dev", ipa: "CoachPlusDev.ipa")
   end
 
   desc "Deploy a new version to the App Store"

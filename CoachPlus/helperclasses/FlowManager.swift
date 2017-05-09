@@ -10,9 +10,9 @@ import Foundation
 
 class FlowManager {
     
-    static func homeVc() -> HomeViewController {
+    static func homeVc() -> HomeDrawerController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyboard.instantiateInitialViewController() as! HomeViewController
+        let vc = storyboard.instantiateInitialViewController() as! HomeDrawerController
         return vc
     }
     

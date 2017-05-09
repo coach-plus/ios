@@ -1,6 +1,6 @@
 language: objective-c
 osx_image: xcode8.3
 before_install:
-    - echo -e “Host github.com\n\tStrictHostKeyChecking no\n” >> ~/.ssh/config
+    - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     - gem update fastlane --no-ri --no-rdoc --no-document
 script: chmod +x travis/script.sh && ./travis/script.sh

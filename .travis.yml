@@ -4,4 +4,6 @@ before_install:
     - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     - echo -e "machine github.com\n  login fastlane-mathandoro\n  password $CI_USER_PASSWORD" >> ~/.netrc
     - gem update fastlane --no-ri --no-rdoc --no-document
+    - security create-keychain -p travis ios-build.keychain
+    - export MATCH_KEYCHAIN_NAME=ios-build.keychain
 script: chmod +x travis/script.sh && ./travis/script.sh

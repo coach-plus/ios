@@ -37,7 +37,9 @@ platform :ios do
   lane :beta do
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus.dev")
+    disable_automatic_code_signing(path: "CoachPlus.xcworkspace")
     gym(scheme: "CoachPlusDev") # Build your app - more options available
+    enable_automatic_code_signing(path: "CoachPlus.xcworkspace")
     pilot
   end
 

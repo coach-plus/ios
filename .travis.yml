@@ -8,4 +8,10 @@ before_install:
     - fastlane setup_keychain
 script:
     - chmod +x travis/script.sh && ./travis/script.sh
-    - travis_wait 30 fastlane upload_beta
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: travis_wait 30 fastlane upload_beta
+  on:
+    branch: master
+    tags: true

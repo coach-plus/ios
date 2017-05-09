@@ -43,8 +43,6 @@ platform :ios do
     )
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
   lane :build_beta do
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus.dev",

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class MembershipManager {
     
-    static let def = MembershipManager()
+    static let shared = MembershipManager()
     
     var selectedMembership:Membership?
     
@@ -27,6 +27,7 @@ class MembershipManager {
         self.memberships = Defaults[.membershipJSON].toArray(Membership.self)
         return self.memberships
     }
+    
 }
 
 

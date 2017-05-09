@@ -38,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupStyling()
         
         if (Authentication.loggedIn() == false) {
-            FlowManager.setLogin()        }
+            FlowManager.setLogin()
+        }
         
         
         return true
@@ -111,12 +112,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
+        
+        
         // 1
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
             let url = userActivity.webpageURL,
             let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
                 return false
         }
+        
+        print(url)
         
         
         return UrlHandler.handleUrlComponents(components: components)

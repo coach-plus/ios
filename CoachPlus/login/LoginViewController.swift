@@ -47,7 +47,9 @@ class LoginViewController: UIViewController {
         
         _ = DataHandler.def.login(email: email, password: password, successHandler: { apiResponse in
             
-            FlowManager.presentHome(sourceVc: self)
+            //FlowManager.presentHome(sourceVc: self)
+            FlowManager.goToHome()
+            
             
         }, failHandler: { apiResponse in
             DropdownAlert.error(message: apiResponse.message)

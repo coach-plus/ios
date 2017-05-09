@@ -27,6 +27,67 @@ class UrlHandler {
             return UrlHandler.handleVerificationUrl(pathArray)
         }
         
+        if (pathArray[1] == "teams") {
+            
+            let mode = pathArray[2]
+            if (mode == "private" || mode == "public") {
+                
+                if (pathArray[3] == "join") {
+                    
+                    let inviteId = pathArray[4]
+                    
+                    let storyboard = UIStoryboard(name: "JoinTeam", bundle: nil)
+                    let navVc = storyboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
+                    let joinVc = navVc.childViewControllers[0] as! JoinTeamViewController
+                    
+                    if (mode == "private") {
+                        joinVc.mode = .privateTeam
+                    } else {
+                        joinVc.mode = .publicTeam
+                    }
+                    
+                    joinVc.inviteId = inviteId
+                    
+                    let rootVc = UIApplication.shared.keyWindow?.rootViewController!
+                    
+                    print(rootVc)
+                    
+                    let vcs = rootVc!.childViewControllers
+                    
+                    for vc in vcs {
+                        print(vc)
+                    }
+                    
+                    print("vcs")
+                    print(rootVc?.isBeingPresented)
+                    
+                    rootVc?.present(navVc, animated: true, completion: nil)
+                    
+                    
+                    /*
+                    
+                    if let homeVc = rootVc as? HomeDrawerController {
+                        
+                        if let navVc = homeVc.mainViewController as? CoachPlusNavigationViewController {
+                            let vc = navVc.childViewControllers[0]
+                            vc.present(joinVc, animated: true, completion: nil)
+                        } else {
+                            homeVc.mainViewController?.present(joinVc, animated: true, completion: nil)
+                        }
+                        
+                        
+                    } else {
+                        rootVc!.present(joinVc, animated: true, completion: nil)
+                    }
+                    */
+                    
+                    
+                }
+                
+            }
+            
+        }
+        
         return false
         
     }

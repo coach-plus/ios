@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0gD-1j-Fd8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Coach Plus Navigation View Controller-->
+        <scene sceneID="Am2-Xu-5K3">
+            <objects>
+                <navigationController id="0gD-1j-Fd8" customClass="CoachPlusNavigationViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="erA-5f-yOl" customClass="CoachPlusNavigationBar" customModule="CoachPlus" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="leftBarButtonTypeString" value="done"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4Nm-wz-qyH" kind="relationship" relationship="rootViewController" id="7kp-8C-PVG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMI-mO-vt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-786" y="127"/>
+        </scene>
+        <!--Join Team View Controller-->
+        <scene sceneID="aPE-NW-U8x">
+            <objects>
+                <viewController id="4Nm-wz-qyH" customClass="JoinTeamViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E9j-fl-hvA"/>
+                        <viewControllerLayoutGuide type="bottom" id="qAm-K6-qgE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w1g-u3-UXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joining team.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr4-Iu-sC3">
+                                <rect key="frame" x="133.5" y="323" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dr4-Iu-sC3" firstAttribute="centerX" secondItem="w1g-u3-UXJ" secondAttribute="centerX" id="kth-2W-Cg2"/>
+                            <constraint firstItem="dr4-Iu-sC3" firstAttribute="centerY" secondItem="w1g-u3-UXJ" secondAttribute="centerY" id="mzN-A2-YKI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pc1-ps-jut"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0f6-6d-lX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="135"/>
+        </scene>
+    </scenes>
+</document>

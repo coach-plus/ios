@@ -12,7 +12,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     
-    var memberships:[Membership] = MembershipManager.def.getMemberships()
+    var memberships:[Membership] = MembershipManager.shared.getMemberships()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +33,16 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         self.loadTeams()
     }
     
+    @IBAction func logoutTapped(_ sender: Any) {
+        Authentication.logout()
+    }
+    
     
     func loadTeams() {
         
         _ = DataHandler.def.getMyMemberships(successHandler: { memberships in
             self.memberships = memberships
-            MembershipManager.def.storeMemberships(memberships: self.memberships)
+            MembershipManager.shared.storeMemberships(memberships: self.memberships)
             self.tableView.reloadData()
         }, failHandler: { err in
             print(err)
@@ -74,16 +78,25 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
  */
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let team = self.memberships[indexPath.row].team
-
-        let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
+        let membership = self.memberships[indexPath.row]
+        let team = membership.team
         
-        let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
-        let teamController = navController.viewControllers[0] as! TeamViewController
+        if (MembershipManager.shared.selectedMembership?.team?.id != team?.id) {
+            
+            MembershipManager.shared.selectedMembership = membership
+            let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
+            
+            let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
+            let teamController = navController.viewControllers[0] as! TeamViewController
+            
+            teamController.team = team
+            
+            self.slideMenuController()?.changeMainViewController(navController, close: true)
+        } else {
+            let controller = UIApplication.shared.keyWindow?.rootViewController
+            controller?.closeLeft()
+        }
 
-        teamController.team = team
-        
-        self.slideMenuController()?.changeMainViewController(navController, close: true)
         
     }
     

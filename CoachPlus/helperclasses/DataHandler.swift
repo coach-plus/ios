@@ -18,6 +18,8 @@ typealias TeamsSuccessHandler = ([Team]) -> ()
 typealias MembershipsSuccessHandler = ([Membership]) -> ()
 typealias EventsSuccessHandler = ([Event]) -> ()
 
+typealias CreateInviteLinkSuccessHandler = (String) -> ()
+
 class DataHandler {
     static let def = DataHandler()
     
@@ -47,6 +49,13 @@ class DataHandler {
         
         return Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
             .responseJSON { response in
+                
+                print(response.response?.statusCode)
+                
+                guard (response.result.value != nil) else {
+                    failHandler(ApiResponse(success: false, message: "Unexpected Error", content: nil))
+                    return
+                }
                 
                 let val = JSON(response.result.value!)
                 
@@ -228,5 +237,50 @@ class DataHandler {
         return self.authenticatedPost(url, params: createEvent, successHandler: successHandler, failHandler: failHandler)
         
     }
+    
+    func createTeam(createTeam:[String:Any], successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/register"
+        
+        return self.authenticatedPost(url, params: createTeam, successHandler: successHandler, failHandler: failHandler)
+        
+    }
+    
+    func createInviteLink(team:Team, validDays:Int?, successHandler: @escaping CreateInviteLinkSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(team.id)/invite"
+        
+        var params = Parameters()
+        
+        if validDays != nil {
+            params["validDays"] = validDays!
+        }
+        
+        return self.authenticatedPost(url, params: params, successHandler: { apiResponse in
+            
+            let link = apiResponse.content?[0]["url"].stringValue
+            successHandler(link!)
+            
+        }, failHandler: failHandler)
+        
+    }
+    
+    
+    func joinTeam(inviteId:String, teamType:JoinTeamViewController.TeamType, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        var url = ""
+        
+        if (teamType == .publicTeam) {
+            url = "teams/public/join/\(inviteId)"
+        }
+        
+        if (teamType == .privateTeam) {
+            url = "teams/private/join/\(inviteId)"
+        }
+        
+        return self.authenticatedPost(url, params: [:], successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    
+    
     
 }

@@ -14,6 +14,10 @@
 		472B9C121E870E4300706E6B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
 		473483241EC20A2000F60110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473483231EC20A2000F60110 /* Assets.xcassets */; };
 		473483251EC20A2000F60110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473483231EC20A2000F60110 /* Assets.xcassets */; };
+		473483271EC25F6A00F60110 /* JoinTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473483261EC25F6A00F60110 /* JoinTeam.storyboard */; };
+		473483281EC25F6A00F60110 /* JoinTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473483261EC25F6A00F60110 /* JoinTeam.storyboard */; };
+		4734832A1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473483291EC25FB500F60110 /* JoinTeamViewController.swift */; };
+		4734832B1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473483291EC25FB500F60110 /* JoinTeamViewController.swift */; };
 		473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90F1E85453700DC8247 /* UIViewExtension.swift */; };
 		473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
 		473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2331E8537B800DCF74A /* VerificationViewController.swift */; };
@@ -194,6 +198,11 @@
 		472B9C111E870E4300706E6B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = helperclasses/Helpers.swift; sourceTree = "<group>"; };
 		472B9C131E870F4F00706E6B /* CoachPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoachPlus-Bridging-Header.h"; sourceTree = "<group>"; };
 		473483231EC20A2000F60110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = assets/Assets.xcassets; sourceTree = "<group>"; };
+		473483261EC25F6A00F60110 /* JoinTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = JoinTeam.storyboard; path = app/team/JoinTeam.storyboard; sourceTree = "<group>"; };
+		473483291EC25FB500F60110 /* JoinTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinTeamViewController.swift; path = app/team/JoinTeamViewController.swift; sourceTree = "<group>"; };
+		4734832C1EC2698800F60110 /* CoachPlusDev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CoachPlusDev.entitlements; sourceTree = "<group>"; };
+		4734832D1EC26A0700F60110 /* CoachPlusInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoachPlusInfo.plist; sourceTree = "<group>"; };
+		4734832E1EC26A1000F60110 /* CoachPlusInfoDev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoachPlusInfoDev.plist; sourceTree = "<group>"; };
 		473A5F7E1E8A749A002FD833 /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		473A5F871E8A9224002FD833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		473A5F8A1E8A92D1002FD833 /* Membership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Membership.swift; path = models/Membership.swift; sourceTree = "<group>"; };
@@ -205,7 +214,6 @@
 		4749C5011E81B7FE0068B0FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4749C5041E81B7FE0068B0FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4749C5091E81B7FE0068B0FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4749C50B1E81B7FE0068B0FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4749C5101E81B7FE0068B0FA /* CoachPlusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoachPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4749C5141E81B7FF0068B0FA /* CoachPlusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachPlusTests.swift; sourceTree = "<group>"; };
 		4749C5161E81B7FF0068B0FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -397,12 +405,14 @@
 				478DE22D1E85366300DCF74A /* helperclasses */,
 				474144CF1E84289F009788E2 /* login */,
 				475682591E81D273008547AF /* CoachPlus.entitlements */,
+				4734832C1EC2698800F60110 /* CoachPlusDev.entitlements */,
 				4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */,
 				4749C5011E81B7FE0068B0FA /* ViewController.swift */,
 				4749C5031E81B7FE0068B0FA /* Main.storyboard */,
 				616616E51E9F8B5A00E8D8D5 /* Playground.storyboard */,
 				4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */,
-				4749C50B1E81B7FE0068B0FA /* Info.plist */,
+				4734832D1EC26A0700F60110 /* CoachPlusInfo.plist */,
+				4734832E1EC26A1000F60110 /* CoachPlusInfoDev.plist */,
 				474144D71E842D30009788E2 /* CoachPlus.swift */,
 				472B9C131E870F4F00706E6B /* CoachPlus-Bridging-Header.h */,
 			);
@@ -520,6 +530,8 @@
 				47F042111E8E70660020D78E /* TeamViewController.swift */,
 				61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */,
 				61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */,
+				473483261EC25F6A00F60110 /* JoinTeam.storyboard */,
+				473483291EC25FB500F60110 /* JoinTeamViewController.swift */,
 			);
 			name = team;
 			sourceTree = "<group>";
@@ -831,6 +843,7 @@
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
+				473483271EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
 				61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				61D5F5631EC0D7AC00974EBD /* NewTeam.storyboard in Resources */,
@@ -861,6 +874,7 @@
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
+				473483281EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
 				61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
@@ -1099,6 +1113,7 @@
 				616616F81E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
+				4734832A1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */,
 				473A5F5F1E8A749A002FD833 /* HomeViewController.swift in Sources */,
 				473A5F601E8A749A002FD833 /* RegisterViewController.swift in Sources */,
 				473A5F611E8A749A002FD833 /* DataHandler.swift in Sources */,
@@ -1157,6 +1172,7 @@
 				616616F91E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,
+				4734832B1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */,
 				47B1B6281E87CBC700F80101 /* HomeViewController.swift in Sources */,
 				472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */,
 				47B1B62A1E87D18300F80101 /* DataHandler.swift in Sources */,
@@ -1252,7 +1268,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
 				DEVELOPMENT_TEAM = R6AW526K22;
-				INFOPLIST_FILE = "CoachPlusDev copy-Info.plist";
+				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1274,7 +1290,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				DEVELOPMENT_TEAM = R6AW526K22;
-				INFOPLIST_FILE = "CoachPlusDev copy-Info.plist";
+				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
@@ -1388,9 +1404,9 @@
 			baseConfigurationReference = 22422D9457BA51D77DB60795 /* Pods-CoachPlusDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
 				DEVELOPMENT_TEAM = R6AW526K22;
-				INFOPLIST_FILE = CoachPlus/Info.plist;
+				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1408,11 +1424,11 @@
 			baseConfigurationReference = 794C68DBAFDC4432744EC2A3 /* Pods-CoachPlusDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = R6AW526K22;
-				INFOPLIST_FILE = CoachPlus/Info.plist;
+				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;

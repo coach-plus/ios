@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
-class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate {
+class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     enum Section:Int {
         case events = 0
@@ -39,10 +40,16 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 83
         
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.tableFooterView = UIView()
+        
+        let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
         
         if (self.team != nil) {
-            let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
             navbar.setTeamSelection(team: self.team)
+        } else {
+            navbar.setLeftBarButtonType(type: .teams)
         }
         
         super.viewDidLoad()
@@ -80,7 +87,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func numberOfSections(in tableView: UITableView) -> Int {
         
         if (self.team == nil) {
-            return 1
+            return 0
         }
         
         return 2
@@ -89,7 +96,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (self.team == nil) {
-            return 1
+            return 0
         }
         
         let sectionEnum = Section(rawValue: section)!
@@ -217,7 +224,19 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func newMember() {
-        print("new member")
+        _ = DataHandler.def.createInviteLink(team: self.team!, validDays: nil, successHandler: { link in
+            
+            let url = URL(string: link)!
+            
+            let vc = UIActivityViewController(activityItems: ["Aloha! Join your awesome team", url], applicationActivities: nil)
+            vc.excludedActivityTypes =
+                [UIActivityType.assignToContact, UIActivityType.saveToCameraRoll, UIActivityType.postToFlickr,
+                 UIActivityType.postToVimeo, UIActivityType.openInIBooks]
+            self.present(vc, animated: true, completion: nil)
+            
+        }, failHandler: { err in
+            print(err)
+        })
     }
     
     func tableViewHeaderBtnTap(_ sender: Any) {
@@ -267,4 +286,29 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             }
         }
     }
+    
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let attributes = [
+            NSFontAttributeName: UIFont.fontAwesome(ofSize: 50),
+            NSForegroundColorAttributeName: UIColor.coachPlusBlue] as Dictionary!
+        
+        
+        let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: .lifeRing), attributes: attributes)
+        
+        return attributedString
+        
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        
+        let string = "Why so lonely?\nCreate a team and invite your buddies!"
+        
+        let attributedString = NSAttributedString(string: string, attributes: attributes)
+        
+        return attributedString
+    }
+    
 }

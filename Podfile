@@ -18,6 +18,7 @@ def all_pods
   pod 'SwiftDate', '~> 4.0'
   pod 'AlamofireImage', '~> 3.1'
   pod 'SlideMenuControllerSwift'
+  pod 'DZNEmptyDataSet'
 end
 
 target 'CoachPlus' do

@@ -13,8 +13,6 @@ class HomeDrawerController: SlideMenuController {
     
     override func awakeFromNib() {
         
-        
-        
         let membershipsStoryboard = UIStoryboard(name: "Memberships", bundle: nil)
         self.leftViewController = membershipsStoryboard.instantiateInitialViewController()
         

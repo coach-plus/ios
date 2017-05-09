@@ -12,6 +12,8 @@
 		472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */; };
 		472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
 		472B9C121E870E4300706E6B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
+		473483241EC20A2000F60110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473483231EC20A2000F60110 /* Assets.xcassets */; };
+		473483251EC20A2000F60110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473483231EC20A2000F60110 /* Assets.xcassets */; };
 		473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90F1E85453700DC8247 /* UIViewExtension.swift */; };
 		473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
 		473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2331E8537B800DCF74A /* VerificationViewController.swift */; };
@@ -37,7 +39,6 @@
 		473A5F721E8A749A002FD833 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9161E8561F800DC8247 /* Home.storyboard */; };
 		473A5F731E8A749A002FD833 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
 		473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478DE2311E8537A600DCF74A /* Verification.storyboard */; };
-		473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474144D21E842910009788E2 /* Assets.xcassets */; };
 		473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */; };
 		473A5F771E8A749A002FD833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5031E81B7FE0068B0FA /* Main.storyboard */; };
 		473A5F781E8A749A002FD833 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
@@ -46,7 +47,6 @@
 		473A5F8B1E8A92D1002FD833 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F8A1E8A92D1002FD833 /* Membership.swift */; };
 		473A5F8C1E8A92D1002FD833 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F8A1E8A92D1002FD833 /* Membership.swift */; };
 		474144D11E8428A9009788E2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
-		474144D31E842910009788E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474144D21E842910009788E2 /* Assets.xcassets */; };
 		474144D61E8429AD009788E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D51E8429AD009788E2 /* LoginViewController.swift */; };
 		474144D81E842D30009788E2 /* CoachPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D71E842D30009788E2 /* CoachPlus.swift */; };
 		4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */; };
@@ -193,11 +193,11 @@
 		472B9C0F1E86CDE000706E6B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = helperclasses/StringExtension.swift; sourceTree = "<group>"; };
 		472B9C111E870E4300706E6B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = helperclasses/Helpers.swift; sourceTree = "<group>"; };
 		472B9C131E870F4F00706E6B /* CoachPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoachPlus-Bridging-Header.h"; sourceTree = "<group>"; };
+		473483231EC20A2000F60110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = assets/Assets.xcassets; sourceTree = "<group>"; };
 		473A5F7E1E8A749A002FD833 /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		473A5F871E8A9224002FD833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		473A5F8A1E8A92D1002FD833 /* Membership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Membership.swift; path = models/Membership.swift; sourceTree = "<group>"; };
 		474144D01E8428A9009788E2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		474144D21E842910009788E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		474144D51E8429AD009788E2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = login/LoginViewController.swift; sourceTree = "<group>"; };
 		474144D71E842D30009788E2 /* CoachPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachPlus.swift; sourceTree = "<group>"; };
 		4749C4FC1E81B7FE0068B0FA /* CoachPlusDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlusDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +324,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4734831E1EC208BA00F60110 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				473483231EC20A2000F60110 /* Assets.xcassets */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 		473A5F801E8A7B92002FD833 /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,13 +388,13 @@
 		4749C4FE1E81B7FE0068B0FA /* CoachPlus */ = {
 			isa = PBXGroup;
 			children = (
+				4734831E1EC208BA00F60110 /* assets */,
 				47F041F91E8E61DD0020D78E /* ui */,
 				473A5F801E8A7B92002FD833 /* models */,
 				47A9B9141E8561D000DC8247 /* app */,
 				47A9B9111E85568500DC8247 /* register */,
 				478DE2301E85379400DCF74A /* verification */,
 				478DE22D1E85366300DCF74A /* helperclasses */,
-				474144D21E842910009788E2 /* Assets.xcassets */,
 				474144CF1E84289F009788E2 /* login */,
 				475682591E81D273008547AF /* CoachPlus.entitlements */,
 				4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */,
@@ -776,13 +784,13 @@
 					};
 					4749C50F1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = R6AW526K22;
+						DevelopmentTeam = EMYEJ6A5DS;
 						ProvisioningStyle = Manual;
 						TestTargetID = 4749C4FB1E81B7FE0068B0FA;
 					};
 					4749C51A1E81B7FF0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = R6AW526K22;
+						DevelopmentTeam = EMYEJ6A5DS;
 						ProvisioningStyle = Manual;
 						TestTargetID = 4749C4FB1E81B7FE0068B0FA;
 					};
@@ -826,7 +834,6 @@
 				61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				61D5F5631EC0D7AC00974EBD /* NewTeam.storyboard in Resources */,
-				473A5F751E8A749A002FD833 /* Assets.xcassets in Resources */,
 				61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */,
 				473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */,
 				473A5F771E8A749A002FD833 /* Main.storyboard in Resources */,
@@ -836,6 +843,7 @@
 				61CA9CA11EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F71E8E5FF90020D78E /* Team.storyboard in Resources */,
 				616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */,
+				473483241EC20A2000F60110 /* Assets.xcassets in Resources */,
 				616616F51E9F9E1000E8D8D5 /* EventTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,6 +856,7 @@
 				61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
 				61CA9C7D1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
 				61CA9C9E1EA52211004AFAC7 /* TitleView.xib in Resources */,
+				473483251EC20A2000F60110 /* Assets.xcassets in Resources */,
 				61CA9C971EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
@@ -856,7 +865,6 @@
 				61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				61D5F5641EC0D7AC00974EBD /* NewTeam.storyboard in Resources */,
-				474144D31E842910009788E2 /* Assets.xcassets in Resources */,
 				61CA9C811EA227C6004AFAC7 /* Events.storyboard in Resources */,
 				4749C50A1E81B7FE0068B0FA /* LaunchScreen.storyboard in Resources */,
 				4749C5051E81B7FE0068B0FA /* Main.storyboard in Resources */,
@@ -1301,7 +1309,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1353,7 +1361,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

@@ -40,13 +40,23 @@ Runs all the tests
 fastlane ios build_dev
 ```
 build dev
-### ios beta
+### ios setup_keychain
 ```
-fastlane ios beta
+fastlane ios setup_keychain
+```
+
+### ios build_beta
+```
+fastlane ios build_beta
 ```
 Submit a new Beta Build to Apple TestFlight
 
 This will also make sure the profile is up to date
+### ios upload_beta
+```
+fastlane ios upload_beta
+```
+
 ### ios release
 ```
 fastlane ios release

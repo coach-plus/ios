@@ -98,5 +98,10 @@ class EventsViewController: CoachPlusViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let event = self.events[indexPath.row]
+        self.pushToEventDetail(event: event)        
+    }
+    
     
 }

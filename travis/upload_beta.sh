@@ -1,2 +1,2 @@
 #!/bin/sh
-fastlane upload_beta
+fastlane upload_beta --verbose

@@ -11,6 +11,6 @@ script:
 deploy:
 - provider: script
   skip_cleanup: true
-  script: chmod +x travis/upload_beta.sh && travis_wait 30 sh $TRAVIS_BUILD_DIR/travis/upload_beta.sh
+  script: chmod +x travis/upload_beta.sh && sh $TRAVIS_BUILD_DIR/travis/upload_beta.sh
   on:
     branch: master

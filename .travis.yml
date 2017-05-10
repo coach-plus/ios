@@ -14,4 +14,3 @@ deploy:
   script: chmod +x travis/upload_beta.sh && sh $TRAVIS_BUILD_DIR/travis/upload_beta.sh
   on:
     branch: master
-    tags: true

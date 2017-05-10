@@ -1,3 +1,11 @@
 #!/bin/sh
 sudo gem install fastlane --no-ri --no-rdoc --no-document
-travis_wait 30 fastlane upload_beta --verbose
+
+fastlane upload_beta --verbose &
+
+# Output to the screen every minute to prevent a travis timeout
+export PID=$!
+while [[ `ps -p $PID | tail -n +2` ]]; do
+  echo 'Uploading..'
+  sleep 60
+done

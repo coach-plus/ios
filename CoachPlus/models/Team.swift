@@ -15,11 +15,13 @@ class Team:JSONable, BackJSONable {
         case name = "name"
         case id = "_id"
         case isPublic = "isPublic"
+        case image = "image"
     }
     
     var id: String
     var isPublic: Bool
     var name: String
+    var image: String?
     
     init(id:String, isPublic:Bool, name:String) {
         self.id = id
@@ -31,13 +33,15 @@ class Team:JSONable, BackJSONable {
         self.id = json[Fields.id.rawValue].stringValue
         self.isPublic = json[Fields.isPublic.rawValue].boolValue
         self.name = json[Fields.name.rawValue].stringValue
+        self.image = json[Fields.image.rawValue].string
     }
     
     func toJson() -> JSON {
         let json: JSON = [
             Fields.id.rawValue: self.id,
             Fields.isPublic.rawValue: self.isPublic,
-            Fields.name.rawValue: self.name]
+            Fields.name.rawValue: self.name,
+            Fields.image.rawValue: self.image]
         return json
     }
     

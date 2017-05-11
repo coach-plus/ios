@@ -8,8 +8,9 @@
 
 import UIKit
 import DZNEmptyDataSet
+import Hero
 
-class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate {
 
     enum Section:Int {
         case events = 0
@@ -26,6 +27,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     var members = [Membership]()
     var events = [Event]()
+    var allEvents = [Event]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +46,32 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
         
-        let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
-        
-        if (self.team != nil) {
-            navbar.setTeamSelection(team: self.team)
-        } else {
-            navbar.setLeftBarButtonType(type: .teams)
+        if (self.membership != nil) {
+            MembershipManager.shared.selectMembership(membership: self.membership!)
         }
+        
+        self.setupNavbar()
         
         super.viewDidLoad()
     }
     
+    func setupNavbar() {
+        let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
+        
+        if (self.membership != nil && self.membership?.team != nil) {
+            navbar.setTeamSelection(team: self.membership?.team!)
+        } else {
+            navbar.setLeftBarButtonType(type: .teams)
+        }
+        
+        navbar.setRightBarButtonType(type: .profile)
+        
+        self.setupNavBarDelegate()
+
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        if (self.team != nil) {
+        if (self.membership?.team != nil) {
             self.getMembers()
             self.getEvents()
         }
@@ -67,7 +82,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func getMembers() {
-        _ = DataHandler.def.getMembers(teamId: (self.team?.id)!, successHandler: { memberships in
+        _ = DataHandler.def.getMembers(teamId: (self.membership?.team?.id)!, successHandler: { memberships in
             self.members = memberships
             self.tableView.reloadData()
         }, failHandler: { err in
@@ -76,17 +91,26 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func getEvents() {
-        _ = DataHandler.def.getEventsOfTeam(team: self.team!, successHandler: { events in
-            self.events = events
+        _ = DataHandler.def.getEventsOfTeam(team: (self.membership?.team!)!, successHandler: { events in
+            self.allEvents = events.sorted(by: {(eventA, eventB) in
+                return eventA.start < eventB.start
+            })
+            self.events = self.getNextEvents()
             self.tableView.reloadData()
         }, failHandler: { err in
             print(err)
         })
     }
     
+    func getNextEvents() -> [Event]{
+        return self.allEvents.filter({ event in
+            return event.isInPast() == false
+        })
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if (self.team == nil) {
+        if (self.membership?.team == nil) {
             return 0
         }
         
@@ -95,7 +119,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if (self.team == nil) {
+        if (self.membership?.team == nil) {
             return 0
         }
         
@@ -140,7 +164,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (self.team == nil) {
+        if (self.membership?.team == nil) {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "abc")
             cell.textLabel?.text = "Nothing"
             return cell
@@ -193,7 +217,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (self.team == nil) {
+        if (self.membership?.team == nil) {
             return nil
         }
         let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
@@ -210,7 +234,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (self.team == nil) {
+        if (self.membership?.team == nil) {
             return 0
         }
         return 45
@@ -219,12 +243,12 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func newEvent() {
         print("new Event")
         let vc = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as! CreateEventViewController
-        vc.team = self.team
+        vc.membership = self.membership
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func newMember() {
-        _ = DataHandler.def.createInviteLink(team: self.team!, validDays: nil, successHandler: { link in
+        _ = DataHandler.def.createInviteLink(team: (self.membership?.team!)!, validDays: nil, successHandler: { link in
             
             let url = URL(string: link)!
             
@@ -262,7 +286,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             switch self.eventRowType(indexPath) {
             case .seeAll:
                 let vc = UIStoryboard(name: "Events", bundle: nil).instantiateInitialViewController() as! EventsViewController
-                vc.events = self.events
+                vc.events = self.allEvents
                 self.navigationController?.pushViewController(vc, animated: true)
                 return
             case .empty:
@@ -279,11 +303,19 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 participations.append(p1)
                 event.participations = participations
                 
+                let cell = self.tableView.cellForRow(at: indexPath)
+                
                 self.pushToEventDetail(event: event)
                 return
             default:
                 return
             }
+        }
+        if (indexPath.section == Section.members.rawValue) {
+            let vc = FlowManager.profileVc()
+            let user = self.members[indexPath.row].user
+            vc.user = user
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -309,6 +341,14 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         let attributedString = NSAttributedString(string: string, attributes: attributes)
         
         return attributedString
+    }
+    
+    func profile(sender:UIBarButtonItem) {
+        
+        let vc = FlowManager.profileVc()
+        vc.user = MembershipManager.shared.selectedMembership?.user
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

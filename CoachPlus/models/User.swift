@@ -23,7 +23,7 @@ class User:JSONable, BackJSONable {
     var firstname: String
     var lastname: String
     var email: String
-    var image: String? = "https://pbs.twimg.com/profile_images/775833954314285057/FIxA8Vcq1.jpg"
+    var image: String?
     
     init(id:String, firstname:String, lastname:String, email:String) {
         self.id = id
@@ -52,19 +52,6 @@ class User:JSONable, BackJSONable {
         get {
             return "\(self.firstname) \(self.lastname)"
         }
-    }
-    
-    func setImage(imageV:UIImageView) {
-        let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
-            size: imageV.frame.size,
-            radius: imageV.frame.size.height / 2
-        )
-        
-        let url = URL(string: self.image!)!
-        
-        let placeholder = UIImage.fontAwesomeIcon(name: .userCircleO, textColor: UIColor.coachPlusBlue, size: imageV.frame.size)
-        
-        imageV.af_setImage(withURL: url, placeholderImage: placeholder, filter: filter)
     }
 
 }

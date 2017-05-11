@@ -37,9 +37,7 @@ class MembershipTableViewCell: UITableViewCell {
             self.editBtn.setTitle("", for: UIControlState.normal)
         }
         
-        let url = URL(string: "https://s-media-cache-ak0.pinimg.com/originals/b5/79/5c/b5795ce445a43dd8c749b7cea29fb8de.jpg")!
-        
-        self.imageV.af_setImage(withURL: url)
+        self.imageV.setTeamImage(team: membership.team!, placeholderColor: nil)
     }
     
 }

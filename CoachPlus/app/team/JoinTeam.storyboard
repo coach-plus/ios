@@ -12,6 +12,7 @@
         <!--Coach Plus Navigation View Controller-->
         <scene sceneID="Am2-Xu-5K3">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMI-mO-vt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="0gD-1j-Fd8" customClass="CoachPlusNavigationViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="erA-5f-yOl" customClass="CoachPlusNavigationBar" customModule="CoachPlus" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -24,7 +25,6 @@
                         <segue destination="4Nm-wz-qyH" kind="relationship" relationship="rootViewController" id="7kp-8C-PVG"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eMI-mO-vt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-786" y="127"/>
         </scene>

@@ -41,7 +41,7 @@ class CreateEventViewController: CoachPlusViewController {
             "end": end.toString()
         ]
         
-        DataHandler.def.createEvent(team: self.team!, createEvent: createEvent, successHandler: { response in
+        DataHandler.def.createEvent(team: (self.membership?.team!)!, createEvent: createEvent, successHandler: { response in
             self.navigationController?.popViewController(animated: true)
         }, failHandler: { error in
             print(error)

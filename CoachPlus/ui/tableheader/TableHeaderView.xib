@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,10 +30,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyC-r3-HbZ">
-                    <rect key="frame" x="329" y="7" width="30" height="30"/>
+                    <rect key="frame" x="329" y="7" width="30" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="uTO-iP-Yny"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                     <state key="normal" title="+">
                         <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -49,7 +50,7 @@
                 <constraint firstItem="zyC-r3-HbZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="Cby-Tc-DNb"/>
                 <constraint firstItem="VvT-fv-3dY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KZz-wF-4AK"/>
                 <constraint firstItem="zyC-r3-HbZ" firstAttribute="leading" secondItem="VvT-fv-3dY" secondAttribute="trailing" constant="8" id="PLY-IJ-C8X"/>
-                <constraint firstAttribute="bottom" secondItem="zyC-r3-HbZ" secondAttribute="bottom" constant="8" id="Ya6-Oc-zNI"/>
+                <constraint firstAttribute="bottom" secondItem="zyC-r3-HbZ" secondAttribute="bottom" constant="10" id="Ya6-Oc-zNI"/>
                 <constraint firstAttribute="bottom" secondItem="VvT-fv-3dY" secondAttribute="bottom" id="igr-Uy-bxi"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

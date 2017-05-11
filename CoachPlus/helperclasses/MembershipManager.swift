@@ -18,6 +18,41 @@ class MembershipManager {
     
     var memberships:[Membership] = []
     
+    func selectMembership(membership:Membership) {
+        Defaults[.selectedMembershipId] = membership.id
+    }
+    
+    func getPreviouslySelectedMembership() -> Membership? {
+        let membershipId = Defaults[.selectedMembershipId]
+        guard membershipId != "" else {
+            return nil
+        }
+        
+        let memberships = self.getMemberships()
+        
+        if (memberships.count == 0) {
+            return nil
+        }
+        
+        if (memberships.count == 1) {
+            selectedMembership = memberships[0]
+            return memberships[0]
+        }
+        
+        let matchingMemberships = memberships.filter({ membership in
+            return (membership.id == membershipId)
+        })
+        
+        if (matchingMemberships.count > 0) {
+            selectedMembership = matchingMemberships[0]
+            return matchingMemberships[0]
+        }
+        
+        selectedMembership = nil
+        return nil
+        
+    }
+    
     func storeMemberships(memberships: [Membership]) {
         self.memberships = memberships
         Defaults[.membershipJSON] = memberships.toString()
@@ -33,4 +68,5 @@ class MembershipManager {
 
 extension DefaultsKeys {
     static let membershipJSON = DefaultsKey<String>("teams")
+    static let selectedMembershipId = DefaultsKey<String>("selectedMembershipId")
 }

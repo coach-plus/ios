@@ -50,6 +50,12 @@
 		473A5F891E8A9224002FD833 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F871E8A9224002FD833 /* User.swift */; };
 		473A5F8B1E8A92D1002FD833 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F8A1E8A92D1002FD833 /* Membership.swift */; };
 		473A5F8C1E8A92D1002FD833 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F8A1E8A92D1002FD833 /* Membership.swift */; };
+		473DCE1B1EC3A6A000A42F51 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
+		473DCE1C1EC3A6A000A42F51 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
+		473DCE1E1EC3B9BB00A42F51 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */; };
+		473DCE1F1EC3B9BB00A42F51 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */; };
+		473DCE211EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */; };
+		473DCE221EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */; };
 		474144D11E8428A9009788E2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
 		474144D61E8429AD009788E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D51E8429AD009788E2 /* LoginViewController.swift */; };
 		474144D81E842D30009788E2 /* CoachPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D71E842D30009788E2 /* CoachPlus.swift */; };
@@ -206,6 +212,9 @@
 		473A5F7E1E8A749A002FD833 /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		473A5F871E8A9224002FD833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		473A5F8A1E8A92D1002FD833 /* Membership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Membership.swift; path = models/Membership.swift; sourceTree = "<group>"; };
+		473DCE1A1EC3A6A000A42F51 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = User.storyboard; path = app/user/User.storyboard; sourceTree = "<group>"; };
+		473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = app/user/UserViewController.swift; sourceTree = "<group>"; };
+		473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = helperclasses/UIImageViewExtension.swift; sourceTree = "<group>"; };
 		474144D01E8428A9009788E2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		474144D51E8429AD009788E2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = login/LoginViewController.swift; sourceTree = "<group>"; };
 		474144D71E842D30009788E2 /* CoachPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachPlus.swift; sourceTree = "<group>"; };
@@ -353,6 +362,15 @@
 			name = models;
 			sourceTree = "<group>";
 		};
+		473DCE191EC3A68700A42F51 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				473DCE1A1EC3A6A000A42F51 /* User.storyboard */,
+				473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
 		474144CF1E84289F009788E2 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +476,7 @@
 				61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */,
 				61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */,
 				61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */,
+				473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -484,6 +503,7 @@
 		47A9B9141E8561D000DC8247 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				473DCE191EC3A68700A42F51 /* user */,
 				61CA9C7E1EA227B7004AFAC7 /* events */,
 				616616EF1E9F9DE900E8D8D5 /* shared */,
 				47F041F51E8E5C850020D78E /* team */,
@@ -840,6 +860,7 @@
 				61CA9C9D1EA52211004AFAC7 /* TitleView.xib in Resources */,
 				61CA9C961EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
 				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
+				473DCE1B1EC3A6A000A42F51 /* User.storyboard in Resources */,
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
@@ -871,6 +892,7 @@
 				61CA9C9E1EA52211004AFAC7 /* TitleView.xib in Resources */,
 				473483251EC20A2000F60110 /* Assets.xcassets in Resources */,
 				61CA9C971EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
+				473DCE1C1EC3A6A000A42F51 /* User.storyboard in Resources */,
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
@@ -1128,6 +1150,7 @@
 				473A5F641E8A749A002FD833 /* ViewController.swift in Sources */,
 				61CA9C8C1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
 				473A5F651E8A749A002FD833 /* Authentication.swift in Sources */,
+				473DCE211EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
 				61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
@@ -1145,6 +1168,7 @@
 				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
 				477A27591E8C3775005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA41EA52575004AFAC7 /* ParticipationView.swift in Sources */,
+				473DCE1E1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
 				61D5F55C1EC0C58100974EBD /* HomeDrawerController.swift in Sources */,
 				473A5F6D1E8A749A002FD833 /* FlowManager.swift in Sources */,
 				473A5F8B1E8A92D1002FD833 /* Membership.swift in Sources */,
@@ -1187,6 +1211,7 @@
 				4749C5021E81B7FE0068B0FA /* ViewController.swift in Sources */,
 				61CA9C8D1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
 				47B1B6221E87265500F80101 /* Authentication.swift in Sources */,
+				473DCE221EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
 				61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */,
@@ -1204,6 +1229,7 @@
 				4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */,
 				477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA51EA52575004AFAC7 /* ParticipationView.swift in Sources */,
+				473DCE1F1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
 				61D5F55D1EC0C58100974EBD /* HomeDrawerController.swift in Sources */,
 				47B1B6261E87C81B00F80101 /* FlowManager.swift in Sources */,
 				473A5F8C1E8A92D1002FD833 /* Membership.swift in Sources */,

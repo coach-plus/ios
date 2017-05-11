@@ -73,14 +73,7 @@ class TeamSelectionView: NibDesignable {
             self.nameLbl.text = team!.name
         }
         
-        let url = URL(string: "https://s-media-cache-ak0.pinimg.com/originals/b5/79/5c/b5795ce445a43dd8c749b7cea29fb8de.jpg")!
-        
-        let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
-            size: self.imageV.frame.size,
-            radius: self.imageV.frame.size.height / 2
-        )
-        
-        self.imageV.af_setImage(withURL: url, placeholderImage: nil, filter: filter)
+        self.imageV.setTeamImage(team: team, placeholderColor: UIColor.white)
         
         
         

@@ -17,9 +17,7 @@ class MemberTableViewCell: UITableViewCell {
     
     func setup(membership: Membership) {
         textLbl.text = membership.user?.fullname
-        
-        membership.user?.setImage(imageV: self.imageV)
-        
+        self.imageV.setUserImage(user: membership.user!)
     }
     
 }

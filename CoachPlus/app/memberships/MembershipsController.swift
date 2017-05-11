@@ -23,10 +23,8 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70
 
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         self.loadTeams()
+        
     }
     
     @IBAction func refreshBtnTapped(_ sender: Any) {
@@ -81,7 +79,9 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         let membership = self.memberships[indexPath.row]
         let team = membership.team
         
-        if (MembershipManager.shared.selectedMembership?.team?.id != team?.id) {
+        let selectedMembership = MembershipManager.shared.selectedMembership
+        
+        if (selectedMembership?.team?.id != team?.id) {
             
             MembershipManager.shared.selectedMembership = membership
             let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
@@ -89,7 +89,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
             let teamController = navController.viewControllers[0] as! TeamViewController
             
-            teamController.team = team
+            teamController.membership = membership
             
             self.slideMenuController()?.changeMainViewController(navController, close: true)
         } else {

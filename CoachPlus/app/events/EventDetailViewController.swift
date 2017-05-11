@@ -24,6 +24,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         self.tableView.register(nib: "ParticipationTableViewCell", reuseIdentifier: "ParticipationTableViewCell")
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 70
+        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {

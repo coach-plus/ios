@@ -20,6 +20,9 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="leftBarButtonTypeString" value="teamSelection"/>
                         </userDefinedRuntimeAttributes>
                     </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="xIr-gU-uqv" kind="relationship" relationship="rootViewController" id="gEe-Bh-88H"/>
                     </connections>

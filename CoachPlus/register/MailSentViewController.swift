@@ -28,7 +28,7 @@ class MailSentViewController: UIViewController {
     }
     
     @IBAction func continueTapped(_ sender: Any) {
-        FlowManager.goToHome()
+        FlowManager.goToHome(sourceVc: self)
     }
 
 }

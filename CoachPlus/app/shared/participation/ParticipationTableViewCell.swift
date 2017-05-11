@@ -27,7 +27,7 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
         self.participationView.delegate = self
         self.participationView.mode = self.mode
         self.participationView.configure(participation: self.participation!)
-        self.participation?.user?.setImage(imageV: self.imageV)
+        self.imageV.setUserImage(user: (self.participation?.user)!)
         self.nameLbl.text = self.participation?.user?.fullname
     }
     

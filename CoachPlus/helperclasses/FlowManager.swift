@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Hero
 
 class FlowManager {
     
@@ -19,6 +20,11 @@ class FlowManager {
     static func loginVc() -> LoginViewController {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! LoginViewController
+        return vc
+    }
+    
+    static func profileVc() -> UserViewController {
+        let vc = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as! UserViewController
         return vc
     }
     
@@ -40,16 +46,21 @@ class FlowManager {
         //window.makeKeyAndVisible()
     }
     
-    static func goToHome() {
+    static func goToHome(sourceVc:UIViewController) {
         if (Authentication.loggedIn()) {
             
             let delegate = UIApplication.shared.delegate as! AppDelegate
             
             let vc = homeVc()
-            
             let window = delegate.window!
-            window.rootViewController = vc
-            window.makeKeyAndVisible()
+            
+            UIView.transition(from: sourceVc.view, to: vc.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
+                _ in
+                window.rootViewController = vc
+                window.makeKeyAndVisible()
+            })
+            
+            
         } else {
             goToLogin()
         }

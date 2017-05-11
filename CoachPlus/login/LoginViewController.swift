@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
         _ = DataHandler.def.login(email: email, password: password, successHandler: { apiResponse in
             
             //FlowManager.presentHome(sourceVc: self)
-            FlowManager.goToHome()
+            FlowManager.goToHome(sourceVc: self)
             
             
         }, failHandler: { apiResponse in

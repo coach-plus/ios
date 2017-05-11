@@ -148,12 +148,17 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             return count + 1
         }
         
-        return 1
+        return 2
     }
     
     func eventRowType(_ indexPath:IndexPath) -> EventRowType {
         guard self.hasEvents() else {
-            return .empty
+            if (indexPath.row == 0) {
+                return .empty
+            } else {
+                return .seeAll
+            }
+            
         }
         guard indexPath.row < self.numberOfEventRows()-1 else {
             return .seeAll

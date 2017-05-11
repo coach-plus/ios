@@ -23,10 +23,11 @@ class Team:JSONable, BackJSONable {
     var name: String
     var image: String?
     
-    init(id:String, isPublic:Bool, name:String) {
+    init(id:String, isPublic:Bool, name:String, image:String) {
         self.id = id
         self.isPublic = isPublic
         self.name = name
+        self.image = image
     }
     
     required init(json:JSON) {

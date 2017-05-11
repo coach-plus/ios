@@ -89,8 +89,21 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phO-Zg-1wv">
                                                 <rect key="frame" x="45" y="15" width="285" height="128"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZW-Fx-Rnt">
+                                                        <rect key="frame" x="98" y="49" width="89" height="30"/>
+                                                        <state key="normal" title="Select image">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="selectImageTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="J2n-ZT-faY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="XZW-Fx-Rnt" firstAttribute="centerX" secondItem="phO-Zg-1wv" secondAttribute="centerX" id="669-M8-J1N"/>
+                                                    <constraint firstItem="XZW-Fx-Rnt" firstAttribute="centerY" secondItem="phO-Zg-1wv" secondAttribute="centerY" id="9GI-uy-JSB"/>
                                                     <constraint firstAttribute="height" constant="128" id="Gh7-cG-vAK"/>
                                                 </constraints>
                                             </view>

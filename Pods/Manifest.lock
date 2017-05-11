@@ -6,6 +6,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - FontAwesome.swift (1.1.1)
   - Hero (0.3.6)
+  - ImagePicker (2.1.1)
   - IQKeyboardManagerSwift (4.0.6)
   - JSONWebToken (2.0.2):
     - CryptoSwift (~> 0.6.1)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - FontAwesome.swift
   - Hero
+  - ImagePicker
   - IQKeyboardManagerSwift (= 4.0.6)
   - JSONWebToken
   - Locksmith
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
   Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
+  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
   JSONWebToken: ca86f02eeb3d1f58ba5197ec2cd53c7de915ecc1
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
@@ -56,6 +59,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: 2f23ad08f33e2cbbba4132416a3b324b2f86c9c1
+PODFILE CHECKSUM: 64b782938924c67aa3d7e1e45188a0a6a61ecde3
 
 COCOAPODS: 1.2.1

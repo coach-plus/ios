@@ -19,6 +19,7 @@ def all_pods
   pod 'AlamofireImage', '~> 3.1'
   pod 'SlideMenuControllerSwift'
   pod 'DZNEmptyDataSet'
+  pod 'ImagePicker'
 end
 
 target 'CoachPlus' do

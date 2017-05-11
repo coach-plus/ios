@@ -37,9 +37,12 @@ extension UIImageView {
         
         let placeholder = UIImage.fontAwesomeIcon(name: .users, textColor: color, size: self.frame.size)
         
-        if team != nil && team?.image != nil,
-            let url = URL(string: team!.image!) {
-            self.af_setImage(withURL: url, placeholderImage: placeholder)
+        if (team != nil && team?.image != nil) {
+            let fullUrl = String.init(format: "%@%@", "https://dev.coach.plus/uploads/", team!.image!)
+            print(fullUrl)
+            if let url = URL(string: fullUrl) {
+                self.af_setImage(withURL: url, placeholderImage: placeholder)
+            }
         } else {
             self.image = placeholder
         }

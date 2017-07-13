@@ -78,4 +78,16 @@ extension UIColor {
         }
     }
     
+    static var coachPlusGrey:UIColor {
+        get {
+            return UIColor(hexString: "#4a4a4a")
+        }
+    }
+    
+    static var coachPlusLightGrey:UIColor {
+        get {
+            return UIColor(hexString: "#9b9b9b")
+        }
+    }
+    
 }

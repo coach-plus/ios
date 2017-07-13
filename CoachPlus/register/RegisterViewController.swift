@@ -12,7 +12,6 @@ import SwiftyJSON
 import MBProgressHUD
 import Alamofire
 import RKDropdownAlert
-import JWT
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 

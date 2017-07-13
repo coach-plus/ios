@@ -17,6 +17,8 @@ class CreateTeamViewController: CoachPlusViewController, ImagePickerDelegate {
     @IBOutlet weak var createBtn: OutlineButton!
     
     
+    var membershipsController:MembershipsController?
+    
     var selectedImage:UIImage?
     
     
@@ -48,23 +50,33 @@ class CreateTeamViewController: CoachPlusViewController, ImagePickerDelegate {
     
     @IBAction func createBtnTapped(_ sender: Any) {
         
+        
+        
         let teamName = self.nameTf.text
         
         let isPublic = true
         
         var base64String = ""
         
+        let size = CGSize(width: 500.0, height: 500.0)
+        
         if (self.selectedImage != nil) {
-            let imageData:Data =  UIImagePNGRepresentation(self.selectedImage!)!
+            
+            let aspectScaledToFitImage = self.selectedImage?.af_imageScaled(to: size)
+            let imageData:Data =  UIImagePNGRepresentation(aspectScaledToFitImage!)!
             base64String = String.init(format: "%@%@", "data:image/jpeg;base64,", imageData.base64EncodedString())
         }
         
         
-        DataHandler.def.createTeam(createTeam: [
+        _ = DataHandler.def.createTeam(createTeam: [
             "name": teamName,
             "isPublic": isPublic,
             "image": base64String
-            ], successHandler: { response in
+            ], successHandler: { membership in
+                if (self.membershipsController != nil) {
+                    self.membershipsController?.teamIdToBeSelected = membership.id
+                    self.membershipsController?.loadTeams()
+                }
                 self.dismiss(animated: true, completion: nil)
         }, failHandler: { err in
             print(err.message)

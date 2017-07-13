@@ -8,7 +8,7 @@
 
 import Foundation
 import Locksmith
-import JWT
+import JWTDecode
 
 class Authentication {
     
@@ -21,20 +21,19 @@ class Authentication {
     static func storeJWT(jwt: String) -> Bool {
         
         do {
-            let claims = try JWT.decode(jwt, algorithms: [], verify: false, audience: nil, issuer: nil)
-            print(claims)
+            let jwtObject = try decode(jwt: jwt)
+            print(jwtObject)
             do {
                 try Locksmith.deleteDataForUserAccount(userAccount: "main")
             } catch {
                 
             }
-            
             try Locksmith.saveData(data: [
                 "jwt": jwt,
-                "email": claims["email"]!,
-                "id": claims["id"]!,
-                "firstname": claims["firstname"]!,
-                "lastname": claims["lastname"]!
+                "email": jwtObject.claim(name: "email").string,
+                "id": jwtObject.claim(name: "id").string,
+                "firstname": jwtObject.claim(name: "firstname").string,
+                "lastname": jwtObject.claim(name: "lastname").string
                 ], forUserAccount: "main")
             return true
         } catch {
@@ -69,6 +68,10 @@ class Authentication {
     
     static func getId() -> String? {
         return getValue(key: "id") as! String?
+    }
+    
+    static func getUser() -> User {
+        return User(id: getId()!, firstname: getFirstname()!, lastname: getLastname()!, email: getEmail()!)
     }
     
     static func logout() {

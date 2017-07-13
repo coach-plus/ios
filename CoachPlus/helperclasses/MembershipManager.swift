@@ -36,6 +36,7 @@ class MembershipManager {
         
         if (memberships.count == 1) {
             selectedMembership = memberships[0]
+            selectedMembership?.user = Authentication.getUser()
             return memberships[0]
         }
         
@@ -45,6 +46,7 @@ class MembershipManager {
         
         if (matchingMemberships.count > 0) {
             selectedMembership = matchingMemberships[0]
+            selectedMembership?.user = Authentication.getUser()
             return matchingMemberships[0]
         }
         

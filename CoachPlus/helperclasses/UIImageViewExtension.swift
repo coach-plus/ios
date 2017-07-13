@@ -29,6 +29,11 @@ extension UIImageView {
     
     func setTeamImage(team:Team?, placeholderColor:UIColor?) {
         
+        let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
+            size: self.frame.size,
+            radius: self.frame.size.height / 2
+        )
+        
         var color = UIColor.coachPlusBlue
         
         if (placeholderColor != nil) {
@@ -38,13 +43,13 @@ extension UIImageView {
         let placeholder = UIImage.fontAwesomeIcon(name: .users, textColor: color, size: self.frame.size)
         
         if (team != nil && team?.image != nil) {
-            let fullUrl = String.init(format: "%@%@", "https://dev.coach.plus/uploads/", team!.image!)
-            print(fullUrl)
-            if let url = URL(string: fullUrl) {
-                self.af_setImage(withURL: url, placeholderImage: placeholder)
+            let fullUrl = team?.getTeamImageUrl()
+            if let url = URL(string: fullUrl!) {
+                self.af_setImage(withURL: url, placeholderImage: placeholder, filter: filter)
             }
         } else {
             self.image = placeholder
         }
     }
+    
 }

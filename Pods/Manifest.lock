@@ -2,14 +2,12 @@ PODS:
   - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - CryptoSwift (0.6.8)
   - DZNEmptyDataSet (1.8.1)
-  - FontAwesome.swift (1.1.1)
+  - FontAwesome.swift (1.2.0)
   - Hero (0.3.6)
   - ImagePicker (2.1.1)
   - IQKeyboardManagerSwift (4.0.6)
-  - JSONWebToken (2.0.2):
-    - CryptoSwift (~> 0.6.1)
+  - JWTDecode (2.0.0)
   - Locksmith (3.0.0)
   - MBProgressHUD (1.0.0)
   - NibDesignable (3.0.0)
@@ -17,18 +15,20 @@ PODS:
   - SkyFloatingLabelTextField (2.0.1)
   - SlideMenuControllerSwift (3.0.1)
   - SwiftDate (4.1.1)
+  - SwiftIcons (1.5.1)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
+  - XLPagerTabStrip (7.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - AlamofireImage (~> 3.1)
   - DZNEmptyDataSet
-  - FontAwesome.swift
+  - FontAwesome.swift (from `https://github.com/thii/FontAwesome.swift.git`, branch `master`)
   - Hero
   - ImagePicker
   - IQKeyboardManagerSwift (= 4.0.6)
-  - JSONWebToken
+  - JWTDecode
   - Locksmith
   - MBProgressHUD (~> 1.0.0)
   - NibDesignable
@@ -36,19 +36,30 @@ DEPENDENCIES:
   - SkyFloatingLabelTextField (~> 2.0.0)
   - SlideMenuControllerSwift
   - SwiftDate (~> 4.0)
+  - SwiftIcons (~> 1.5.1)
   - SwiftyJSON
   - SwiftyUserDefaults
+  - XLPagerTabStrip (~> 7.0)
+
+EXTERNAL SOURCES:
+  FontAwesome.swift:
+    :branch: master
+    :git: https://github.com/thii/FontAwesome.swift.git
+
+CHECKOUT OPTIONS:
+  FontAwesome.swift:
+    :commit: d4bd83d8de195c502af886aad78e47188a6c5b2e
+    :git: https://github.com/thii/FontAwesome.swift.git
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  CryptoSwift: f21ea03ed3a94e79d241648ce26652cd4810508a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
+  FontAwesome.swift: 609815397a9b51cb4d774969787163c7d1306739
   Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
   ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
-  JSONWebToken: ca86f02eeb3d1f58ba5197ec2cd53c7de915ecc1
+  JWTDecode: 178e47e5d28d3abcff778bacced8342858cd6cb5
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NibDesignable: 6ccf1e54135cb05be0a78f803b9a8d78125a7d6d
@@ -56,9 +67,11 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftDate: ae615078806a322183e5f64e02e80ca8d939bf48
+  SwiftIcons: 287593643898af5a9ef16be4b1f9cf91a436cbc7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  XLPagerTabStrip: 9be80a66c6b7d60306b2c0a6004965016d68f813
 
-PODFILE CHECKSUM: 64b782938924c67aa3d7e1e45188a0a6a61ecde3
+PODFILE CHECKSUM: 7625153a7dc0556d66e4b08f2b35e34c8dc43a7e
 
 COCOAPODS: 1.2.1

@@ -8,6 +8,9 @@
 
 import Foundation
 import NibDesignable
+import SwiftIcons
+
+
 
 protocol CoachPlusNavigationBarDelegate {
     func profile(sender:UIBarButtonItem)
@@ -130,9 +133,7 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     
     func createProfileBarButton() -> UIBarButtonItem {
         let btn = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profile(sender:)))
-        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as [String: Any]
-        btn.setTitleTextAttributes(attributes, for: .normal)
-        btn.title = String.fontAwesomeIcon(name: .user)
+        btn.setIcon(icon: .ionicons(.iosPersonOutline), iconSize: 20, color: UIColor.white)
         return btn
     }
     
@@ -149,7 +150,9 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     }
     
     func createTeamsBarButton() -> UIBarButtonItem {
-        return UIBarButtonItem(title: "Teams", style: .plain, target: self, action: #selector(openSlider(sender:)))
+        let btn = UIBarButtonItem(title: "Teams", style: .plain, target: self, action: #selector(openSlider(sender:)))
+        btn.setIcon(icon: .ionicons(.tshirtOutline), iconSize: 20, color: UIColor.white)
+        return btn
     }
     
     func setStyling() {

@@ -6,12 +6,12 @@ def all_pods
   pod 'Locksmith'
   pod 'SkyFloatingLabelTextField', '~> 2.0.0'
   pod 'IQKeyboardManagerSwift', '4.0.6'
-  pod 'FontAwesome.swift'
+  pod 'FontAwesome.swift', :git => 'https://github.com/thii/FontAwesome.swift.git', :branch => 'master'
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'RKDropdownAlert'
-  pod 'JSONWebToken'
+  pod "JWTDecode"
   pod 'Hero'
   pod 'SwiftyUserDefaults'
   pod 'NibDesignable'
@@ -20,6 +20,8 @@ def all_pods
   pod 'SlideMenuControllerSwift'
   pod 'DZNEmptyDataSet'
   pod 'ImagePicker'
+  pod 'XLPagerTabStrip', '~> 7.0'
+  pod 'SwiftIcons', '~> 1.5.1'
 end
 
 target 'CoachPlus' do

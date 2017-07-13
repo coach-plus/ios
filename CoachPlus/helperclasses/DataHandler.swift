@@ -16,6 +16,7 @@ typealias FailHandler = (ApiResponse) -> ()
 
 typealias TeamsSuccessHandler = ([Team]) -> ()
 typealias MembershipsSuccessHandler = ([Membership]) -> ()
+typealias MembershipSuccessHandler = (Membership) -> ()
 typealias EventsSuccessHandler = ([Event]) -> ()
 
 typealias CreateInviteLinkSuccessHandler = (String) -> ()
@@ -238,11 +239,16 @@ class DataHandler {
         
     }
     
-    func createTeam(createTeam:[String:Any], successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func createTeam(createTeam:[String:Any], successHandler: @escaping MembershipSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         
         let url = "teams/register"
         
-        return self.authenticatedPost(url, params: createTeam, successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPost(url, params: createTeam, successHandler: { apiResponse in
+            
+            let membership = apiResponse.toObject(Membership.self, property: nil)
+            successHandler(membership)
+            
+        }, failHandler: failHandler)
         
     }
     

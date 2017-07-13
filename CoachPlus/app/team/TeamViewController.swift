@@ -9,6 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 import Hero
+import AlamofireImage
 
 class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate {
 
@@ -28,6 +29,10 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     var members = [Membership]()
     var events = [Event]()
     var allEvents = [Event]()
+    
+    let downloader = ImageDownloader()
+    
+    var context = CIContext(options: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,17 +57,51 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         self.setupNavbar()
         
+        self.setupParallax()
+        
         super.viewDidLoad()
+    }
+    
+    func setupParallax() {
+        if (MembershipManager.shared.selectedMembership == nil || MembershipManager.shared.selectedMembership?.team?.image == nil || MembershipManager.shared.selectedMembership?.team?.image == "") {
+            return
+        }
+        
+        let width = self.view.bounds.width
+        let height:CGFloat = 200.0
+        
+        let placeholder = UIImage.init(icon: .ionicons(.tshirtOutline), size: CGSize(width: width, height: height), textColor: .coachPlusBlue, backgroundColor: .white)
+        
+        self.tableView.tableHeaderView  = HeaderView.init(frame: CGRect(x: 0, y: 0, width: width, height: height), image: placeholder)
+        
+        let urlRequest = URLRequest(url: URL(string: (self.membership?.team?.getTeamImageUrl())!)!)
+        
+        downloader.download(urlRequest) { response in
+            if let image = response.result.value {
+                
+                self.tableView.tableHeaderView  = HeaderView.init(frame: CGRect(x: 0, y: 0, width: width, height: height), image: image)
+            }
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let headerView = self.tableView.tableHeaderView as? HeaderView {
+            headerView.scrollViewDidScroll(scrollView: scrollView)
+        }
+        
     }
     
     func setupNavbar() {
         let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
         
+        navbar.setLeftBarButtonType(type: .teams)
+        
+        /*
         if (self.membership != nil && self.membership?.team != nil) {
             navbar.setTeamSelection(team: self.membership?.team!)
         } else {
             navbar.setLeftBarButtonType(type: .teams)
-        }
+        }*/
         
         navbar.setRightBarButtonType(type: .profile)
         
@@ -351,7 +390,10 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func profile(sender:UIBarButtonItem) {
         
         let vc = FlowManager.profileVc()
-        vc.user = MembershipManager.shared.selectedMembership?.user
+        
+        let ms = self.membership
+        let user = ms?.user
+        vc.user = user
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -14,6 +14,8 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     
     var memberships:[Membership] = MembershipManager.shared.getMemberships()
     
+    var teamIdToBeSelected:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,16 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             self.memberships = memberships
             MembershipManager.shared.storeMemberships(memberships: self.memberships)
             self.tableView.reloadData()
+            if (self.teamIdToBeSelected != nil) {
+                let membership = self.memberships.first(where: { membership in
+                    return membership.team?.id == self.teamIdToBeSelected
+                })
+                if (membership != nil) {
+                    self.selectMembership(membership: membership!)
+                    self.teamIdToBeSelected = nil
+                }
+                
+            }
         }, failHandler: { err in
             print(err)
         })
@@ -60,28 +72,19 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "goToTeam") {
-            let navVc = segue.destination as! UINavigationController
-            let target = navVc.viewControllers[0] as! TeamViewController
-            let team = self.memberships[self.tableView.indexPathForSelectedRow!.row].team
-            target.team = team
-        }
-    }
- 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "goToTeam", sender: nil)
-    }
- */
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let membership = self.memberships[indexPath.row]
+        self.selectMembership(membership: membership)
+    }
+    
+    func selectMembership(membership:Membership) {
         let team = membership.team
         
         let selectedMembership = MembershipManager.shared.selectedMembership
         
         if (selectedMembership?.team?.id != team?.id) {
+            
+            membership.user = Authentication.getUser()
             
             MembershipManager.shared.selectedMembership = membership
             let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
@@ -97,7 +100,17 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             controller?.closeLeft()
         }
 
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "goToNewTeam") {
+            if let targetNavVc = segue.destination as? CoachPlusNavigationViewController {
+                if targetNavVc.childViewControllers.count > 0, let targetVc = targetNavVc.childViewControllers[0] as? CreateTeamViewController {
+                    targetVc.membershipsController = self
+                }
+                
+            }
+        }
     }
     
     

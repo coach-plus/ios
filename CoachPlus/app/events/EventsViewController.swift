@@ -2,106 +2,80 @@
 //  EventsViewController.swift
 //  CoachPlus
 //
-//  Created by Maurice Breit on 16.04.17.
+//  Created by Maurice Breit on 07.07.17.
 //  Copyright © 2017 Mathandoro GbR. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import XLPagerTabStrip
 
-class EventsViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource {
+class EventsViewController: ButtonBarPagerTabStripViewController {
     
-    enum Selection {
-        case upcoming
-        case past
-    }
-
-    @IBOutlet weak var tableView: UITableView!
+    var upcomingEventsViewController: EventListViewController?
+    var pastEventsViewController: EventListViewController?
     
-    @IBOutlet weak var upcomingBtn: UIButton!
-    @IBOutlet weak var pastBtn: UIButton!
-    
-    var selection:Selection = .upcoming
-    
-    var filteredEvents = [Event]()
-    
-    let selectedColor = UIColor(colorLiteralRed: 74/255, green: 144/255, blue: 226/255, alpha: 0.15)
-    
-    let unselectedColor = UIColor(colorLiteralRed: 74/255, green: 144/255, blue: 226/255, alpha: 0.05)
-    
-    var events:[Event] = [Event]()
-    
-    @IBAction func upcomingTap(_ sender: Any) {
-        self.setUpcoming()
-    }
-    
-    @IBAction func pastTap(_ sender: Any) {
-        self.setPast()
-    }
+    var events: [Event] = []
     
     override func viewDidLoad() {
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 83
-        self.tableView.register(nib: "EventTableViewCell", reuseIdentifier: "EventTableViewCell")
-        self.updateUI()
-        self.filterEvents()
+        
+        let storyboard = UIStoryboard(name: "Events", bundle: nil)
+        
+        self.upcomingEventsViewController = storyboard.instantiateViewController(withIdentifier: "EventListViewController") as? EventListViewController
+        self.pastEventsViewController = storyboard.instantiateViewController(withIdentifier: "EventListViewController") as? EventListViewController
+        
+        self.upcomingEventsViewController?.selection = EventListViewController.Selection.upcoming
+        self.pastEventsViewController?.selection = EventListViewController.Selection.past
+        
+        self.upcomingEventsViewController?.events = self.filterEvents(selection: .upcoming)
+        self.pastEventsViewController?.events = self.filterEvents(selection: .past)
+        
+        self.settings.style.buttonBarBackgroundColor = UIColor.white
+        self.settings.style.selectedBarBackgroundColor = UIColor.coachPlusBlue
+        
+        self.settings.style.buttonBarMinimumLineSpacing = 0
+        
+        self.settings.style.buttonBarBackgroundColor = UIColor.white
+        
+        self.settings.style.buttonBarItemTitleColor = UIColor.coachPlusGrey
+        
+        self.settings.style.buttonBarItemBackgroundColor = UIColor.white
+        
+        self.settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 13)
+        self.settings.style.buttonBarHeight = 2.0
+        self.settings.style.selectedBarHeight = 2.0
+        
+        self.changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard changeCurrentIndex == true else { return }
+            
+            oldCell?.label.textColor = UIColor.coachPlusGrey
+            newCell?.label.textColor = UIColor.coachPlusBlue
+            
+            if animated {
+                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                    newCell?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    oldCell?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                })
+            }
+            else {
+                newCell?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                oldCell?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            }
+        }
+        
         super.viewDidLoad()
-    }    
-
-    func setUpcoming() {
-        guard self.selection != .upcoming else {
-            return
-        }
-        self.selection = .upcoming
-        self.updateUI()
-        self.filterEvents()
+        
     }
     
-    func setPast() {
-        guard self.selection != .past else {
-            return
-        }
-        self.selection = .past
-        self.updateUI()
-        self.filterEvents()
-    }
-    
-    func updateUI() {
-        if (self.selection == .upcoming) {
-            self.upcomingBtn.backgroundColor = self.selectedColor
-            self.pastBtn.backgroundColor = self.unselectedColor
-        } else {
-            self.upcomingBtn.backgroundColor = self.unselectedColor
-            self.pastBtn.backgroundColor = self.selectedColor
-        }
-    }
-    
-    func filterEvents() {
-        let filterPast = self.selection == .past
+    func filterEvents(selection: EventListViewController.Selection) -> [Event] {
+        let filterPast = selection == .past
         let events = self.events.filter({event in
             return filterPast == event.isInPast()
         })
-        self.filteredEvents = events
-        self.tableView.reloadData()
+        return events
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        return [self.upcomingEventsViewController!, self.pastEventsViewController!]
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filteredEvents.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
-        cell.setup(event: self.filteredEvents[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let event = self.events[indexPath.row]
-        self.pushToEventDetail(event: event)        
-    }
-    
-    
+
 }

@@ -11,7 +11,7 @@ import DZNEmptyDataSet
 import Hero
 import AlamofireImage
 
-class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate {
+class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate, ImageHelperDelegate {
 
     enum Section:Int {
         case events = 0
@@ -30,9 +30,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     var events = [Event]()
     var allEvents = [Event]()
     
+    var membershipsController:MembershipsController?
+    
     let downloader = ImageDownloader()
     
     var context = CIContext(options: nil)
+    
+    var imageHelper:ImageHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +67,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func setupParallax() {
-        if (MembershipManager.shared.selectedMembership == nil || MembershipManager.shared.selectedMembership?.team?.image == nil || MembershipManager.shared.selectedMembership?.team?.image == "") {
+
+        if (self.membership == nil) {
             return
         }
         
@@ -73,15 +78,70 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         let placeholder = UIImage.init(icon: .ionicons(.tshirtOutline), size: CGSize(width: width, height: height), textColor: .coachPlusBlue, backgroundColor: .white)
         
         self.tableView.tableHeaderView  = HeaderView.init(frame: CGRect(x: 0, y: 0, width: width, height: height), image: placeholder)
+        self.addSettingsButtonToHeaderView()
         
-        let urlRequest = URLRequest(url: URL(string: (self.membership?.team?.getTeamImageUrl())!)!)
-        
-        downloader.download(urlRequest) { response in
-            if let image = response.result.value {
-                
-                self.tableView.tableHeaderView  = HeaderView.init(frame: CGRect(x: 0, y: 0, width: width, height: height), image: image)
+        if !(self.membership?.team?.image == nil || self.membership?.team?.image == "") {
+            let urlRequest = URLRequest(url: URL(string: (self.membership?.team?.getTeamImageUrl())!)!)
+            downloader.download(urlRequest) { response in
+                if let image = response.result.value {
+                    self.tableView.tableHeaderView  = HeaderView.init(frame: CGRect(x: 0, y: 0, width: width, height: height), image: image)
+                    self.addSettingsButtonToHeaderView()
+                }
             }
         }
+        
+        
+        
+    }
+    
+    func addSettingsButtonToHeaderView() {
+        
+        if (!(self.membership?.isCoach())!) {
+            return
+        }
+        
+        if let headerView = self.tableView.tableHeaderView as? HeaderView {
+            let container = headerView.containerView
+            
+            let view = UIView()
+            
+            view.backgroundColor = .coachPlusBlue
+            view.layer.cornerRadius = 5;
+            view.layer.masksToBounds = true;
+            view.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(view)
+            view.trailingAnchor.constraint(equalTo: container.layoutMarginsGuide.trailingAnchor, constant: -10).isActive = true
+            view.bottomAnchor.constraint(equalTo: container.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+            view.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            
+             
+            let btn = UIButton()
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            btn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .white, backgroundColor: .clear, forState: .normal)
+            btn.addTarget(self, action: #selector(TeamViewController.editTapped(sender:)) , for: .touchUpInside)
+            view.addSubview(btn)
+            
+            btn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+            btn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+            btn.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+            btn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        }
+    }
+    
+    func editTapped(sender: UIButton) {
+        self.imageHelper = ImageHelper(vc: self)
+        self.imageHelper?.showImagePicker()
+    }
+    
+    func imageSelectedAndCropped(image: UIImage) {
+        _ = DataHandler.def.updateTeamImage(teamId: (self.membership?.team?.id)!, image: image.toTeamImage().toBase64(), successHandler: { team in
+            self.membership?.team = team
+            self.setupParallax()
+            if (self.membershipsController != nil) {
+                self.membershipsController?.loadTeams()
+            }
+        }, failHandler: { err in })
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -264,11 +324,22 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         if (self.membership?.team == nil) {
             return nil
         }
+        
+        let sectionType = Section(rawValue: section)!
+        
         let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
         let view = cell as! ReusableTableHeader
-        view.tableHeader.btn.tag = section
-        view.tableHeader.delegate = self
-        switch Section(rawValue: section)! {
+        
+        if (self.membership!.isCoach() || (sectionType == Section.members && (self.membership?.team?.isPublic)!)) {
+            view.tableHeader.btn.tag = section
+            view.tableHeader.delegate = self
+            view.tableHeader.showBtn = true
+        } else {
+            view.tableHeader.showBtn = false
+        }
+        
+        
+        switch sectionType {
         case .events:
             view.tableHeader.title = "EVENTS"
         default:
@@ -338,18 +409,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             case .event:
                 let event = self.events[indexPath.row]
                 
-                /*
-                
-                var participations = [Participation]()
-                let p1 = Participation()
-                p1.didAttend = true
-                p1.willAttend = true
-                p1.event = event
-                p1.user = User(id: "abcd", firstname: "Maurice", lastname: "Breit", email: "mau04@online.de")
-                participations.append(p1)
-                event.participations = participations
-                */
-                
                 let cell = self.tableView.cellForRow(at: indexPath)
                 
                 self.pushToEventDetail(event: event)
@@ -361,7 +420,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         if (indexPath.section == Section.members.rawValue) {
             let vc = FlowManager.profileVc()
             let user = self.members[indexPath.row].user
+            vc.isHeroEnabled = true
             vc.user = user
+            vc.heroId = "\(user!.id)"
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -394,8 +455,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         let vc = FlowManager.profileVc()
         
-        let ms = self.membership
-        let user = ms?.user
+        let user = UserManager.getUser()
         vc.user = user
         
         self.navigationController?.pushViewController(vc, animated: true)

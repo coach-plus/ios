@@ -17,6 +17,7 @@ class User:JSONable, BackJSONable {
         case id = "_id"
         case lastname = "lastname"
         case email = "email"
+        case image = "image"
     }
     
     var id: String
@@ -25,11 +26,12 @@ class User:JSONable, BackJSONable {
     var email: String
     var image: String?
     
-    init(id:String, firstname:String, lastname:String, email:String) {
+    init(id:String, firstname:String, lastname:String, email:String, image: String?) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
+        self.image = image
     }
     
     required init(json:JSON) {
@@ -37,6 +39,7 @@ class User:JSONable, BackJSONable {
         self.firstname = json[Fields.firstname.rawValue].stringValue
         self.lastname = json[Fields.lastname.rawValue].stringValue
         self.email = json[Fields.email.rawValue].stringValue
+        self.image = json[Fields.image.rawValue].stringValue
     }
     
     func toJson() -> JSON {
@@ -44,7 +47,8 @@ class User:JSONable, BackJSONable {
             Fields.id.rawValue: self.id,
             Fields.firstname.rawValue: self.firstname,
             Fields.lastname.rawValue: self.lastname,
-            Fields.email.rawValue: self.email]
+            Fields.email.rawValue: self.email,
+            Fields.image.rawValue: self.image]
         return json
     }
     
@@ -52,6 +56,13 @@ class User:JSONable, BackJSONable {
         get {
             return "\(self.firstname) \(self.lastname)"
         }
+    }
+    
+    func getUserImageUrl() -> String {
+        guard (self.image != nil) else {
+            return ""
+        }
+        return String.init(format: "%@%@", "https://dev.coach.plus/uploads/", self.image!)
     }
 
 }

@@ -47,11 +47,10 @@ class Team:JSONable, BackJSONable {
     }
     
     func getTeamImageUrl() -> String {
-        if let img = self.image {
-            return String.init(format: "%@%@", "https://dev.coach.plus/uploads/", self.image!)
+        guard (self.image != nil) else {
+            return ""
         }
-        return ""
-        
+        return String.init(format: "%@%@", "https://dev.coach.plus/uploads/", self.image!)
     }
     
 }

@@ -9,12 +9,14 @@
 import UIKit
 import AlamofireImage
 import DZNEmptyDataSet
+import ImagePicker
 
-class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ImageHelperDelegate {
 
     var user:User?
     var memberships = [Membership]()
     var loaded = false
+    var imageHelper: ImageHelper?
     
     @IBOutlet weak var imageV: UIImageView!
     
@@ -24,8 +26,26 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var editImageBtn: UIButton!
+    
+    @IBAction func editImageBtnTapped(_ sender: Any) {
+        self.showImagePicker()
+    }
+    
     override func viewDidLoad() {
+    
         super.viewDidLoad()
+        
+        if (self.heroId != "") {
+            self.isHeroEnabled = true
+            self.imageV.heroID = "\(self.heroId)/image"
+        }
+        
+        self.editImageBtn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .coachPlusGrey, backgroundColor: .clear, forState: .normal)
+        
+        self.editImageBtn.isHidden = !(self.membership?.user?.id == user?.id)
+        
+        
         guard self.user != nil else {
             if (self.isBeingPresented) {
                 self.dismiss(animated: false, completion: nil)
@@ -34,10 +54,16 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             }
             return
         }
+        
         self.displayUser()
         self.setupTableView()
         
         self.memberships = MembershipManager.shared.getMemberships()
+    }
+    
+    func showImagePicker() {
+        self.imageHelper = ImageHelper(vc: self)
+        self.imageHelper?.showImagePicker()
     }
     
     func displayUser() {
@@ -102,5 +128,17 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
     }
     
+    func imageSelectedAndCropped(image: UIImage) {
+        self.updateUserImage(image: image)
+    }
+    
+    func updateUserImage(image:UIImage) {
+        let userImage = image.toUserImage().toBase64()
+        _ = DataHandler.def.updateUserImage(image: userImage, successHandler: { user in
+            UserManager.storeUser(user: user)
+            self.user = user
+            self.displayUser()
+        }, failHandler: {err in })
+    }
 
 }

@@ -22,6 +22,7 @@ def all_pods
   pod 'ImagePicker'
   pod 'XLPagerTabStrip', '~> 7.0'
   pod 'SwiftIcons', '~> 1.5.1'
+  pod 'RSKImageCropper'
 end
 
 target 'CoachPlus' do

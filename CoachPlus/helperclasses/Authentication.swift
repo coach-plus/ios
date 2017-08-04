@@ -28,12 +28,12 @@ class Authentication {
             } catch {
                 
             }
+            
+            let user = User(id: jwtObject.claim(name: "id").string!, firstname: jwtObject.claim(name: "firstname").string!, lastname: jwtObject.claim(name: "lastname").string!, email: jwtObject.claim(name: "email").string!, image: jwtObject.claim(name: "image").string)
+            UserManager.storeUser(user: user)
+            
             try Locksmith.saveData(data: [
-                "jwt": jwt,
-                "email": jwtObject.claim(name: "email").string,
-                "id": jwtObject.claim(name: "id").string,
-                "firstname": jwtObject.claim(name: "firstname").string,
-                "lastname": jwtObject.claim(name: "lastname").string
+                "jwt": jwt
                 ], forUserAccount: "main")
             return true
         } catch {
@@ -50,29 +50,27 @@ class Authentication {
         return getDict()?[key]
     }
     
+    static func setValues(dict: Dictionary<String, Any>) -> Bool {
+        var existingDict = getDict()
+        dict.forEach({ (key, value) in
+            existingDict![key] = value
+        })
+        do {
+            try Locksmith.saveData(data: dict, forUserAccount: "main")
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     static func getJWT() -> String? {
         return getValue(key: "jwt") as! String?
     }
     
-    static func getFirstname() -> String? {
-        return getValue(key: "firstname") as! String?
-    }
-    
-    static func getLastname() -> String? {
-        return getValue(key: "lastname") as! String?
-    }
-    
-    static func getEmail() -> String? {
-        return getValue(key: "email") as! String?
-    }
-    
-    static func getId() -> String? {
-        return getValue(key: "id") as! String?
-    }
-    
     static func getUser() -> User {
-        return User(id: getId()!, firstname: getFirstname()!, lastname: getLastname()!, email: getEmail()!)
+        return UserManager.getUser()
     }
+    
     
     static func logout() {
         do {

@@ -19,6 +19,10 @@ typealias MembershipsSuccessHandler = ([Membership]) -> ()
 typealias MembershipSuccessHandler = (Membership) -> ()
 typealias EventsSuccessHandler = ([Event]) -> ()
 typealias ParticipationsSuccessHandler = ([ParticipationItem]) -> ()
+typealias NewsSuccessHandler = ([News]) -> ()
+
+typealias UserSuccessHandler = (User) -> ()
+typealias TeamSuccessHandler = (Team) -> ()
 
 typealias CreateInviteLinkSuccessHandler = (String) -> ()
 
@@ -88,6 +92,10 @@ class DataHandler {
         return self.httpRequest(url, method: .put, params: params, headers: headers, successHandler: successHandler, failHandler: failHandler)
     }
     
+    func delete(_ url:String, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+        return self.httpRequest(url, method: .delete, params: [:], headers: headers, successHandler: successHandler, failHandler: failHandler)
+    }
+    
     func unauthenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         return self.post(url, params: params, headers: [:], successHandler: successHandler, failHandler: failHandler)
     }
@@ -98,6 +106,10 @@ class DataHandler {
     
     func authenticatedPut(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         return self.put(url, params: params, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    func authenticatedDelete(_ url:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        return self.delete(url, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
     }
     
     // Get Helpers
@@ -318,8 +330,55 @@ class DataHandler {
         let url = "teams/\(event.teamId)/events/\(event.id)/participation"
         
         return self.authenticatedGet(url, headers: nil, successHandler: { apiResponse in
-                let participations = apiResponse.toArray(ParticipationItem.self, property: "participation")
-                successHandler(participations)
+            let participations = apiResponse.toArray(ParticipationItem.self, property: "participation")
+            successHandler(participations)
+        }, failHandler: failHandler)
+    }
+    
+    func getNews(event:Event, successHandler: @escaping NewsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(event.teamId)/events/\(event.id)/news"
+        
+        return self.authenticatedGet(url, headers: nil, successHandler: { apiResponse in
+            let news = apiResponse.toArray(News.self, property: "news")
+            successHandler(news)
+        }, failHandler: failHandler)
+    }
+    
+    func createNews(event:Event, createNews:[String:Any], successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(event.teamId)/events/\(event.id)/news"
+        
+        return self.authenticatedPost(url, params: createNews, successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    
+    func deleteNews(teamId:String, news:News, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(teamId)/events/\(news.eventId)/news/\(news.id)"
+        
+        return self.authenticatedDelete(url, successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    func updateUserImage(image:String, successHandler: @escaping UserSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        let url = "users/me"
+        let params = [
+            "image": image
+        ]
+        return self.authenticatedPut(url, params: params, successHandler: { apiResponse in
+            let user = apiResponse.toObject(User.self, property: nil)
+            successHandler(user)
+        }, failHandler: failHandler)
+    }
+    
+    func updateTeamImage(teamId:String, image:String, successHandler: @escaping TeamSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        let url = "teams/\(teamId)"
+        let params = [
+            "image": image
+        ]
+        return self.authenticatedPut(url, params: params, successHandler: { apiResponse in
+            let team = apiResponse.toObject(Team.self, property: nil)
+            successHandler(team)
         }, failHandler: failHandler)
     }
     

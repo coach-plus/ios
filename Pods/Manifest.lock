@@ -12,6 +12,7 @@ PODS:
   - MBProgressHUD (1.0.0)
   - NibDesignable (3.0.0)
   - RKDropdownAlert (0.3.0)
+  - RSKImageCropper (1.6.3)
   - SkyFloatingLabelTextField (2.0.1)
   - SlideMenuControllerSwift (3.0.1)
   - SwiftDate (4.1.1)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 1.0.0)
   - NibDesignable
   - RKDropdownAlert
+  - RSKImageCropper
   - SkyFloatingLabelTextField (~> 2.0.0)
   - SlideMenuControllerSwift
   - SwiftDate (~> 4.0)
@@ -64,6 +66,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NibDesignable: 6ccf1e54135cb05be0a78f803b9a8d78125a7d6d
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
+  RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftDate: ae615078806a322183e5f64e02e80ca8d939bf48
@@ -72,6 +75,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   XLPagerTabStrip: 9be80a66c6b7d60306b2c0a6004965016d68f813
 
-PODFILE CHECKSUM: 7625153a7dc0556d66e4b08f2b35e34c8dc43a7e
+PODFILE CHECKSUM: adb9f25e7a38220c415c91d6bad6981a950ebb88
 
 COCOAPODS: 1.2.1

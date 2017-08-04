@@ -41,6 +41,7 @@ class ParticipationView: NibDesignable {
     var participation: Participation?
     var event: Event?
     var user: User?
+    var membership: Membership?
     
     static let selectedYesColor = UIColor(hexString: "#73ba26")
     static let selectedNoColor = UIColor(hexString: "#FF3B30")
@@ -72,6 +73,18 @@ class ParticipationView: NibDesignable {
             self.participation = participationItem.participation
         } else {
             self.participation = Participation(user: (participationItem.user?.id)!, event: event.id, willAttend: nil, didAttend: nil)
+        }
+        
+        self.membership = MembershipManager.shared.selectedMembership
+        
+        if (self.event!.hasStarted() && !self.membership!.isCoach()) {
+            yesBtn.isEnabled = false
+            noBtn.isEnabled = false
+        }
+        
+        if (!(self.event?.hasStarted())! && self.user?.id != self.membership?.user?.id) {
+            yesBtn.isEnabled = false
+            noBtn.isEnabled = false
         }
         
         self.showData()
@@ -117,14 +130,11 @@ class ParticipationView: NibDesignable {
     }
     
     func selected(attend:Bool) {
-        if let membership = MembershipManager.shared.selectedMembership {
-            let now = Date()
-            if (now < (self.event?.start)! && self.participation?.willAttend != attend) {
-                setWillAttend(willAttend: attend)
-            } else {
-                if (membership.isCoach() && self.participation?.didAttend != attend) {
-                    self.setDidAttend(didAttend: attend)
-                }
+        if (!(event?.hasStarted())! && (self.participation?.willAttend == nil || self.participation?.willAttend != attend)) {
+            setWillAttend(willAttend: attend)
+        } else {
+            if (membership!.isCoach() && self.participation?.didAttend != attend) {
+                self.setDidAttend(didAttend: attend)
             }
         }
     }
@@ -149,7 +159,7 @@ class ParticipationView: NibDesignable {
             self.participation?.willAttend = willAttend
             self.showData()
         }, failHandler: { err in
-            self.hideActivityIndicator()
+            self.showData()
         })
     }
     
@@ -161,7 +171,7 @@ class ParticipationView: NibDesignable {
             self.participation?.didAttend = didAttend
             self.showData()
         }, failHandler: { err in
-            self.hideActivityIndicator()
+            self.showData()
         })
     }
     

@@ -8,13 +8,19 @@
 
 import UIKit
 
+import SwiftIcons
+
 class MembershipsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var infoBtn: UIButton!
     
     var memberships:[Membership] = MembershipManager.shared.getMemberships()
     
     var teamIdToBeSelected:String?
+    
+    private let refreshControl = UIRefreshControl()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +30,26 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        self.refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
 
+        self.infoBtn.setIcon(icon: .googleMaterialDesign(.infoOutline), iconSize: 20, color: .white, backgroundColor: .clear, forState: .normal)
+        
         self.loadTeams()
         
     }
     
-    @IBAction func refreshBtnTapped(_ sender: Any) {
+    func refresh(_ sender: Any) {
         self.loadTeams()
+    }
+    
+    @IBAction func infoBtnTapped(_ sender: Any) {
+        
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
@@ -54,8 +73,10 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
             }
+            self.refreshControl.endRefreshing()
         }, failHandler: { err in
             print(err)
+            self.refreshControl.endRefreshing()
         })
     }
     
@@ -91,7 +112,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             
             let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
             let teamController = navController.viewControllers[0] as! TeamViewController
-            
+            teamController.membershipsController = self
             teamController.membership = membership
             
             self.slideMenuController()?.changeMainViewController(navController, close: true)

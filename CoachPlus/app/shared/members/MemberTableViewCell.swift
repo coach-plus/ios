@@ -18,6 +18,10 @@ class MemberTableViewCell: UITableViewCell {
     @IBOutlet weak var coachLogoIv: UIImageView!
     
     func setup(membership: Membership) {
+        
+        let heroID = "\(membership.user!.id)"
+        self.imageV.heroID = "\(heroID)/image"
+        
         textLbl.text = membership.user?.fullname
         self.imageV.setUserImage(user: membership.user!)
         

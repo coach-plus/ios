@@ -18,6 +18,7 @@ class Event:JSONable, BackJSONable {
         case start = "start"
         case end = "end"
         case teamId = "team"
+        case location = "location"
     }
     
     var id: String
@@ -26,15 +27,16 @@ class Event:JSONable, BackJSONable {
     var start: Date
     var end: Date
     var teamId: String
-    var participations: [Participation]?
+    var location: Location?
     
-    init(id:String, name:String, description:String, start:Date, end:Date, teamId:String) {
+    init(id:String, name:String, description:String, start:Date, end:Date, teamId:String, location:Location?) {
         self.id = id
         self.name = name
         self.description = description
         self.start = start
         self.end = end
         self.teamId = teamId
+        self.location = location
     }
     
     required init(json:JSON) {
@@ -44,6 +46,11 @@ class Event:JSONable, BackJSONable {
         self.start = json[Fields.start.rawValue].stringValue.toDate()
         self.end = json[Fields.end.rawValue].stringValue.toDate()
         self.teamId = json[Fields.teamId.rawValue].stringValue
+        
+        let location = json[Fields.location.rawValue]
+        if (location.type != .string) {
+            self.location = Location(json: location)
+        }
     }
     
     func toJson() -> JSON {
@@ -53,7 +60,8 @@ class Event:JSONable, BackJSONable {
             Fields.description.rawValue: self.name,
             Fields.start.rawValue: self.start.toString(),
             Fields.end.rawValue: self.end.toString(),
-            Fields.teamId.rawValue: self.teamId]
+            Fields.teamId.rawValue: self.teamId,
+            Fields.location.rawValue: self.location?.toJson().rawString()]
         return json
     }
     
@@ -71,6 +79,19 @@ class Event:JSONable, BackJSONable {
     
     func dateString() -> String {
         return self.start.string(dateStyle: .short, timeStyle: .none, in: nil)
+    }
+    
+    func hasStarted() -> Bool {
+        let now = Date()
+        return (now > (self.start))
+    }
+    
+    func getLocationString() -> String {
+        if (self.location == nil || self.location?.name == "") {
+            return "No location provided"
+        } else {
+            return (self.location?.getLocationString())!
+        }
     }
     
     

@@ -8,50 +8,28 @@
 
 import UIKit
 import SkyFloatingLabelTextField
-import ImagePicker
+import SwiftIcons
 
-class CreateTeamViewController: CoachPlusViewController, ImagePickerDelegate {
+class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate {
 
     @IBOutlet weak var nameTf: SkyFloatingLabelTextField!
     
     @IBOutlet weak var createBtn: OutlineButton!
     
+    @IBOutlet weak var imageV: UIImageView!
     
     var membershipsController:MembershipsController?
     
     var selectedImage:UIImage?
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    var imageHelper:ImageHelper?
     
     @IBAction func selectImageTapped(_ sender: Any) {
-        
-        var config = Configuration()
-        config.doneButtonTitle = "Finish"
-        config.noImagesTitle = "Sorry! There are no images here!"
-        config.recordLocation = false
-        
-        let imagePickerController = ImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.configuration = config
-        imagePickerController.imageLimit = 1
-        present(imagePickerController, animated: true, completion: nil)
+        self.imageHelper?.showImagePicker()
     }
     
     @IBAction func createBtnTapped(_ sender: Any) {
-        
-        
-        
+
         let teamName = self.nameTf.text
         
         let isPublic = true
@@ -61,12 +39,8 @@ class CreateTeamViewController: CoachPlusViewController, ImagePickerDelegate {
         let size = CGSize(width: 500.0, height: 500.0)
         
         if (self.selectedImage != nil) {
-            
-            let aspectScaledToFitImage = self.selectedImage?.af_imageScaled(to: size)
-            let imageData:Data =  UIImagePNGRepresentation(aspectScaledToFitImage!)!
-            base64String = String.init(format: "%@%@", "data:image/jpeg;base64,", imageData.base64EncodedString())
+            base64String = (self.selectedImage?.toTeamImage().toBase64())!
         }
-        
         
         _ = DataHandler.def.createTeam(createTeam: [
             "name": teamName,
@@ -83,22 +57,16 @@ class CreateTeamViewController: CoachPlusViewController, ImagePickerDelegate {
         })
     }
     
-    
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        imagePicker.dismiss(animated: true, completion: nil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let placeholder = UIImage.init(icon: .ionicons(.tshirtOutline), size: CGSize(width: 100, height: 100), textColor: .coachPlusBlue, backgroundColor: .white)
+        self.imageV.image = placeholder
+        self.imageHelper = ImageHelper(vc: self)
     }
     
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        //guard images.count > 0 else { return }
-    }
-    
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        imagePicker.dismiss(animated: true, completion: nil)
-        
-        if (images.count > 0) {
-            self.selectedImage = images[0]
-        }
-        
+    func imageSelectedAndCropped(image: UIImage) {
+        self.selectedImage = image
+        self.imageV.setTeamImage(image: image)
     }
 
 }

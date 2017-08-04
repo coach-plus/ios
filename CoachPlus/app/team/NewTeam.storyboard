@@ -55,10 +55,10 @@
                                 <rect key="frame" x="0.0" y="109" width="375" height="558"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTP-m1-lXb">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="293"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="303"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPq-ah-W0P" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="45" y="158" width="285" height="45"/>
+                                                <rect key="frame" x="45" y="168" width="285" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="pGp-R7-5kG"/>
                                                 </constraints>
@@ -87,28 +87,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phO-Zg-1wv">
-                                                <rect key="frame" x="45" y="15" width="285" height="128"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZW-Fx-Rnt">
-                                                        <rect key="frame" x="98" y="49" width="89" height="30"/>
-                                                        <state key="normal" title="Select image">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="selectImageTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="J2n-ZT-faY"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="XZW-Fx-Rnt" firstAttribute="centerX" secondItem="phO-Zg-1wv" secondAttribute="centerX" id="669-M8-J1N"/>
-                                                    <constraint firstItem="XZW-Fx-Rnt" firstAttribute="centerY" secondItem="phO-Zg-1wv" secondAttribute="centerY" id="9GI-uy-JSB"/>
-                                                    <constraint firstAttribute="height" constant="128" id="Gh7-cG-vAK"/>
-                                                </constraints>
-                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srf-5v-NJN" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="218" width="285" height="45"/>
+                                                <rect key="frame" x="45" y="228" width="285" height="45"/>
                                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="bGQ-fx-Qob"/>
@@ -118,18 +98,37 @@
                                                     <action selector="createBtnTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="Fdr-iS-okF"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="22e-5g-J43">
+                                                <rect key="frame" x="137" y="20" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Fa3-8n-A2j"/>
+                                                    <constraint firstAttribute="height" constant="100" id="Vj0-zL-ZG4"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZW-Fx-Rnt">
+                                                <rect key="frame" x="137" y="128" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="aES-nL-H6T"/>
+                                                </constraints>
+                                                <state key="normal" title="Select image"/>
+                                                <connections>
+                                                    <action selector="selectImageTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="J2n-ZT-faY"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="phO-Zg-1wv" firstAttribute="leading" secondItem="zTP-m1-lXb" secondAttribute="leading" constant="45" id="9N0-ae-rv0"/>
+                                            <constraint firstItem="srf-5v-NJN" firstAttribute="leading" secondItem="zTP-m1-lXb" secondAttribute="leading" constant="45" id="HmE-7X-dp8"/>
+                                            <constraint firstItem="DPq-ah-W0P" firstAttribute="top" secondItem="XZW-Fx-Rnt" secondAttribute="bottom" constant="10" id="JGD-8G-YqU"/>
                                             <constraint firstAttribute="bottom" secondItem="srf-5v-NJN" secondAttribute="bottom" constant="30" id="NL4-GN-qY0"/>
-                                            <constraint firstItem="DPq-ah-W0P" firstAttribute="trailing" secondItem="phO-Zg-1wv" secondAttribute="trailing" id="W2I-g3-OGe"/>
-                                            <constraint firstItem="DPq-ah-W0P" firstAttribute="top" secondItem="phO-Zg-1wv" secondAttribute="bottom" constant="15" id="YLd-cM-VoA"/>
+                                            <constraint firstItem="22e-5g-J43" firstAttribute="centerX" secondItem="zTP-m1-lXb" secondAttribute="centerX" id="NTb-m2-lWf"/>
+                                            <constraint firstItem="XZW-Fx-Rnt" firstAttribute="leading" secondItem="22e-5g-J43" secondAttribute="leading" id="UlY-OM-88l"/>
                                             <constraint firstItem="srf-5v-NJN" firstAttribute="top" secondItem="DPq-ah-W0P" secondAttribute="bottom" constant="15" id="hkQ-4O-8ex"/>
                                             <constraint firstItem="srf-5v-NJN" firstAttribute="trailing" secondItem="DPq-ah-W0P" secondAttribute="trailing" id="iHr-jc-WZT"/>
-                                            <constraint firstItem="phO-Zg-1wv" firstAttribute="top" secondItem="zTP-m1-lXb" secondAttribute="top" constant="15" id="r7z-0I-zR2"/>
-                                            <constraint firstAttribute="trailing" secondItem="phO-Zg-1wv" secondAttribute="trailing" constant="45" id="sul-J8-PxV"/>
-                                            <constraint firstItem="DPq-ah-W0P" firstAttribute="leading" secondItem="phO-Zg-1wv" secondAttribute="leading" id="w5Z-E2-Il1"/>
+                                            <constraint firstItem="22e-5g-J43" firstAttribute="top" secondItem="zTP-m1-lXb" secondAttribute="top" constant="20" id="r2t-l5-cWX"/>
+                                            <constraint firstItem="XZW-Fx-Rnt" firstAttribute="top" secondItem="22e-5g-J43" secondAttribute="bottom" constant="8" id="rIP-89-hOD"/>
+                                            <constraint firstItem="XZW-Fx-Rnt" firstAttribute="trailing" secondItem="22e-5g-J43" secondAttribute="trailing" id="tIR-Fc-bnu"/>
+                                            <constraint firstAttribute="trailing" secondItem="srf-5v-NJN" secondAttribute="trailing" constant="45" id="v6u-dw-4Nt"/>
                                             <constraint firstItem="srf-5v-NJN" firstAttribute="leading" secondItem="DPq-ah-W0P" secondAttribute="leading" id="xxe-cm-dbD"/>
                                         </constraints>
                                     </view>
@@ -158,6 +157,7 @@
                     <navigationItem key="navigationItem" id="1Uj-et-p9H"/>
                     <connections>
                         <outlet property="createBtn" destination="srf-5v-NJN" id="XOb-wu-K8S"/>
+                        <outlet property="imageV" destination="22e-5g-J43" id="DFb-HY-cNU"/>
                         <outlet property="nameTf" destination="DPq-ah-W0P" id="44x-dK-Bmr"/>
                     </connections>
                 </viewController>

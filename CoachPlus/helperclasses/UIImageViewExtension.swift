@@ -19,21 +19,31 @@ extension UIImageView {
         
         let placeholder = UIImage.fontAwesomeIcon(name: .userCircleO, textColor: UIColor.coachPlusBlue, size: self.frame.size)
         
-        if user.image != nil,
-            let url = URL(string: user.image!) {
-            self.af_setImage(withURL: url, placeholderImage: placeholder, filter: filter)
+        if user.image != nil {
+            let fullUrl = user.getUserImageUrl()
+            if let url = URL(string: fullUrl) {
+                self.af_setImage(withURL: url, placeholderImage: placeholder, filter: filter)
+            }
         } else {
             self.image = placeholder
         }
     }
     
-    func setTeamImage(team:Team?, placeholderColor:UIColor?) {
-        
+    func setTeamImage(image:UIImage) {
+        self.image = image.af_imageRoundedIntoCircle()
+    }
+    
+    func getFilter() -> AspectScaledToFillSizeWithRoundedCornersFilter{
         let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
             size: self.frame.size,
             radius: self.frame.size.height / 2
         )
+        return filter
+    }
+    
+    func setTeamImage(team:Team?, placeholderColor:UIColor?) {
         
+        var filter = self.getFilter()
         var color = UIColor.coachPlusBlue
         
         if (placeholderColor != nil) {

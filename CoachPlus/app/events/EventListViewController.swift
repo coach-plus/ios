@@ -8,8 +8,10 @@
 
 import UIKit
 import XLPagerTabStrip
+import DZNEmptyDataSet
+import SwiftIcons
 
-class EventListViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, IndicatorInfoProvider {
+class EventListViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, IndicatorInfoProvider, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     
     enum Selection {
@@ -31,6 +33,8 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 83
         self.tableView.register(nib: "EventTableViewCell", reuseIdentifier: "EventTableViewCell")
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,6 +68,21 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        let size = CGSize(width: 100.0, height: 100.0)
+        return UIImage.init(icon: .googleMaterialDesign(.sentimentDissatisfied), size: size, textColor: .coachPlusBlue, backgroundColor: .clear)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        
+        let string = "Unfortunately there are no events!"
+        
+        let attributedString = NSAttributedString(string: string, attributes: attributes)
+        
+        return attributedString
     }
     
 }

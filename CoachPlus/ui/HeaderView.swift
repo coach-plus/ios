@@ -46,6 +46,7 @@ class HeaderView: UIView {
         containerView.addConstraint(bottomLayoutConstraint)
         heightLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: containerView, attribute: .height, multiplier: 1.0, constant: 0.0)
         containerView.addConstraint(heightLayoutConstraint)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

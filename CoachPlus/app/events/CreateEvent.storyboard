@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="735"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJA-Pg-8CY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="561"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crf-ow-Txd" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                 <rect key="frame" x="50" y="30" width="275" height="45"/>
@@ -69,7 +69,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ojy-GG-GvS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="50" y="95" width="275" height="45"/>
+                                                <rect key="frame" x="50" y="180" width="275" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="VPg-ON-0AN"/>
                                                 </constraints>
@@ -98,17 +98,38 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Location"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOF-6b-FWK">
-                                                <rect key="frame" x="50" y="150" width="275" height="21"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUZ-oD-U60" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="50" y="105" width="275" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="aaF-5M-RTU"/>
+                                                    <constraint firstAttribute="height" constant="45" id="iPx-tN-xhg"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Description"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="E5u-Ha-Y8M">
-                                                <rect key="frame" x="50" y="179" width="275" height="130"/>
+                                                <rect key="frame" x="50" y="264" width="275" height="130"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="130" id="NbK-rM-umN"/>
                                                 </constraints>
@@ -116,8 +137,8 @@
                                                     <!--2017-04-17 15:25:38 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoF-VU-m84">
-                                                <rect key="frame" x="50" y="317" width="275" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoF-VU-m84">
+                                                <rect key="frame" x="50" y="384" width="275" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Zkc-eH-U52"/>
                                                 </constraints>
@@ -125,8 +146,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uSi-gp-943">
-                                                <rect key="frame" x="50" y="346" width="275" height="130"/>
+                                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uSi-gp-943">
+                                                <rect key="frame" x="50" y="397" width="275" height="130"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="130" id="Ehf-AI-8WN"/>
                                                 </constraints>
@@ -134,8 +155,8 @@
                                                     <!--2017-04-17 15:29:50 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogO-sm-mo4" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="486" width="275" height="50"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogO-sm-mo4" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="529" width="275" height="50"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="oMV-Vx-jqs"/>
@@ -147,10 +168,20 @@
                                                     <action selector="btnTap:" destination="hZ1-Jd-6lk" eventType="touchUpInside" id="8Gq-2k-2f8"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOF-6b-FWK">
+                                                <rect key="frame" x="50" y="233" width="275" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="aaF-5M-RTU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Ojy-GG-GvS" firstAttribute="leading" secondItem="Crf-ow-Txd" secondAttribute="leading" id="3EO-KX-d12"/>
+                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="top" secondItem="KUZ-oD-U60" secondAttribute="bottom" constant="30" id="4Ov-Nj-o8X"/>
                                             <constraint firstItem="GOF-6b-FWK" firstAttribute="top" secondItem="Ojy-GG-GvS" secondAttribute="bottom" constant="10" id="7b0-vQ-tN9"/>
                                             <constraint firstItem="uSi-gp-943" firstAttribute="top" secondItem="VoF-VU-m84" secondAttribute="bottom" constant="8" id="9Mx-Nm-hnX"/>
                                             <constraint firstItem="Crf-ow-Txd" firstAttribute="leading" secondItem="QJA-Pg-8CY" secondAttribute="leading" constant="50" id="BG3-Jb-KnT"/>
@@ -166,7 +197,9 @@
                                             <constraint firstAttribute="bottom" secondItem="ogO-sm-mo4" secondAttribute="bottom" constant="25" id="aFu-vJ-1b6"/>
                                             <constraint firstItem="uSi-gp-943" firstAttribute="trailing" secondItem="VoF-VU-m84" secondAttribute="trailing" id="aGB-AK-qX8"/>
                                             <constraint firstItem="Crf-ow-Txd" firstAttribute="top" secondItem="QJA-Pg-8CY" secondAttribute="top" constant="30" id="aJR-qU-YkH"/>
-                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="top" secondItem="Crf-ow-Txd" secondAttribute="bottom" constant="20" id="eGX-bT-Mhz"/>
+                                            <constraint firstItem="KUZ-oD-U60" firstAttribute="top" secondItem="Crf-ow-Txd" secondAttribute="bottom" constant="30" id="amb-Gu-zLN"/>
+                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="trailing" secondItem="KUZ-oD-U60" secondAttribute="trailing" id="gYq-2G-NiA"/>
+                                            <constraint firstItem="Ojy-GG-GvS" firstAttribute="leading" secondItem="KUZ-oD-U60" secondAttribute="leading" id="gaH-tr-cH1"/>
                                             <constraint firstItem="GOF-6b-FWK" firstAttribute="trailing" secondItem="Ojy-GG-GvS" secondAttribute="trailing" id="hEg-En-ZvN"/>
                                             <constraint firstItem="E5u-Ha-Y8M" firstAttribute="leading" secondItem="GOF-6b-FWK" secondAttribute="leading" id="hSz-E4-Yrr"/>
                                             <constraint firstItem="VoF-VU-m84" firstAttribute="trailing" secondItem="E5u-Ha-Y8M" secondAttribute="trailing" id="iEI-Vc-yfu"/>
@@ -199,6 +232,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="descriptionTf" destination="KUZ-oD-U60" id="24v-cC-gpc"/>
                         <outlet property="endPicker" destination="uSi-gp-943" id="9pC-iz-oSU"/>
                         <outlet property="locationTf" destination="Ojy-GG-GvS" id="dzb-XU-gIz"/>
                         <outlet property="startPicker" destination="E5u-Ha-Y8M" id="GUQ-mr-yR7"/>

@@ -104,6 +104,10 @@
 		47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
 		47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
 		5DE081F287763ABCCFA42411 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */; };
+		6116F85D1F34B81C00A30B44 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85C1F34B81C00A30B44 /* UserManager.swift */; };
+		6116F85E1F34B81C00A30B44 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85C1F34B81C00A30B44 /* UserManager.swift */; };
+		6116F8601F34D3E100A30B44 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85F1F34D3E100A30B44 /* ImageHelper.swift */; };
+		6116F8611F34D3E100A30B44 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85F1F34D3E100A30B44 /* ImageHelper.swift */; };
 		612E14D01F1823C400D19674 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612E14CF1F1823C400D19674 /* HeaderView.swift */; };
 		612E14D11F1823C400D19674 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612E14CF1F1823C400D19674 /* HeaderView.swift */; };
 		613A92011F0EF2D900826879 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A92001F0EF2D900826879 /* EventsViewController.swift */; };
@@ -130,8 +134,24 @@
 		616617061E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */; };
 		616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
 		616617091E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
+		618692821F352EE8002814C1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618692811F352EE8002814C1 /* Location.swift */; };
+		618692831F352EE8002814C1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618692811F352EE8002814C1 /* Location.swift */; };
 		61A006141F345115003E2651 /* ParticipationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006131F345115003E2651 /* ParticipationItem.swift */; };
 		61A006151F345115003E2651 /* ParticipationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006131F345115003E2651 /* ParticipationItem.swift */; };
+		61A006171F3468CF003E2651 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006161F3468CF003E2651 /* News.swift */; };
+		61A006181F3468CF003E2651 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006161F3468CF003E2651 /* News.swift */; };
+		61A0061C1F346D66003E2651 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A0061A1F346D66003E2651 /* NewsTableViewCell.swift */; };
+		61A0061D1F346D66003E2651 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A0061A1F346D66003E2651 /* NewsTableViewCell.swift */; };
+		61A0061E1F346D66003E2651 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A0061B1F346D66003E2651 /* NewsTableViewCell.xib */; };
+		61A0061F1F346D66003E2651 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A0061B1F346D66003E2651 /* NewsTableViewCell.xib */; };
+		61A006211F347C6E003E2651 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006201F347C6E003E2651 /* UITextViewExtension.swift */; };
+		61A006221F347C6E003E2651 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006201F347C6E003E2651 /* UITextViewExtension.swift */; };
+		61A006241F34808A003E2651 /* NewNews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A006231F34808A003E2651 /* NewNews.storyboard */; };
+		61A006251F34808A003E2651 /* NewNews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A006231F34808A003E2651 /* NewNews.storyboard */; };
+		61A006271F34832E003E2651 /* NewNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006261F34832E003E2651 /* NewNewsViewController.swift */; };
+		61A006281F34832E003E2651 /* NewNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006261F34832E003E2651 /* NewNewsViewController.swift */; };
+		61A0062A1F34B060003E2651 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006291F34B060003E2651 /* UIImageExtension.swift */; };
+		61A0062B1F34B060003E2651 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006291F34B060003E2651 /* UIImageExtension.swift */; };
 		61ACB71D1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
 		61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
 		61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
@@ -269,6 +289,8 @@
 		528F285EFF5E41FC7E8304EB /* Pods-CoachPlusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		530CA028E43284C704E67BB6 /* Pods_CoachPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		573DE4EF07AED30D7720208E /* Pods_CoachPlusDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6116F85C1F34B81C00A30B44 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = helperclasses/UserManager.swift; sourceTree = "<group>"; };
+		6116F85F1F34D3E100A30B44 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageHelper.swift; path = helperclasses/ImageHelper.swift; sourceTree = "<group>"; };
 		612E14CF1F1823C400D19674 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ui/HeaderView.swift; sourceTree = "<group>"; };
 		613A92001F0EF2D900826879 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = app/events/EventsViewController.swift; sourceTree = "<group>"; };
 		613A92031F0EF7D900826879 /* EventsButtonBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsButtonBarView.swift; path = app/events/EventsButtonBarView.swift; sourceTree = "<group>"; };
@@ -283,7 +305,15 @@
 		616617001E9FAE7200E8D8D5 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = ui/NavigationBar.swift; sourceTree = "<group>"; };
 		616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamSelectionView.swift; path = ui/teamselection/TeamSelectionView.swift; sourceTree = "<group>"; };
 		616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamSelectionView.xib; path = ui/teamselection/TeamSelectionView.xib; sourceTree = "<group>"; };
+		618692811F352EE8002814C1 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = models/Location.swift; sourceTree = "<group>"; };
 		61A006131F345115003E2651 /* ParticipationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParticipationItem.swift; path = models/ParticipationItem.swift; sourceTree = "<group>"; };
+		61A006161F3468CF003E2651 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = News.swift; path = models/News.swift; sourceTree = "<group>"; };
+		61A0061A1F346D66003E2651 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsTableViewCell.swift; path = app/shared/news/NewsTableViewCell.swift; sourceTree = "<group>"; };
+		61A0061B1F346D66003E2651 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsTableViewCell.xib; path = app/shared/news/NewsTableViewCell.xib; sourceTree = "<group>"; };
+		61A006201F347C6E003E2651 /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextViewExtension.swift; path = helperclasses/UITextViewExtension.swift; sourceTree = "<group>"; };
+		61A006231F34808A003E2651 /* NewNews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NewNews.storyboard; path = app/shared/news/NewNews.storyboard; sourceTree = "<group>"; };
+		61A006261F34832E003E2651 /* NewNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewNewsViewController.swift; path = app/shared/news/NewNewsViewController.swift; sourceTree = "<group>"; };
+		61A006291F34B060003E2651 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = helperclasses/UIImageExtension.swift; sourceTree = "<group>"; };
 		61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberTableViewCell.swift; path = app/shared/members/MemberTableViewCell.swift; sourceTree = "<group>"; };
 		61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MemberTableViewCell.xib; path = app/shared/members/MemberTableViewCell.xib; sourceTree = "<group>"; };
 		61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeAllTableViewCell.swift; path = app/shared/seeall/SeeAllTableViewCell.swift; sourceTree = "<group>"; };
@@ -371,6 +401,8 @@
 				616616F71E9FA07400E8D8D5 /* Event.swift */,
 				61CA9CA61EA526C1004AFAC7 /* Participation.swift */,
 				61A006131F345115003E2651 /* ParticipationItem.swift */,
+				61A006161F3468CF003E2651 /* News.swift */,
+				618692811F352EE8002814C1 /* Location.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -485,12 +517,16 @@
 				47B1B6291E87D18300F80101 /* DataHandler.swift */,
 				47B1B62D1E8815F500F80101 /* ApiResponse.swift */,
 				47F042181E8E7A590020D78E /* MembershipManager.swift */,
+				6116F85C1F34B81C00A30B44 /* UserManager.swift */,
 				616616FA1E9FA2E200E8D8D5 /* DateExtension.swift */,
 				616616FD1E9FA52300E8D8D5 /* UITableViewExtension.swift */,
 				61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */,
 				61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */,
 				61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */,
 				473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */,
+				61A006201F347C6E003E2651 /* UITextViewExtension.swift */,
+				61A006291F34B060003E2651 /* UIImageExtension.swift */,
+				6116F85F1F34D3E100A30B44 /* ImageHelper.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -605,6 +641,7 @@
 		616616EF1E9F9DE900E8D8D5 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				61A006191F346D1E003E2651 /* news */,
 				61CA9CA91EA5332E004AFAC7 /* participation */,
 				61CA9C771EA224D7004AFAC7 /* seeall */,
 				61ACB71B1EA0D6A000A7A1D2 /* members */,
@@ -629,6 +666,17 @@
 				616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */,
 			);
 			name = teamselection;
+			sourceTree = "<group>";
+		};
+		61A006191F346D1E003E2651 /* news */ = {
+			isa = PBXGroup;
+			children = (
+				61A0061A1F346D66003E2651 /* NewsTableViewCell.swift */,
+				61A0061B1F346D66003E2651 /* NewsTableViewCell.xib */,
+				61A006231F34808A003E2651 /* NewNews.storyboard */,
+				61A006261F34832E003E2651 /* NewNewsViewController.swift */,
+			);
+			name = news;
 			sourceTree = "<group>";
 		};
 		61ACB71B1EA0D6A000A7A1D2 /* members */ = {
@@ -886,6 +934,7 @@
 				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
 				473DCE1B1EC3A6A000A42F51 /* User.storyboard in Resources */,
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
+				61A0061E1F346D66003E2651 /* NewsTableViewCell.xib in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				473483271EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
@@ -898,6 +947,7 @@
 				47F041EE1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				473A5F781E8A749A002FD833 /* Register.storyboard in Resources */,
 				47F0420F1E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
+				61A006241F34808A003E2651 /* NewNews.storyboard in Resources */,
 				61CA9CA11EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F71E8E5FF90020D78E /* Team.storyboard in Resources */,
 				616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */,
@@ -918,6 +968,7 @@
 				61CA9C971EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
 				473DCE1C1EC3A6A000A42F51 /* User.storyboard in Resources */,
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
+				61A0061F1F346D66003E2651 /* NewsTableViewCell.xib in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				473483281EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
@@ -930,6 +981,7 @@
 				4749C5051E81B7FE0068B0FA /* Main.storyboard in Resources */,
 				47F041EF1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */,
+				61A006251F34808A003E2651 /* NewNews.storyboard in Resources */,
 				47F042101E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
 				61CA9CA21EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F81E8E5FF90020D78E /* Team.storyboard in Resources */,
@@ -1144,9 +1196,11 @@
 			files = (
 				616616E71E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */,
 				473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */,
+				61A0061C1F346D66003E2651 /* NewsTableViewCell.swift in Sources */,
 				616617051E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */,
 				473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */,
 				61ACB71D1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */,
+				6116F85D1F34B81C00A30B44 /* UserManager.swift in Sources */,
 				47F041F31E8E59640020D78E /* Team.swift in Sources */,
 				47F041EA1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */,
@@ -1161,16 +1215,20 @@
 				61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
 				4734832A1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */,
+				6116F8601F34D3E100A30B44 /* ImageHelper.swift in Sources */,
 				473A5F5F1E8A749A002FD833 /* HomeViewController.swift in Sources */,
 				473A5F601E8A749A002FD833 /* RegisterViewController.swift in Sources */,
 				473A5F611E8A749A002FD833 /* DataHandler.swift in Sources */,
+				61A0062A1F34B060003E2651 /* UIImageExtension.swift in Sources */,
 				473A5F621E8A749A002FD833 /* LoginViewController.swift in Sources */,
 				61CA9C9A1EA52200004AFAC7 /* TitleView.swift in Sources */,
 				473A5F881E8A9224002FD833 /* User.swift in Sources */,
+				61A006171F3468CF003E2651 /* News.swift in Sources */,
 				612E14D01F1823C400D19674 /* HeaderView.swift in Sources */,
 				47F042121E8E70660020D78E /* TeamViewController.swift in Sources */,
 				473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */,
 				61CA9C831EA3F6E3004AFAC7 /* EventListViewController.swift in Sources */,
+				618692821F352EE8002814C1 /* Location.swift in Sources */,
 				61CA9C891EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */,
 				47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */,
 				473A5F641E8A749A002FD833 /* ViewController.swift in Sources */,
@@ -1180,6 +1238,7 @@
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
 				61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
+				61A006271F34832E003E2651 /* NewNewsViewController.swift in Sources */,
 				61CA9CA71EA526C1004AFAC7 /* Participation.swift in Sources */,
 				61CA9CAC1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */,
 				616616F31E9F9E1000E8D8D5 /* EventTableViewCell.swift in Sources */,
@@ -1191,6 +1250,7 @@
 				613A92011F0EF2D900826879 /* EventsViewController.swift in Sources */,
 				473A5F6A1E8A749A002FD833 /* UrlHandler.swift in Sources */,
 				473A5F6B1E8A749A002FD833 /* StringExtension.swift in Sources */,
+				61A006211F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
 				616616FB1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
 				477A27591E8C3775005516ED /* InviteResponse.swift in Sources */,
@@ -1209,9 +1269,11 @@
 			files = (
 				616616E81E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */,
 				47A9B9101E85453700DC8247 /* UIViewExtension.swift in Sources */,
+				61A0061D1F346D66003E2651 /* NewsTableViewCell.swift in Sources */,
 				616617061E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */,
 				472B9C121E870E4300706E6B /* Helpers.swift in Sources */,
 				61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */,
+				6116F85E1F34B81C00A30B44 /* UserManager.swift in Sources */,
 				47F041F41E8E59640020D78E /* Team.swift in Sources */,
 				47F041EB1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				478DE2341E8537B800DCF74A /* VerificationViewController.swift in Sources */,
@@ -1226,16 +1288,20 @@
 				61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,
 				4734832B1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */,
+				6116F8611F34D3E100A30B44 /* ImageHelper.swift in Sources */,
 				47B1B6281E87CBC700F80101 /* HomeViewController.swift in Sources */,
 				472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */,
 				47B1B62A1E87D18300F80101 /* DataHandler.swift in Sources */,
+				61A0062B1F34B060003E2651 /* UIImageExtension.swift in Sources */,
 				474144D61E8429AD009788E2 /* LoginViewController.swift in Sources */,
 				61CA9C9B1EA52200004AFAC7 /* TitleView.swift in Sources */,
 				473A5F891E8A9224002FD833 /* User.swift in Sources */,
+				61A006181F3468CF003E2651 /* News.swift in Sources */,
 				612E14D11F1823C400D19674 /* HeaderView.swift in Sources */,
 				47F042131E8E70660020D78E /* TeamViewController.swift in Sources */,
 				478DE2381E85409300DCF74A /* UIColorExtension.swift in Sources */,
 				61CA9C841EA3F6E3004AFAC7 /* EventListViewController.swift in Sources */,
+				618692831F352EE8002814C1 /* Location.swift in Sources */,
 				61CA9C8A1EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */,
 				47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */,
 				4749C5021E81B7FE0068B0FA /* ViewController.swift in Sources */,
@@ -1245,6 +1311,7 @@
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
 				61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */,
+				61A006281F34832E003E2651 /* NewNewsViewController.swift in Sources */,
 				61CA9CA81EA526C1004AFAC7 /* Participation.swift in Sources */,
 				61CA9CAD1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */,
 				616616F41E9F9E1000E8D8D5 /* EventTableViewCell.swift in Sources */,
@@ -1256,6 +1323,7 @@
 				613A92021F0EF2D900826879 /* EventsViewController.swift in Sources */,
 				478DE22F1E85367000DCF74A /* UrlHandler.swift in Sources */,
 				472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */,
+				61A006221F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
 				616616FC1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */,
 				477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */,

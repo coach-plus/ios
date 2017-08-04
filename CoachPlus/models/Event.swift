@@ -17,7 +17,7 @@ class Event:JSONable, BackJSONable {
         case description = "description"
         case start = "start"
         case end = "end"
-        case team = "team"
+        case teamId = "team"
     }
     
     var id: String
@@ -25,16 +25,16 @@ class Event:JSONable, BackJSONable {
     var description: String
     var start: Date
     var end: Date
-    var team: Team?
+    var teamId: String
     var participations: [Participation]?
     
-    init(id:String, name:String, description:String, start:Date, end:Date, team:Team?) {
+    init(id:String, name:String, description:String, start:Date, end:Date, teamId:String) {
         self.id = id
         self.name = name
         self.description = description
         self.start = start
         self.end = end
-        self.team = team
+        self.teamId = teamId
     }
     
     required init(json:JSON) {
@@ -43,12 +43,7 @@ class Event:JSONable, BackJSONable {
         self.description = json[Fields.description.rawValue].stringValue
         self.start = json[Fields.start.rawValue].stringValue.toDate()
         self.end = json[Fields.end.rawValue].stringValue.toDate()
-        
-        let team = json[Fields.team.rawValue]
-        if (team.type != .string) {
-            self.team = Team(json: team)
-        }
-        
+        self.teamId = json[Fields.teamId.rawValue].stringValue
     }
     
     func toJson() -> JSON {
@@ -58,7 +53,7 @@ class Event:JSONable, BackJSONable {
             Fields.description.rawValue: self.name,
             Fields.start.rawValue: self.start.toString(),
             Fields.end.rawValue: self.end.toString(),
-            Fields.team.rawValue: self.team?.toJson()]
+            Fields.teamId.rawValue: self.teamId]
         return json
     }
     

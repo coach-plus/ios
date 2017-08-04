@@ -338,6 +338,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             case .event:
                 let event = self.events[indexPath.row]
                 
+                /*
+                
                 var participations = [Participation]()
                 let p1 = Participation()
                 p1.didAttend = true
@@ -346,6 +348,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 p1.user = User(id: "abcd", firstname: "Maurice", lastname: "Breit", email: "mau04@online.de")
                 participations.append(p1)
                 event.participations = participations
+                */
                 
                 let cell = self.tableView.cellForRow(at: indexPath)
                 

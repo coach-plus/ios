@@ -13,6 +13,8 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     
     var event:Event?
     
+    var participationItems = [ParticipationItem]()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateTimeLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
@@ -25,6 +27,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 70
         super.viewDidLoad()
+        self.loadParticipations()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,20 +41,29 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         
     }
     
+    func loadParticipations() {
+        _ = DataHandler.def.getParticipations(event: self.event!, successHandler: { participationItems in
+            self.participationItems = participationItems
+            self.tableView.reloadData()
+        }, failHandler: { err in
+            print(err)
+        });
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard self.event?.participations != nil else {
-            return 0
-        }
-        return (self.event?.participations?.count)!
+        return self.participationItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ParticipationTableViewCell", for: indexPath) as! ParticipationTableViewCell
-        cell.configure(mode: .didAttend, participation: (self.event?.participations?[indexPath.row])!)
+        
+        let participationItem = self.participationItems[indexPath.row]
+        
+        cell.configure(participationItem: participationItem, event: self.event!)
         return cell
     }
 }

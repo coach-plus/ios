@@ -16,29 +16,30 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
     
     @IBOutlet weak var participationView: ParticipationView!
     
-    var participation:Participation?
-    var mode: ParticipationView.Mode = .willAttend
+    var participationItem:ParticipationItem?
+    var event:Event?
     
-    
-    
-    func configure(mode:ParticipationView.Mode, participation:Participation) {
-        self.mode = mode
-        self.participation = participation
-        self.participationView.delegate = self
-        self.participationView.mode = self.mode
-        self.participationView.configure(participation: self.participation!)
-        self.imageV.setUserImage(user: (self.participation?.user)!)
-        self.nameLbl.text = self.participation?.user?.fullname
+    func configure(participationItem:ParticipationItem, event:Event) {
+        self.participationItem = participationItem
+        //self.participationView.delegate = self
+        self.participationView.configure(participationItem: participationItem, event: event)
+        self.imageV.setUserImage(user: (self.participationItem?.user)!)
+        self.nameLbl.text = self.participationItem?.user?.fullname
     }
     
-    func selected(yes: Bool) {
-        switch self.mode {
-        case .didAttend:
-            self.participation?.didAttend = yes
-        case .willAttend:
-            self.participation?.willAttend = yes
+    func selected(attend: Bool) {
+        
+        if let membership = MembershipManager.shared.selectedMembership {
+            let now = Date()
+            if (now < (self.event?.start)!) {
+                self.participationItem?.participation?.willAttend = attend
+            } else {
+                if (membership.isCoach()) {
+                    self.participationItem?.participation?.didAttend = attend
+                }
+            }
         }
-        self.configure(mode: self.mode, participation: self.participation!)
+        self.configure(participationItem: self.participationItem!, event: self.event!)
     }
     
     

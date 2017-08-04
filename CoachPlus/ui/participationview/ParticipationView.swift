@@ -8,19 +8,14 @@
 
 import Foundation
 import UIKit
-
+import SwiftIcons
 import NibDesignable
 
 protocol ParticipationViewDelegate {
-    func selected(yes:Bool)
+    func selected(attend:Bool)
 }
 
 class ParticipationView: NibDesignable {
-    
-    enum Mode {
-        case didAttend
-        case willAttend
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,67 +30,140 @@ class ParticipationView: NibDesignable {
     var delegate: ParticipationViewDelegate?
     
     @IBOutlet weak var yesBtn: UIButton!
-    
     @IBOutlet weak var noBtn: UIButton!
     
+    @IBOutlet weak var yesBg: UIView!
+    @IBOutlet weak var noBg: UIView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     var participation: Participation?
-    var mode:Mode = .didAttend
+    var event: Event?
+    var user: User?
     
     static let selectedYesColor = UIColor(hexString: "#73ba26")
     static let selectedNoColor = UIColor(hexString: "#FF3B30")
+    static let didAttendNoColor = UIColor(hexString: "#F5DEDE")
     static let unselectedColor = UIColor(hexString: "9b9b9b")
     
+    static let noBgColor = UIColor(hexString: "ffffff")
+    
     @IBAction func yesTap(_ sender: Any) {
-        delegate?.selected(yes: true)
+        //delegate?.selected(attend: true)
+        self.selected(attend: true)
     }
     
     @IBAction func noTap(_ sender: Any) {
-        delegate?.selected(yes: false)
+        //delegate?.selected(attend: false)
+        self.selected(attend: false)
     }
     
     func setup() {
-        self.yesBtn.titleLabel?.font = UIFont.fontAwesome(ofSize: 20)
-        self.noBtn.titleLabel?.font = UIFont.fontAwesome(ofSize: 20)
-        self.yesBtn.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
-        self.noBtn.setTitle(String.fontAwesomeIcon(name: .times), for: .normal)
+        self.yesBtn.setIcon(icon: .googleMaterialDesign(.check), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+        self.noBtn.setIcon(icon: .googleMaterialDesign(.close), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
     }
     
-    func getColor(bool:Bool, btn:UIButton) -> UIColor {
-        if (!bool) {
-            return ParticipationView.unselectedColor
-        }
-        if (btn == self.yesBtn) {
-            return ParticipationView.selectedYesColor
+    func configure(participationItem:ParticipationItem, event:Event) {
+        self.event = event
+        self.user = participationItem.user!
+        
+        if participationItem.participation != nil {
+            self.participation = participationItem.participation
         } else {
-            return ParticipationView.selectedNoColor
-        }
-    }
-    
-    func setSelection(selection:Bool?) {
-        
-        var yes = false
-        var no = false
-        
-        if (selection != nil) {
-            yes = selection!
-            no = !selection!
+            self.participation = Participation(user: (participationItem.user?.id)!, event: event.id, willAttend: nil, didAttend: nil)
         }
         
-        self.yesBtn.setTitleColor(self.getColor(bool: yes, btn: yesBtn), for: .normal)
-        self.noBtn.setTitleColor(self.getColor(bool: no, btn: noBtn), for: .normal)
-        
-    }
-    
-    func configure(participation:Participation) {
-        self.participation = participation
-    
-        if self.mode == .didAttend {
-            self.setSelection(selection: self.participation?.didAttend)
-        } else {
-            self.setSelection(selection: self.participation?.willAttend)
-        }
-        
+        self.showData()
         self.isHidden = false
         
     }
+    
+    func showData() {
+        showWillAttend()
+        showDidAttend()
+        self.yesBg.isHidden = false
+        self.noBg.isHidden = false
+        self.hideActivityIndicator()
+    }
+    
+    
+    func setTitleColorOnButton(btn:UIButton, color:UIColor) {
+        btn.setTitleColor(color, for: .normal)
+    }
+    
+    
+    func showWillAttend() {
+        setTitleColorOnButton(btn: yesBtn, color: ParticipationView.unselectedColor)
+        setTitleColorOnButton(btn: noBtn, color: ParticipationView.unselectedColor)
+        if let willAttend = self.participation?.willAttend {
+            if (willAttend == true) {
+                setTitleColorOnButton(btn: yesBtn, color: ParticipationView.selectedYesColor)
+            } else {
+                setTitleColorOnButton(btn: noBtn, color: ParticipationView.selectedNoColor)
+            }
+        }
+    }
+    
+    func showDidAttend() {
+        yesBg.backgroundColor = ParticipationView.noBgColor
+        noBg.backgroundColor = ParticipationView.noBgColor
+        if let didAttend = self.participation?.didAttend {
+            if (didAttend == false) {
+                yesBg.backgroundColor = ParticipationView.didAttendNoColor
+            }
+        }
+        
+    }
+    
+    func selected(attend:Bool) {
+        if let membership = MembershipManager.shared.selectedMembership {
+            let now = Date()
+            if (now < (self.event?.start)! && self.participation?.willAttend != attend) {
+                setWillAttend(willAttend: attend)
+            } else {
+                if (membership.isCoach() && self.participation?.didAttend != attend) {
+                    self.setDidAttend(didAttend: attend)
+                }
+            }
+        }
+    }
+    
+    func showActivityIndicator() {
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        
+        self.yesBg.isHidden = true
+        self.noBg.isHidden = true
+    }
+    
+    func hideActivityIndicator() {
+        self.activityIndicator.stopAnimating()
+    }
+    
+    func setWillAttend(willAttend:Bool) {
+        
+        self.showActivityIndicator()
+        
+        _ = DataHandler.def.willAttend(event: (self.event)!, user: self.user!, willAttend: willAttend, successHandler: { res in
+            self.participation?.willAttend = willAttend
+            self.showData()
+        }, failHandler: { err in
+            self.hideActivityIndicator()
+        })
+    }
+    
+    func setDidAttend(didAttend:Bool) {
+        
+        self.showActivityIndicator()
+        
+        _ = DataHandler.def.didAttend(event: (self.event)!, user: self.user!, didAttend: didAttend, successHandler: { res in
+            self.participation?.didAttend = didAttend
+            self.showData()
+        }, failHandler: { err in
+            self.hideActivityIndicator()
+        })
+    }
+    
+    
 }

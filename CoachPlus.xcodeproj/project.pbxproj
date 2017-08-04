@@ -130,6 +130,8 @@
 		616617061E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */; };
 		616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
 		616617091E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
+		61A006141F345115003E2651 /* ParticipationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006131F345115003E2651 /* ParticipationItem.swift */; };
+		61A006151F345115003E2651 /* ParticipationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006131F345115003E2651 /* ParticipationItem.swift */; };
 		61ACB71D1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
 		61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
 		61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
@@ -281,6 +283,7 @@
 		616617001E9FAE7200E8D8D5 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = ui/NavigationBar.swift; sourceTree = "<group>"; };
 		616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamSelectionView.swift; path = ui/teamselection/TeamSelectionView.swift; sourceTree = "<group>"; };
 		616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamSelectionView.xib; path = ui/teamselection/TeamSelectionView.xib; sourceTree = "<group>"; };
+		61A006131F345115003E2651 /* ParticipationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParticipationItem.swift; path = models/ParticipationItem.swift; sourceTree = "<group>"; };
 		61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberTableViewCell.swift; path = app/shared/members/MemberTableViewCell.swift; sourceTree = "<group>"; };
 		61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MemberTableViewCell.xib; path = app/shared/members/MemberTableViewCell.xib; sourceTree = "<group>"; };
 		61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeAllTableViewCell.swift; path = app/shared/seeall/SeeAllTableViewCell.swift; sourceTree = "<group>"; };
@@ -367,6 +370,7 @@
 				477A27581E8C3775005516ED /* InviteResponse.swift */,
 				616616F71E9FA07400E8D8D5 /* Event.swift */,
 				61CA9CA61EA526C1004AFAC7 /* Participation.swift */,
+				61A006131F345115003E2651 /* ParticipationItem.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -1152,6 +1156,7 @@
 				473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */,
 				61CA9C931EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
 				61D5F55F1EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */,
+				61A006141F345115003E2651 /* ParticipationItem.swift in Sources */,
 				616616F81E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
@@ -1216,6 +1221,7 @@
 				47B1B6241E87C6A500F80101 /* DropdownAlert.swift in Sources */,
 				61CA9C941EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
 				61D5F5601EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */,
+				61A006151F345115003E2651 /* ParticipationItem.swift in Sources */,
 				616616F91E9FA07400E8D8D5 /* Event.swift in Sources */,
 				61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,

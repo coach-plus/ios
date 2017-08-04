@@ -15,9 +15,18 @@ class MemberTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textLbl: UILabel!
     
+    @IBOutlet weak var coachLogoIv: UIImageView!
+    
     func setup(membership: Membership) {
         textLbl.text = membership.user?.fullname
         self.imageV.setUserImage(user: membership.user!)
+        
+        if (membership.isCoach()) {
+            coachLogoIv.image = UIImage(named: "CoachLogo")
+            coachLogoIv.isHidden = false
+        } else {
+            coachLogoIv.isHidden = true
+        }
     }
     
 }

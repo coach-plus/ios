@@ -49,9 +49,7 @@ fastlane ios setup_keychain
 ```
 fastlane ios build_beta
 ```
-Submit a new Beta Build to Apple TestFlight
 
-This will also make sure the profile is up to date
 ### ios upload_beta
 ```
 fastlane ios upload_beta

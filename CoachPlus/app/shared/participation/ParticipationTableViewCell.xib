@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +28,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92m-3w-2a1">
-                        <rect key="frame" x="90" y="26" width="114" height="18"/>
+                        <rect key="frame" x="90" y="26" width="102" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="z85-Jo-4fy"/>
                         </constraints>
@@ -38,22 +37,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xs6-eQ-xcv" customClass="ParticipationView" customModule="CoachPlus" customModuleProvider="target">
-                        <rect key="frame" x="212" y="9" width="100" height="50"/>
+                        <rect key="frame" x="200" y="0.0" width="120" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="TDB-hz-4oC"/>
-                            <constraint firstAttribute="height" constant="50" id="Tos-2M-xIR"/>
+                            <constraint firstAttribute="width" constant="120" id="TDB-hz-4oC"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xs6-eQ-xcv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="08w-0V-wjy"/>
+                    <constraint firstAttribute="trailing" secondItem="xs6-eQ-xcv" secondAttribute="trailing" id="0Ad-eA-6bg"/>
+                    <constraint firstAttribute="bottom" secondItem="xs6-eQ-xcv" secondAttribute="bottom" id="HIr-xA-9AX"/>
+                    <constraint firstItem="xs6-eQ-xcv" firstAttribute="leading" secondItem="92m-3w-2a1" secondAttribute="trailing" constant="8" id="JBN-Kb-epe"/>
                     <constraint firstAttribute="bottom" secondItem="cjD-6v-MvM" secondAttribute="bottom" constant="10" id="OEF-jh-Ngj"/>
                     <constraint firstItem="cjD-6v-MvM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zbf-cg-IEZ"/>
                     <constraint firstItem="92m-3w-2a1" firstAttribute="leading" secondItem="cjD-6v-MvM" secondAttribute="trailing" constant="20" id="cgP-mP-UkP"/>
                     <constraint firstItem="cjD-6v-MvM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="t5k-fN-7TL"/>
-                    <constraint firstItem="xs6-eQ-xcv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="taY-M8-dIf"/>
-                    <constraint firstItem="xs6-eQ-xcv" firstAttribute="leading" secondItem="92m-3w-2a1" secondAttribute="trailing" constant="8" id="zPK-Qb-OWW"/>
+                    <constraint firstItem="xs6-eQ-xcv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yjm-FA-dJQ"/>
                     <constraint firstItem="92m-3w-2a1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zbJ-9M-m9O"/>
                 </constraints>
             </tableViewCellContentView>

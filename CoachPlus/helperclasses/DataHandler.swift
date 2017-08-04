@@ -18,6 +18,7 @@ typealias TeamsSuccessHandler = ([Team]) -> ()
 typealias MembershipsSuccessHandler = ([Membership]) -> ()
 typealias MembershipSuccessHandler = (Membership) -> ()
 typealias EventsSuccessHandler = ([Event]) -> ()
+typealias ParticipationsSuccessHandler = ([ParticipationItem]) -> ()
 
 typealias CreateInviteLinkSuccessHandler = (String) -> ()
 
@@ -83,12 +84,20 @@ class DataHandler {
         return self.httpRequest(url, method: .post, params: params, headers: headers, successHandler: successHandler, failHandler: failHandler)
     }
     
+    func put(_ url:String, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+        return self.httpRequest(url, method: .put, params: params, headers: headers, successHandler: successHandler, failHandler: failHandler)
+    }
+    
     func unauthenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         return self.post(url, params: params, headers: [:], successHandler: successHandler, failHandler: failHandler)
     }
     
     func authenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         return self.post(url, params: params, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    func authenticatedPut(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        return self.put(url, params: params, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
     }
     
     // Get Helpers
@@ -284,6 +293,34 @@ class DataHandler {
         }
         
         return self.authenticatedPost(url, params: [:], successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    
+    func willAttend(event:Event, user:User, willAttend:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(event.teamId)/events/\(event.id)/participation/\(user.id)/willAttend"
+        
+        return self.authenticatedPut(url, params: [
+            "willAttend": willAttend ], successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    
+    func didAttend(event:Event, user:User, didAttend:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(event.teamId)/events/\(event.id)/participation/\(user.id)/didAttend"
+        
+        return self.authenticatedPut(url, params:
+            ["didAttend": didAttend ], successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    func getParticipations(event:Event, successHandler: @escaping ParticipationsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        
+        let url = "teams/\(event.teamId)/events/\(event.id)/participation"
+        
+        return self.authenticatedGet(url, headers: nil, successHandler: { apiResponse in
+                let participations = apiResponse.toArray(ParticipationItem.self, property: "participation")
+                successHandler(participations)
+        }, failHandler: failHandler)
     }
     
     

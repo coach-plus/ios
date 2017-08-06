@@ -308,9 +308,9 @@ class DataHandler {
     }
     
     
-    func willAttend(event:Event, user:User, willAttend:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func willAttend(teamId:String, eventId:String, userId:String, willAttend:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         
-        let url = "teams/\(event.teamId)/events/\(event.id)/participation/\(user.id)/willAttend"
+        let url = "teams/\(teamId)/events/\(eventId)/participation/\(userId)/willAttend"
         
         return self.authenticatedPut(url, params: [
             "willAttend": willAttend ], successHandler: successHandler, failHandler: failHandler)
@@ -380,6 +380,28 @@ class DataHandler {
             let team = apiResponse.toObject(Team.self, property: nil)
             successHandler(team)
         }, failHandler: failHandler)
+    }
+    
+    func registerDevice(pushId:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest? {
+        let userId = Authentication.getUser().id
+        guard userId != "" else {
+            return nil
+        }
+        let uuid = UIDevice.current.identifierForVendor?.uuidString
+        let url = "users/\(userId)/devices"
+        let params:Parameters = [
+            "deviceId": uuid,
+            "pushId": pushId,
+            "system": "ios"
+        ]
+        return self.authenticatedPost(url, params: params, successHandler: successHandler, failHandler: failHandler)
+    }
+    
+    func sendReminder(teamId:String, eventId:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest? {
+        
+        let url = "teams/\(teamId)/events/\(eventId)/reminder"
+        
+        return self.authenticatedPost(url, params: [:], successHandler: successHandler, failHandler: failHandler)
     }
     
     

@@ -94,21 +94,8 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        
-        if (self.loaded == true) {
-            let attributes = [
-                NSFontAttributeName: UIFont.fontAwesome(ofSize: 50),
-                NSForegroundColorAttributeName: UIColor.coachPlusBlue] as Dictionary!
-            
-            
-            let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: .lifeRing), attributes: attributes)
-            
-            return attributedString
-        }
-        
-        return NSAttributedString(string: "")
-        
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(icon: .fontAwesome(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

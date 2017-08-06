@@ -29,7 +29,6 @@ class VerificationViewController: UIViewController {
         
         self.textLbl.text = ""
         self.iconLbl.text = ""
-        self.iconLbl.font = UIFont.fontAwesome(ofSize: 60)
         
         self.resultView.isHidden = true
         
@@ -49,13 +48,13 @@ class VerificationViewController: UIViewController {
         
         _ = DataHandler.def.verifyToken(token: self.token, successHandler: {
             self.textLbl.text = "You are now verified."
-            self.iconLbl.text = String.fontAwesomeIcon(name: .check)
+            self.iconLbl.setIcon(icon: .fontAwesome(.check), iconSize: 60)
             self.resultView.isHidden = false
             hud.hide(animated: true)
             
         }, failHandler: { apiResponse in
             self.textLbl.text = "Verification failed."
-            self.iconLbl.text = String.fontAwesomeIcon(name: .times)
+            self.iconLbl.setIcon(icon: .fontAwesome(.times), iconSize: 60)
             self.resultView.isHidden = false
             hud.hide(animated: true)
         })

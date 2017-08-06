@@ -8,7 +8,6 @@
 
 import UIKit
 import AlamofireImage
-import FontAwesome_swift
 
 class MembershipTableViewCell: UITableViewCell {
 
@@ -47,8 +46,7 @@ class MembershipTableViewCell: UITableViewCell {
         if (membership.team?.isPublic)! {
             self.privateIndicatorLbl.text = ""
         } else {
-            self.privateIndicatorLbl.font = UIFont.fontAwesome(ofSize: 15)
-            self.privateIndicatorLbl.text = String.fontAwesomeIcon(name: .lock)
+            self.privateIndicatorLbl.setIcon(icon: .fontAwesome(.lock), iconSize: 15, color: .coachPlusLightGrey, bgColor: .clear)
         }
         
         self.imageV.setTeamImage(team: membership.team!, placeholderColor: nil)

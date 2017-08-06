@@ -136,8 +136,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func showDone(hud:MBProgressHUD) {
         
         let checkLbl = UILabel()
-        checkLbl.font = UIFont.fontAwesome(ofSize: 40)
-        checkLbl.text = String.fontAwesomeIcon(name: .check)
+        checkLbl.setIcon(icon: .fontAwesome(.check), iconSize: 40)
         checkLbl.textColor = UIColor.white
         
         hud.mode = MBProgressHUDMode.customView

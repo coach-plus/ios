@@ -15,13 +15,14 @@ class CoachPlusViewController: UIViewController {
     var heroId:String = ""
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.setCoachPlusLogo()
         
         if (self.membership == nil) {
             self.membership = MembershipManager.shared.getPreviouslySelectedMembership()
         }
         
-        super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

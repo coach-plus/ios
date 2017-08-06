@@ -29,12 +29,24 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     
     @IBOutlet weak var editBtn: UIButton!
     
+    @IBOutlet weak var sendReminderBtn: UIButton!
+    
     @IBAction func editBtnTapped(_ sender: Any) {
+    }
+    
+    @IBAction func reminderBtnTapped(_ sender: Any) {
+        _ = DataHandler.def.sendReminder(teamId: (self.event?.teamId)!, eventId: (self.event?.id)!, successHandler: { res in
+            
+        }, failHandler: { err in
+            
+        })
     }
     
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         
         self.view.heroID = self.heroId
         
@@ -46,17 +58,23 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
         
-        self.editBtn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+        if (self.membership?.isCoach())! {
+            self.editBtn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+            self.sendReminderBtn.setIcon(icon: .googleMaterialDesign(.alarm), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+        }
+        
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 70
-        super.viewDidLoad()
+
         self.descriptionLbl.fixPadding()
         self.loadParticipations()
         self.loadNews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
         
         self.nameLbl.text = self.event?.name
         self.dateTimeLbl.text = self.event?.fromToString()
@@ -70,13 +88,10 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         }
         self.descriptionLbl.text = description
         
-        if (self.membership?.isCoach())! {
-            self.editBtn.isHidden = false
-        }
         
         self.locationLbl.text = self.event?.getLocationString()
         
-        super.viewWillAppear(animated)
+        
         
     }
     

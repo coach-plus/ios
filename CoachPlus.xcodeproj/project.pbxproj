@@ -152,6 +152,8 @@
 		61A006281F34832E003E2651 /* NewNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006261F34832E003E2651 /* NewNewsViewController.swift */; };
 		61A0062A1F34B060003E2651 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006291F34B060003E2651 /* UIImageExtension.swift */; };
 		61A0062B1F34B060003E2651 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006291F34B060003E2651 /* UIImageExtension.swift */; };
+		61A6DC0E1F35EBCE0000970C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6DC0D1F35EBCE0000970C /* NotificationManager.swift */; };
+		61A6DC0F1F35EBCF0000970C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6DC0D1F35EBCE0000970C /* NotificationManager.swift */; };
 		61ACB71D1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
 		61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
 		61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
@@ -314,6 +316,7 @@
 		61A006231F34808A003E2651 /* NewNews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NewNews.storyboard; path = app/shared/news/NewNews.storyboard; sourceTree = "<group>"; };
 		61A006261F34832E003E2651 /* NewNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewNewsViewController.swift; path = app/shared/news/NewNewsViewController.swift; sourceTree = "<group>"; };
 		61A006291F34B060003E2651 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = helperclasses/UIImageExtension.swift; sourceTree = "<group>"; };
+		61A6DC0D1F35EBCE0000970C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = helperclasses/NotificationManager.swift; sourceTree = "<group>"; };
 		61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberTableViewCell.swift; path = app/shared/members/MemberTableViewCell.swift; sourceTree = "<group>"; };
 		61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MemberTableViewCell.xib; path = app/shared/members/MemberTableViewCell.xib; sourceTree = "<group>"; };
 		61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeAllTableViewCell.swift; path = app/shared/seeall/SeeAllTableViewCell.swift; sourceTree = "<group>"; };
@@ -527,6 +530,7 @@
 				61A006201F347C6E003E2651 /* UITextViewExtension.swift */,
 				61A006291F34B060003E2651 /* UIImageExtension.swift */,
 				6116F85F1F34D3E100A30B44 /* ImageHelper.swift */,
+				61A6DC0D1F35EBCE0000970C /* NotificationManager.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -1233,6 +1237,7 @@
 				47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */,
 				473A5F641E8A749A002FD833 /* ViewController.swift in Sources */,
 				61CA9C8C1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
+				61A6DC0E1F35EBCE0000970C /* NotificationManager.swift in Sources */,
 				473A5F651E8A749A002FD833 /* Authentication.swift in Sources */,
 				473DCE211EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
@@ -1306,6 +1311,7 @@
 				47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */,
 				4749C5021E81B7FE0068B0FA /* ViewController.swift in Sources */,
 				61CA9C8D1EA407E8004AFAC7 /* CoachPlusViewController.swift in Sources */,
+				61A6DC0F1F35EBCF0000970C /* NotificationManager.swift in Sources */,
 				47B1B6221E87265500F80101 /* Authentication.swift in Sources */,
 				473DCE221EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
@@ -1396,7 +1402,7 @@
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
@@ -1420,7 +1426,7 @@
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1538,7 +1544,7 @@
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
@@ -1562,7 +1568,7 @@
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";

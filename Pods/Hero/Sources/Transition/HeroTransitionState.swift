@@ -1,6 +1,6 @@
-// FontAwesomeTabBarItem.swift
+// The MIT License (MIT)
 //
-// Copyright (c) 2017 Maik639
+// Copyright (c) 2016 Luke Zhao <me@lkzhao.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,43 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-@IBDesignable public class FontAwesomeTabBarItem: UITabBarItem {
-    
-    @IBInspectable public var iconName: String = "fa-square-o"
-    @IBInspectable public var selectedIconName: String = "fa-square"
-    @IBInspectable public var size: CGFloat = 38.0
-    
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        useFontAwesomeImage()
-    }
-    
-    public override func prepareForInterfaceBuilder() {
-        useFontAwesomeImage()
-    }
-    
-    private func useFontAwesomeImage() {
-        createImages { (img, index) in
-            if index == 0 {
-                image = img
-            } else {
-                selectedImage = img
-            }
-        }
-    }
-    
-}
+public enum HeroTransitionState: Int {
+  // Hero is able to start a new transition
+  case possible
 
-extension FontAwesomeTabBarItem: FontAwesomeImageRepresentable {
-    
-    var imageWidth: CGFloat {
-        return size
-    }
-    
-    var imageConfigs: [ImageConfig] {
-        return [(iconName, nil, nil), (selectedIconName, nil, nil)]
-    }
-    
+  // UIKit has notified Hero about a pending transition.
+  // Hero haven't started preparing.
+  case notified
+
+  // Hero's `start` method has been called. Preparing the animation.
+  case starting
+
+  // Hero's `animate` method has been called. Animation has started.
+  case animating
+
+  // Hero's `complete` method has been called. Transition is ended or cancelled. Hero is doing cleanup.
+  case completing
 }

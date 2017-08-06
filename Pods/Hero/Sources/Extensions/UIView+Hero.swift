@@ -27,6 +27,8 @@ public extension UIView {
     static var heroID    = "heroID"
     static var heroModifiers = "heroModifers"
     static var heroStoredAlpha = "heroStoredAlpha"
+    static var heroEnabled = "heroEnabled"
+    static var heroEnabledForSubviews = "heroEnabledForSubviews"
   }
 
   /**
@@ -39,6 +41,24 @@ public extension UIView {
   @IBInspectable public var heroID: String? {
     get { return objc_getAssociatedObject(self, &AssociatedKeys.heroID) as? String }
     set { objc_setAssociatedObject(self, &AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+
+  /**
+   **isHeroEnabled** allows to specify whether a view and its subviews should be consider for animations.
+   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
+   */
+  @IBInspectable public var isHeroEnabled: Bool {
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroEnabled) as? Bool ?? true }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+
+  /**
+   **isHeroEnabledForSubviews** allows to specify whether a view's subviews should be consider for animations.
+   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
+   */
+  @IBInspectable public var isHeroEnabledForSubviews: Bool {
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroEnabledForSubviews) as? Bool ?? true }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabledForSubviews, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
   /**
@@ -71,11 +91,32 @@ public extension UIView {
     return snapshotView
   }
 
-  internal var flattenedViewHierarchy: [UIView] {
-    if #available(iOS 9.0, *) {
-      return isHidden && (superview is UICollectionView || superview is UIStackView) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+  internal func snapshotView() -> UIView? {
+    let snapshot = snapshotView(afterScreenUpdates: true)
+    if #available(iOS 11.0, *), let oldSnapshot = snapshot {
+      // in iOS 11, the snapshot taken by snapshotView(afterScreenUpdates) won't contain a container view
+      let wrappedSnapshot = UIView()
+      wrappedSnapshot.bounds = oldSnapshot.bounds
+      wrappedSnapshot.center = oldSnapshot.center
+      oldSnapshot.center = wrappedSnapshot.bounds.center
+      wrappedSnapshot.addSubview(oldSnapshot)
+      return wrappedSnapshot
+    } else {
+      return snapshot
     }
-    return isHidden && (superview is UICollectionView) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+  }
+
+  internal var flattenedViewHierarchy: [UIView] {
+    guard isHeroEnabled else { return [] }
+    if #available(iOS 9.0, *), isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) {
+      return []
+    } else if isHidden && (superview is UICollectionView || self is UITableViewCell) {
+      return []
+    } else if isHeroEnabledForSubviews {
+      return [self] + subviews.flatMap { $0.flattenedViewHierarchy }
+    } else {
+      return [self]
+    }
   }
 
   /// Used for .overFullScreen presentation

@@ -1,6 +1,6 @@
-// FontAwesomeStateRequirement.swift
+// The MIT License (MIT)
 //
-// Copyright (c) 2017 Maik639
+// Copyright (c) 2016 Luke Zhao <me@lkzhao.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,10 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-protocol FontAwesomeStateRequirement: class {
-    
-    static func supportedStates() -> [UIControlState]
-    
+// custom transition helper, used in hero_replaceViewController
+public extension HeroTransition {
+  public func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
+    guard !isTransitioning else { return }
+    self.state = .notified
+    isPresenting = true
+    transitionContainer = view
+    fromViewController = from
+    toViewController = to
+    completionCallback = {
+      completion?($0)
+      self.state = .possible
+    }
+    start()
+  }
 }

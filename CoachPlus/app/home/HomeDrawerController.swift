@@ -11,6 +11,8 @@ import SlideMenuControllerSwift
 
 class HomeDrawerController: SlideMenuController {
     
+    var notificationManager:NotificationManager?
+    
     override func awakeFromNib() {
         
         let membershipsStoryboard = UIStoryboard(name: "Memberships", bundle: nil)
@@ -20,6 +22,13 @@ class HomeDrawerController: SlideMenuController {
         self.mainViewController = teamStoryboard.instantiateInitialViewController()
         
         super.awakeFromNib()
+    }
+    
+    override func viewDidLoad() {
+        
+        self.notificationManager = NotificationManager(vc: self)
+        self.notificationManager?.registerForNotifications()
+        
     }
     
 }

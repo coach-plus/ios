@@ -78,7 +78,7 @@ public extension UIViewController {
 
   @IBInspectable public var isHeroEnabled: Bool {
     get {
-      return transitioningDelegate is Hero
+      return transitioningDelegate is HeroTransition
     }
 
     set {
@@ -95,10 +95,10 @@ public extension UIViewController {
         }
       } else {
         transitioningDelegate = nil
-        if let navi = self as? UINavigationController, navi.delegate is Hero {
+        if let navi = self as? UINavigationController, navi.delegate is HeroTransition {
           navi.delegate = previousNavigationDelegate
         }
-        if let tab = self as? UITabBarController, tab.delegate is Hero {
+        if let tab = self as? UITabBarController, tab.delegate is HeroTransition {
           tab.delegate = previousTabBarDelegate
         }
       }
@@ -209,7 +209,7 @@ extension UIViewController {
 
     if let target = target {
       if target.presentedViewController != nil {
-        let _ = target.navigationController?.popToViewController(target, animated: false)
+        _ = target.navigationController?.popToViewController(target, animated: false)
 
         let fromVC = self.navigationController ?? self
         let toVC = target.navigationController ?? target
@@ -220,12 +220,17 @@ extension UIViewController {
           // And also force Hero to use the current VC as the fromViewController
           Hero.shared.fromViewController = fromVC
           let snapshotView = fromVC.view.snapshotView(afterScreenUpdates: true)!
-          toVC.presentedViewController!.view.addSubview(snapshotView)
+          let targetSuperview = toVC.presentedViewController!.view!
+          if let visualEffectView = targetSuperview as? UIVisualEffectView {
+            visualEffectView.contentView.addSubview(snapshotView)
+          } else {
+            targetSuperview.addSubview(snapshotView)
+          }
         }
 
         toVC.dismiss(animated: true, completion: nil)
       } else {
-        let _ = target.navigationController?.popToViewController(target, animated: true)
+        _ = target.navigationController?.popToViewController(target, animated: true)
       }
     } else {
       // unwind target not found
@@ -236,7 +241,9 @@ extension UIViewController {
    Replace the current view controller with another VC on the navigation/modal stack.
    */
   public func hero_replaceViewController(with next: UIViewController) {
-    if Hero.shared.transitioning {
+    let hero = next.transitioningDelegate as? HeroTransition ?? Hero.shared
+
+    if hero.isTransitioning {
       print("hero_replaceViewController cancelled because Hero was doing a transition. Use Hero.shared.cancel(animated:false) or Hero.shared.end(animated:false) to stop the transition first before calling hero_replaceViewController.")
       return
     }
@@ -247,24 +254,18 @@ extension UIViewController {
         vcs.append(next)
       }
       if navigationController.isHeroEnabled {
-        Hero.shared.forceNotInteractive = true
+        hero.forceNotInteractive = true
       }
       navigationController.setViewControllers(vcs, animated: true)
-    } else if let container = view.superview {
-      let parentVC = presentingViewController
-      Hero.shared.transition(from: self, to: next, in: container) { finished in
-        if finished {
-          UIApplication.shared.keyWindow?.addSubview(next.view)
-
-          if let parentVC = parentVC {
-            self.dismiss(animated: false) {
-              parentVC.present(next, animated: false, completion:nil)
-            }
-          } else {
-            UIApplication.shared.keyWindow?.rootViewController = next
-          }
-        }
+    } else if let parentVC = presentingViewController {
+      hero.toViewController = next
+      parentVC.dismiss(animated: true) {
+        parentVC.present(next, animated: false, completion: nil)
       }
+    } else if let window = view.window {
+      window.addSubview(next.view)
+      view.removeFromSuperview()
+      window.rootViewController = next
     }
   }
 }

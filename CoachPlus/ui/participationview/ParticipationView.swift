@@ -82,7 +82,9 @@ class ParticipationView: NibDesignable {
             noBtn.isEnabled = false
         }
         
-        if (!(self.event?.hasStarted())! && self.user?.id != self.membership?.user?.id) {
+        let loggedInUser = Authentication.getUser()
+        
+        if (!(self.event?.hasStarted())! && self.user?.id != loggedInUser.id) {
             yesBtn.isEnabled = false
             noBtn.isEnabled = false
         }
@@ -155,7 +157,7 @@ class ParticipationView: NibDesignable {
         
         self.showActivityIndicator()
         
-        _ = DataHandler.def.willAttend(event: (self.event)!, user: self.user!, willAttend: willAttend, successHandler: { res in
+        _ = DataHandler.def.willAttend(teamId: (self.event?.teamId)!, eventId: (self.event?.id)!, userId: (self.user?.id)!, willAttend: willAttend, successHandler: { res in
             self.participation?.willAttend = willAttend
             self.showData()
         }, failHandler: { err in

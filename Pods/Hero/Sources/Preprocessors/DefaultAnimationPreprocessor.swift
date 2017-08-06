@@ -47,8 +47,90 @@ public enum HeroDefaultAnimationType {
   case fade
   case zoom
   case zoomOut
+
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
+
+  public static func autoReverse(presenting: HeroDefaultAnimationType) -> HeroDefaultAnimationType {
+    return .selectBy(presenting: presenting, dismissing: presenting.reversed())
+  }
+
   case none
+
+  func reversed() -> HeroDefaultAnimationType {
+    switch self {
+    case .push(direction: .up):
+      return .pull(direction: .down)
+    case .push(direction: .right):
+      return .pull(direction: .left)
+    case .push(direction: .down):
+      return .pull(direction: .up)
+    case .push(direction: .left):
+      return .pull(direction: .right)
+    case .pull(direction: .up):
+      return .push(direction: .down)
+    case .pull(direction: .right):
+      return .push(direction: .left)
+    case .pull(direction: .down):
+      return .push(direction: .up)
+    case .pull(direction: .left):
+      return .push(direction: .right)
+    case .cover(direction: .up):
+      return .uncover(direction: .down)
+    case .cover(direction: .right):
+      return .uncover(direction: .left)
+    case .cover(direction: .down):
+      return .uncover(direction: .up)
+    case .cover(direction: .left):
+      return .uncover(direction: .right)
+    case .uncover(direction: .up):
+      return .cover(direction: .down)
+    case .uncover(direction: .right):
+      return .cover(direction: .left)
+    case .uncover(direction: .down):
+      return .cover(direction: .up)
+    case .uncover(direction: .left):
+      return .cover(direction: .right)
+    case .slide(direction: .up):
+      return .slide(direction: .down)
+    case .slide(direction: .down):
+      return .slide(direction: .up)
+    case .slide(direction: .left):
+      return .slide(direction: .right)
+    case .slide(direction: .right):
+      return .slide(direction: .left)
+    case .zoomSlide(direction: .up):
+      return .zoomSlide(direction: .down)
+    case .zoomSlide(direction: .down):
+      return .zoomSlide(direction: .up)
+    case .zoomSlide(direction: .left):
+      return .zoomSlide(direction: .right)
+    case .zoomSlide(direction: .right):
+      return .zoomSlide(direction: .left)
+    case .pageIn(direction: .up):
+      return .pageOut(direction: .down)
+    case .pageIn(direction: .right):
+      return .pageOut(direction: .left)
+    case .pageIn(direction: .down):
+      return .pageOut(direction: .up)
+    case .pageIn(direction: .left):
+      return .pageOut(direction: .right)
+    case .pageOut(direction: .up):
+      return .pageIn(direction: .down)
+    case .pageOut(direction: .right):
+      return .pageIn(direction: .left)
+    case .pageOut(direction: .down):
+      return .pageIn(direction: .up)
+    case .pageOut(direction: .left):
+      return .pageIn(direction: .right)
+    case .zoom:
+      return .zoomOut
+    case .zoomOut:
+      return .zoom
+
+    default:
+      return self
+    }
+  }
 
   public var label: String? {
     let mirror = Mirror(reflecting: self)
@@ -109,9 +191,9 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
     case "zoomOut": return .zoomOut
     case "selectBy":
       if let presentingNode = parameters.get(0),
-         let presenting = HeroDefaultAnimationType.from(node: presentingNode),
-         let dismissingNode = parameters.get(0),
-         let dismissing = HeroDefaultAnimationType.from(node: dismissingNode) {
+        let presenting = HeroDefaultAnimationType.from(node: presentingNode),
+        let dismissingNode = parameters.get(1),
+        let dismissing = HeroDefaultAnimationType.from(node: dismissingNode) {
         return .selectBy(presenting: presenting, dismissing: dismissing)
       }
     case "none": return .none
@@ -122,13 +204,6 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
 }
 
 class DefaultAnimationPreprocessor: BasePreprocessor {
-
-  weak var hero: Hero?
-
-  init(hero: Hero) {
-    self.hero = hero
-  }
-
   func shift(direction: HeroDefaultAnimationType.Direction, appearing: Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
     let size = size ?? context.container.bounds.size
     let rtn: CGPoint
@@ -145,17 +220,15 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
   }
 
   override func process(fromViews: [UIView], toViews: [UIView]) {
-    guard let hero = hero else { return }
+    guard let hero = hero, let toView = hero.toView, let fromView = hero.fromView else { return }
     var defaultAnimation = hero.defaultAnimation
     let inNavigationController = hero.inNavigationController
     let inTabBarController = hero.inTabBarController
     let toViewController = hero.toViewController
     let fromViewController = hero.fromViewController
-    let presenting = hero.presenting
+    let presenting = hero.isPresenting
     let fromOverFullScreen = hero.fromOverFullScreen
     let toOverFullScreen = hero.toOverFullScreen
-    let toView = hero.toView
-    let fromView = hero.fromView
     let animators = hero.animators
 
     if case .auto = defaultAnimation {
@@ -173,7 +246,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     }
 
     if case .auto = defaultAnimation {
-      if animators!.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
+      if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
         defaultAnimation = .none
       } else if inNavigationController {
         defaultAnimation = presenting ? .push(direction:.left) : .pull(direction:.right)
@@ -198,6 +271,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
                                        .masksToBounds(false)]
     switch defaultAnimation {
     case .push(let direction):
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
@@ -206,7 +280,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
                                              .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pull(let direction):
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -219,6 +293,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)), .scale(0.8)])
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)), .scale(0.8)])
     case .cover(let direction):
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
@@ -226,12 +301,13 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .uncover(let direction):
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
       context[toView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.1)])
     case .pageIn(let direction):
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
@@ -240,7 +316,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
                                              .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pageOut(let direction):
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -263,10 +339,11 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       context[toView]!.append(.durationMatchLongest)
       context[fromView]!.append(.durationMatchLongest)
     case .zoom:
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.scale(1.3), .fade])
       context[toView]!.append(contentsOf: [.scale(0.7)])
     case .zoomOut:
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.scale(1.3), .fade])
       context[fromView]!.append(contentsOf: [.scale(0.7)])
     default:

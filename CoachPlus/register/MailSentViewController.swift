@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import FontAwesome_swift
 
 class MailSentViewController: UIViewController {
 
@@ -16,9 +15,8 @@ class MailSentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        iconLabel.font = UIFont.fontAwesome(ofSize: 60)
-        iconLabel.text = String.fontAwesomeIcon(name: .paperPlaneO)
+        
+        iconLabel.setIcon(icon: .fontAwesome(.paperPlaneO), iconSize: 60)
         
     }
 

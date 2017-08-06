@@ -44,18 +44,11 @@ public enum HeroSnapshotType {
 public enum HeroCoordinateSpace {
   case global
   case local
-  case sameParent
 }
 
 public struct HeroTargetState {
-  class HeroTargetStateWrapper {
-    var state: HeroTargetState
-    init(state: HeroTargetState) {
-      self.state = state
-    }
-  }
-  internal var beginState: HeroTargetStateWrapper?
-  public var beginStateIfMatched: [HeroModifier]?
+  public var beginState: [HeroModifier]?
+  public var conditionalModifiers: [((HeroConditionalContext) -> Bool, [HeroModifier])]?
 
   public var position: CGPoint?
   public var size: CGSize?

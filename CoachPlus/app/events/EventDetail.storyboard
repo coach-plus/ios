@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xIY-BV-OUp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xIY-BV-OUp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,21 +65,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnJ-Jg-j2x">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnJ-Jg-j2x">
                                 <rect key="frame" x="339" y="40" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Hvc-oy-f8l"/>
                                     <constraint firstAttribute="width" constant="20" id="auR-78-Ohh"/>
                                 </constraints>
-                                <state key="normal" title="E"/>
                                 <connections>
                                     <action selector="editBtnTapped:" destination="xIY-BV-OUp" eventType="touchUpInside" id="CIt-bs-qnW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-2G-8fD">
+                                <rect key="frame" x="339" y="68" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="47O-OE-eSy"/>
+                                    <constraint firstAttribute="height" constant="20" id="Jcx-ne-IPN"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="reminderBtnTapped:" destination="xIY-BV-OUp" eventType="touchUpInside" id="Ock-Jy-13t"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VGZ-2G-8fD" firstAttribute="trailing" secondItem="qnJ-Jg-j2x" secondAttribute="trailing" id="1na-DC-uT6"/>
                             <constraint firstItem="xet-c3-g2b" firstAttribute="top" secondItem="bo2-0I-Le4" secondAttribute="bottom" constant="5" id="5VX-ZE-3f6"/>
+                            <constraint firstItem="VGZ-2G-8fD" firstAttribute="top" secondItem="qnJ-Jg-j2x" secondAttribute="bottom" constant="8" id="8at-VO-K8D"/>
                             <constraint firstItem="xet-c3-g2b" firstAttribute="leading" secondItem="bo2-0I-Le4" secondAttribute="leading" id="9hK-sp-NKt"/>
                             <constraint firstItem="bo2-0I-Le4" firstAttribute="leading" secondItem="OXG-OV-c6E" secondAttribute="leading" id="9jO-Jt-vXR"/>
                             <constraint firstItem="iuO-rD-vyk" firstAttribute="leading" secondItem="xet-c3-g2b" secondAttribute="leading" id="CGc-xr-0Do"/>
@@ -108,6 +119,7 @@
                         <outlet property="editBtn" destination="qnJ-Jg-j2x" id="LHU-bE-TyE"/>
                         <outlet property="locationLbl" destination="xet-c3-g2b" id="Grl-hH-jZ1"/>
                         <outlet property="nameLbl" destination="OXG-OV-c6E" id="toN-Qr-1pe"/>
+                        <outlet property="sendReminderBtn" destination="VGZ-2G-8fD" id="Zbe-zM-V3t"/>
                         <outlet property="tableView" destination="5YT-0M-Fny" id="pxM-Mh-29b"/>
                     </connections>
                 </viewController>

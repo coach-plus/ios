@@ -145,6 +145,9 @@ public class ISO8601Parser {
 		/// Parsed seconds value
 		var seconds:		TimeInterval = 0.0
 		
+		/// Parsed nanoseconds value
+		var nanoseconds:	TimeInterval = 0.0
+		
 		/// Parsed weekday number (1=monday, 7=sunday)
 		/// If `nil` source string has not specs about weekday.
 		var weekday:		Int? = nil
@@ -279,18 +282,25 @@ public class ISO8601Parser {
 			date.day = now_cmps.day!
 		} else {
 			moveUntil(is: "-")
+			let is_time_only = (string.contains("T") == false && string.contains(":") && !string.contains("-"))
 			
-			var (num_digits,segment) = try read_int()
-			switch num_digits {
-			case 0:		try parse_digits_0(num_digits, &segment)
-			case 8:		try parse_digits_8(num_digits, &segment)
-			case 6:		try parse_digits_6(num_digits, &segment)
-			case 4:		try parse_digits_4(num_digits, &segment)
-			case 1:		try parse_digits_1(num_digits, &segment)
-			case 2:		try parse_digits_2(num_digits, &segment)
-			case 7:		try parse_digits_7(num_digits, &segment) //YYYY DDD (ordinal date)
-			case 3:		try parse_digits_3(num_digits, &segment) //--DDD (ordinal date, implicit year)
-			default:	throw ISO8601ParserError.invalid
+			if is_time_only == false {
+				var (num_digits,segment) = try read_int()
+				switch num_digits {
+				case 0:		try parse_digits_0(num_digits, &segment)
+				case 8:		try parse_digits_8(num_digits, &segment)
+				case 6:		try parse_digits_6(num_digits, &segment)
+				case 4:		try parse_digits_4(num_digits, &segment)
+				case 1:		try parse_digits_1(num_digits, &segment)
+				case 2:		try parse_digits_2(num_digits, &segment)
+				case 7:		try parse_digits_7(num_digits, &segment) //YYYY DDD (ordinal date)
+				case 3:		try parse_digits_3(num_digits, &segment) //--DDD (ordinal date, implicit year)
+				default:	throw ISO8601ParserError.invalid
+				}
+			} else {
+				date.year = now_cmps.year!
+				date.month_or_week = now_cmps.month!
+				date.day = now_cmps.day!
 			}
 		}
 		
@@ -339,12 +349,17 @@ public class ISO8601Parser {
 							date.seconds = date.seconds * 60
 						} else if current() == time_sep {
 							next()
-							date.seconds = try read_double().value
+						//	date.seconds = try read_double().value
+							let value = try modf(read_double().value)
+							date.nanoseconds = TimeInterval(round(value.1 * 1000) * 1000000)
+							date.seconds = TimeInterval(value.0)
 						}
 					} else {
 						// fractional minutes
 						next()
-						date.seconds = try read_double().value
+						let value = try modf(read_double().value)
+						date.nanoseconds = TimeInterval(round(value.1 * 1000) * 1000000)
+						date.seconds = TimeInterval(value.0)
 					}
 				}
 			}
@@ -393,6 +408,7 @@ public class ISO8601Parser {
 		self.date_components!.hour = date.hour
 		self.date_components!.minute = Int(date.minute)
 		self.date_components!.second = Int(date.seconds)
+		self.date_components!.nanosecond = Int(date.nanoseconds)
 		
 		switch date.type {
 		case .monthAndDate:

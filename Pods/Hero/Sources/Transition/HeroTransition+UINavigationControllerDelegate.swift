@@ -22,20 +22,18 @@
 
 import UIKit
 
-public class HeroIndependentController: HeroBaseController {
-  public override init() {
-    super.init()
+extension HeroTransition: UINavigationControllerDelegate {
+  public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    guard !isTransitioning else { return nil }
+    self.state = .notified
+    self.isPresenting = operation == .push
+    self.fromViewController = fromViewController ?? fromVC
+    self.toViewController = toViewController ?? toVC
+    self.inNavigationController = true
+    return self
   }
 
-  public func transition(rootView: UIView, fromViews: [UIView], toViews: [UIView], completion: ((Bool) -> Void)? = nil) {
-    transitionContainer = rootView
-    completionCallback = completion
-
-    prepareForTransition()
-    context.defaultCoordinateSpace = .sameParent
-    context.set(fromViews: fromViews, toViews: toViews)
-    processContext()
-    prepareForAnimation()
-    animate()
+  public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    return interactiveTransitioning
   }
 }

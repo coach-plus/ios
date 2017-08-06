@@ -104,7 +104,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             let container = headerView.containerView
             
             let view = UIView()
-            
             view.backgroundColor = .coachPlusBlue
             view.layer.cornerRadius = 5;
             view.layer.masksToBounds = true;
@@ -115,7 +114,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             view.widthAnchor.constraint(equalToConstant: 30).isActive = true
             view.heightAnchor.constraint(equalToConstant: 30).isActive = true
             
-             
             let btn = UIButton()
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .white, backgroundColor: .clear, forState: .normal)
@@ -153,20 +151,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func setupNavbar() {
         let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
-        
         navbar.setLeftBarButtonType(type: .teams)
-        
-        /*
-        if (self.membership != nil && self.membership?.team != nil) {
-            navbar.setTeamSelection(team: self.membership?.team!)
-        } else {
-            navbar.setLeftBarButtonType(type: .teams)
-        }*/
-        
         navbar.setRightBarButtonType(type: .profile)
-        
         self.setupNavBarDelegate()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -427,18 +414,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        
-        let attributes = [
-            NSFontAttributeName: UIFont.fontAwesome(ofSize: 50),
-            NSForegroundColorAttributeName: UIColor.coachPlusBlue] as Dictionary!
-        
-        
-        let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: .lifeRing), attributes: attributes)
-        
-        return attributedString
-        
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(icon: .fontAwesome(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

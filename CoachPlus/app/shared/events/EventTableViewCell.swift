@@ -17,7 +17,7 @@ class EventTableViewCell: UITableViewCell {
     
     func setup(event:Event) {
         
-        self.heroID = "event\(event.id)"
+        //self.heroID = "event\(event.id)"
         
         let name = event.name
         let date = event.dateString()
@@ -32,7 +32,7 @@ class EventTableViewCell: UITableViewCell {
         nameString.addAttributes(attributes, range: NSRange(location: name.characters.count+1, length: date.characters.count))
         
         self.nameLbl.attributedText = nameString
-        self.nameLbl.heroID = "\(self.heroID!)/name"
+        //self.nameLbl.heroID = "\(self.heroID!)/name"
         
         
         self.dateTimeLbl.text = event.fromToString()

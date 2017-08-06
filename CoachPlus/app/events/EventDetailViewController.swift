@@ -15,7 +15,6 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         case news = 0
         case participation = 1
     }
-
     
     var event:Event?
     var news = [News]()
@@ -46,8 +45,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
         self.view.heroID = self.heroId
         
         self.nameLbl.heroID = "\(self.heroId)/name"
@@ -61,8 +59,10 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         if (self.membership?.isCoach())! {
             self.editBtn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
             self.sendReminderBtn.setIcon(icon: .googleMaterialDesign(.alarm), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+        } else {
+            self.editBtn.isHidden = true
+            self.sendReminderBtn.isHidden = true
         }
-        
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 70
@@ -73,7 +73,6 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         
         self.nameLbl.text = self.event?.name
@@ -88,11 +87,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         }
         self.descriptionLbl.text = description
         
-        
         self.locationLbl.text = self.event?.getLocationString()
-        
-        
-        
     }
     
     func loadParticipations() {

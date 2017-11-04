@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 extension HeroTransition {
   /**
@@ -56,7 +56,7 @@ extension HeroTransition {
   /**
    Cancel the interactive transition.
    Will stop the interactive transition and animate from the
-   current state to the **begining** state
+   current state to the **beginning** state
    */
   public func cancel(animate: Bool = true) {
     guard state == .animating || state == .notified || state == .starting else { return }

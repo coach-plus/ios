@@ -130,7 +130,11 @@ public extension DateInRegion {
 		let formatter = DateInRegionFormatter()
 		formatter.localization = Localization(locale: self.region.locale)
 		formatter.unitStyle = style ?? .full
-		return try formatter.colloquial(from: self, to: date)
+		if style == nil || style == .full || style == .spellOut {
+			return try formatter.colloquial(from: self, to: date)
+		} else {
+			return (try formatter.timeComponents(from: self, to: date),nil)
+		}
 	}
 	
 	

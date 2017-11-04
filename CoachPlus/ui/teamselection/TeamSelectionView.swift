@@ -51,7 +51,7 @@ class TeamSelectionView: NibDesignable {
         self.addGestureRecognizer(tapRecognizer)
     }
     
-    func teamTapped(sender:UIBarButtonItem) {
+    @objc func teamTapped(sender:UIBarButtonItem) {
         print("TEAMSELECTION")
         
         let controller = UIApplication.shared.keyWindow?.rootViewController//UIApplication.topViewController(base: nil)

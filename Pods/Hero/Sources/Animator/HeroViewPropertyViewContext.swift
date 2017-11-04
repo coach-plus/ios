@@ -37,6 +37,7 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
     guard let visualEffectView = snapshot as? UIVisualEffectView else { return 0 }
     if reverse {
       viewPropertyAnimator?.stopAnimation(false)
+      viewPropertyAnimator?.finishAnimation(at: .current)
       viewPropertyAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
         visualEffectView.effect = reverse ? self.startEffect : self.endEffect
       }
@@ -52,6 +53,8 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
 
   override func clean() {
     super.clean()
+    viewPropertyAnimator?.stopAnimation(false)
+    viewPropertyAnimator?.finishAnimation(at: .current)
     viewPropertyAnimator = nil
   }
 

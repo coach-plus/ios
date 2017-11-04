@@ -25,9 +25,9 @@ import UIKit
 extension CALayer {
   internal static var heroAddedAnimations: [(CALayer, String, CAAnimation)]? = {
     let swizzling: (AnyClass, Selector, Selector) -> Void = { forClass, originalSelector, swizzledSelector in
-      let originalMethod = class_getInstanceMethod(forClass, originalSelector)
-      let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector)
-      method_exchangeImplementations(originalMethod, swizzledMethod)
+      if let originalMethod = class_getInstanceMethod(forClass, originalSelector), let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) {
+        method_exchangeImplementations(originalMethod, swizzledMethod)
+      }
     }
     let originalSelector = #selector(add(_:forKey:))
     let swizzledSelector = #selector(hero_add(anim:forKey:))
@@ -36,7 +36,9 @@ extension CALayer {
   }()
 
   @objc dynamic func hero_add(anim: CAAnimation, forKey: String?) {
-    CALayer.heroAddedAnimations?.append((self, forKey!, anim.copy() as! CAAnimation))
+    let copiedAnim = anim.copy() as! CAAnimation
+    copiedAnim.delegate = nil // having delegate resulted some weird animation behavior
+    CALayer.heroAddedAnimations?.append((self, forKey!, copiedAnim))
     hero_add(anim: anim, forKey: forKey)
   }
 }
@@ -94,7 +96,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
   func currentValue(key: String) -> Any? {
     if let key = overlayKeyFor(key: key) {
-      return overlayLayer?.value(forKeyPath: key)
+      return (overlayLayer?.presentation() ?? overlayLayer)?.value(forKeyPath: key)
     }
     if snapshot.layer.animationKeys()?.isEmpty != false {
       return snapshot.layer.value(forKeyPath:key)
@@ -168,7 +170,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     CALayer.heroAddedAnimations = []
 
     if let (stiffness, damping) = targetState.spring {
-      UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.layoutSubviews, .allowUserInteraction], animations: animations, completion: nil)
+      UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: animations, completion: nil)
 
       let addedAnimations = CALayer.heroAddedAnimations!
       CALayer.heroAddedAnimations = nil
@@ -183,15 +185,13 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         }
       }
     } else {
-      UIView.animate(withDuration: duration, delay: delay, options: [.layoutSubviews, .allowUserInteraction], animations: animations, completion: nil)
-
+      CATransaction.begin()
+      CATransaction.setAnimationTimingFunction(timingFunction)
+      UIView.animate(withDuration: duration, delay: delay, options: [], animations: animations, completion: nil)
+      CATransaction.commit()
       let addedAnimations = CALayer.heroAddedAnimations!
       CALayer.heroAddedAnimations = nil
-
-      for (layer, key, anim) in addedAnimations {
-        anim.timingFunction = timingFunction
-        self.addAnimation(anim, for: key, to: layer)
-      }
+      self.animations.append(contentsOf: addedAnimations)
     }
   }
 
@@ -373,21 +373,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     return timeUntilStop + delay
   }
 
-  func seek(layer: CALayer, timePassed: TimeInterval) {
-    let timeOffset = timePassed - targetState.delay
-    for (key, anim) in layer.animations {
-      anim.speed = 0
-      anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
-      layer.removeAnimation(forKey: key)
-      layer.add(anim, forKey: key)
-    }
-  }
-
   override func seek(timePassed: TimeInterval) {
     let timeOffset = timePassed - targetState.delay
     for (layer, key, anim) in animations {
       anim.speed = 0
-      anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
+      anim.timeOffset = max(0.01, min(anim.duration - 0.01, timeOffset))
       layer.removeAnimation(forKey: key)
       layer.add(anim, forKey: key)
     }

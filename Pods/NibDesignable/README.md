@@ -26,6 +26,14 @@ Simply drop `NibDesignable.swift` into your project and it is ready to use.
   }
   ```
 2. Create a nib, place a `UIView` and change the `File's Owner` to `CustomView`
+  
+    **Correct:**
+    
+    ![`File's Owner` is set to your custom class](https://cloud.githubusercontent.com/assets/377404/20852905/8537fe60-b89d-11e6-8bea-b86752e5c89b.png)
+
+    **Incorrect:**
+    
+    ![`View` class is set to your custom class](https://cloud.githubusercontent.com/assets/377404/20852902/8132b1ac-b89d-11e6-9d5e-3ccdd72773e1.png)
 3. Design your view and add `@IBInspectable` properties.
 4. Sometimes Xcode/Interface Builder does not recognize `NibDesignable` as `@IBDesignable`. **Workaround** Declare your custom class as `@IBDesignable` like:
   ``` swift
@@ -49,6 +57,10 @@ Follow me on Twitter ([@mbogh](https://twitter.com/mbogh)) and/or visit my blog 
 Nib Designable is released under an MIT license. See LICENSE for more information.
 
 ## Release Notes
+
+Version 3.0.0
+
+- Swift 3.0 support, thanks to @sstadelman and @esetnik
 
 Version 2.3.0
 

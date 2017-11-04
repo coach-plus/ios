@@ -404,6 +404,14 @@ class DataHandler {
         return self.authenticatedPost(url, params: [:], successHandler: successHandler, failHandler: failHandler)
     }
     
+    func setRole(membershipId:String, role:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest? {
+        let url = "memberships/\(membershipId)/role"
+        let payload:Parameters = [
+            "role": role
+        ]
+        return self.authenticatedPut(url, params: payload, successHandler: successHandler, failHandler: failHandler)
+    }
+    
     
     
     

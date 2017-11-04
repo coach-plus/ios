@@ -39,17 +39,6 @@ extension HeroModifier {
   }
 
   /**
-   Set the opacity for the view to animate from/to.
-   - Parameters:
-   - opacity: opacity for the view to animate from/to
-   */
-  public static func opacity(_ opacity: Float) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.opacity = opacity
-    }
-  }
-
-  /**
    Force don't fade view during transition
    */
   public static var forceNonFade = HeroModifier { targetState in
@@ -514,7 +503,7 @@ extension HeroModifier {
   /**
    Apply modifiers directly to the view at the start of the transition.
    The modifiers supplied here won't be animated.
-   For source views, modifiers are set directly at the begining of the animation.
+   For source views, modifiers are set directly at the beginning of the animation.
    For destination views, they replace the target state (final appearance).
    */
   public static func beginWith(_ modifiers: [HeroModifier]) -> HeroModifier {

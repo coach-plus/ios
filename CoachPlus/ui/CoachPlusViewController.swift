@@ -17,7 +17,7 @@ class CoachPlusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.isHeroEnabled = false
+        self.isHeroEnabled = true
         
         self.setCoachPlusLogo()
         

@@ -44,7 +44,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    func refresh(_ sender: Any) {
+    @objc func refresh(_ sender: Any) {
         self.loadTeams()
     }
     
@@ -108,15 +108,17 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             membership.user = Authentication.getUser()
             
             MembershipManager.shared.selectedMembership = membership
+            
+            
             let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
             
             let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
             let teamController = navController.viewControllers[0] as! TeamViewController
             teamController.membershipsController = self
             teamController.membership = membership
-            
             self.slideMenuController()?.changeMainViewController(navController, close: true)
         } else {
+            self.dismiss(animated: true, completion: nil)
             let controller = UIApplication.shared.keyWindow?.rootViewController
             controller?.closeLeft()
         }

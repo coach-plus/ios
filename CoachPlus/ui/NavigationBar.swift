@@ -165,22 +165,22 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
         self.setLeftBarButtonType(type: .selectedTeam)
     }
     
-    func openSlider(sender:UIBarButtonItem) {
+    @objc func openSlider(sender:UIBarButtonItem) {
         let controller = UIApplication.shared.keyWindow?.rootViewController
         controller?.openLeft()
     }
     
-    func done(sender:UIBarButtonItem) {
+    @objc func done(sender:UIBarButtonItem) {
         let controller = UIApplication.shared.keyWindow?.rootViewController
         controller?.dismiss(animated: true, completion: nil)
     }
     
-    func back(sender:UIBarButtonItem) {
+    @objc func back(sender:UIBarButtonItem) {
         let controller = UIApplication.shared.keyWindow?.rootViewController
         controller?.navigationController?.popViewController(animated: true)
     }
     
-    func profile(sender:UIBarButtonItem) {
+    @objc func profile(sender:UIBarButtonItem) {
         self.coachPlusNavigationBarDelegate?.profile(sender: sender)
     }
     

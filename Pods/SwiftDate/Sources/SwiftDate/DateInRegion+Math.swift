@@ -42,9 +42,9 @@ extension DateInRegion {
 			cmps.calendar!.locale = region!.locale
 			cmps.timeZone = region!.timeZone
 		}
-		values.forEach { key,value in
-			if key != .timeZone && key != .calendar {
-				cmps.setValue( (multipler == nil ? value : value * multipler!), for: key)
+		values.forEach { pair in
+			if pair.key != .timeZone && pair.key != .calendar {
+				cmps.setValue( (multipler == nil ? pair.value : pair.value * multipler!), for: pair.key)
 			}
 		}
 		return cmps
@@ -137,20 +137,11 @@ public func + (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegi
 
 public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegion {
 	var invertedCmps: [Calendar.Component : Int] = [:]
-	rhs.forEach { invertedCmps[$0] = -$1 }
+	rhs.forEach { invertedCmps[$0.key] = -$0.value }
 	return lhs + invertedCmps
 }
 
 public func - (lhs: DateInRegion, rhs: DateInRegion) -> TimeInterval {
-	var interval: TimeInterval = 0
-	if #available(iOS 10.0, *) {
-		if lhs.absoluteDate < rhs.absoluteDate {
-			interval = -(DateTimeInterval(start: lhs.absoluteDate, end: rhs.absoluteDate)).duration
-		} else {
-			interval = (DateTimeInterval(start: rhs.absoluteDate, end: lhs.absoluteDate)).duration
-		}
-	} else {
-		interval = rhs.absoluteDate.timeIntervalSince(lhs.absoluteDate)
-	}
-	return interval
+	return DateTimeInterval(start: rhs.absoluteDate, end: lhs.absoluteDate).duration
+
 }

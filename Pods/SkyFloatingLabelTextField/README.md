@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField.svg?branch=master)](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField)
 [![Coverage Status](https://coveralls.io/repos/github/Skyscanner/SkyFloatingLabelTextField/badge.svg?branch=master)](https://coveralls.io/github/Skyscanner/SkyFloatingLabelTextField?branch=master)
 [![Pod Platform](https://img.shields.io/cocoapods/p/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
-[![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE.md)
+[![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/Skyscanner/SkyFloatingLabelTextField/blob/master/LICENSE)
 
 [![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -20,7 +20,7 @@ On top of implementing the space-saving floating title, the component also suppo
 
 Up until version 1.2 Swift 2.2 and 2.3 compatible (and there is a Swift 2.3 branch in case you need it).
 From version 2.0 onwards only compatible with Swift 3.
-Please be midnful of the version you're using.
+Please be mindful of the version you're using.
 
 ## Usage
 
@@ -141,6 +141,12 @@ class MyViewController: UIViewController, UITextFieldDelegate {
 }
 ```
 
+### Disabled state
+The textfield also supports displaying a disabled state. When the `isEnabled` property is set on the control, then the control is highlighted with the color set in the `disabledColor` property.
+```swift
+    textField.disabledColor = disabledColor
+    textField.isEnabled = false
+```
 ### RTL language support
 
 The component automatically detects the language writing direction. When the phone has a RTL language set (e.g. Arabic or Hebrew), then it automatically adjusts to support this style.
@@ -176,7 +182,7 @@ $ gem install cocoapods
 Then simply add `SkyFloatingLabelTextField` to your Podfile:
 
 ```
-pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+pod 'SkyFloatingLabelTextField', '~> 3.0'
 ```
 
 Lastly, let CocoaPods fetch the latest version of the component by running:
@@ -184,7 +190,7 @@ Lastly, let CocoaPods fetch the latest version of the component by running:
 $ cocoapods update
 ```
 
-#####Integrating into Objective C projects
+##### Integrating into Objective C projects
 
 When integrating the component into an Objective C project, in the Podfile add `use_frameworks!`. For example as shown in [SkyFloatingLabelTextFieldObjectiveCExample](https://github.com/Skyscanner/SkyFloatingLabelTextField/tree/master/SkyFloatingLabelTextFieldObjectiveCExample):
 
@@ -192,7 +198,7 @@ When integrating the component into an Objective C project, in the Podfile add `
 use_frameworks!
 
 target 'SkyFloatingLabelTextFieldObjectiveCExample' do
-  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 end
 ```
 

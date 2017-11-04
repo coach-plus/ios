@@ -81,7 +81,7 @@ public struct ISO8601Configuration {
 	/// Calendar used to generate the date. By default is the current system calendar
 	var calendar:			Calendar = Calendar.current
 	
-	init(strict: Bool = false, calendar: Calendar? = nil) {
+	public init(strict: Bool = false, calendar: Calendar? = nil) {
 		self.strict = strict
 		self.calendar = calendar ?? Calendar.current
 	}
@@ -223,11 +223,11 @@ public class ISO8601Parser {
 	/// - Throws: throw an `ISO8601Error` if parsing operation fails
 	public init?(_ src: String, config: ISO8601Configuration = ISO8601Configuration()) {
 		let src_trimmed = src.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-		guard src_trimmed.characters.count > 0 else {
+		guard src_trimmed.count > 0 else {
 			return nil
 		}
 		self.string = src_trimmed.unicodeScalars
-		self.length = src_trimmed.characters.count
+		self.length = src_trimmed.count
 		self.cIdx = string.startIndex
 		self.eIdx = string.endIndex
 		self.cfg = config

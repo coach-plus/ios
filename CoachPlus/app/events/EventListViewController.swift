@@ -76,7 +76,7 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
         let string = "Unfortunately there are no events!"
         

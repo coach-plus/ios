@@ -31,9 +31,8 @@ class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDele
         config.noImagesTitle = "Sorry! There are no images here!"
         config.recordLocation = false
         
-        let imagePickerController = ImagePickerController()
+        let imagePickerController = ImagePickerController.init(configuration: config)
         imagePickerController.delegate = self
-        imagePickerController.configuration = config
         imagePickerController.imageLimit = 1
         vc.present(imagePickerController, animated: true, completion: nil)
     }

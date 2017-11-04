@@ -100,7 +100,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
-        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
         var string = ""
         

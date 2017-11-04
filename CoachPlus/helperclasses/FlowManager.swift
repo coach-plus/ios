@@ -28,6 +28,11 @@ class FlowManager {
         return vc
     }
     
+    static func membershipsVc() -> UIViewController {
+        let vc = UIStoryboard(name: "Memberships", bundle: nil).instantiateInitialViewController()!
+        return vc
+    }
+    
     static func setLogin() {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let vc = loginVc()
@@ -69,6 +74,15 @@ class FlowManager {
     static func presentHome(sourceVc:UIViewController) {
         let vc = homeVc()
         sourceVc.present(vc, animated: true, completion: nil)
+    }
+    
+    static func presentMemberships(sourceVc:UIViewController) {
+        let vc = membershipsVc()
+        sourceVc.present(vc, animated: true, completion: nil)
+    }
+    
+    static func getTeamViewController(sourceVc:UIViewController) {
+        print(sourceVc.navigationController)
     }
     
 }

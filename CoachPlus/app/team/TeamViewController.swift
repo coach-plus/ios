@@ -127,7 +127,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func editTapped(sender: UIButton) {
+    @objc func editTapped(sender: UIButton) {
         self.imageHelper = ImageHelper(vc: self)
         self.imageHelper?.showImagePicker()
     }
@@ -414,12 +414,56 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         }
     }
     
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        guard indexPath.row < self.members.count else {
+            return []
+        }
+        
+        let member = self.members[indexPath.row]
+        
+        let sectionType = Section(rawValue: indexPath.section)!
+        
+        var actions = [UITableViewRowAction]()
+        
+        if (sectionType == .members) {
+            if ((self.membership?.isCoach())! && self.membership?.id != member.id) {
+                if (!member.isCoach()) {
+                    let makeCoach = UITableViewRowAction(style: .normal, title: "Make Coach") { (action, indexPath) in
+                        self.setRole(member: member, role: "coach")
+                    }
+                    actions.append(makeCoach)
+                } else {
+                    let makeUser = UITableViewRowAction(style: .normal, title: "Make User") { (action, indexPath) in
+                        self.setRole(member: member, role: "user")
+                    }
+                    actions.append(makeUser)
+                }
+            }
+        }
+        
+        return actions
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func setRole(member:Membership, role:String) {
+        _ = DataHandler.def.setRole(membershipId: member.id, role: role, successHandler: { response in
+            self.getMembers()
+        }, failHandler: {err in
+            
+        })
+    }
+    
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return UIImage(icon: .fontAwesome(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
         let string = "Why so lonely?\nCreate a team and invite your buddies!"
         

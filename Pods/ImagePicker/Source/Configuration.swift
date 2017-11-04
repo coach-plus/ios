@@ -14,12 +14,12 @@ public struct Configuration {
 
   // MARK: Fonts
 
-  public var numberLabelFont = UIFont.systemFont(ofSize: 19, weight: UIFontWeightBold)
-  public var doneButton = UIFont.systemFont(ofSize: 19, weight: UIFontWeightMedium)
-  public var flashButton = UIFont.systemFont(ofSize: 12, weight: UIFontWeightMedium)
-  public var noImagesFont = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
-  public var noCameraFont = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
-  public var settingsFont = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+  public var numberLabelFont = UIFont.systemFont(ofSize: 19, weight: UIFont.Weight.bold)
+  public var doneButton = UIFont.systemFont(ofSize: 19, weight: UIFont.Weight.medium)
+  public var flashButton = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.medium)
+  public var noImagesFont = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.medium)
+  public var noCameraFont = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.medium)
+  public var settingsFont = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
 
   // MARK: Titles
 
@@ -44,6 +44,11 @@ public struct Configuration {
   public var collapseCollectionViewWhileShot = true
   public var recordLocation = true
   public var allowMultiplePhotoSelection = true
+  public var allowVideoSelection = false
+  public var showsImageCountLabel = true
+  public var flashButtonAlwaysHidden = false
+  public var managesAudioSession = true
+  public var allowPinchToZoom = true
 
   // MARK: Images
   public var indicatorView: UIView = {

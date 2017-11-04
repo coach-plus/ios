@@ -4,23 +4,23 @@ use_frameworks!
 
 def all_pods
   pod 'Locksmith'
-  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
-  pod 'IQKeyboardManagerSwift', '4.0.6'
-  pod 'Alamofire', '~> 4.4'
+  pod 'SkyFloatingLabelTextField'
+  pod 'IQKeyboardManagerSwift'
+  pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'MBProgressHUD'
   pod 'RKDropdownAlert'
   pod "JWTDecode"
-  pod 'Hero', :git => 'https://github.com/lkzhao/Hero.git', :branch => 'master'
+  pod 'Hero', '1.0.0'
   pod 'SwiftyUserDefaults'
-  pod 'NibDesignable'
-  pod 'SwiftDate', '~> 4.0'
-  pod 'AlamofireImage', '~> 3.1'
+  pod 'NibDesignable', :git => 'https://github.com/dzzh/NibDesignable.git', :branch => 'great-swift4'
+  pod 'SwiftDate'
+  pod 'AlamofireImage'
   pod 'SlideMenuControllerSwift'
   pod 'DZNEmptyDataSet'
   pod 'ImagePicker'
-  pod 'XLPagerTabStrip', '~> 7.0'
-  pod 'SwiftIcons', '~> 1.5.1'
+  pod 'XLPagerTabStrip'
+  pod 'SwiftIcons', :git => 'https://github.com/laeroah/SwiftIcons.git', :branch => 'swift4_0'
   pod 'RSKImageCropper'
 end
 

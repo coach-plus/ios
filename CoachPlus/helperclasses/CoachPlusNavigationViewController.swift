@@ -12,7 +12,5 @@ class CoachPlusNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setCoachPlusLogo()
     }
 }

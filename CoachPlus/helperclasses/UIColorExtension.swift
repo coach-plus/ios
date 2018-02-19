@@ -90,4 +90,10 @@ extension UIColor {
         }
     }
     
+    static var coachPlusBackgroundColor:UIColor {
+        get {
+            return UIColor.white
+        }
+    }
+    
 }

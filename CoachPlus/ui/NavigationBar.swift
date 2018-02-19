@@ -133,7 +133,7 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     
     func createProfileBarButton() -> UIBarButtonItem {
         let btn = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profile(sender:)))
-        btn.setIcon(icon: .ionicons(.iosPersonOutline), iconSize: 20, color: UIColor.white)
+        btn.setCoachPlusIcon(fontType: .ionicons(.iosPerson), color: .white)
         return btn
     }
     
@@ -151,7 +151,7 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     
     func createTeamsBarButton() -> UIBarButtonItem {
         let btn = UIBarButtonItem(title: "Teams", style: .plain, target: self, action: #selector(openSlider(sender:)))
-        btn.setIcon(icon: .ionicons(.tshirtOutline), iconSize: 20, color: UIColor.white)
+        btn.setCoachPlusIcon(fontType: .ionicons(.tshirtOutline), color: .white)
         return btn
     }
     

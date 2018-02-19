@@ -15,7 +15,7 @@ PODS:
   - SkyFloatingLabelTextField (3.3.0)
   - SlideMenuControllerSwift (4.0.0)
   - SwiftDate (4.4.2)
-  - SwiftIcons (1.5.1)
+  - SwiftIcons (2.0.1)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
   - XLPagerTabStrip (8.0.0)
@@ -36,7 +36,7 @@ DEPENDENCIES:
   - SkyFloatingLabelTextField
   - SlideMenuControllerSwift
   - SwiftDate
-  - SwiftIcons (from `https://github.com/laeroah/SwiftIcons.git`, branch `swift4_0`)
+  - SwiftIcons
   - SwiftyJSON
   - SwiftyUserDefaults
   - XLPagerTabStrip
@@ -45,17 +45,11 @@ EXTERNAL SOURCES:
   NibDesignable:
     :branch: great-swift4
     :git: https://github.com/dzzh/NibDesignable.git
-  SwiftIcons:
-    :branch: swift4_0
-    :git: https://github.com/laeroah/SwiftIcons.git
 
 CHECKOUT OPTIONS:
   NibDesignable:
     :commit: d483f63015b6f34670ff8302a75049735cbb2ee0
     :git: https://github.com/dzzh/NibDesignable.git
-  SwiftIcons:
-    :commit: f881ebcec726908b8c4aabfb795cb40902e23f62
-    :git: https://github.com/laeroah/SwiftIcons.git
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -73,11 +67,11 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 771be94beca6868a6cea187f70c965ebd81d2f93
   SlideMenuControllerSwift: 021d6318201c53d4d4d3710517d43d6c556c7dd0
   SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
-  SwiftIcons: b20641adce6b71fcb2e72389b4b5f2e87252df99
+  SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 9746fadba6f203fbf466f6cbfeb367697a12ad71
+PODFILE CHECKSUM: c08b85570c7c1e25976e24a94e31307fcb89b7b6
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

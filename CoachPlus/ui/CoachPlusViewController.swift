@@ -10,6 +10,8 @@ import UIKit
 
 class CoachPlusViewController: UIViewController {
     
+    var loaded = false
+    
     var membership:Membership?
 
     var heroId:String = ""
@@ -19,13 +21,9 @@ class CoachPlusViewController: UIViewController {
         
         self.isHeroEnabled = true
         
-        self.setCoachPlusLogo()
-        
         if (self.membership == nil) {
             self.membership = MembershipManager.shared.getPreviouslySelectedMembership()
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +54,26 @@ class CoachPlusViewController: UIViewController {
         if let navbar = self.navigationController?.navigationBar as? CoachPlusNavigationBar {
             navbar.setRightBarButtonType(type: type)
         }
+    }
+    
+    func setNavbarTitle() {
+        if (self.membership != nil) {
+            self.navigationItem.titleView = nil
+            self.navigationController?.navigationBar.topItem?.title = self.membership?.team?.name
+        } else {
+            self.setCoachPlusLogo()
+        }
+    }
+    
+    func setCoachPlusLogo() {
+        let topItem = self.navigationItem
+        let img = UIImageView(image: UIImage(named: "LogoWhite"))
+        img.contentMode = .scaleAspectFit
+        
+        let title = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 45))
+        img.frame = title.bounds
+        title.addSubview(img)
+        topItem.titleView = title
     }
     
 }

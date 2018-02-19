@@ -15,7 +15,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
 
     var user:User?
     var memberships = [Membership]()
-    var loaded = false
+    
     var imageHelper: ImageHelper?
     
     @IBOutlet weak var imageV: UIImageView!
@@ -39,6 +39,8 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         if (self.heroId != "") {
             self.isHeroEnabled = true
             self.imageV.heroID = "\(self.heroId)/image"
+            self.nameL.heroID = "\(self.heroId)/text"
+            self.navigationItem.titleView?.heroID = "\(self.heroId)/text"
         }
         
         self.editImageBtn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .coachPlusGrey, backgroundColor: .clear, forState: .normal)
@@ -58,7 +60,17 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.displayUser()
         self.setupTableView()
         
-        self.memberships = MembershipManager.shared.getMemberships()
+        self.getMemberships()
+    }
+    
+    
+    func getMemberships() {
+        _ = DataHandler.def.getMembershipsOfUser(userId: self.user!.id, successHandler: { memberships in
+            self.memberships = memberships
+            self.tableView.reloadData()
+        }, failHandler: { err in
+            print(err)
+        })
     }
     
     func showImagePicker() {
@@ -68,7 +80,14 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func displayUser() {
         self.nameL.text = self.user!.fullname
-        self.emailL.text = self.user!.email
+        self.navigationItem.title = self.user!.firstname
+        
+        if (self.user?.id == Authentication.getUser().id) {
+            self.emailL.text = Authentication.getUser().email
+        } else {
+            self.emailL.isHidden = true
+        }
+        
         self.imageV.setUserImage(user: self.user!)
     }
     
@@ -102,13 +121,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
-        var string = ""
-        
-        if (self.loaded) {
-            string = "Why so lonely?\nCreate a team and invite your buddies!"
-        } else {
-            string = "Loading.."
-        }
+        var string = "Loading.."
         
         let attributedString = NSAttributedString(string: string, attributes: attributes)
         return attributedString

@@ -1,9 +1,9 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9.2
 before_install:
     - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     - echo -e "machine github.com\n  login fastlane-mathandoro\n  password $CI_USER_PASSWORD" >> ~/.netrc
-    - sudo gem install fastlane --no-ri --no-rdoc --no-document
+    - brew cask install fastlane
     - export MATCH_KEYCHAIN_NAME=ios-build.keychain
     - fastlane setup_keychain
 script:

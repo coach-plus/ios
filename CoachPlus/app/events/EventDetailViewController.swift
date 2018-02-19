@@ -41,6 +41,9 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         })
     }
     
+    func addWhiteBackground() {
+        
+    }
     
     
     override func viewDidLoad() {

@@ -20,7 +20,7 @@ def all_pods
   pod 'DZNEmptyDataSet'
   pod 'ImagePicker'
   pod 'XLPagerTabStrip'
-  pod 'SwiftIcons', :git => 'https://github.com/laeroah/SwiftIcons.git', :branch => 'swift4_0'
+  pod 'SwiftIcons'
   pod 'RSKImageCropper'
 end
 

@@ -10,6 +10,7 @@ import UIKit
 import DZNEmptyDataSet
 import Hero
 import AlamofireImage
+import MBProgressHUD
 
 class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate, ImageHelperDelegate {
 
@@ -29,6 +30,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     var members = [Membership]()
     var events = [Event]()
     var allEvents = [Event]()
+
+    let dispatchGroup = DispatchGroup()
     
     var membershipsController:MembershipsController?
     
@@ -40,6 +43,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setNavbarTitle()
         
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
@@ -54,6 +59,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
+        self.isHeroEnabled = true
+        self.tableView.isHeroEnabled = true
+        self.tableView.heroModifiers = [.cascade]
         
         if (self.membership != nil) {
             MembershipManager.shared.selectMembership(membership: self.membership!)
@@ -62,6 +70,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.setupNavbar()
         
         self.setupParallax()
+        
+        
         
         super.viewDidLoad()
     }
@@ -157,10 +167,26 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.loadData()
+    }
+    
+    func loadData() {
         if (self.membership?.team != nil) {
+            if (self.members.count == 0 && self.events.count == 0) {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+            }
             self.getMembers()
             self.getEvents()
+            self.dispatchGroup.notify(queue: .main) {
+                self.showData()
+            }
         }
+        
+    }
+    
+    func showData() {
+        self.tableView.reloadData()
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -168,21 +194,23 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func getMembers() {
+        self.dispatchGroup.enter()
         _ = DataHandler.def.getMembers(teamId: (self.membership?.team?.id)!, successHandler: { memberships in
             self.members = memberships
-            self.tableView.reloadData()
+            self.dispatchGroup.leave()
         }, failHandler: { err in
             print(err)
         })
     }
     
     func getEvents() {
+        self.dispatchGroup.enter()
         _ = DataHandler.def.getEventsOfTeam(team: (self.membership?.team!)!, successHandler: { events in
             self.allEvents = events.sorted(by: {(eventA, eventB) in
                 return eventA.start < eventB.start
             })
             self.events = self.getNextEvents()
-            self.tableView.reloadData()
+            self.dispatchGroup.leave()
         }, failHandler: { err in
             print(err)
         })

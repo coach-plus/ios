@@ -190,7 +190,7 @@ public extension UILabel {
         } else if let f = endFont , f.fontName != icon?.fontName()  {
             textFont = f
         }
-        let prefixTextAttributes = [NSAttributedStringKey.font : textFont!, NSAttributedStringKey.foregroundColor: prefixTextColor] as [NSAttributedStringKey : Any]
+        let prefixTextAttributes = [NSAttributedStringKey.font : textFont!, NSAttributedStringKey.foregroundColor: prefixTextColor] as [NSAttributedStringKey : Any] 
         let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: prefixTextAttributes)
         
         if let iconText = icon?.text {
@@ -310,7 +310,7 @@ public extension UIButton {
             textFont = f
         }
         
-        let prefixTextAttributes = [NSAttributedStringKey.font:textFont!.withSize(textSize ?? titleLabel.font.pointSize), NSAttributedStringKey.foregroundColor: prefixTextColor] as [NSAttributedStringKey : Any]
+        let prefixTextAttributes = [NSAttributedStringKey.font:textFont!.withSize(textSize ?? titleLabel.font.pointSize), NSAttributedStringKey.foregroundColor: prefixTextColor] 
         let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: prefixTextAttributes)
         
         if let iconText = icon.text {
@@ -321,7 +321,7 @@ public extension UIButton {
             prefixTextAttribured.append(iconString)
         }
         
-        let postfixTextAttributes = [NSAttributedStringKey.font:textFont!.withSize(textSize ?? titleLabel.font.pointSize), NSAttributedStringKey.foregroundColor: postfixTextColor] as [NSAttributedStringKey : Any]
+        let postfixTextAttributes = [NSAttributedStringKey.font:textFont!.withSize(textSize ?? titleLabel.font.pointSize), NSAttributedStringKey.foregroundColor: postfixTextColor]
         let postfixTextAttributed = NSAttributedString(string: postfixText, attributes: postfixTextAttributes)
         prefixTextAttribured.append(postfixTextAttributed)
         
@@ -593,6 +593,10 @@ public extension UIBarButtonItem {
         let font = UIFont(name: icon.fontName(), size: iconSize)
         assert(font != nil, icon.errorAnnounce())
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .focused)
         title = icon.text
         tintColor = color
     }
@@ -820,10 +824,10 @@ private class FontLoader {
             
             let data = try! Data(contentsOf: fontURL)
             let provider = CGDataProvider(data: data as CFData)
-            let font = CGFont(provider!)
+            let font = CGFont(provider!)!
             
             var error: Unmanaged<CFError>?
-            if !CTFontManagerRegisterGraphicsFont(font!, &error) {
+            if !CTFontManagerRegisterGraphicsFont(font, &error) {
                 let errorDescription: CFString = CFErrorCopyDescription(error!.takeUnretainedValue())
                 let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
                 NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()

@@ -11,6 +11,7 @@ import UserNotifications
 import IQKeyboardManagerSwift
 import MBProgressHUD
 import SlideMenuControllerSwift
+import Hero
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+                
         //SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 0.75
         SlideMenuOptions.contentViewScale = 1.0
         SlideMenuOptions.simultaneousGestureRecognizers = false
@@ -64,8 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func setupStyling() {
+        Hero.shared.containerColor = .clear
         let ai = UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [MBProgressHUD.self])
-        ai.color = UIColor.white
+        ai.color = UIColor.coachPlusBlue
     }
     
     
@@ -75,6 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Called when APNs has assigned the device a unique token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        if (!Authentication.loggedIn()) {
+            return
+        }
+        
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("APNs device token: \(deviceTokenString)")
         NotificationManager.registerDeviceOnServer(pushId: deviceTokenString)

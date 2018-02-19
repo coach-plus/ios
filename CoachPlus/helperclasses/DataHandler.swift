@@ -240,6 +240,17 @@ class DataHandler {
         }, failHandler: failHandler)
     }
     
+    func getMembershipsOfUser(userId:String, successHandler: @escaping MembershipsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+        let url = "users/\(userId)/memberships"
+        
+        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
+            
+            let memberships = apiResponse.toArray(Membership.self, property: "memberships")
+            successHandler(memberships)
+            
+        }, failHandler: failHandler)
+    }
+    
     func getEventsOfTeam(team:Team, successHandler: @escaping EventsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
         
         let url = "teams/\(team.id)/events"

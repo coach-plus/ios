@@ -11,15 +11,6 @@ import UIKit
 
 extension UIViewController {
     
-    func setCoachPlusLogo() {
-        let topItem = self.navigationItem
-        let img = UIImageView(image: UIImage(named: "LogoWhite"))
-        img.contentMode = .scaleAspectFit
-        
-        let title = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 45))
-        img.frame = title.bounds
-        title.addSubview(img)
-        topItem.titleView = title
-    }
+    
     
 }

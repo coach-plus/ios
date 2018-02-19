@@ -21,6 +21,7 @@ class MemberTableViewCell: UITableViewCell {
         
         let heroID = "\(membership.user!.id)"
         self.imageV.heroID = "\(heroID)/image"
+        self.textLbl.heroID = "\(heroID)/text"
         
         textLbl.text = membership.user?.fullname
         self.imageV.setUserImage(user: membership.user!)

@@ -6,4 +6,26 @@
   Copyright © 2018 Mathandoro GbR. All rights reserved.
 */
 
-"NEW_TEAM" = "Neues Team"
+"NEW_TEAM" = "Neues Team";
+"EMPTY_TEAMS" = "Du hast noch keine Teams erstellt.\nÄndere das mit dem ‘+’ rechts oben!";
+"SEE_ALL" = "Zeige mir alle Events";
+"NO_UPCOMING_EVENTS" = "Zurzeit sind keine Events geplant.";
+
+"CREATE_TEAM_MESSAGE_TEAM_PRIVATE" = "Dein Team ist nicht öffentlich sichtbar und nur per Einladung zu erreichen.";
+"CREATE_TEAM_MESSAGE_TEAM_PUBLIC" = "Dein Team ist öffentlich sichtbar und jeder kann beitreten.";
+
+"NAME" = "Name";
+"LOCATION" = "Ort";
+"DESCRIPTION" = "Beschreibung";
+
+"TIME_TO" = "bis";
+
+"ACTIONS" = "Aktionen";
+"ACTIONS_WHAT_TO_DO" = "Bitte wähle eine Aktion";
+"ACTION_MAKE_COACH" = "Zum Coach ernenne";
+"ACTION_KICK_USER" = "Aus Team entfernen";
+
+"CANCEL" = "Abbrechen";
+
+
+"AAAAAAAAAA" = "BBBBBB";

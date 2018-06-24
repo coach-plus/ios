@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,18 +19,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="47.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saN-wV-kwr">
-                        <rect key="frame" x="20" y="15" width="280" height="17.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saN-wV-kwr">
+                        <rect key="frame" x="16" y="15" width="288" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="d9R-0N-Rqa"/>
+                            <constraint firstAttribute="height" constant="18" id="jXQ-V9-M8j"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="saN-wV-kwr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="A3b-tI-d1A"/>
-                    <constraint firstAttribute="trailing" secondItem="saN-wV-kwr" secondAttribute="trailing" constant="20" id="OxC-wC-mFG"/>
-                    <constraint firstAttribute="bottom" secondItem="saN-wV-kwr" secondAttribute="bottom" constant="15" id="e0C-4x-xft"/>
-                    <constraint firstItem="saN-wV-kwr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ybj-Bp-07N"/>
+                    <constraint firstItem="saN-wV-kwr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="h2R-u5-hm5"/>
+                    <constraint firstItem="saN-wV-kwr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="hLM-22-pzQ"/>
+                    <constraint firstItem="saN-wV-kwr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="qbR-1o-KjW"/>
+                    <constraint firstAttribute="bottom" secondItem="saN-wV-kwr" secondAttribute="bottom" constant="15" id="wJW-Ad-MfM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

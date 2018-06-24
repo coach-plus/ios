@@ -158,6 +158,10 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     func setStyling() {
         self.barTintColor = UIColor(hexString: "#3381b8")
         self.tintColor = UIColor.white
+        self.titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedStringKey.font : UIFont(name: "Roboto-BoldItalic", size: 14)
+        ]
     }
     
     func setTeamSelection(team: Team?) {

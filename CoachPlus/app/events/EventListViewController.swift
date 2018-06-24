@@ -59,9 +59,9 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         switch self.selection {
         case .past:
-            return IndicatorInfo(title: "VERGANGENE EVENTS")
+            return IndicatorInfo(title: "PAST_EVENTS".localize())
         case .upcoming:
-            return IndicatorInfo(title: "ZUKÜNFTIGE EVENTS")
+            return IndicatorInfo(title: "UPCOMING_EVENTS".localize())
         }
     }
     
@@ -78,7 +78,7 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
-        let string = "Unfortunately there are no events!"
+        let string = "NO_EVENTS".localize()
         
         let attributedString = NSAttributedString(string: string, attributes: attributes)
         

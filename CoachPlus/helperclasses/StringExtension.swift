@@ -46,4 +46,9 @@ extension String {
         // Nothing worked!
         return Date()
     }
+    
+    func localize() -> String {
+        let translated = Bundle.main.localizedString(forKey: self, value: "", table: "MainLocalization")
+        return translated
+    }
 }

@@ -18,7 +18,6 @@
 		473483281EC25F6A00F60110 /* JoinTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473483261EC25F6A00F60110 /* JoinTeam.storyboard */; };
 		4734832A1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473483291EC25FB500F60110 /* JoinTeamViewController.swift */; };
 		4734832B1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473483291EC25FB500F60110 /* JoinTeamViewController.swift */; };
-		473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90F1E85453700DC8247 /* UIViewExtension.swift */; };
 		473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
 		473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2331E8537B800DCF74A /* VerificationViewController.swift */; };
 		473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6231E87C6A500F80101 /* DropdownAlert.swift */; };
@@ -73,7 +72,6 @@
 		478DE2361E85404D00DCF74A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2351E85404D00DCF74A /* GradientView.swift */; };
 		478DE2381E85409300DCF74A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2371E85409300DCF74A /* UIColorExtension.swift */; };
 		47A9B90E1E8543CB00DC8247 /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */; };
-		47A9B9101E85453700DC8247 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90F1E85453700DC8247 /* UIViewExtension.swift */; };
 		47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
 		47A9B9171E8561F800DC8247 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9161E8561F800DC8247 /* Home.storyboard */; };
 		47B1B6221E87265500F80101 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6211E87265500F80101 /* Authentication.swift */; };
@@ -103,6 +101,18 @@
 		47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
 		47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
 		480B31F326F2CCD4E1F1693C /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB5815500B66DBED4D57D5E /* Pods_CoachPlusUITests.framework */; };
+		611330DB20DE66CC008D8E70 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
+		611330DC20DE66CC008D8E70 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
+		611330DD20DE66CC008D8E70 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330DA20DE66CC008D8E70 /* EventDetailCell.xib */; };
+		611330DE20DE66CC008D8E70 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330DA20DE66CC008D8E70 /* EventDetailCell.xib */; };
+		611330E020DE6B9E008D8E70 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330DF20DE6B9E008D8E70 /* SeparatorView.swift */; };
+		611330E120DE6B9E008D8E70 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330DF20DE6B9E008D8E70 /* SeparatorView.swift */; };
+		611330E620DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
+		611330E720DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
+		611330E920DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */; };
+		611330EA20DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */; };
+		611330EC20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330EB20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib */; };
+		611330ED20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330EB20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib */; };
 		6116F85D1F34B81C00A30B44 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85C1F34B81C00A30B44 /* UserManager.swift */; };
 		6116F85E1F34B81C00A30B44 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85C1F34B81C00A30B44 /* UserManager.swift */; };
 		6116F8601F34D3E100A30B44 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85F1F34D3E100A30B44 /* ImageHelper.swift */; };
@@ -133,6 +143,10 @@
 		616617061E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */; };
 		616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
 		616617091E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
+		61851E0620DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61851E0520DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift */; };
+		61851E0720DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61851E0520DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift */; };
+		61851E0920DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61851E0820DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib */; };
+		61851E0A20DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61851E0820DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib */; };
 		618692821F352EE8002814C1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618692811F352EE8002814C1 /* Location.swift */; };
 		618692831F352EE8002814C1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618692811F352EE8002814C1 /* Location.swift */; };
 		61A006141F345115003E2651 /* ParticipationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006131F345115003E2651 /* ParticipationItem.swift */; };
@@ -157,6 +171,32 @@
 		61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
 		61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
 		61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
+		61C51A2920408FF0009B8BA2 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1D20408FEE009B8BA2 /* Roboto-Italic.ttf */; };
+		61C51A2A20408FF0009B8BA2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1E20408FEE009B8BA2 /* Roboto-Light.ttf */; };
+		61C51A2B20408FF0009B8BA2 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1F20408FEE009B8BA2 /* Roboto-Bold.ttf */; };
+		61C51A2C20408FF0009B8BA2 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2020408FEF009B8BA2 /* Roboto-LightItalic.ttf */; };
+		61C51A2D20408FF0009B8BA2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2120408FEF009B8BA2 /* Roboto-Regular.ttf */; };
+		61C51A2E20408FF0009B8BA2 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2220408FEF009B8BA2 /* Roboto-Thin.ttf */; };
+		61C51A2F20408FF0009B8BA2 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2320408FEF009B8BA2 /* Roboto-ThinItalic.ttf */; };
+		61C51A3020408FF0009B8BA2 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2420408FEF009B8BA2 /* Roboto-MediumItalic.ttf */; };
+		61C51A3120408FF0009B8BA2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2520408FEF009B8BA2 /* Roboto-Medium.ttf */; };
+		61C51A3220408FF0009B8BA2 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2620408FEF009B8BA2 /* Roboto-Black.ttf */; };
+		61C51A3320408FF0009B8BA2 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2720408FF0009B8BA2 /* Roboto-BoldItalic.ttf */; };
+		61C51A3420408FF0009B8BA2 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2820408FF0009B8BA2 /* Roboto-BlackItalic.ttf */; };
+		61C51A3520408FFB009B8BA2 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2620408FEF009B8BA2 /* Roboto-Black.ttf */; };
+		61C51A3620408FFB009B8BA2 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2820408FF0009B8BA2 /* Roboto-BlackItalic.ttf */; };
+		61C51A3720408FFB009B8BA2 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1F20408FEE009B8BA2 /* Roboto-Bold.ttf */; };
+		61C51A3820408FFB009B8BA2 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2720408FF0009B8BA2 /* Roboto-BoldItalic.ttf */; };
+		61C51A3920408FFB009B8BA2 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1D20408FEE009B8BA2 /* Roboto-Italic.ttf */; };
+		61C51A3A20408FFB009B8BA2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1E20408FEE009B8BA2 /* Roboto-Light.ttf */; };
+		61C51A3B20408FFB009B8BA2 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2020408FEF009B8BA2 /* Roboto-LightItalic.ttf */; };
+		61C51A3C20408FFB009B8BA2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2520408FEF009B8BA2 /* Roboto-Medium.ttf */; };
+		61C51A3D20408FFB009B8BA2 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2420408FEF009B8BA2 /* Roboto-MediumItalic.ttf */; };
+		61C51A3E20408FFB009B8BA2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2120408FEF009B8BA2 /* Roboto-Regular.ttf */; };
+		61C51A3F20408FFB009B8BA2 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2220408FEF009B8BA2 /* Roboto-Thin.ttf */; };
+		61C51A4020408FFB009B8BA2 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2320408FEF009B8BA2 /* Roboto-ThinItalic.ttf */; };
+		61C51A4220409159009B8BA2 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C51A4120409159009B8BA2 /* UIFontExtension.swift */; };
+		61C51A4320409159009B8BA2 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C51A4120409159009B8BA2 /* UIFontExtension.swift */; };
 		61CA9C7A1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */; };
 		61CA9C7B1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */; };
 		61CA9C7C1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */; };
@@ -197,10 +237,16 @@
 		61D5F55D1EC0C58100974EBD /* HomeDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */; };
 		61D5F55F1EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */; };
 		61D5F5601EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */; };
-		61D5F5631EC0D7AC00974EBD /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */; };
-		61D5F5641EC0D7AC00974EBD /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */; };
 		61D5F5661EC0E51900974EBD /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
 		61D5F5671EC0E51900974EBD /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
+		61D98DA22040BD2600D4B722 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DA12040BD2600D4B722 /* UIViewExtension.swift */; };
+		61D98DA32040BD2600D4B722 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DA12040BD2600D4B722 /* UIViewExtension.swift */; };
+		61D98DA620415C8A00D4B722 /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DA920415C8A00D4B722 /* NewTeam.storyboard */; };
+		61D98DA720415C8A00D4B722 /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DA920415C8A00D4B722 /* NewTeam.storyboard */; };
+		61D98DB220415E6800D4B722 /* MainLocalization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DB520415E6800D4B722 /* MainLocalization.strings */; };
+		61D98DB320415E6800D4B722 /* MainLocalization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DB520415E6800D4B722 /* MainLocalization.strings */; };
+		61D98DBB2041866B00D4B722 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */; };
+		61D98DBC2041866B00D4B722 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */; };
 		61EB04072039BEDA003C1A17 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
 		61EB04082039BEDC003C1A17 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
 		8806586083F20F4D7E538EAC /* Pods_CoachPlusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FC678EACD93952A8FC9D03 /* Pods_CoachPlusTests.framework */; };
@@ -265,7 +311,6 @@
 		478DE2351E85404D00DCF74A /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = helperclasses/GradientView.swift; sourceTree = "<group>"; };
 		478DE2371E85409300DCF74A /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = helperclasses/UIColorExtension.swift; sourceTree = "<group>"; };
 		47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutlineButton.swift; path = helperclasses/OutlineButton.swift; sourceTree = "<group>"; };
-		47A9B90F1E85453700DC8247 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		47A9B9121E85569B00DC8247 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = register/Register.storyboard; sourceTree = "<group>"; };
 		47A9B9161E8561F800DC8247 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = app/home/Home.storyboard; sourceTree = "<group>"; };
 		47B1B6211E87265500F80101 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authentication.swift; path = helperclasses/Authentication.swift; sourceTree = "<group>"; };
@@ -286,6 +331,12 @@
 		47F042181E8E7A590020D78E /* MembershipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MembershipManager.swift; path = helperclasses/MembershipManager.swift; sourceTree = "<group>"; };
 		5854C205E291EA13A294BF8C /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		58F64F9A380F6E623435F897 /* Pods-CoachPlusDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.debug.xcconfig"; sourceTree = "<group>"; };
+		611330D920DE66CC008D8E70 /* EventDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDetailCell.swift; path = app/events/cells/EventDetailCell.swift; sourceTree = "<group>"; };
+		611330DA20DE66CC008D8E70 /* EventDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventDetailCell.xib; path = app/events/cells/EventDetailCell.xib; sourceTree = "<group>"; };
+		611330DF20DE6B9E008D8E70 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeparatorView.swift; path = ui/SeparatorView.swift; sourceTree = "<group>"; };
+		611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
+		611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParticipationTableHeaderView.swift; path = ui/tableheader/ParticipationTableHeaderView.swift; sourceTree = "<group>"; };
+		611330EB20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ParticipationTableHeaderView.xib; path = ui/participationview/ParticipationTableHeaderView.xib; sourceTree = "<group>"; };
 		6116F85C1F34B81C00A30B44 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = helperclasses/UserManager.swift; sourceTree = "<group>"; };
 		6116F85F1F34D3E100A30B44 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageHelper.swift; path = helperclasses/ImageHelper.swift; sourceTree = "<group>"; };
 		612E14CF1F1823C400D19674 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ui/HeaderView.swift; sourceTree = "<group>"; };
@@ -302,6 +353,8 @@
 		616617001E9FAE7200E8D8D5 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = ui/NavigationBar.swift; sourceTree = "<group>"; };
 		616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamSelectionView.swift; path = ui/teamselection/TeamSelectionView.swift; sourceTree = "<group>"; };
 		616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamSelectionView.xib; path = ui/teamselection/TeamSelectionView.xib; sourceTree = "<group>"; };
+		61851E0520DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableParticipationHeaderView.swift; path = ui/tableheader/ReusableParticipationHeaderView.swift; sourceTree = "<group>"; };
+		61851E0820DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReusableParticipationHeaderView.xib; path = ui/tableheader/ReusableParticipationHeaderView.xib; sourceTree = "<group>"; };
 		618692811F352EE8002814C1 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = models/Location.swift; sourceTree = "<group>"; };
 		61A006131F345115003E2651 /* ParticipationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParticipationItem.swift; path = models/ParticipationItem.swift; sourceTree = "<group>"; };
 		61A006161F3468CF003E2651 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = News.swift; path = models/News.swift; sourceTree = "<group>"; };
@@ -314,6 +367,19 @@
 		61A6DC0D1F35EBCE0000970C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = helperclasses/NotificationManager.swift; sourceTree = "<group>"; };
 		61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberTableViewCell.swift; path = app/shared/members/MemberTableViewCell.swift; sourceTree = "<group>"; };
 		61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MemberTableViewCell.xib; path = app/shared/members/MemberTableViewCell.xib; sourceTree = "<group>"; };
+		61C51A1D20408FEE009B8BA2 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		61C51A1E20408FEE009B8BA2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		61C51A1F20408FEE009B8BA2 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		61C51A2020408FEF009B8BA2 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		61C51A2120408FEF009B8BA2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		61C51A2220408FEF009B8BA2 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		61C51A2320408FEF009B8BA2 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		61C51A2420408FEF009B8BA2 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		61C51A2520408FEF009B8BA2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		61C51A2620408FEF009B8BA2 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		61C51A2720408FF0009B8BA2 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		61C51A2820408FF0009B8BA2 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		61C51A4120409159009B8BA2 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIFontExtension.swift; path = helperclasses/UIFontExtension.swift; sourceTree = "<group>"; };
 		61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeAllTableViewCell.swift; path = app/shared/seeall/SeeAllTableViewCell.swift; sourceTree = "<group>"; };
 		61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SeeAllTableViewCell.xib; path = app/shared/seeall/SeeAllTableViewCell.xib; sourceTree = "<group>"; };
 		61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Events.storyboard; path = app/events/Events.storyboard; sourceTree = "<group>"; };
@@ -334,8 +400,18 @@
 		61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = app/events/EventDetailViewController.swift; sourceTree = "<group>"; };
 		61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeDrawerController.swift; path = app/home/HomeDrawerController.swift; sourceTree = "<group>"; };
 		61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtension.swift; path = helperclasses/UIApplicationExtension.swift; sourceTree = "<group>"; };
-		61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NewTeam.storyboard; path = app/team/NewTeam.storyboard; sourceTree = "<group>"; };
 		61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTeamViewController.swift; path = app/team/CreateTeamViewController.swift; sourceTree = "<group>"; };
+		61D98DA12040BD2600D4B722 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = helperclasses/UIViewExtension.swift; sourceTree = "<group>"; };
+		61D98DA420415BE600D4B722 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		61D98DA520415BE600D4B722 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		61D98DA820415C8A00D4B722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewTeam.storyboard; sourceTree = "<group>"; };
+		61D98DAB20415C9000D4B722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NewTeam.strings; sourceTree = "<group>"; };
+		61D98DB420415E6800D4B722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MainLocalization.strings; sourceTree = "<group>"; };
+		61D98DB620415E8200D4B722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainLocalization.strings; sourceTree = "<group>"; };
+		61D98DB820415FC000D4B722 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/NewTeam.strings; sourceTree = "<group>"; };
+		61D98DB9204160F900D4B722 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainLocalization.strings; sourceTree = "<group>"; };
+		61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		61D98DBE204186F100D4B722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonExtensions.swift; path = helperclasses/ButtonExtensions.swift; sourceTree = "<group>"; };
 		6DA5109076260D00A51E2236 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
 		6F37F74EC4CBD0B2B2BC02DB /* Pods_CoachPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -405,6 +481,8 @@
 		4734831E1EC208BA00F60110 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				61D98DAE20415E1800D4B722 /* localization */,
+				61C51A1C20408FDE009B8BA2 /* fonts */,
 				473483231EC20A2000F60110 /* Assets.xcassets */,
 			);
 			name = assets;
@@ -491,6 +569,7 @@
 				4734832C1EC2698800F60110 /* CoachPlusDev.entitlements */,
 				4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */,
 				4749C5011E81B7FE0068B0FA /* ViewController.swift */,
+				61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */,
 				4749C5031E81B7FE0068B0FA /* Main.storyboard */,
 				616616E51E9F8B5A00E8D8D5 /* Playground.storyboard */,
 				4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */,
@@ -528,7 +607,6 @@
 				47B1B6251E87C81B00F80101 /* FlowManager.swift */,
 				478DE2371E85409300DCF74A /* UIColorExtension.swift */,
 				47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */,
-				47A9B90F1E85453700DC8247 /* UIViewExtension.swift */,
 				472B9C0F1E86CDE000706E6B /* StringExtension.swift */,
 				472B9C111E870E4300706E6B /* Helpers.swift */,
 				47B1B6211E87265500F80101 /* Authentication.swift */,
@@ -548,6 +626,8 @@
 				6116F85F1F34D3E100A30B44 /* ImageHelper.swift */,
 				61A6DC0D1F35EBCE0000970C /* NotificationManager.swift */,
 				61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */,
+				61C51A4120409159009B8BA2 /* UIFontExtension.swift */,
+				61D98DA12040BD2600D4B722 /* UIViewExtension.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -619,7 +699,7 @@
 			children = (
 				47F041F61E8E5FF90020D78E /* Team.storyboard */,
 				47F042111E8E70660020D78E /* TeamViewController.swift */,
-				61D5F5621EC0D7AC00974EBD /* NewTeam.storyboard */,
+				61D98DA920415C8A00D4B722 /* NewTeam.storyboard */,
 				61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */,
 				473483261EC25F6A00F60110 /* JoinTeam.storyboard */,
 				473483291EC25FB500F60110 /* JoinTeamViewController.swift */,
@@ -637,6 +717,7 @@
 				616617001E9FAE7200E8D8D5 /* NavigationBar.swift */,
 				61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */,
 				612E14CF1F1823C400D19674 /* HeaderView.swift */,
+				611330DF20DE6B9E008D8E70 /* SeparatorView.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -648,13 +729,27 @@
 				47F0420E1E8E6F4B0020D78E /* TableHeaderView.xib */,
 				616616E61E9F950B00E8D8D5 /* ReusableTableHeader.swift */,
 				616616EC1E9F952C00E8D8D5 /* ReusableTableHeader.xib */,
+				611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */,
+				611330EB20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib */,
+				61851E0520DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift */,
+				61851E0820DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib */,
 			);
 			name = tableheader;
+			sourceTree = "<group>";
+		};
+		611330D220DE64E0008D8E70 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				611330D920DE66CC008D8E70 /* EventDetailCell.swift */,
+				611330DA20DE66CC008D8E70 /* EventDetailCell.xib */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		612E14C91F0F7E1200D19674 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -709,6 +804,25 @@
 			name = members;
 			sourceTree = "<group>";
 		};
+		61C51A1C20408FDE009B8BA2 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				61C51A2620408FEF009B8BA2 /* Roboto-Black.ttf */,
+				61C51A2820408FF0009B8BA2 /* Roboto-BlackItalic.ttf */,
+				61C51A1F20408FEE009B8BA2 /* Roboto-Bold.ttf */,
+				61C51A2720408FF0009B8BA2 /* Roboto-BoldItalic.ttf */,
+				61C51A1D20408FEE009B8BA2 /* Roboto-Italic.ttf */,
+				61C51A1E20408FEE009B8BA2 /* Roboto-Light.ttf */,
+				61C51A2020408FEF009B8BA2 /* Roboto-LightItalic.ttf */,
+				61C51A2520408FEF009B8BA2 /* Roboto-Medium.ttf */,
+				61C51A2420408FEF009B8BA2 /* Roboto-MediumItalic.ttf */,
+				61C51A2120408FEF009B8BA2 /* Roboto-Regular.ttf */,
+				61C51A2220408FEF009B8BA2 /* Roboto-Thin.ttf */,
+				61C51A2320408FEF009B8BA2 /* Roboto-ThinItalic.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		61CA9C771EA224D7004AFAC7 /* seeall */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +835,7 @@
 		61CA9C7E1EA227B7004AFAC7 /* events */ = {
 			isa = PBXGroup;
 			children = (
+				611330D220DE64E0008D8E70 /* cells */,
 				61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */,
 				613A92001F0EF2D900826879 /* EventsViewController.swift */,
 				61CA9C821EA3F6E3004AFAC7 /* EventListViewController.swift */,
@@ -758,6 +873,14 @@
 				61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */,
 			);
 			name = participation;
+			sourceTree = "<group>";
+		};
+		61D98DAE20415E1800D4B722 /* localization */ = {
+			isa = PBXGroup;
+			children = (
+				61D98DB520415E6800D4B722 /* MainLocalization.strings */,
+			);
+			path = localization;
 			sourceTree = "<group>";
 		};
 		FCBA8BE104737285F5250065 /* Frameworks */ = {
@@ -908,11 +1031,12 @@
 			};
 			buildConfigurationList = 4749C4F71E81B7FE0068B0FA /* Build configuration list for PBXProject "CoachPlus" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = German;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 4749C4F31E81B7FE0068B0FA;
 			productRefGroup = 4749C4FD1E81B7FE0068B0FA /* Products */;
@@ -932,31 +1056,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C51A2C20408FF0009B8BA2 /* Roboto-LightItalic.ttf in Resources */,
 				473A5F721E8A749A002FD833 /* Home.storyboard in Resources */,
+				61C51A2D20408FF0009B8BA2 /* Roboto-Regular.ttf in Resources */,
+				61C51A3220408FF0009B8BA2 /* Roboto-Black.ttf in Resources */,
 				61CA9C901EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
+				61C51A2B20408FF0009B8BA2 /* Roboto-Bold.ttf in Resources */,
 				61CA9C7C1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
 				61CA9C9D1EA52211004AFAC7 /* TitleView.xib in Resources */,
 				61CA9C961EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
+				61C51A3120408FF0009B8BA2 /* Roboto-Medium.ttf in Resources */,
 				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
 				473DCE1B1EC3A6A000A42F51 /* User.storyboard in Resources */,
+				61C51A3320408FF0009B8BA2 /* Roboto-BoldItalic.ttf in Resources */,
+				61C51A2F20408FF0009B8BA2 /* Roboto-ThinItalic.ttf in Resources */,
+				61C51A3020408FF0009B8BA2 /* Roboto-MediumItalic.ttf in Resources */,
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
+				61851E0920DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib in Resources */,
 				61A0061E1F346D66003E2651 /* NewsTableViewCell.xib in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
+				611330EC20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib in Resources */,
 				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
+				61C51A3420408FF0009B8BA2 /* Roboto-BlackItalic.ttf in Resources */,
 				473483271EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
 				61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
-				61D5F5631EC0D7AC00974EBD /* NewTeam.storyboard in Resources */,
+				61D98DA620415C8A00D4B722 /* NewTeam.storyboard in Resources */,
+				611330DD20DE66CC008D8E70 /* EventDetailCell.xib in Resources */,
 				61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */,
+				61D98DB220415E6800D4B722 /* MainLocalization.strings in Resources */,
 				473A5F761E8A749A002FD833 /* LaunchScreen.storyboard in Resources */,
 				473A5F771E8A749A002FD833 /* Main.storyboard in Resources */,
 				47F041EE1E8E59540020D78E /* Memberships.storyboard in Resources */,
+				61C51A2A20408FF0009B8BA2 /* Roboto-Light.ttf in Resources */,
 				473A5F781E8A749A002FD833 /* Register.storyboard in Resources */,
 				47F0420F1E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
 				61A006241F34808A003E2651 /* NewNews.storyboard in Resources */,
+				61C51A2E20408FF0009B8BA2 /* Roboto-Thin.ttf in Resources */,
 				61CA9CA11EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F71E8E5FF90020D78E /* Team.storyboard in Resources */,
 				616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */,
+				61C51A2920408FF0009B8BA2 /* Roboto-Italic.ttf in Resources */,
 				473483241EC20A2000F60110 /* Assets.xcassets in Resources */,
 				616616F51E9F9E1000E8D8D5 /* EventTableViewCell.xib in Resources */,
 			);
@@ -967,27 +1107,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A9B9171E8561F800DC8247 /* Home.storyboard in Resources */,
+				61C51A3620408FFB009B8BA2 /* Roboto-BlackItalic.ttf in Resources */,
+				61C51A3720408FFB009B8BA2 /* Roboto-Bold.ttf in Resources */,
+				61C51A3820408FFB009B8BA2 /* Roboto-BoldItalic.ttf in Resources */,
 				61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
+				61C51A3920408FFB009B8BA2 /* Roboto-Italic.ttf in Resources */,
 				61CA9C7D1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
 				61CA9C9E1EA52211004AFAC7 /* TitleView.xib in Resources */,
 				473483251EC20A2000F60110 /* Assets.xcassets in Resources */,
 				61CA9C971EA51EA2004AFAC7 /* EventDetail.storyboard in Resources */,
+				61C51A3C20408FFB009B8BA2 /* Roboto-Medium.ttf in Resources */,
 				473DCE1C1EC3A6A000A42F51 /* User.storyboard in Resources */,
+				61C51A4020408FFB009B8BA2 /* Roboto-ThinItalic.ttf in Resources */,
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				61A0061F1F346D66003E2651 /* NewsTableViewCell.xib in Resources */,
+				61C51A3F20408FFB009B8BA2 /* Roboto-Thin.ttf in Resources */,
+				61851E0A20DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib in Resources */,
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
+				61C51A3A20408FFB009B8BA2 /* Roboto-Light.ttf in Resources */,
+				611330ED20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib in Resources */,
+				61C51A3D20408FFB009B8BA2 /* Roboto-MediumItalic.ttf in Resources */,
+				61C51A3E20408FFB009B8BA2 /* Roboto-Regular.ttf in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
+				61C51A3520408FFB009B8BA2 /* Roboto-Black.ttf in Resources */,
 				473483281EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
 				61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
+				611330DE20DE66CC008D8E70 /* EventDetailCell.xib in Resources */,
 				61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
+				61D98DB320415E6800D4B722 /* MainLocalization.strings in Resources */,
 				616616EE1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
-				61D5F5641EC0D7AC00974EBD /* NewTeam.storyboard in Resources */,
+				61D98DA720415C8A00D4B722 /* NewTeam.storyboard in Resources */,
 				61CA9C811EA227C6004AFAC7 /* Events.storyboard in Resources */,
 				4749C50A1E81B7FE0068B0FA /* LaunchScreen.storyboard in Resources */,
 				4749C5051E81B7FE0068B0FA /* Main.storyboard in Resources */,
 				47F041EF1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */,
 				61A006251F34808A003E2651 /* NewNews.storyboard in Resources */,
+				61C51A3B20408FFB009B8BA2 /* Roboto-LightItalic.ttf in Resources */,
 				47F042101E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
 				61CA9CA21EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F81E8E5FF90020D78E /* Team.storyboard in Resources */,
@@ -1101,6 +1257,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1123,6 +1280,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1203,6 +1361,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1225,6 +1384,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1291,9 +1451,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				616616E71E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */,
-				473A5F5A1E8A749A002FD833 /* UIViewExtension.swift in Sources */,
 				61A0061C1F346D66003E2651 /* NewsTableViewCell.swift in Sources */,
 				616617051E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */,
+				61C51A4220409159009B8BA2 /* UIFontExtension.swift in Sources */,
 				473A5F5B1E8A749A002FD833 /* Helpers.swift in Sources */,
 				61ACB71D1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */,
 				6116F85D1F34B81C00A30B44 /* UserManager.swift in Sources */,
@@ -1302,16 +1462,19 @@
 				473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */,
 				61D5F5661EC0E51900974EBD /* CreateTeamViewController.swift in Sources */,
 				47F041FC1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
+				611330E920DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */,
 				61CA9C7A1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				473A5F5D1E8A749A002FD833 /* DropdownAlert.swift in Sources */,
 				61CA9C931EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
 				61D5F55F1EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */,
 				61A006141F345115003E2651 /* ParticipationItem.swift in Sources */,
 				616616F81E9FA07400E8D8D5 /* Event.swift in Sources */,
+				611330E020DE6B9E008D8E70 /* SeparatorView.swift in Sources */,
 				61CA9C861EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				473A5F5E1E8A749A002FD833 /* CoachPlus.swift in Sources */,
 				4734832A1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */,
 				6116F8601F34D3E100A30B44 /* ImageHelper.swift in Sources */,
+				61851E0620DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift in Sources */,
 				473A5F5F1E8A749A002FD833 /* HomeViewController.swift in Sources */,
 				473A5F601E8A749A002FD833 /* RegisterViewController.swift in Sources */,
 				473A5F611E8A749A002FD833 /* DataHandler.swift in Sources */,
@@ -1322,6 +1485,7 @@
 				61A006171F3468CF003E2651 /* News.swift in Sources */,
 				612E14D01F1823C400D19674 /* HeaderView.swift in Sources */,
 				47F042121E8E70660020D78E /* TeamViewController.swift in Sources */,
+				61D98DBB2041866B00D4B722 /* LaunchScreenController.swift in Sources */,
 				473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */,
 				61CA9C831EA3F6E3004AFAC7 /* EventListViewController.swift in Sources */,
 				618692821F352EE8002814C1 /* Location.swift in Sources */,
@@ -1334,6 +1498,7 @@
 				61EB04072039BEDA003C1A17 /* ButtonExtensions.swift in Sources */,
 				473DCE211EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
+				611330E620DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
 				61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
 				61A006271F34832E003E2651 /* NewNewsViewController.swift in Sources */,
@@ -1349,8 +1514,10 @@
 				473A5F6A1E8A749A002FD833 /* UrlHandler.swift in Sources */,
 				473A5F6B1E8A749A002FD833 /* StringExtension.swift in Sources */,
 				61A006211F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
+				61D98DA22040BD2600D4B722 /* UIViewExtension.swift in Sources */,
 				616616FB1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
+				611330DB20DE66CC008D8E70 /* EventDetailCell.swift in Sources */,
 				477A27591E8C3775005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA41EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				473DCE1E1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
@@ -1366,9 +1533,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				616616E81E9F950B00E8D8D5 /* ReusableTableHeader.swift in Sources */,
-				47A9B9101E85453700DC8247 /* UIViewExtension.swift in Sources */,
 				61A0061D1F346D66003E2651 /* NewsTableViewCell.swift in Sources */,
 				616617061E9FB35100E8D8D5 /* TeamSelectionView.swift in Sources */,
+				61C51A4320409159009B8BA2 /* UIFontExtension.swift in Sources */,
 				472B9C121E870E4300706E6B /* Helpers.swift in Sources */,
 				61ACB71E1EA0D6C400A7A1D2 /* MemberTableViewCell.swift in Sources */,
 				6116F85E1F34B81C00A30B44 /* UserManager.swift in Sources */,
@@ -1377,16 +1544,19 @@
 				478DE2341E8537B800DCF74A /* VerificationViewController.swift in Sources */,
 				61D5F5671EC0E51900974EBD /* CreateTeamViewController.swift in Sources */,
 				47F041FD1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
+				611330EA20DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */,
 				61CA9C7B1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
 				47B1B6241E87C6A500F80101 /* DropdownAlert.swift in Sources */,
 				61CA9C941EA51A22004AFAC7 /* CreateEventViewController.swift in Sources */,
 				61D5F5601EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */,
 				61A006151F345115003E2651 /* ParticipationItem.swift in Sources */,
 				616616F91E9FA07400E8D8D5 /* Event.swift in Sources */,
+				611330E120DE6B9E008D8E70 /* SeparatorView.swift in Sources */,
 				61CA9C871EA404C4004AFAC7 /* UIViewControllerExtension.swift in Sources */,
 				474144D81E842D30009788E2 /* CoachPlus.swift in Sources */,
 				4734832B1EC25FB500F60110 /* JoinTeamViewController.swift in Sources */,
 				6116F8611F34D3E100A30B44 /* ImageHelper.swift in Sources */,
+				61851E0720DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift in Sources */,
 				47B1B6281E87CBC700F80101 /* HomeViewController.swift in Sources */,
 				472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */,
 				47B1B62A1E87D18300F80101 /* DataHandler.swift in Sources */,
@@ -1397,6 +1567,7 @@
 				61A006181F3468CF003E2651 /* News.swift in Sources */,
 				612E14D11F1823C400D19674 /* HeaderView.swift in Sources */,
 				47F042131E8E70660020D78E /* TeamViewController.swift in Sources */,
+				61D98DBC2041866B00D4B722 /* LaunchScreenController.swift in Sources */,
 				478DE2381E85409300DCF74A /* UIColorExtension.swift in Sources */,
 				61CA9C841EA3F6E3004AFAC7 /* EventListViewController.swift in Sources */,
 				618692831F352EE8002814C1 /* Location.swift in Sources */,
@@ -1409,6 +1580,7 @@
 				61EB04082039BEDC003C1A17 /* ButtonExtensions.swift in Sources */,
 				473DCE221EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
+				611330E720DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
 				61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */,
 				61A006281F34832E003E2651 /* NewNewsViewController.swift in Sources */,
@@ -1424,8 +1596,10 @@
 				478DE22F1E85367000DCF74A /* UrlHandler.swift in Sources */,
 				472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */,
 				61A006221F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
+				61D98DA32040BD2600D4B722 /* UIViewExtension.swift in Sources */,
 				616616FC1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */,
+				611330DC20DE66CC008D8E70 /* EventDetailCell.swift in Sources */,
 				477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA51EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				473DCE1F1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
@@ -1472,6 +1646,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4749C5041E81B7FE0068B0FA /* Base */,
+				61D98DA420415BE600D4B722 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1480,8 +1655,31 @@
 			isa = PBXVariantGroup;
 			children = (
 				4749C5091E81B7FE0068B0FA /* Base */,
+				61D98DA520415BE600D4B722 /* de */,
+				61D98DBE204186F100D4B722 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		61D98DA920415C8A00D4B722 /* NewTeam.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61D98DA820415C8A00D4B722 /* Base */,
+				61D98DAB20415C9000D4B722 /* en */,
+				61D98DB820415FC000D4B722 /* de */,
+			);
+			name = NewTeam.storyboard;
+			path = app/team;
+			sourceTree = "<group>";
+		};
+		61D98DB520415E6800D4B722 /* MainLocalization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61D98DB420415E6800D4B722 /* Base */,
+				61D98DB620415E8200D4B722 /* en */,
+				61D98DB9204160F900D4B722 /* de */,
+			);
+			name = MainLocalization.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1501,7 +1699,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bc11cb72-d964-4148-8278-469b8d014de5";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.mathandoro.coachplus";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -1524,8 +1722,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mathandoro.coachplus";
+				PROVISIONING_PROFILE = "53120f2c-b0cd-4f98-bf82-7ae335a8a5d6";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.mathandoro.coachplus";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "";
@@ -1536,6 +1734,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1588,6 +1787,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1633,7 +1833,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58F64F9A380F6E623435F897 /* Pods-CoachPlusDev.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
@@ -1655,7 +1855,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6DA5109076260D00A51E2236 /* Pods-CoachPlusDev.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";

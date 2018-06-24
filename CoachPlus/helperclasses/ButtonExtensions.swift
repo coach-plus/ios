@@ -12,6 +12,7 @@ import SwiftIcons
 
 extension UIButton {
     func setCoachPlusIcon(fontType: FontType, color: UIColor? = .coachPlusGrey) {
+        self.setIcon(icon: fontType, iconSize: 20, color: color!, backgroundColor: .clear, forState: .normal)
         self.setIcon(icon: fontType, iconSize: 20, color: color!, backgroundColor: .clear, forState: .selected)
         self.setIcon(icon: fontType, iconSize: 20, color: color!, backgroundColor: .clear, forState: .highlighted)
     }

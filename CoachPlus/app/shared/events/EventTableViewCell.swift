@@ -20,20 +20,9 @@ class EventTableViewCell: UITableViewCell {
         self.heroID = "event\(event.id)"
         
         let name = event.name
-        let date = event.dateString()
         
-        var nameString = NSMutableAttributedString(string: "\(name) \(date)", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)])
-        
-        let attributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular),
-            NSAttributedStringKey.foregroundColor: UIColor.coachPlusLightGrey
-        ]
-        
-        nameString.addAttributes(attributes, range: NSRange(location: name.characters.count+1, length: date.characters.count))
-        
-        self.nameLbl.attributedText = nameString
+        self.nameLbl.text = name
         self.nameLbl.heroID = "\(self.heroID!)/name"
-        
         
         self.dateTimeLbl.text = event.fromToString()
         self.locationLbl.text = event.getLocationString()

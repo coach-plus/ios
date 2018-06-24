@@ -83,7 +83,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         }
         
         let width = self.view.bounds.width
-        let height:CGFloat = 200.0
+        let height:CGFloat = width
         
         let placeholder = UIImage.init(icon: .ionicons(.tshirtOutline), size: CGSize(width: width, height: height), textColor: .coachPlusBlue, backgroundColor: .white)
         
@@ -173,7 +173,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func loadData() {
         if (self.membership?.team != nil) {
             if (self.members.count == 0 && self.events.count == 0) {
-                MBProgressHUD.showAdded(to: self.view, animated: true)
+                MBProgressHUD.createHUD(view: self.view, msg: "Lade Team..")
             }
             self.getMembers()
             self.getEvents()
@@ -307,10 +307,10 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         switch self.eventRowType(indexPath) {
         case .empty:
             cell = UITableViewCell(style: .default, reuseIdentifier: "NoEventsCell")
-            cell.textLabel?.text = "No Events"
+            cell.textLabel?.text = "NO_UPCOMING_EVENTS".localize()
         case .seeAll:
             let cell1 = self.tableView.dequeueReusableCell(withIdentifier: "SeeAllTableViewCell", for: indexPath) as! SeeAllTableViewCell
-            cell1.textLbl.text = "See all Events"
+            cell1.textLbl.text = "SEE_ALL".localize()
             cell = cell1
         case .event:
             let cell1 = self.tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
@@ -330,7 +330,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         let membership = self.members[indexPath.row]
         
-        cell.setup(membership: membership)
+        cell.setup(membership: membership, ownMembership: self.membership!, vc: self)
         
         return cell
     }
@@ -436,8 +436,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             let vc = FlowManager.profileVc()
             let user = self.members[indexPath.row].user
             vc.isHeroEnabled = true
-            vc.user = user
             vc.heroId = "\(user!.id)"
+            vc.user = user
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

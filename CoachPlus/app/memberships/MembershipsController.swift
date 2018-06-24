@@ -9,8 +9,9 @@
 import UIKit
 
 import SwiftIcons
+import DZNEmptyDataSet
 
-class MembershipsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MembershipsController: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var infoBtn: UIButton!
@@ -21,9 +22,16 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     
     private let refreshControl = UIRefreshControl()
 
+    func setSeparator() {
+        self.setSeparator(tableView: self.tableView, toCheck: self.memberships)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setSeparator()
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         
         let cellNib = UINib(nibName: "MembershipTableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "MembershipCell")
@@ -58,10 +66,10 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func loadTeams() {
-        
         _ = DataHandler.def.getMyMemberships(successHandler: { memberships in
             self.memberships = memberships
             MembershipManager.shared.storeMemberships(memberships: self.memberships)
+            self.setSeparator()
             self.tableView.reloadData()
             if (self.teamIdToBeSelected != nil) {
                 let membership = self.memberships.first(where: { membership in
@@ -76,6 +84,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             self.refreshControl.endRefreshing()
         }, failHandler: { err in
             print(err)
+            self.setSeparator()
             self.refreshControl.endRefreshing()
         })
     }
@@ -134,6 +143,20 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
                 
             }
         }
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(icon: .fontAwesome(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        
+        let string = "EMPTY_TEAMS".localize()
+        
+        let attributedString = NSAttributedString(string: string, attributes: attributes)
+        
+        return attributedString
     }
     
     

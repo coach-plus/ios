@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+class LaunchScreenController: UIViewController {
+    
+    
+    
+}

@@ -27,8 +27,8 @@ class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDele
     
     func showImagePicker() {
         var config = Configuration()
-        config.doneButtonTitle = "Finish"
-        config.noImagesTitle = "Sorry! There are no images here!"
+        config.doneButtonTitle = "DONE".localize()
+        config.noImagesTitle = "NO_IMAGES_FOUND".localize()
         config.recordLocation = false
         
         let imagePickerController = ImagePickerController.init(configuration: config)
@@ -47,15 +47,19 @@ class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDele
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         
-        imagePicker.dismiss(animated: true, completion: nil)
-        
         if (images.count > 0) {
             let selectedImage = images[0]
             var imageCropVC : RSKImageCropViewController!
             imageCropVC = RSKImageCropViewController(image: selectedImage, cropMode: RSKImageCropMode.square)
             imageCropVC.delegate = self
-            vc.present(imageCropVC, animated: true, completion: nil)
+            imagePicker.present(imageCropVC, animated: true, completion: nil)
         }
+    
+        
+        
+        
+        
+        
     }
     
     func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
@@ -64,6 +68,7 @@ class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDele
     
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
         self.delegate.imageSelectedAndCropped(image: croppedImage)
-        controller.dismiss(animated: true, completion: nil)
+        controller.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        //controller.dismiss(animated: true, completion: nil)
     }
 }

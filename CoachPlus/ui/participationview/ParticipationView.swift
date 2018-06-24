@@ -43,9 +43,9 @@ class ParticipationView: NibDesignable {
     var user: User?
     var membership: Membership?
     
-    static let selectedYesColor = UIColor(hexString: "#73ba26")
-    static let selectedNoColor = UIColor(hexString: "#FF3B30")
-    static let didAttendNoColor = UIColor(hexString: "#F5DEDE")
+    static let selectedYesColor = UIColor.coachPlusParticipationYesColor
+    static let selectedNoColor = UIColor.coachPlusParticipationNoColor
+    static let didAttendNoColor = UIColor.coachPlusParticipationWrongColor
     static let unselectedColor = UIColor(hexString: "9b9b9b")
     
     static let noBgColor = UIColor(hexString: "ffffff")

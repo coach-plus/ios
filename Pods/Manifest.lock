@@ -18,6 +18,7 @@ PODS:
   - SwiftIcons (2.0.1)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
+  - TextFieldEffects (1.4.0)
   - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - SwiftIcons
   - SwiftyJSON
   - SwiftyUserDefaults
+  - TextFieldEffects
   - XLPagerTabStrip
 
 EXTERNAL SOURCES:
@@ -70,8 +72,9 @@ SPEC CHECKSUMS:
   SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: c08b85570c7c1e25976e24a94e31307fcb89b7b6
+PODFILE CHECKSUM: cbeaf7d5b610ee9fa6366c1a089f469173d06335
 
 COCOAPODS: 1.4.0

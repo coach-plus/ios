@@ -46,8 +46,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="27N-8k-wy6"/>
                                 </constraints>
+                                <attributedString key="userComments">
+                                    <fragment content="Neues Team Header">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Neues Team"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbn-FQ-mXe">
@@ -170,7 +179,7 @@ und nur per Einladung zu erreichen</string>
                                                                     <constraint firstAttribute="height" constant="54" id="lij-Gt-pOd"/>
                                                                 </constraints>
                                                                 <color key="tintColor" red="0.20000000000000001" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <state key="normal" title="Team Erstellen"/>
+                                                                <state key="normal" title="Team erstellen"/>
                                                                 <connections>
                                                                     <action selector="createBtnTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="9Dr-mm-C2b"/>
                                                                 </connections>

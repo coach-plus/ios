@@ -96,4 +96,8 @@ extension UIColor {
         }
     }
     
+    static let coachPlusParticipationYesColor = UIColor(hexString: "#73ba26")
+    static let coachPlusParticipationNoColor = UIColor(hexString: "#FF3B30")
+    
+    static let coachPlusParticipationWrongColor = UIColor(hexString: "#F5DEDE")
 }

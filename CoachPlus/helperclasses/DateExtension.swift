@@ -15,4 +15,8 @@ extension Date {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter.string(from: self)
     }
+    
+    func toDefaultFormatted() -> String {
+        return self.string(format: .custom("EEE dd.MM.YY - HH:mm"))
+    }
 }

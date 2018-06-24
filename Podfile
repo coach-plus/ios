@@ -22,6 +22,7 @@ def all_pods
   pod 'XLPagerTabStrip'
   pod 'SwiftIcons'
   pod 'RSKImageCropper'
+  pod 'TextFieldEffects'
 end
 
 target 'CoachPlus' do

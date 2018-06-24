@@ -88,7 +88,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             self.emailL.isHidden = true
         }
         
-        self.imageV.setUserImage(user: self.user!)
+        self.imageV.setUserImage(user: self.user!, showPlaceholder: false)
     }
     
     func setupTableView() {
@@ -140,5 +140,4 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             self.displayUser()
         }, failHandler: {err in })
     }
-
 }

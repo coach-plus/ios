@@ -23,7 +23,7 @@ class Event:JSONable, BackJSONable {
     
     var id: String
     var name: String
-    var description: String
+    var description: String = ""
     var start: Date
     var end: Date
     var teamId: String
@@ -74,7 +74,13 @@ class Event:JSONable, BackJSONable {
     }
     
     func fromToString() -> String {
-        return "\(self.start.string(dateStyle: .none, timeStyle: .short, in: nil)) - \(self.end.string(dateStyle: .none, timeStyle: .short, in: nil))"
+        
+        if (self.start.isInSameDayOf(date: self.end)) {
+            return "\(self.start.toDefaultFormatted()) \("TIME_TO".localize()) \(self.end.string(dateStyle: .none, timeStyle: .short, in: nil))"
+        } else {
+            return "\(self.start.toDefaultFormatted()) \("TIME_TO".localize()) \(self.end.toDefaultFormatted())"
+        }
+        
     }
     
     func dateString() -> String {
@@ -88,9 +94,17 @@ class Event:JSONable, BackJSONable {
     
     func getLocationString() -> String {
         if (self.location == nil || self.location?.name == "") {
-            return "No location provided"
+            return "NO_LOCATION".localize()
         } else {
             return (self.location?.getLocationString())!
+        }
+    }
+    
+    func getDescriptionString() -> String {
+        if (self.description == "") {
+            return "NO_DESCRIPTION".localize()
+        } else {
+            return (self.description)
         }
     }
     

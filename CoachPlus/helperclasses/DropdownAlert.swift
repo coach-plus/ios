@@ -17,7 +17,7 @@ class DropdownAlert {
     static let errorTime = 3
     
     static func error(message: String?) {
-        let msg = message
+        let msg = message?.localize()
         RKDropdownAlert.title(errorTitle, message: msg, backgroundColor: errorBgColor, textColor: errorTextColor, time: errorTime)
     }
     

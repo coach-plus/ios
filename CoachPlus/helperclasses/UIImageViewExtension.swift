@@ -11,13 +11,22 @@ import UIKit
 import AlamofireImage
 
 extension UIImageView {
+    
     func setUserImage(user:User) {
+        self.setUserImage(user: user, showPlaceholder: true)
+    }
+    
+    func setUserImage(user:User, showPlaceholder:Bool) {
         let filter = AspectScaledToFillSizeWithRoundedCornersFilter(
             size: self.frame.size,
             radius: self.frame.size.height / 2
         )
         
-        let placeholder = UIImage.init(icon: .fontAwesome(.userCircleO), size: self.frame.size, textColor: .coachPlusBlue, backgroundColor: .clear)
+        var placeholder:UIImage? = nil
+        
+        if (showPlaceholder) {
+            placeholder = UIImage.init(icon: .fontAwesome(.userCircleO), size: self.frame.size, textColor: .coachPlusBlue, backgroundColor: .clear)
+        }
         
         if user.image != nil {
             let fullUrl = user.getUserImageUrl()

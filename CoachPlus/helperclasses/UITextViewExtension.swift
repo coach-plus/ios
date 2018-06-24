@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SkyFloatingLabelTextField
 
 extension UITextView {
     
@@ -17,3 +18,22 @@ extension UITextView {
     }
 }
 
+extension SkyFloatingLabelTextField {
+    
+    func coachPlusFormatter(title:String) -> String {
+        return title
+    }
+    
+    func coachPlus() {
+        self.tintColor = UIColor.coachPlusBlue
+        self.textColor = UIColor.coachPlusBlue
+        self.selectedTitleColor = UIColor.coachPlusBlue
+        self.selectedLineColor = UIColor.coachPlusBlue
+        self.lineColor = UIColor.coachPlusGrey
+        
+        self.titleFormatter = self.coachPlusFormatter
+    }
+    
+
+    
+}

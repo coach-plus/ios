@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import MBProgressHUD
 
 protocol JSONable {
     init?(json: JSON)
@@ -59,5 +60,19 @@ extension String {
         return json.arrayValue.map({json in
             return T(json: json)!
         })
+    }
+}
+
+
+extension MBProgressHUD {
+    static func createHUD(view:UIView, msg:String) -> MBProgressHUD {
+        let hud = MBProgressHUD(view: view)
+        hud.graceTime = 1
+        hud.detailsLabel.text = msg
+        hud.mode = .indeterminate
+        hud.animationType = .zoom
+        view.addSubview(hud)
+        hud.show(animated: true)
+        return hud
     }
 }

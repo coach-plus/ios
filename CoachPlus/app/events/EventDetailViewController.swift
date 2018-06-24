@@ -12,8 +12,9 @@ import UIKit
 class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate {
     
     enum Section:Int {
-        case news = 0
-        case participation = 1
+        case general = 0
+        case news = 1
+        case participation = 2
     }
     
     var event:Event?
@@ -21,76 +22,37 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     var participationItems = [ParticipationItem]()
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var dateTimeLbl: UILabel!
-    @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UITextView!
-    @IBOutlet weak var locationLbl: UILabel!
     
-    @IBOutlet weak var editBtn: UIButton!
-    
-    @IBOutlet weak var sendReminderBtn: UIButton!
-    
-    @IBAction func editBtnTapped(_ sender: Any) {
-    }
-    
+    /**
     @IBAction func reminderBtnTapped(_ sender: Any) {
         _ = DataHandler.def.sendReminder(teamId: (self.event?.teamId)!, eventId: (self.event?.id)!, successHandler: { res in
             
         }, failHandler: { err in
             
         })
-    }
-    
-    func addWhiteBackground() {
-        
-    }
+    }**/
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.view.heroID = self.heroId
-        
-        self.nameLbl.heroID = "\(self.heroId)/name"
+        //self.view.heroID = self.heroId
         
         self.tableView.register(nib: "ParticipationTableViewCell", reuseIdentifier: "ParticipationTableViewCell")
         self.tableView.register(nib: "NewsTableViewCell", reuseIdentifier: "NewsTableViewCell")
+        self.tableView.register(nib: "EventDetailCell", reuseIdentifier: "EventDetailCell")
         
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
         
-        if (self.membership?.isCoach())! {
-            self.editBtn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
-            self.sendReminderBtn.setIcon(icon: .googleMaterialDesign(.alarm), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
-        } else {
-            self.editBtn.isHidden = true
-            self.sendReminderBtn.isHidden = true
-        }
+        let pNib = UINib(nibName: "ReusableParticipationHeaderView", bundle: nil)
+        self.tableView.register(pNib, forHeaderFooterViewReuseIdentifier: "ReusableParticipationHeaderView")
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 70
-
-        self.descriptionLbl.fixPadding()
+        
         self.loadParticipations()
         self.loadNews()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.nameLbl.text = self.event?.name
-        self.dateTimeLbl.text = self.event?.fromToString()
-        self.locationLbl.text = "location"
-        
-        var description = ""
-        if (event?.description != "") {
-            description = (event?.description)!
-        } else {
-            description = "keine Beschreibung vorhanden"
-        }
-        self.descriptionLbl.text = description
-        
-        self.locationLbl.text = self.event?.getLocationString()
     }
     
     func loadParticipations() {
@@ -116,7 +78,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func getSectionType(section:Int) -> Section {
@@ -126,6 +88,8 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = self.getSectionType(section: section)
         switch sectionType {
+        case .general:
+            return 1
         case .news:
             if (!self.hasNews()) {
                 return 1
@@ -138,6 +102,8 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch getSectionType(section: indexPath.section) {
+        case .general:
+            return self.generalCell(indexPath: indexPath)
         case .news:
             return self.newsCell(indexPath: indexPath)
         case .participation:
@@ -165,36 +131,59 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         return cell
     }
     
+    func generalCell(indexPath:IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "EventDetailCell", for: indexPath) as! EventDetailCell
+        cell.configure(event: self.event!, isCoach: self.membership?.isCoach(), vc: self)
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
-        let view = cell as! ReusableTableHeader
+        
         
         let sectionType = getSectionType(section: section)
         
-        if  (self.membership?.team?.id == self.event?.teamId &&
-            (self.membership?.isCoach())! &&
-            sectionType == Section.news) {
-            
-            view.tableHeader.btn.tag = Section.news.rawValue
-            view.tableHeader.delegate = self
-            view.tableHeader.showBtn = true
-            
-        } else {
-            view.tableHeader.showBtn = false
-        }
-        
         switch sectionType {
-        case .participation:
-            view.tableHeader.title = "TEILNAHME"
         case .news:
-            view.tableHeader.title = "NEWS"
-        }
+            let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
+            let view = cell as! ReusableTableHeader
+            
+            if  (self.membership?.team?.id == self.event?.teamId &&
+                (self.membership?.isCoach())!) {
+                
+                view.tableHeader.btn.tag = Section.news.rawValue
+                view.tableHeader.delegate = self
+                view.tableHeader.showBtn = true
+                
+            } else {
+                view.tableHeader.showBtn = false
+            }
+            
+            view.tableHeader.title = "NEWS".localize()
+            
+            return view
+        case .participation:
+            let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReusableParticipationHeaderView")
+            let view = cell as! ReusableParticipationHeaderView
+            
+            view.tableHeader.setTitle(title: "TEILNAHME".localize())
         
-        return view
+            view.tableHeader.setLabels(participations: self.participationItems)
+            
+            return view
+            
+        default:
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
+        let sectionType = getSectionType(section: section)
+        switch sectionType {
+        case .general:
+            return 0
+        default:
+            return 45
+        }
     }
     
     func tableViewHeaderBtnTap(_ sender: Any) {

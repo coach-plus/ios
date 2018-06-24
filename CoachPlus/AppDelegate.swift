@@ -68,6 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Hero.shared.containerColor = .clear
         let ai = UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [MBProgressHUD.self])
         ai.color = UIColor.coachPlusBlue
+        
+        
     }
     
     

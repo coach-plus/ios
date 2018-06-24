@@ -19,4 +19,12 @@ extension UIViewController {
         }
     }
     
+    func enableDrawer(){
+        FlowManager.getDrawerController().openDrawerGestureModeMask = MMOpenDrawerGestureMode.bezelPanningCenterView
+    }
+    
+    func disableDrawer() {
+        FlowManager.getDrawerController().openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningNavigationBar
+    }
+    
 }

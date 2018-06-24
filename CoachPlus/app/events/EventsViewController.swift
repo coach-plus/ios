@@ -63,7 +63,7 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
         }
         
         if let popGest = self.navigationController?.interactivePopGestureRecognizer {
-        
+            containerView.panGestureRecognizer.require(toFail: popGest)
         }
         
         super.viewDidLoad()

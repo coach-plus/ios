@@ -8,14 +8,9 @@
 
 import Foundation
 import Hero
+import MMDrawerController
 
 class FlowManager {
-    
-    static func homeVc() -> HomeDrawerController {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyboard.instantiateInitialViewController() as! HomeDrawerController
-        return vc
-    }
     
     static func loginVc() -> LoginViewController {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
@@ -40,6 +35,33 @@ class FlowManager {
         delegate.window?.makeKeyAndVisible()
     }
     
+    static func homeVc() -> CoachPlusNavigationViewController {
+        let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
+        return teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
+    }
+    
+    static func drawerVc() -> MMDrawerController {
+        let membershipsStoryboard = UIStoryboard(name: "Memberships", bundle: nil)
+        
+        var centerViewController = FlowManager.homeVc()
+        var leftViewController = membershipsStoryboard.instantiateInitialViewController()!
+        
+        let centerContainer = MMDrawerController(center: centerViewController, leftDrawerViewController: leftViewController, rightDrawerViewController: nil)
+        
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningNavigationBar
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.all
+        
+        centerContainer?.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionMode.none
+        
+        return centerContainer!
+    }
+    
+    static func setHome() {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.window?.rootViewController = FlowManager.drawerVc()
+        delegate.window?.makeKeyAndVisible()
+    }
+    
     static func goToLogin() {
         
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
@@ -47,8 +69,6 @@ class FlowManager {
         let vc = storyboard.instantiateInitialViewController()!
         
         UIApplication.shared.keyWindow?.currentViewController()?.present(vc, animated: true, completion: nil)
-        
-        //window.makeKeyAndVisible()
     }
     
     static func goToHome(sourceVc:UIViewController) {
@@ -56,7 +76,7 @@ class FlowManager {
             
             let delegate = UIApplication.shared.delegate as! AppDelegate
             
-            let vc = homeVc()
+            let vc = drawerVc()
             let window = delegate.window!
             
             UIView.transition(from: sourceVc.view, to: vc.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
@@ -72,7 +92,7 @@ class FlowManager {
     }
     
     static func presentHome(sourceVc:UIViewController) {
-        let vc = homeVc()
+        let vc = drawerVc()
         sourceVc.present(vc, animated: true, completion: nil)
     }
     
@@ -85,4 +105,23 @@ class FlowManager {
         print(sourceVc.navigationController)
     }
     
+    static func getDrawerController() -> MMDrawerController {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        return delegate.window?.rootViewController as! MMDrawerController
+    }
+    
+    static func openDrawer() {
+        let controller = getDrawerController()
+        
+        if (controller.openSide == MMDrawerSide.left) {
+            controller.closeDrawer(animated: true, completion: nil)
+        } else {
+            controller.open(MMDrawerSide.left, animated: true, completion: nil)
+        }
+    }
+    
+    static func openVcInCenter(vc: UIViewController) {
+        FlowManager.getDrawerController().centerViewController = vc
+        getDrawerController().closeDrawer(animated: true, completion: nil)
+    }
 }

@@ -9,6 +9,7 @@
 import Foundation
 import NibDesignable
 import SwiftIcons
+import MMDrawerController
 
 
 
@@ -170,8 +171,7 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     }
     
     @objc func openSlider(sender:UIBarButtonItem) {
-        let controller = UIApplication.shared.keyWindow?.rootViewController
-        controller?.openLeft()
+        FlowManager.openDrawer()
     }
     
     @objc func done(sender:UIBarButtonItem) {

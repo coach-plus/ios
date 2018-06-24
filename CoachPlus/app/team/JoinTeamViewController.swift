@@ -26,6 +26,7 @@ class JoinTeamViewController: CoachPlusViewController {
 
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         print(self.inviteId!)
         self.joinTeam()
     }

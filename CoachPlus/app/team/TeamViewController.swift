@@ -12,7 +12,7 @@ import Hero
 import AlamofireImage
 import MBProgressHUD
 
-class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate, ImageHelperDelegate {
+class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate, ImageHelperDelegate, MemberTableViewCellDelegate {
 
     enum Section:Int {
         case events = 0
@@ -30,6 +30,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     var members = [Membership]()
     var events = [Event]()
     var allEvents = [Event]()
+    
+    var notificationManager: NotificationManager?
 
     let dispatchGroup = DispatchGroup()
     
@@ -40,6 +42,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     var context = CIContext(options: nil)
     
     var imageHelper:ImageHelper?
+    
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +75,22 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         self.setupParallax()
         
+        self.setupRefreshControl()
         
         
-        super.viewDidLoad()
+    }
+    
+    func setupRefreshControl() {
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        self.refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+    }
+    
+    @objc func refresh(_ sender: Any) {
+        self.loadData()
     }
     
     func setupParallax() {
@@ -167,7 +184,12 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.enableDrawer()
         self.loadData()
+        
+        self.notificationManager = NotificationManager(vc: self)
+        self.notificationManager?.registerForNotifications()
     }
     
     func loadData() {
@@ -442,38 +464,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        guard indexPath.row < self.members.count else {
-            return []
-        }
-        
-        let member = self.members[indexPath.row]
-        
-        let sectionType = Section(rawValue: indexPath.section)!
-        
-        var actions = [UITableViewRowAction]()
-        
-        if (sectionType == .members) {
-            if ((self.membership?.isCoach())! && self.membership?.id != member.id) {
-                if (!member.isCoach()) {
-                    let makeCoach = UITableViewRowAction(style: .normal, title: "Make Coach") { (action, indexPath) in
-                        self.setRole(member: member, role: "coach")
-                    }
-                    actions.append(makeCoach)
-                } else {
-                    let makeUser = UITableViewRowAction(style: .normal, title: "Make User") { (action, indexPath) in
-                        self.setRole(member: member, role: "user")
-                    }
-                    actions.append(makeUser)
-                }
-            }
-        }
-        
-        return actions
-    }
-    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }
@@ -510,4 +500,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func dataChanged() {
+        self.loadData()
+    }
 }

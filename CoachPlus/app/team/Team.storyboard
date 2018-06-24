@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WCd-bo-8mg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WCd-bo-8mg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,53 +24,53 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="xIr-gU-uqv" kind="relationship" relationship="rootViewController" id="gEe-Bh-88H"/>
+                        <segue destination="sGu-JX-mVY" kind="relationship" relationship="rootViewController" id="Z59-8Q-ZFk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y00-6R-nmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-918" y="-209"/>
         </scene>
-        <!--Team View Controller-->
-        <scene sceneID="PYH-Q3-2sI">
+        <!--Empty Data Set Delegate-->
+        <scene sceneID="wdy-pk-cLo">
             <objects>
-                <viewController id="xIr-gU-uqv" customClass="TeamViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sGu-JX-mVY" customClass="TeamViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hEf-rT-kNP"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Hc-Fx-vOc"/>
+                        <viewControllerLayoutGuide type="top" id="VJc-sz-0eH"/>
+                        <viewControllerLayoutGuide type="bottom" id="AaA-Cr-Ajn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZLo-6s-73O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                    <view key="view" contentMode="scaleToFill" id="uws-aX-OhB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Js-Yl-fsT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7G-vk-wHI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="xIr-gU-uqv" id="0Fg-mE-T8U"/>
-                                    <outlet property="delegate" destination="xIr-gU-uqv" id="EHn-NV-NYC"/>
+                                    <outlet property="dataSource" destination="sGu-JX-mVY" id="bAz-Uo-r6a"/>
+                                    <outlet property="delegate" destination="sGu-JX-mVY" id="HMA-si-kbS"/>
+                                    <outlet property="emptyDataSetDelegate" destination="sGu-JX-mVY" id="lTL-B9-nK8"/>
+                                    <outlet property="emptyDataSetSource" destination="sGu-JX-mVY" id="mdU-vv-lHR"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8Js-Yl-fsT" firstAttribute="leading" secondItem="ZLo-6s-73O" secondAttribute="leading" id="G2E-3W-pEZ"/>
-                            <constraint firstItem="5Hc-Fx-vOc" firstAttribute="top" secondItem="8Js-Yl-fsT" secondAttribute="bottom" id="OJC-YV-bbo"/>
-                            <constraint firstItem="8Js-Yl-fsT" firstAttribute="top" secondItem="hEf-rT-kNP" secondAttribute="bottom" id="WgX-sG-TZp"/>
-                            <constraint firstAttribute="trailing" secondItem="8Js-Yl-fsT" secondAttribute="trailing" id="wgb-A5-upU"/>
+                            <constraint firstAttribute="trailing" secondItem="F7G-vk-wHI" secondAttribute="trailing" id="Sk8-Rc-2dH"/>
+                            <constraint firstItem="F7G-vk-wHI" firstAttribute="top" secondItem="VJc-sz-0eH" secondAttribute="bottom" id="bbn-e3-Ied"/>
+                            <constraint firstItem="F7G-vk-wHI" firstAttribute="leading" secondItem="uws-aX-OhB" secondAttribute="leading" id="clR-bQ-8ti"/>
+                            <constraint firstItem="AaA-Cr-Ajn" firstAttribute="top" secondItem="F7G-vk-wHI" secondAttribute="bottom" id="xFi-ZC-wSZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="X5N-0N-v3U"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
+                    <navigationItem key="navigationItem" id="jT3-hS-9eW"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="8Js-Yl-fsT" id="LiM-8w-Bdy"/>
+                        <outlet property="tableView" destination="F7G-vk-wHI" id="sro-Ky-Tz4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1zh-xg-rJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AgU-3O-XYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="-209.14542728635683"/>
+            <point key="canvasLocation" x="284" y="-151.57421289355324"/>
         </scene>
     </scenes>
 </document>

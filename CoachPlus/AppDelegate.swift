@@ -10,7 +10,6 @@ import UIKit
 import UserNotifications
 import IQKeyboardManagerSwift
 import MBProgressHUD
-import SlideMenuControllerSwift
 import Hero
 
 @UIApplicationMain
@@ -21,10 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-                
-        //SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 0.75
-        SlideMenuOptions.contentViewScale = 1.0
-        SlideMenuOptions.simultaneousGestureRecognizers = false
         
         IQKeyboardManager.sharedManager().enable = true
         
@@ -32,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if (Authentication.loggedIn() == false) {
             FlowManager.setLogin()
+        } else {
+            FlowManager.setHome()
         }
         
         

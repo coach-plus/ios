@@ -54,15 +54,18 @@ class TeamSelectionView: NibDesignable {
     @objc func teamTapped(sender:UIBarButtonItem) {
         print("TEAMSELECTION")
         
+        FlowManager.openDrawer()
+        /**
         let controller = UIApplication.shared.keyWindow?.rootViewController//UIApplication.topViewController(base: nil)
         
+        
         if let navVc = controller as? CoachPlusNavigationViewController {
-            navVc.slideMenuController()?.openLeft()
+            FlowManager.openDrawer()
         } else if let navVc = controller as? CoachPlusViewController {
             navVc.slideMenuController()?.openLeft()
         } else if let navVc = controller as? HomeDrawerController {
             navVc.slideMenuController()?.openLeft()
-        }
+        }**/
     }
     
     func setup(team:Team?) {

@@ -33,7 +33,7 @@ class MembershipTableViewCell: UITableViewCell {
     func setup(membership:Membership) {
         self.leftLbl.text = membership.team!.name
         
-        self.descriptionLbl.text = "keine Beschreibung"
+        self.descriptionLbl.text = membership.team?.getMemberCountString()
         
         /*
         if (membership.isCoach()) {

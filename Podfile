@@ -16,13 +16,13 @@ def all_pods
   pod 'NibDesignable', :git => 'https://github.com/dzzh/NibDesignable.git', :branch => 'great-swift4'
   pod 'SwiftDate'
   pod 'AlamofireImage'
-  pod 'SlideMenuControllerSwift'
   pod 'DZNEmptyDataSet'
   pod 'ImagePicker'
   pod 'XLPagerTabStrip'
   pod 'SwiftIcons'
   pod 'RSKImageCropper'
   pod 'TextFieldEffects'
+  pod 'MMDrawerController', '~> 0.5.7'
 end
 
 target 'CoachPlus' do

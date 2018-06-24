@@ -233,8 +233,6 @@
 		61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */; };
 		61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
 		61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
-		61D5F55C1EC0C58100974EBD /* HomeDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */; };
-		61D5F55D1EC0C58100974EBD /* HomeDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */; };
 		61D5F55F1EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */; };
 		61D5F5601EC0D4F600974EBD /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */; };
 		61D5F5661EC0E51900974EBD /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
@@ -398,7 +396,6 @@
 		61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParticipationTableViewCell.swift; path = app/shared/participation/ParticipationTableViewCell.swift; sourceTree = "<group>"; };
 		61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParticipationTableViewCell.xib; path = app/shared/participation/ParticipationTableViewCell.xib; sourceTree = "<group>"; };
 		61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = app/events/EventDetailViewController.swift; sourceTree = "<group>"; };
-		61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeDrawerController.swift; path = app/home/HomeDrawerController.swift; sourceTree = "<group>"; };
 		61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtension.swift; path = helperclasses/UIApplicationExtension.swift; sourceTree = "<group>"; };
 		61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTeamViewController.swift; path = app/team/CreateTeamViewController.swift; sourceTree = "<group>"; };
 		61D98DA12040BD2600D4B722 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = helperclasses/UIViewExtension.swift; sourceTree = "<group>"; };
@@ -669,7 +666,6 @@
 			children = (
 				47A9B9161E8561F800DC8247 /* Home.storyboard */,
 				47B1B6271E87CBC700F80101 /* HomeViewController.swift */,
-				61D5F55B1EC0C58100974EBD /* HomeDrawerController.swift */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -1248,11 +1244,11 @@
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/NibDesignable/NibDesignable.framework",
 				"${BUILT_PRODUCTS_DIR}/RKDropdownAlert/RKDropdownAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
-				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1271,11 +1267,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NibDesignable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RKDropdownAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1352,11 +1348,11 @@
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/NibDesignable/NibDesignable.framework",
 				"${BUILT_PRODUCTS_DIR}/RKDropdownAlert/RKDropdownAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
-				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1375,11 +1371,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NibDesignable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RKDropdownAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1521,7 +1517,6 @@
 				477A27591E8C3775005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA41EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				473DCE1E1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
-				61D5F55C1EC0C58100974EBD /* HomeDrawerController.swift in Sources */,
 				473A5F6D1E8A749A002FD833 /* FlowManager.swift in Sources */,
 				613A92041F0EF7D900826879 /* EventsButtonBarView.swift in Sources */,
 				473A5F8B1E8A92D1002FD833 /* Membership.swift in Sources */,
@@ -1603,7 +1598,6 @@
 				477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */,
 				61CA9CA51EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				473DCE1F1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
-				61D5F55D1EC0C58100974EBD /* HomeDrawerController.swift in Sources */,
 				47B1B6261E87C81B00F80101 /* FlowManager.swift in Sources */,
 				613A92051F0EF7D900826879 /* EventsButtonBarView.swift in Sources */,
 				473A5F8C1E8A92D1002FD833 /* Membership.swift in Sources */,

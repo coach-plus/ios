@@ -118,18 +118,18 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             
             MembershipManager.shared.selectedMembership = membership
             
-            
             let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
             
             let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
             let teamController = navController.viewControllers[0] as! TeamViewController
             teamController.membershipsController = self
             teamController.membership = membership
-            self.slideMenuController()?.changeMainViewController(navController, close: true)
+            
+            FlowManager.openVcInCenter(vc: navController)
+            
         } else {
             self.dismiss(animated: true, completion: nil)
-            let controller = UIApplication.shared.keyWindow?.rootViewController
-            controller?.closeLeft()
+            FlowManager.getDrawerController().closeDrawer(animated: true, completion: nil)
         }
 
     }

@@ -19,6 +19,11 @@ class Membership:JSONable, BackJSONable {
         case team = "team"
     }
     
+    enum Role:String {
+        case coach = "coach"
+        case user = "user"
+    }
+    
     var id: String
     var role: String
     var user: User?

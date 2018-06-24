@@ -9,11 +9,22 @@ PODS:
   - JWTDecode (2.1.1)
   - Locksmith (4.0.0)
   - MBProgressHUD (1.0.0)
+  - MMDrawerController (0.5.7):
+    - MMDrawerController/Core (= 0.5.7)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
+    - MMDrawerController/MMDrawerVisualStates (= 0.5.7)
+    - MMDrawerController/Subclass (= 0.5.7)
+  - MMDrawerController/Core (0.5.7)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.7):
+    - MMDrawerController/Core
   - NibDesignable (3.0.0)
   - RKDropdownAlert (0.3.0)
   - RSKImageCropper (1.6.3)
   - SkyFloatingLabelTextField (3.3.0)
-  - SlideMenuControllerSwift (4.0.0)
   - SwiftDate (4.4.2)
   - SwiftIcons (2.0.1)
   - SwiftyJSON (3.1.4)
@@ -31,11 +42,11 @@ DEPENDENCIES:
   - JWTDecode
   - Locksmith
   - MBProgressHUD
+  - MMDrawerController (~> 0.5.7)
   - NibDesignable (from `https://github.com/dzzh/NibDesignable.git`, branch `great-swift4`)
   - RKDropdownAlert
   - RSKImageCropper
   - SkyFloatingLabelTextField
-  - SlideMenuControllerSwift
   - SwiftDate
   - SwiftIcons
   - SwiftyJSON
@@ -63,11 +74,11 @@ SPEC CHECKSUMS:
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
   NibDesignable: 6ccf1e54135cb05be0a78f803b9a8d78125a7d6d
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
   SkyFloatingLabelTextField: 771be94beca6868a6cea187f70c965ebd81d2f93
-  SlideMenuControllerSwift: 021d6318201c53d4d4d3710517d43d6c556c7dd0
   SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
   SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
@@ -75,6 +86,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: cbeaf7d5b610ee9fa6366c1a089f469173d06335
+PODFILE CHECKSUM: 1e7f6f50f121824cfa87bd2a820416f5e10a11ad
 
 COCOAPODS: 1.4.0

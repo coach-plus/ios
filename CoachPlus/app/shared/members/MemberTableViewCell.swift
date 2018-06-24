@@ -9,6 +9,10 @@
 import UIKit
 import AlamofireImage
 
+protocol MemberTableViewCellDelegate {
+    func dataChanged()
+}
+
 class MemberTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageV: UIImageView!
@@ -20,7 +24,9 @@ class MemberTableViewCell: UITableViewCell {
     @IBOutlet weak var actionBtn: UIButton!
     
     var ownMembership:Membership?
+    var membership: Membership?
     var vc:UIViewController?
+    var delegate: MemberTableViewCellDelegate?
     
     @IBAction func actionBtnTapped(_ sender: Any) {
         if let isCoach = self.ownMembership?.isCoach(), isCoach != true {
@@ -34,6 +40,8 @@ class MemberTableViewCell: UITableViewCell {
         
         self.vc = vc
         self.ownMembership = ownMembership
+        self.membership = membership
+        self.delegate = vc as? MemberTableViewCellDelegate
         
         let heroID = "\(membership.user!.id)"
         self.imageV.heroID = "\(heroID)/image"
@@ -49,7 +57,9 @@ class MemberTableViewCell: UITableViewCell {
             coachLogoIv.isHidden = true
         }
         
-        if let isCoach = self.ownMembership?.isCoach(), isCoach != true {
+        let isCoach = self.ownMembership?.isCoach()
+        
+        if (isCoach != nil && isCoach != true || self.ownMembership?.id == self.membership?.id) {
             self.actionBtn.isHidden = true
         } else {
             self.actionBtn.isHidden = false
@@ -63,7 +73,20 @@ class MemberTableViewCell: UITableViewCell {
     func showActions() {
         let alertController = UIAlertController(title: "ACTIONS".localize(), message: "ACTIONS_WHAT_TO_DO".localize(), preferredStyle: .actionSheet)
         
-        let sendButton = UIAlertAction(title: "ACTION_MAKE_COACH".localize(), style: .default, handler: { (action) -> Void in
+        let makeCoach = UIAlertAction(title: "ACTION_MAKE_COACH".localize(), style: .default, handler: { (action) -> Void in
+            _ = DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.coach.rawValue, successHandler: { response in
+                self.delegate?.dataChanged()
+            }, failHandler: {err in
+                
+            })
+        })
+        
+        let makeUser = UIAlertAction(title: "ACTION_MAKE_USER".localize(), style: .default, handler: { (action) -> Void in
+            _ = DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.user.rawValue, successHandler: { response in
+                self.delegate?.dataChanged()
+            }, failHandler: {err in
+                
+            })
         })
         
         let  deleteButton = UIAlertAction(title: "ACTION_KICK_USER".localize(), style: .destructive, handler: { (action) -> Void in
@@ -74,8 +97,12 @@ class MemberTableViewCell: UITableViewCell {
             
         })
         
+        if (self.membership!.isCoach()) {
+            alertController.addAction(makeUser)
+        } else {
+            alertController.addAction(makeCoach)
+        }
         
-        alertController.addAction(sendButton)
         alertController.addAction(deleteButton)
         alertController.addAction(cancelButton)
         

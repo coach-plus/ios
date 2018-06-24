@@ -26,6 +26,11 @@ class CoachPlusViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.disableDrawer()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -75,5 +80,5 @@ class CoachPlusViewController: UIViewController {
         title.addSubview(img)
         topItem.titleView = title
     }
-    
+
 }

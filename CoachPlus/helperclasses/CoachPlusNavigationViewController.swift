@@ -12,5 +12,10 @@ class CoachPlusNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self as! UIGestureRecognizerDelegate
+    }
+    
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1
     }
 }

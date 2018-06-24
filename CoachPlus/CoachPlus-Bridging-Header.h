@@ -13,5 +13,6 @@
 #import <RKDropdownAlert/RKDropdownAlert.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <RSKImageCropper/RSKImageCropper.h>
+#import <MMDrawerController/MMDrawerController.h>
 
 #endif /* CoachPlus_Bridging_Header_h */

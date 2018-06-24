@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Dein Team ist nicht öffentlich sichtbar \nund nur per Einladung zu erreichen"; ObjectID = "4Gu-kd-LIy"; */
+"4Gu-kd-LIy.text" = "Dein Team ist nicht öffentlich sichtbar \nund nur per Einladung zu erreichen";
+
+/* Class = "UIButton"; normalTitle = "Team Erstellen"; ObjectID = "GuM-Gy-2RL"; */
+"GuM-Gy-2RL.normalTitle" = "Team Erstellen";
+
+/* Class = "UITextField"; placeholder = "Team Name"; ObjectID = "oGd-YZ-mFr"; */
+"oGd-YZ-mFr.placeholder" = "Team Name";
+
+/* Class = "UILabel"; text = "Privates Team"; ObjectID = "uxj-3O-Rkf"; */
+"uxj-3O-Rkf.text" = "Privates Team";

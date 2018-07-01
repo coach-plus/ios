@@ -26,6 +26,8 @@ class ParticipationTableHeaderView: NibDesignable {
         super.init(coder: aDecoder)
     }
     
+    var participations = [ParticipationItem]()
+    
     func initLabels() {
         self.unknownL.text = ""
         self.yesL.text = ""
@@ -42,27 +44,37 @@ class ParticipationTableHeaderView: NibDesignable {
             return
         }
         
-        let unknownCount = participations!.filter {
+        self.participations = participations!
+        
+        self.showParticipationNumbers()
+        
+    }
+    
+    func showParticipationNumbers() {
+        let unknownCount = self.participations.filter {
             $0.participation == nil || $0.participation!.willAttend == nil
-        }.count
+            }.count
         
-        let yesCount = participations!.filter {
+        let yesCount = self.participations.filter {
             $0.participation != nil && $0.participation!.willAttend == true
-        }.count
+            }.count
         
-        let noCount = participations!.filter {
+        let noCount = self.participations.filter {
             $0.participation != nil && $0.participation!.willAttend == false
-        }.count
+            }.count
         
         self.setLabel(label: self.unknownL, icon: .fontAwesome(.question), count: unknownCount, iconColor: self.titleL.textColor)
         self.setLabel(label: self.yesL, icon: .fontAwesome(.check), count: yesCount, iconColor: UIColor.coachPlusParticipationYesColor)
         self.setLabel(label: self.noL, icon: .fontAwesome(.times), count: noCount, iconColor: UIColor.coachPlusParticipationNoColor.darkerColor(percent: 0.25))
-        
     }
     
     func setLabel(label: UILabel, icon: FontType, count: Int, iconColor: UIColor) {
         let color = self.titleL.textColor
         label.setIcon(prefixText: "", prefixTextColor: color!, icon: icon, iconColor: iconColor, postfixText:" \(count)", postfixTextColor: color!, size: 15, iconSize: 15)
+    }
+    
+    func refresh() {
+        self.showParticipationNumbers()
     }
     
     

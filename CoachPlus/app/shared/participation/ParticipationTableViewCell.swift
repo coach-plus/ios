@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ParticipationTableViewCellDelegate {
+    func participationChanged()
+}
+
 class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
 
     @IBOutlet weak var imageV: UIImageView!
@@ -18,15 +22,18 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
     
     var participationItem:ParticipationItem?
     var event:Event?
+    var delegate: ParticipationTableViewCellDelegate?
     
-    func configure(participationItem:ParticipationItem, event:Event) {
+    func configure(delegate: ParticipationTableViewCellDelegate?, participationItem:ParticipationItem, event:Event) {
         self.participationItem = participationItem
-        //self.participationView.delegate = self
+        self.delegate = delegate
         self.participationView.configure(participationItem: participationItem, event: event)
+        self.participationView.delegate = self
         self.imageV.setUserImage(user: (self.participationItem?.user)!)
         self.nameLbl.text = self.participationItem?.user?.fullname
     }
     
+    //not called
     func selected(attend: Bool) {
         
         if let membership = MembershipManager.shared.selectedMembership {
@@ -39,7 +46,18 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
                 }
             }
         }
-        self.configure(participationItem: self.participationItem!, event: self.event!)
+        
+        self.reload()
+    }
+    
+    func reload() {
+        self.configure(delegate: self.delegate, participationItem: self.participationItem!, event: self.event!)
+    }
+    
+    func dataChanged() {
+        if self.delegate != nil {
+            self.delegate!.participationChanged()
+        }
     }
     
     

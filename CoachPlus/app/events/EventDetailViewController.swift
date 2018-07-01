@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate {
+class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate, ParticipationTableViewCellDelegate {
     
     enum Section:Int {
         case general = 0
@@ -114,7 +114,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     func participationCell(indexPath:IndexPath) -> ParticipationTableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ParticipationTableViewCell", for: indexPath) as! ParticipationTableViewCell
         let participationItem = self.participationItems[indexPath.row]
-        cell.configure(participationItem: participationItem, event: self.event!)
+        cell.configure(delegate: self, participationItem: participationItem, event: self.event!)
         return cell
     }
     
@@ -240,5 +240,11 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         })
         
         
+    }
+    
+    func participationChanged() {
+        if let headerView = self.tableView.headerView(forSection: Section.participation.rawValue) as? ReusableParticipationHeaderView {
+            headerView.tableHeader.refresh()
+        }
     }
 }

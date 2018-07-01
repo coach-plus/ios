@@ -13,6 +13,7 @@ import NibDesignable
 
 protocol ParticipationViewDelegate {
     func selected(attend:Bool)
+    func dataChanged()
 }
 
 class ParticipationView: NibDesignable {
@@ -160,6 +161,7 @@ class ParticipationView: NibDesignable {
         _ = DataHandler.def.willAttend(teamId: (self.event?.teamId)!, eventId: (self.event?.id)!, userId: (self.user?.id)!, willAttend: willAttend, successHandler: { res in
             self.participation?.willAttend = willAttend
             self.showData()
+            self.dataChanged()
         }, failHandler: { err in
             self.showData()
         })
@@ -172,10 +174,18 @@ class ParticipationView: NibDesignable {
         _ = DataHandler.def.didAttend(event: (self.event)!, user: self.user!, didAttend: didAttend, successHandler: { res in
             self.participation?.didAttend = didAttend
             self.showData()
+            self.dataChanged()
         }, failHandler: { err in
             self.showData()
         })
     }
     
+    func dataChanged() {
+        guard self.delegate != nil else {
+            return
+        }
+        
+        self.delegate!.dataChanged()
+    }
     
 }

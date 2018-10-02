@@ -224,6 +224,7 @@ class DataHandler {
         return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
             
             let memberships = apiResponse.toArray(Membership.self, property: "memberships")
+            MembershipManager.shared.storeMemberships(memberships: memberships)
             successHandler(memberships)
             
         }, failHandler: failHandler)

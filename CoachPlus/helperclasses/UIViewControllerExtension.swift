@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MMDrawerController
+import SafariServices
 
 extension UIViewController {
     
@@ -26,6 +27,12 @@ extension UIViewController {
     
     func disableDrawer() {
         FlowManager.getDrawerController().openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningNavigationBar
+    }
+    
+    func openWebpage(urlString:String) {
+        let url = URL(string: urlString)!
+        let vc = SFSafariViewController(url: url, entersReaderIfAvailable: false)
+        present(vc, animated: true, completion: nil)
     }
     
 }

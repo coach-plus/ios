@@ -28,27 +28,27 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
-    
     func goToForgotPw() {
         self.openWebpage(urlString: CoachPlus.registerUrl)
-    }
-    
-    func openWebpage(urlString:String) {
-        let url = URL(string: urlString)!
-        
-        let vc = SFSafariViewController(url: url, entersReaderIfAvailable: false)
-        present(vc, animated: true, completion: nil)
     }
     
     func signIn() {
         let email = self.emailTf.text!
         let password = self.passwordTf.text!
         
+        MBProgressHUD.createHUD(view: self.view, msg: "LOGIN".localize())
+        
         _ = DataHandler.def.login(email: email, password: password, successHandler: { apiResponse in
             
-            //FlowManager.presentHome(sourceVc: self)
-            FlowManager.goToHome(sourceVc: self)
+            _ = DataHandler.def.getMyMemberships(successHandler: { memberships in
+                
+                FlowManager.goToHome(sourceVc: self)
+                
+            }, failHandler: { apiResponse in
+                FlowManager.goToHome(sourceVc: self)
+            })
+            
+            
             
             
         }, failHandler: { apiResponse in

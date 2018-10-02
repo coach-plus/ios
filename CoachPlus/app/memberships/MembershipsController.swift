@@ -57,7 +57,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func infoBtnTapped(_ sender: Any) {
-        
+        self.openWebpage(urlString: CoachPlus.aboutUrl)
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
@@ -68,7 +68,6 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     func loadTeams() {
         _ = DataHandler.def.getMyMemberships(successHandler: { memberships in
             self.memberships = memberships
-            MembershipManager.shared.storeMemberships(memberships: self.memberships)
             self.setSeparator()
             self.tableView.reloadData()
             if (self.teamIdToBeSelected != nil) {
@@ -116,7 +115,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             
             membership.user = Authentication.getUser()
             
-            MembershipManager.shared.selectedMembership = membership
+            MembershipManager.shared.selectMembership(membership: membership)
             
             let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
             

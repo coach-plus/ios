@@ -48,8 +48,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setNavbarTitle()
-        
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
         
@@ -67,6 +65,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.isHeroEnabled = true
         self.tableView.heroModifiers = [.cascade]
         
+        if (self.membership == nil) {
+            let memberships = MembershipManager.shared.getMemberships()
+            if (memberships.count > 0) {
+                self.membership = memberships[0]
+            }
+        }
+        
         if (self.membership != nil) {
             MembershipManager.shared.selectMembership(membership: self.membership!)
         }
@@ -76,7 +81,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.setupParallax()
         
         self.setupRefreshControl()
-        
         
     }
     
@@ -90,7 +94,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     @objc func refresh(_ sender: Any) {
-        self.loadData()
+        self.loadData(forceLoadingIndicator: true)
     }
     
     func setupParallax() {
@@ -180,27 +184,29 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
         navbar.setLeftBarButtonType(type: .teams)
         navbar.setRightBarButtonType(type: .profile)
+        self.setNavbarTitle()
         self.setupNavBarDelegate()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.enableDrawer()
-        self.loadData()
+        self.loadData(forceLoadingIndicator: false)
         
         self.notificationManager = NotificationManager(vc: self)
         self.notificationManager?.registerForNotifications()
     }
     
-    func loadData() {
+    func loadData(forceLoadingIndicator: Bool) {
         if (self.membership?.team != nil) {
-            if (self.members.count == 0 && self.events.count == 0) {
-                MBProgressHUD.createHUD(view: self.view, msg: "Lade Team..")
+            if ((self.members.count == 0 && self.events.count == 0) || forceLoadingIndicator) {
+                MBProgressHUD.createHUD(view: self.view, msg: "LOAD_TEAM".localize())
             }
             self.getMembers()
             self.getEvents()
             self.dispatchGroup.notify(queue: .main) {
                 self.showData()
+                self.refreshControl.endRefreshing()
             }
         }
         
@@ -501,6 +507,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func dataChanged() {
-        self.loadData()
+        self.loadData(forceLoadingIndicator: false)
     }
 }

@@ -165,7 +165,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
             let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReusableParticipationHeaderView")
             let view = cell as! ReusableParticipationHeaderView
             
-            view.tableHeader.setTitle(title: "TEILNAHME".localize())
+            view.tableHeader.setTitle(title: "PARTICIPATION".localize())
         
             view.tableHeader.setLabels(participations: self.participationItems)
             

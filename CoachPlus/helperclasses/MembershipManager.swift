@@ -20,6 +20,7 @@ class MembershipManager {
     
     func selectMembership(membership:Membership) {
         Defaults[.selectedMembershipId] = membership.id
+        self.selectedMembership = membership
     }
     
     func getPreviouslySelectedMembership() -> Membership? {
@@ -63,6 +64,11 @@ class MembershipManager {
     func getMemberships() -> [Membership] {
         self.memberships = Defaults[.membershipJSON].toArray(Membership.self)
         return self.memberships
+    }
+    
+    func clearMemberships() {
+        Defaults[.membershipJSON] = ""
+        Defaults[.selectedMembershipId] = ""
     }
     
 }

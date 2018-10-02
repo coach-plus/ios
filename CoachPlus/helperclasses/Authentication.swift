@@ -78,6 +78,7 @@ class Authentication {
         } catch {
             print("Failed to delete Data: \(error)")
         }
+        MembershipManager.shared.clearMemberships()
         FlowManager.goToLogin()
     }
     

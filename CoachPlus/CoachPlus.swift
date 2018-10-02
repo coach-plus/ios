@@ -14,5 +14,6 @@ class CoachPlus {
 
     public static let registerUrl = CoachPlus.appUrl + "register"
     public static let forgotUrl = CoachPlus.appUrl + "forgot"
+    public static let aboutUrl = CoachPlus.appUrl + "about"
     
 }

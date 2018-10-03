@@ -105,7 +105,7 @@ class UrlHandler {
             
             verificationVC.token = token
             
-            let rootVc = UIApplication.shared.keyWindow?.currentViewController()
+            let rootVc = UIApplication.shared.keyWindow?.rootViewController
             
             print(rootVc)
             

@@ -17,6 +17,7 @@ class Membership:JSONable, BackJSONable {
         case id = "_id"
         case user = "user"
         case team = "team"
+        case joined = "joined"
     }
     
     enum Role:String {
@@ -28,17 +29,20 @@ class Membership:JSONable, BackJSONable {
     var role: String
     var user: User?
     var team: Team?
+    var joined: Bool?
     
-    init(id:String, role:String, user:User?, team:Team?) {
+    init(id:String, role:String, user:User?, team:Team?, joined: Bool?) {
         self.id = id
         self.role = role
         self.user = user
         self.team = team
+        self.joined = joined
     }
     
     required init(json:JSON) {
         self.id = json[Fields.id.rawValue].stringValue
         self.role = json[Fields.role.rawValue].stringValue
+        self.joined = json[Fields.joined.rawValue].bool
         
         let user = json[Fields.user.rawValue]
         if (user.type != .string) {
@@ -60,7 +64,8 @@ class Membership:JSONable, BackJSONable {
             Fields.id.rawValue: self.id,
             Fields.role.rawValue: self.role,
             Fields.user.rawValue: self.user?.toJson(),
-            Fields.team.rawValue: self.team?.toJson()]
+            Fields.team.rawValue: self.team?.toJson(),
+            Fields.joined.rawValue: self.joined]
         return json
     }
 }

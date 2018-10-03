@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Btn-Tc-E7M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Btn-Tc-E7M">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -124,7 +123,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createBtn" destination="I4D-yq-TVo" id="ZCH-0Z-A9f"/>
                         <outlet property="messageTf" destination="FNd-IV-qY6" id="HKh-UD-GVv"/>
+                        <outlet property="tableHeaderView" destination="vOp-ba-oyK" id="NV3-Aq-JyI"/>
                         <outlet property="titleTf" destination="ifu-Y5-zCf" id="SJ9-oz-OTs"/>
                     </connections>
                 </viewController>

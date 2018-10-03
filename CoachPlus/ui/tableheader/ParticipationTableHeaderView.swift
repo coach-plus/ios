@@ -27,6 +27,7 @@ class ParticipationTableHeaderView: NibDesignable {
     }
     
     var participations = [ParticipationItem]()
+    var eventIsInPast: Bool = false
     
     func initLabels() {
         self.unknownL.text = ""
@@ -46,21 +47,23 @@ class ParticipationTableHeaderView: NibDesignable {
         
         self.participations = participations!
         
+        
         self.showParticipationNumbers()
         
     }
     
+    
     func showParticipationNumbers() {
         let unknownCount = self.participations.filter {
-            $0.participation == nil || $0.participation!.willAttend == nil
+            $0.participation == nil || $0.participation!.getValue(eventIsInPast: self.eventIsInPast) == nil
             }.count
         
         let yesCount = self.participations.filter {
-            $0.participation != nil && $0.participation!.willAttend == true
+            $0.participation != nil && $0.participation!.getValue(eventIsInPast: self.eventIsInPast) == true
             }.count
         
         let noCount = self.participations.filter {
-            $0.participation != nil && $0.participation!.willAttend == false
+            $0.participation != nil && $0.participation!.getValue(eventIsInPast: self.eventIsInPast) == false
             }.count
         
         self.setLabel(label: self.unknownL, icon: .fontAwesome(.question), count: unknownCount, iconColor: self.titleL.textColor)

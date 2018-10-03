@@ -23,6 +23,7 @@ def all_pods
   pod 'RSKImageCropper'
   pod 'TextFieldEffects'
   pod 'MMDrawerController', '~> 0.5.7'
+  pod "PromiseKit", "~> 6.0"
 end
 
 target 'CoachPlus' do

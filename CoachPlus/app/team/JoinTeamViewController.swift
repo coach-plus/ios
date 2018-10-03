@@ -36,9 +36,10 @@ class JoinTeamViewController: CoachPlusViewController {
         guard self.inviteId != nil && self.mode != nil else {
             return
         }
-        _ = DataHandler.def.joinTeam(inviteId: self.inviteId!, teamType: self.mode!, successHandler: { response in
+        
+        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.joinTeam(inviteId: self.inviteId!, teamType: self.mode!)).done({ apiResponse in
             self.dismiss(animated: true, completion: nil)
-        }, failHandler: {err in
+        }).catch({ err in
             print(err)
         })
     }

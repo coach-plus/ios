@@ -175,10 +175,11 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
             "end": end
         ] as [String : Any]
         
-        DataHandler.def.createEvent(team: (self.membership?.team!)!, createEvent: createEvent, successHandler: { response in
+        
+        self.loadData(text: "CREATE_EVENT", promise: DataHandler.def.createEvent(team: (self.membership?.team!)!, createEvent: createEvent)).done({response in
             self.navigationController?.popViewController(animated: true)
-        }, failHandler: { error in
-            print(error)
+        }).catch({ err in
+            print(err)
         })
         
     }

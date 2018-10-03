@@ -69,6 +69,10 @@ class Event:JSONable, BackJSONable {
         return self.end.timeIntervalSinceNow.sign == .minus
     }
     
+    func startedInPast() -> Bool {
+        return self.start.timeIntervalSinceNow.sign == .minus
+    }
+    
     func fromToStringWithDate() -> String {
         return "\(self.start.string(dateStyle: .short, timeStyle: .short, in: nil)) - \(self.end.string(dateStyle: .none, timeStyle: .short, in: nil))"
     }

@@ -26,8 +26,12 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
         self.upcomingEventsViewController?.selection = EventListViewController.Selection.upcoming
         self.pastEventsViewController?.selection = EventListViewController.Selection.past
         
-        self.upcomingEventsViewController?.events = self.filterEvents(selection: .upcoming)
-        self.pastEventsViewController?.events = self.filterEvents(selection: .past)
+        self.upcomingEventsViewController?.events = self.filterEvents(selection: .upcoming).sorted(by: {(eventA, eventB) in
+            return eventA.start < eventB.start
+        })
+        self.pastEventsViewController?.events = self.filterEvents(selection: .past).sorted(by: {(eventA, eventB) in
+            return eventA.end > eventB.end
+        })
         
         self.settings.style.buttonBarBackgroundColor = UIColor.white
         self.settings.style.selectedBarBackgroundColor = UIColor.coachPlusBlue

@@ -32,6 +32,8 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.showImagePicker()
     }
     
+    @IBOutlet weak var titleView: TitleView!
+    
     override func viewDidLoad() {
     
         super.viewDidLoad()
@@ -65,11 +67,9 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     
     func getMemberships() {
-        _ = DataHandler.def.getMembershipsOfUser(userId: self.user!.id, successHandler: { memberships in
+        DataHandler.def.getMembershipsOfUser(userId: self.user!.id).done({ memberships in
             self.memberships = memberships
             self.tableView.reloadData()
-        }, failHandler: { err in
-            print(err)
         })
     }
     
@@ -82,13 +82,20 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.nameL.text = self.user!.fullname
         self.navigationItem.title = self.user!.firstname
         
+        var text = "";
+        
         if (self.user?.id == Authentication.getUser().id) {
             self.emailL.text = Authentication.getUser().email
+            text = "YOU_ARE_IN_THESE_TEAMS"
         } else {
             self.emailL.isHidden = true
+            let format = "USER_IS_IN_THESE_TEAMS".localize()
+            text = String(format: format, self.user!.firstname)
         }
         
-        self.imageV.setUserImage(user: self.user!, showPlaceholder: false)
+        self.titleView.title = text.localize()
+        
+        self.imageV.setUserImage(user: self.user!, showPlaceholder: true)
     }
     
     func setupTableView() {
@@ -110,7 +117,20 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "MembershipCell", for: indexPath) as! MembershipTableViewCell
         let membership = self.memberships[indexPath.row]
         cell.setup(membership: membership)
+        if (membership.joined != true) {
+            cell.backgroundColor = UIColor.green
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let membership = self.memberships[indexPath.row]
+        
+        if (!(membership.team?.isPublic)! || membership.joined == true) {
+            return
+        }
+        
+        self.loadData(text: "JOIN_TEAM", promise: DataHandler.def.joinTeam(inviteId: membership.team!.id, teamType: JoinTeamViewController.TeamType.publicTeam))
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
@@ -134,10 +154,10 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func updateUserImage(image:UIImage) {
         let userImage = image.toUserImage().toBase64()
-        _ = DataHandler.def.updateUserImage(image: userImage, successHandler: { user in
+        DataHandler.def.updateUserImage(image: userImage).done({ user in
             UserManager.storeUser(user: user)
             self.user = user
             self.displayUser()
-        }, failHandler: {err in })
+        })
     }
 }

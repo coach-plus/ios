@@ -13,6 +13,8 @@ class CoachPlusViewController: UIViewController {
     var loaded = false
     
     var membership:Membership?
+    
+    var previousVC: CoachPlusViewController?
 
     var heroId:String = ""
     
@@ -41,11 +43,12 @@ class CoachPlusViewController: UIViewController {
         }
     }
     
-    func pushToEventDetail(event:Event) {
+    func pushToEventDetail(currentVC: CoachPlusViewController, event:Event) {
         let targetVc = UIStoryboard(name: "EventDetail", bundle: nil).instantiateInitialViewController() as! EventDetailViewController
         targetVc.event = event
         targetVc.heroId = "event\(event.id)"
         targetVc.isHeroEnabled = true
+        targetVc.previousVC = currentVC
         self.navigationController?.pushViewController(targetVc, animated: true)
     }
     

@@ -80,6 +80,18 @@
 		47B1B6281E87CBC700F80101 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6271E87CBC700F80101 /* HomeViewController.swift */; };
 		47B1B62A1E87D18300F80101 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6291E87D18300F80101 /* DataHandler.swift */; };
 		47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B62D1E8815F500F80101 /* ApiResponse.swift */; };
+		47C58D132164108400E9E8C9 /* LoadingIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D122164108400E9E8C9 /* LoadingIndicatorHelper.swift */; };
+		47C58D142164108400E9E8C9 /* LoadingIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D122164108400E9E8C9 /* LoadingIndicatorHelper.swift */; };
+		47C58D182164374300E9E8C9 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D162164374300E9E8C9 /* BannerTableViewCell.swift */; };
+		47C58D192164374300E9E8C9 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D162164374300E9E8C9 /* BannerTableViewCell.swift */; };
+		47C58D1A2164374300E9E8C9 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D172164374300E9E8C9 /* BannerTableViewCell.xib */; };
+		47C58D1B2164374300E9E8C9 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D172164374300E9E8C9 /* BannerTableViewCell.xib */; };
+		47C58D1F2164EBCC00E9E8C9 /* ParticipationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D1E2164EBCC00E9E8C9 /* ParticipationStatus.swift */; };
+		47C58D202164EBCC00E9E8C9 /* ParticipationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D1E2164EBCC00E9E8C9 /* ParticipationStatus.swift */; };
+		47C58D222164EBF300E9E8C9 /* ParticipationStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D212164EBF300E9E8C9 /* ParticipationStatus.xib */; };
+		47C58D232164EBF300E9E8C9 /* ParticipationStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D212164EBF300E9E8C9 /* ParticipationStatus.xib */; };
+		47C58D252164F7C700E9E8C9 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D242164F7C700E9E8C9 /* ApiError.swift */; };
+		47C58D262164F7C700E9E8C9 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D242164F7C700E9E8C9 /* ApiError.swift */; };
 		47F041EA1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E61E8E59540020D78E /* MembershipTableViewCell.swift */; };
 		47F041EB1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E61E8E59540020D78E /* MembershipTableViewCell.swift */; };
 		47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F041E71E8E59540020D78E /* MembershipTableViewCell.xib */; };
@@ -317,6 +329,12 @@
 		47B1B6271E87CBC700F80101 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = app/home/HomeViewController.swift; sourceTree = "<group>"; };
 		47B1B6291E87D18300F80101 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataHandler.swift; path = helperclasses/DataHandler.swift; sourceTree = "<group>"; };
 		47B1B62D1E8815F500F80101 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiResponse.swift; path = helperclasses/ApiResponse.swift; sourceTree = "<group>"; };
+		47C58D122164108400E9E8C9 /* LoadingIndicatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingIndicatorHelper.swift; path = helperclasses/LoadingIndicatorHelper.swift; sourceTree = "<group>"; };
+		47C58D162164374300E9E8C9 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BannerTableViewCell.swift; path = misc/BannerTableViewCell.swift; sourceTree = "<group>"; };
+		47C58D172164374300E9E8C9 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BannerTableViewCell.xib; path = misc/BannerTableViewCell.xib; sourceTree = "<group>"; };
+		47C58D1E2164EBCC00E9E8C9 /* ParticipationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationStatus.swift; sourceTree = "<group>"; };
+		47C58D212164EBF300E9E8C9 /* ParticipationStatus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipationStatus.xib; sourceTree = "<group>"; };
+		47C58D242164F7C700E9E8C9 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiError.swift; path = helperclasses/ApiError.swift; sourceTree = "<group>"; };
 		47F041E61E8E59540020D78E /* MembershipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembershipTableViewCell.swift; sourceTree = "<group>"; };
 		47F041E71E8E59540020D78E /* MembershipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MembershipTableViewCell.xib; sourceTree = "<group>"; };
 		47F041E81E8E59540020D78E /* Memberships.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Memberships.storyboard; sourceTree = "<group>"; };
@@ -625,6 +643,8 @@
 				61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */,
 				61C51A4120409159009B8BA2 /* UIFontExtension.swift */,
 				61D98DA12040BD2600D4B722 /* UIViewExtension.swift */,
+				47C58D122164108400E9E8C9 /* LoadingIndicatorHelper.swift */,
+				47C58D242164F7C700E9E8C9 /* ApiError.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -670,6 +690,24 @@
 			name = home;
 			sourceTree = "<group>";
 		};
+		47C58D152164371000E9E8C9 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				47C58D162164374300E9E8C9 /* BannerTableViewCell.swift */,
+				47C58D172164374300E9E8C9 /* BannerTableViewCell.xib */,
+			);
+			name = misc;
+			sourceTree = "<group>";
+		};
+		47C58D1D2164EBA200E9E8C9 /* participationstatus */ = {
+			isa = PBXGroup;
+			children = (
+				47C58D1E2164EBCC00E9E8C9 /* ParticipationStatus.swift */,
+				47C58D212164EBF300E9E8C9 /* ParticipationStatus.xib */,
+			);
+			path = participationstatus;
+			sourceTree = "<group>";
+		};
 		47F041E41E8E59540020D78E /* memberships */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +744,7 @@
 		47F041F91E8E61DD0020D78E /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				47C58D1D2164EBA200E9E8C9 /* participationstatus */,
 				61CA9C9F1EA5243A004AFAC7 /* participationview */,
 				61CA9C981EA521DA004AFAC7 /* title */,
 				616617031E9FB31A00E8D8D5 /* teamselection */,
@@ -753,6 +792,7 @@
 		616616EF1E9F9DE900E8D8D5 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				47C58D152164371000E9E8C9 /* misc */,
 				61A006191F346D1E003E2651 /* news */,
 				61CA9CA91EA5332E004AFAC7 /* participation */,
 				61CA9C771EA224D7004AFAC7 /* seeall */,
@@ -903,7 +943,6 @@
 				473A5F6E1E8A749A002FD833 /* Frameworks */,
 				473A5F711E8A749A002FD833 /* Resources */,
 				5DAEDD66A08C73F0E5063BA7 /* [CP] Embed Pods Frameworks */,
-				06D8816588C179A87C895AEA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -923,7 +962,6 @@
 				4749C4F91E81B7FE0068B0FA /* Frameworks */,
 				4749C4FA1E81B7FE0068B0FA /* Resources */,
 				CE368EF480238B77D21D0EAD /* [CP] Embed Pods Frameworks */,
-				37FD9062D9C9DA4B0F623535 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -942,8 +980,6 @@
 				4749C50C1E81B7FE0068B0FA /* Sources */,
 				4749C50D1E81B7FE0068B0FA /* Frameworks */,
 				4749C50E1E81B7FE0068B0FA /* Resources */,
-				E2C75E1556B976ED09EF984D /* [CP] Embed Pods Frameworks */,
-				B5DB392200C137C84487D6C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -963,8 +999,6 @@
 				4749C5171E81B7FF0068B0FA /* Sources */,
 				4749C5181E81B7FF0068B0FA /* Frameworks */,
 				4749C5191E81B7FF0068B0FA /* Resources */,
-				B5C891B35A8E7283C673C412 /* [CP] Embed Pods Frameworks */,
-				3E2B51D507B39E32A67FB22C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1077,6 +1111,7 @@
 				473483271EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
 				61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
+				47C58D1A2164374300E9E8C9 /* BannerTableViewCell.xib in Resources */,
 				61D98DA620415C8A00D4B722 /* NewTeam.storyboard in Resources */,
 				611330DD20DE66CC008D8E70 /* EventDetailCell.xib in Resources */,
 				61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */,
@@ -1090,6 +1125,7 @@
 				61A006241F34808A003E2651 /* NewNews.storyboard in Resources */,
 				61C51A2E20408FF0009B8BA2 /* Roboto-Thin.ttf in Resources */,
 				61CA9CA11EA52463004AFAC7 /* ParticipationView.xib in Resources */,
+				47C58D222164EBF300E9E8C9 /* ParticipationStatus.xib in Resources */,
 				47F041F71E8E5FF90020D78E /* Team.storyboard in Resources */,
 				616617081E9FB36800E8D8D5 /* TeamSelectionView.xib in Resources */,
 				61C51A2920408FF0009B8BA2 /* Roboto-Italic.ttf in Resources */,
@@ -1127,6 +1163,7 @@
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				61C51A3520408FFB009B8BA2 /* Roboto-Black.ttf in Resources */,
 				473483281EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
+				47C58D1B2164374300E9E8C9 /* BannerTableViewCell.xib in Resources */,
 				61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				611330DE20DE66CC008D8E70 /* EventDetailCell.xib in Resources */,
 				61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
@@ -1140,6 +1177,7 @@
 				47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */,
 				61A006251F34808A003E2651 /* NewNews.storyboard in Resources */,
 				61C51A3B20408FFB009B8BA2 /* Roboto-LightItalic.ttf in Resources */,
+				47C58D232164EBF300E9E8C9 /* ParticipationStatus.xib in Resources */,
 				47F042101E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
 				61CA9CA21EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47F041F81E8E5FF90020D78E /* Team.storyboard in Resources */,
@@ -1183,51 +1221,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		06D8816588C179A87C895AEA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37FD9062D9C9DA4B0F623535 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3E2B51D507B39E32A67FB22C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5DAEDD66A08C73F0E5063BA7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1246,6 +1239,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/NibDesignable/NibDesignable.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RKDropdownAlert/RKDropdownAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -1269,6 +1263,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NibDesignable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RKDropdownAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
@@ -1282,36 +1277,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5C891B35A8E7283C673C412 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5DB392200C137C84487D6C4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusTests/Pods-CoachPlusTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C91B26A814E8B422E648D435 /* [CP] Check Pods Manifest.lock */ = {
@@ -1350,6 +1315,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/NibDesignable/NibDesignable.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RKDropdownAlert/RKDropdownAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -1373,6 +1339,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NibDesignable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RKDropdownAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
@@ -1404,21 +1371,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2C75E1556B976ED09EF984D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusTests/Pods-CoachPlusTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4AC44971DF51CD2AD1FA57C /* [CP] Check Pods Manifest.lock */ = {
@@ -1457,6 +1409,7 @@
 				47F041EA1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				473A5F5C1E8A749A002FD833 /* VerificationViewController.swift in Sources */,
 				61D5F5661EC0E51900974EBD /* CreateTeamViewController.swift in Sources */,
+				47C58D252164F7C700E9E8C9 /* ApiError.swift in Sources */,
 				47F041FC1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				611330E920DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */,
 				61CA9C7A1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
@@ -1476,6 +1429,7 @@
 				473A5F611E8A749A002FD833 /* DataHandler.swift in Sources */,
 				61A0062A1F34B060003E2651 /* UIImageExtension.swift in Sources */,
 				473A5F621E8A749A002FD833 /* LoginViewController.swift in Sources */,
+				47C58D132164108400E9E8C9 /* LoadingIndicatorHelper.swift in Sources */,
 				61CA9C9A1EA52200004AFAC7 /* TitleView.swift in Sources */,
 				473A5F881E8A9224002FD833 /* User.swift in Sources */,
 				61A006171F3468CF003E2651 /* News.swift in Sources */,
@@ -1492,6 +1446,7 @@
 				61A6DC0E1F35EBCE0000970C /* NotificationManager.swift in Sources */,
 				473A5F651E8A749A002FD833 /* Authentication.swift in Sources */,
 				61EB04072039BEDA003C1A17 /* ButtonExtensions.swift in Sources */,
+				47C58D1F2164EBCC00E9E8C9 /* ParticipationStatus.swift in Sources */,
 				473DCE211EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
 				611330E620DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
@@ -1506,6 +1461,7 @@
 				616617011E9FAE7200E8D8D5 /* NavigationBar.swift in Sources */,
 				616616FE1E9FA52300E8D8D5 /* UITableViewExtension.swift in Sources */,
 				47F041F01E8E59540020D78E /* MembershipsController.swift in Sources */,
+				47C58D182164374300E9E8C9 /* BannerTableViewCell.swift in Sources */,
 				613A92011F0EF2D900826879 /* EventsViewController.swift in Sources */,
 				473A5F6A1E8A749A002FD833 /* UrlHandler.swift in Sources */,
 				473A5F6B1E8A749A002FD833 /* StringExtension.swift in Sources */,
@@ -1538,6 +1494,7 @@
 				47F041EB1E8E59540020D78E /* MembershipTableViewCell.swift in Sources */,
 				478DE2341E8537B800DCF74A /* VerificationViewController.swift in Sources */,
 				61D5F5671EC0E51900974EBD /* CreateTeamViewController.swift in Sources */,
+				47C58D262164F7C700E9E8C9 /* ApiError.swift in Sources */,
 				47F041FD1E8E625E0020D78E /* TableHeaderView.swift in Sources */,
 				611330EA20DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */,
 				61CA9C7B1EA2250D004AFAC7 /* SeeAllTableViewCell.swift in Sources */,
@@ -1557,6 +1514,7 @@
 				47B1B62A1E87D18300F80101 /* DataHandler.swift in Sources */,
 				61A0062B1F34B060003E2651 /* UIImageExtension.swift in Sources */,
 				474144D61E8429AD009788E2 /* LoginViewController.swift in Sources */,
+				47C58D142164108400E9E8C9 /* LoadingIndicatorHelper.swift in Sources */,
 				61CA9C9B1EA52200004AFAC7 /* TitleView.swift in Sources */,
 				473A5F891E8A9224002FD833 /* User.swift in Sources */,
 				61A006181F3468CF003E2651 /* News.swift in Sources */,
@@ -1573,6 +1531,7 @@
 				61A6DC0F1F35EBCF0000970C /* NotificationManager.swift in Sources */,
 				47B1B6221E87265500F80101 /* Authentication.swift in Sources */,
 				61EB04082039BEDC003C1A17 /* ButtonExtensions.swift in Sources */,
+				47C58D202164EBCC00E9E8C9 /* ParticipationStatus.swift in Sources */,
 				473DCE221EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
 				611330E720DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
@@ -1587,6 +1546,7 @@
 				616617021E9FAE7200E8D8D5 /* NavigationBar.swift in Sources */,
 				616616FF1E9FA52300E8D8D5 /* UITableViewExtension.swift in Sources */,
 				47F041F11E8E59540020D78E /* MembershipsController.swift in Sources */,
+				47C58D192164374300E9E8C9 /* BannerTableViewCell.swift in Sources */,
 				613A92021F0EF2D900826879 /* EventsViewController.swift in Sources */,
 				478DE22F1E85367000DCF74A /* UrlHandler.swift in Sources */,
 				472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */,

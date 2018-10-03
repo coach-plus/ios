@@ -17,6 +17,8 @@ protocol ImageHelperDelegate {
 
 class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDelegate {
     
+    
+    
     var vc:UIViewController
     var delegate: ImageHelperDelegate
     
@@ -66,7 +68,7 @@ class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDele
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
+    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
         self.delegate.imageSelectedAndCropped(image: croppedImage)
         controller.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         //controller.dismiss(animated: true, completion: nil)

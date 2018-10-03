@@ -44,12 +44,13 @@ class ParticipationView: NibDesignable {
     var user: User?
     var membership: Membership?
     
+    
     static let selectedYesColor = UIColor.coachPlusParticipationYesColor
     static let selectedNoColor = UIColor.coachPlusParticipationNoColor
     static let didAttendNoColor = UIColor.coachPlusParticipationWrongColor
-    static let unselectedColor = UIColor(hexString: "9b9b9b")
+    static let unselectedColor = UIColor.unselectedColor
     
-    static let noBgColor = UIColor(hexString: "ffffff")
+    static let noBgColor = UIColor.clear
     
     @IBAction func yesTap(_ sender: Any) {
         //delegate?.selected(attend: true)
@@ -64,6 +65,9 @@ class ParticipationView: NibDesignable {
     func setup() {
         self.yesBtn.setIcon(icon: .googleMaterialDesign(.check), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
         self.noBtn.setIcon(icon: .googleMaterialDesign(.close), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+        
+        self.yesBg.backgroundColor = UIColor.clear
+        self.noBg.backgroundColor = UIColor.clear
     }
     
     func configure(participationItem:ParticipationItem, event:Event) {
@@ -97,7 +101,6 @@ class ParticipationView: NibDesignable {
     
     func showData() {
         showWillAttend()
-        showDidAttend()
         self.yesBg.isHidden = false
         self.noBg.isHidden = false
         self.hideActivityIndicator()
@@ -119,17 +122,6 @@ class ParticipationView: NibDesignable {
                 setTitleColorOnButton(btn: noBtn, color: ParticipationView.selectedNoColor)
             }
         }
-    }
-    
-    func showDidAttend() {
-        yesBg.backgroundColor = ParticipationView.noBgColor
-        noBg.backgroundColor = ParticipationView.noBgColor
-        if let didAttend = self.participation?.didAttend {
-            if (didAttend == false) {
-                yesBg.backgroundColor = ParticipationView.didAttendNoColor
-            }
-        }
-        
     }
     
     func selected(attend:Bool) {
@@ -158,11 +150,11 @@ class ParticipationView: NibDesignable {
         
         self.showActivityIndicator()
         
-        _ = DataHandler.def.willAttend(teamId: (self.event?.teamId)!, eventId: (self.event?.id)!, userId: (self.user?.id)!, willAttend: willAttend, successHandler: { res in
+        DataHandler.def.willAttend(teamId: (self.event?.teamId)!, eventId: (self.event?.id)!, userId: (self.user?.id)!, willAttend: willAttend).done({ res in
             self.participation?.willAttend = willAttend
             self.showData()
             self.dataChanged()
-        }, failHandler: { err in
+        }).catch({ err in
             self.showData()
         })
     }
@@ -171,11 +163,11 @@ class ParticipationView: NibDesignable {
         
         self.showActivityIndicator()
         
-        _ = DataHandler.def.didAttend(event: (self.event)!, user: self.user!, didAttend: didAttend, successHandler: { res in
+        DataHandler.def.didAttend(event: (self.event)!, user: self.user!, didAttend: didAttend).done({ res in
             self.participation?.didAttend = didAttend
             self.showData()
             self.dataChanged()
-        }, failHandler: { err in
+        }).catch({ err in
             self.showData()
         })
     }

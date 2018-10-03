@@ -11,6 +11,15 @@ import SwiftyJSON
 
 class Participation: JSONable, BackJSONable {
     
+    enum Status {
+        case didAttend
+        case didNotAttend
+        case didNotAttendUnexcused
+        case willAttend
+        case willNotAttend
+        case unknown
+    }
+    
     enum Fields:String {
         case user = "user"
         case event = "event"
@@ -52,5 +61,61 @@ class Participation: JSONable, BackJSONable {
             Fields.didAttend.rawValue: self.didAttend as Any]
         return json
     }
+    
+    func statusIsPositive() -> Bool {
+        return !((didAttend == false && willAttend == true) || (didAttend == false && willAttend == nil) || (didAttend == nil && willAttend == nil))
+    }
+    
+    func getStatus(event: Event) -> Participation.Status {
+        if (!event.hasStarted()) {
+            // not started
+            return self.getStatusFromWillAttend()
+        } else {
+            // already started
+            if (self.didAttend == nil) {
+                
+                if (self.willAttend == nil) {
+                    return .unknown
+                } else if (self.willAttend == true){
+                    return .didAttend
+                } else {
+                    return .didNotAttend
+                }
+                
+            } else if (self.didAttend == true) {
+                return .didAttend
+            } else {
+                if (self.willAttend == true) {
+                    return .didNotAttendUnexcused
+                } else {
+                    return .didNotAttend
+                }
+            }
+        }
+    }
+    
+    func getStatusFromWillAttend() -> Participation.Status {
+        if (self.willAttend == nil) {
+            return .unknown
+        } else if (self.willAttend == true){
+            return .willAttend
+        } else {
+            return .willNotAttend
+        }
+    }
+    
+    func getValue(eventIsInPast: Bool) -> Bool? {
+        if (eventIsInPast == false) {
+            return self.willAttend
+        } else if (eventIsInPast == true) {
+            if (self.didAttend == nil) {
+                return self.willAttend
+            } else {
+                return self.didAttend
+            }
+        }
+        return nil
+    }
+    
     
 }

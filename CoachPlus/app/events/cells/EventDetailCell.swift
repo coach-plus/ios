@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol EventDetailCellActions {
+    func delete(event: Event)
+}
+
 class EventDetailCell: UITableViewCell {
+    
+    
     
     @IBOutlet weak var nameL: UILabel!
     
@@ -30,12 +36,14 @@ class EventDetailCell: UITableViewCell {
     
     
     var event: Event?
+    var team: Team?
     var isCoach = false
     var vc: UIViewController?
 
-    func configure(event: Event, isCoach: Bool?, vc: UIViewController) {
+    func configure(event: Event, team: Team, isCoach: Bool?, vc: UIViewController) {
         
         self.event = event
+        self.team = team
         self.isCoach = isCoach != nil && isCoach == true
         self.vc = vc
         
@@ -63,11 +71,19 @@ class EventDetailCell: UITableViewCell {
     func showActions() {
         let alertController = UIAlertController(title: "ACTIONS".localize(), message: "ACTIONS_WHAT_TO_DO".localize(), preferredStyle: .actionSheet)
         
+        /*
         let sendButton = UIAlertAction(title: "EDIT".localize(), style: .default, handler: { (action) -> Void in
-        })
+        })*/
         
         let deleteButton = UIAlertAction(title: "DELETE".localize(), style: .destructive, handler: { (action) -> Void in
             
+            self.vc?.loadData(text: "DELETE_EVENT", promise: DataHandler.def.deleteEvent(team: self.team!, event: self.event!)).done({ apiResponse in
+                
+                if let delegate = self.vc as? EventDetailCellActions {
+                    delegate.delete(event: self.event!)
+                }
+                self.vc?.navigationController?.popViewController(animated: true)
+            })
         })
         
         let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in
@@ -75,7 +91,7 @@ class EventDetailCell: UITableViewCell {
         })
         
         
-        alertController.addAction(sendButton)
+        //alertController.addAction(sendButton)
         alertController.addAction(deleteButton)
         alertController.addAction(cancelButton)
         

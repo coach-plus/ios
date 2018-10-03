@@ -15,6 +15,10 @@ protocol NewNewsDelegate {
 
 class NewNewsViewController: CoachPlusViewController {
     
+    @IBOutlet weak var createBtn: OutlineButton!
+    
+    @IBOutlet weak var tableHeaderView: TableHeaderView!
+    
     @IBOutlet weak var titleTf: SkyFloatingLabelTextField!
     
     @IBOutlet weak var messageTf: SkyFloatingLabelTextField!
@@ -26,7 +30,12 @@ class NewNewsViewController: CoachPlusViewController {
     var delegate: NewNewsDelegate?
     var event:Event?
     
-    
+    override func viewDidLoad() {
+        self.titleTf.placeholder = "NEWS_TITLE".localize()
+        self.messageTf.placeholder = "NEWS_MESSAGE".localize()
+        self.tableHeaderView.title = "NEWS_CREATE_HEADER".localize()
+        self.createBtn.setTitle("NEWS_CREATE_HEADER".localize(), for: .normal)
+    }
     
     func createNews() {
         
@@ -42,13 +51,13 @@ class NewNewsViewController: CoachPlusViewController {
             "text": message
         ]
         
-        DataHandler.def.createNews(event: self.event!, createNews: createNews, successHandler: { response in
+        self.loadData(text: "CREATE_NEWS", promise: DataHandler.def.createNews(event: self.event!, createNews: createNews)).done({ response in
             if self.delegate != nil {
                 self.delegate!.newsCreated()
             }
             self.navigationController?.popViewController(animated: true)
-        }, failHandler: { error in
-            print(error)
+        }).catch({ err in
+            print(err)
         })
         
     }

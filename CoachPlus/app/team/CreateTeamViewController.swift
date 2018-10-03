@@ -66,24 +66,20 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
             base64String = (self.selectedImage?.toTeamImage().toBase64())!
         }
         
-        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.detailsLabel.text = "Erstelle Team"
         
-        _ = DataHandler.def.createTeam(createTeam: [
+        self.loadData(text: "CREATE_TEAM", promise: DataHandler.def.createTeam(createTeam: [
             "name": teamName,
             "isPublic": isPublic,
             "image": base64String
-            ], successHandler: { membership in
+            ])).done({ membership in
                 if (self.membershipsController != nil) {
                     self.membershipsController?.teamIdToBeSelected = membership.id
                     self.membershipsController?.loadTeams()
                 }
-                hud.hide(animated: true)
                 self.dismiss(animated: true, completion: nil)
-        }, failHandler: { err in
-            print(err.message)
-            hud.hide(animated: true)
-        })
+            }).catch({ err in
+                print(err)
+            })
     }
     
     override func viewDidLoad() {

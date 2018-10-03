@@ -164,13 +164,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func imageSelectedAndCropped(image: UIImage) {
-        _ = DataHandler.def.updateTeamImage(teamId: (self.membership?.team?.id)!, image: image.toTeamImage().toBase64(), successHandler: { team in
+        DataHandler.def.updateTeamImage(teamId: (self.membership?.team?.id)!, image: image.toTeamImage().toBase64()).done({ team in
             self.membership?.team = team
             self.setupParallax()
             if (self.membershipsController != nil) {
                 self.membershipsController?.loadTeams()
             }
-        }, failHandler: { err in })
+        })
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -223,24 +223,20 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func getMembers() {
         self.dispatchGroup.enter()
-        _ = DataHandler.def.getMembers(teamId: (self.membership?.team?.id)!, successHandler: { memberships in
+        DataHandler.def.getMembers(teamId: (self.membership?.team?.id)!).done({ memberships in
             self.members = memberships
             self.dispatchGroup.leave()
-        }, failHandler: { err in
-            print(err)
         })
     }
     
     func getEvents() {
         self.dispatchGroup.enter()
-        _ = DataHandler.def.getEventsOfTeam(team: (self.membership?.team!)!, successHandler: { events in
+        DataHandler.def.getEventsOfTeam(team: (self.membership?.team!)!).done({ events in
             self.allEvents = events.sorted(by: {(eventA, eventB) in
                 return eventA.start < eventB.start
             })
             self.events = self.getNextEvents()
             self.dispatchGroup.leave()
-        }, failHandler: { err in
-            print(err)
         })
     }
     
@@ -406,7 +402,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func newMember() {
-        _ = DataHandler.def.createInviteLink(team: (self.membership?.team!)!, validDays: nil, successHandler: { link in
+        DataHandler.def.createInviteLink(team: (self.membership?.team!)!, validDays: nil).done({ link in
             
             let url = URL(string: link)!
             
@@ -416,7 +412,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                  UIActivityType.postToVimeo, UIActivityType.openInIBooks]
             self.present(vc, animated: true, completion: nil)
             
-        }, failHandler: { err in
+        }).catch({ err in
             print(err)
         })
     }
@@ -454,7 +450,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 
                 let cell = self.tableView.cellForRow(at: indexPath)
                 
-                self.pushToEventDetail(event: event)
+                self.pushToEventDetail(currentVC: self, event: event)
                 return
             default:
                 return
@@ -475,10 +471,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func setRole(member:Membership, role:String) {
-        _ = DataHandler.def.setRole(membershipId: member.id, role: role, successHandler: { response in
+        DataHandler.def.setRole(membershipId: member.id, role: role).done({ response in
             self.getMembers()
-        }, failHandler: {err in
-            
         })
     }
     

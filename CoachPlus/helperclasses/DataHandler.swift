@@ -9,22 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-
-typealias EmptySuccessHandler = () -> ()
-typealias SuccessHandler = (ApiResponse) -> ()
-typealias FailHandler = (ApiResponse) -> ()
-
-typealias TeamsSuccessHandler = ([Team]) -> ()
-typealias MembershipsSuccessHandler = ([Membership]) -> ()
-typealias MembershipSuccessHandler = (Membership) -> ()
-typealias EventsSuccessHandler = ([Event]) -> ()
-typealias ParticipationsSuccessHandler = ([ParticipationItem]) -> ()
-typealias NewsSuccessHandler = ([News]) -> ()
-
-typealias UserSuccessHandler = (User) -> ()
-typealias TeamSuccessHandler = (Team) -> ()
-
-typealias CreateInviteLinkSuccessHandler = (String) -> ()
+import PromiseKit
 
 class DataHandler {
     static let def = DataHandler()
@@ -41,7 +26,7 @@ class DataHandler {
     
     // Post Helpers
     
-    func httpRequest(_ url:String, method: HTTPMethod, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
+    func httpRequest(_ url:String, method: HTTPMethod, params:Parameters, headers:HTTPHeaders?) -> Promise<ApiResponse>{
         
         let completeUrl = self.getUrl(url)
         
@@ -53,131 +38,132 @@ class DataHandler {
             encoding = JSONEncoding.default
         }
         
-        return Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
-            .responseJSON { response in
-                
-                print(response.response?.statusCode)
-                
-                guard (response.result.value != nil) else {
-                    failHandler(ApiResponse(success: false, message: "Unexpected Error", content: nil))
-                    return
-                }
-                
-                let val = JSON(response.result.value!)
-                
-                let apiResponse = ApiResponse(json: val)
-                
-                if (response.result.isSuccess) {
-                    if ((response.response?.statusCode)! >= 400) {
-                        failHandler(apiResponse)
-                    } else {
-                        if (apiResponse.isSuccess()) {
-                            successHandler(apiResponse)
-                        } else {
-                            failHandler(apiResponse)
-                        }
+        return Promise { p in
+        
+            Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
+                .responseJSON { response in
+                    
+                    print(response.response?.statusCode)
+                    
+                    guard (response.result.value != nil) else {
+                        p.reject(ApiError())
+                        return
                     }
-                } else if response.result.isFailure {
-                    failHandler(apiResponse)
-                }
+                    
+                    let val = JSON(response.result.value!)
+                    
+                    let apiResponse = ApiResponse(json: val)
+                    
+                    switch response.result {
+                    case .success(let json):
+                        if ((response.response?.statusCode)! >= 400) {
+                            p.reject(ApiError(message: "\(String(describing: response.response?.statusCode))"))
+                        } else {
+                            if (apiResponse.isSuccess()) {
+                                p.fulfill(apiResponse)
+                            } else {
+                                p.reject(ApiError(message: ""))
+                            }
+                        }
+                    case .failure(let error):
+                        p.reject(error)
+                    }
+            }
         }
         
     }
     
-    func post(_ url:String, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
-        return self.httpRequest(url, method: .post, params: params, headers: headers, successHandler: successHandler, failHandler: failHandler)
+    func post(_ url:String, params:Parameters, headers:HTTPHeaders?) -> Promise<ApiResponse> {
+        return self.httpRequest(url, method: .post, params: params, headers: headers)
     }
     
-    func put(_ url:String, params:Parameters, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
-        return self.httpRequest(url, method: .put, params: params, headers: headers, successHandler: successHandler, failHandler: failHandler)
+    func put(_ url:String, params:Parameters, headers:HTTPHeaders?) -> Promise<ApiResponse> {
+        return self.httpRequest(url, method: .put, params: params, headers: headers)
     }
     
-    func delete(_ url:String, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
-        return self.httpRequest(url, method: .delete, params: [:], headers: headers, successHandler: successHandler, failHandler: failHandler)
+    func delete(_ url:String, headers:HTTPHeaders?) -> Promise<ApiResponse> {
+        return self.httpRequest(url, method: .delete, params: [:], headers: headers)
     }
     
-    func unauthenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
-        return self.post(url, params: params, headers: [:], successHandler: successHandler, failHandler: failHandler)
+    func unauthenticatedPost(_ url:String, params:Parameters) -> Promise<ApiResponse> {
+        return self.post(url, params: params, headers: [:])
     }
     
-    func authenticatedPost(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
-        return self.post(url, params: params, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
+    func authenticatedPost(_ url:String, params:Parameters) -> Promise<ApiResponse> {
+        return self.post(url, params: params, headers: authHeaders())
     }
     
-    func authenticatedPut(_ url:String, params:Parameters, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
-        return self.put(url, params: params, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
+    func authenticatedPut(_ url:String, params:Parameters) -> Promise<ApiResponse> {
+        return self.put(url, params: params, headers: authHeaders())
     }
     
-    func authenticatedDelete(_ url:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
-        return self.delete(url, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
+    func authenticatedDelete(_ url:String) -> Promise<ApiResponse> {
+        return self.delete(url, headers: authHeaders())
     }
     
     // Get Helpers
     
-    func get(_ url:String, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
-        return self.httpRequest(url, method: .get, params: [:], headers: headers, successHandler: successHandler, failHandler: failHandler)
+    func get(_ url:String, headers:HTTPHeaders?) -> Promise<ApiResponse> {
+        return self.httpRequest(url, method: .get, params: [:], headers: headers)
     }
     
-    func unauthenticatedGet(_ url:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
-        return self.get(url, headers: [:], successHandler: successHandler, failHandler: failHandler)
+    func unauthenticatedGet(_ url:String) -> Promise<ApiResponse> {
+        return self.get(url, headers: [:])
     }
     
-    func authenticatedGet(_ url:String, headers:HTTPHeaders?, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest{
-        return self.get(url, headers: authHeaders(), successHandler: successHandler, failHandler: failHandler)
+    func authenticatedGet(_ url:String, headers:HTTPHeaders?) -> Promise<ApiResponse>{
+        return self.get(url, headers: authHeaders())
     }
     
     
-    func register(firstname:String, lastname:String, email:String, password:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func register(firstname:String, lastname:String, email:String, password:String) -> Promise<ApiResponse> {
         
-        let params = [
+        let params: Parameters = [
             "firstname":firstname,
             "lastname":lastname,
             "email":email,
             "password":password
         ]
         
-        return self.unauthenticatedPost("users/register", params: params, successHandler: { apiResponse in
-            
-            let jwtString = apiResponse.content?[0]["token"].stringValue
-            if (Authentication.storeJWT(jwt: jwtString!)) {
-                successHandler(apiResponse)
-            } else {
-                failHandler(apiResponse)
+        return Promise { p in
+            self.unauthenticatedPost("users/register", params: params).done { apiResponse in
+                let jwtString = apiResponse.content?[0]["token"].stringValue
+                if (Authentication.storeJWT(jwt: jwtString!)) {
+                    p.fulfill(apiResponse)
+                } else {
+                    p.reject(ApiError())
+                }
             }
-            
-        }, failHandler: failHandler)
+        }
     }
     
-    func login(email:String, password:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func login(email:String, password:String) -> Promise<ApiResponse> {
         
         let params = [
             "email":email,
             "password":password
         ]
         
-        return self.unauthenticatedPost("users/login", params: params, successHandler: { apiResponse in
-            
-            let token = apiResponse.content?[0]["token"].stringValue
-            
-            if (Authentication.storeJWT(jwt: token!)) {
-                successHandler(apiResponse)
-            } else {
-                failHandler(apiResponse)
+        return Promise { p in
+            self.unauthenticatedPost("users/login", params: params).done { apiResponse in
+                let token = apiResponse.content?[0]["token"].stringValue
+                if (Authentication.storeJWT(jwt: token!)) {
+                    p.fulfill(apiResponse)
+                } else {
+                    p.reject(ApiError())
+                }
             }
-            
-        }, failHandler: failHandler)
+        }
     }
     
-    func verifyToken(token:String, successHandler: @escaping EmptySuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func verifyToken(token:String) -> Promise<ApiResponse> {
         
         let url = "users/verification/" + token
         
-        return self.unauthenticatedPost(url, params: [:], successHandler: { apiResponse in
-            successHandler()
-        }, failHandler: failHandler)
+        return self.unauthenticatedPost(url, params: [:])
     }
     
-    func createTeam(name:String, isPublic:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func createTeam(name:String, isPublic:Bool) -> Promise<ApiResponse> {
         
         let url = "teams/register"
         
@@ -186,106 +172,98 @@ class DataHandler {
             "isPublic":isPublic
         ]
         
-        return self.authenticatedPost(url, params: params, successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPost(url, params: params)
         
     }
     
-    func getMyTeams(successHandler: @escaping TeamsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func getMyTeams() -> Promise<[Team]> {
         let url = "teams/my"
         
-        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
-            
-            let teams = apiResponse.toArray(Team.self, property: "teams")
-            successHandler(teams)
-            
-        }, failHandler: failHandler)
+        return self.authenticatedGet(url, headers: [:]).map({ apiResponse in
+            return apiResponse.toArray(Team.self, property: "teams")
+        })
     }
     
-    func createInviteLink(teamId:String, validDays:Int?, failHandler: @escaping FailHandler) -> DataRequest {
+    func createInviteLink(teamId:String, validDays:Int?) -> Promise<InviteResponse> {
         var url = "teams/\(teamId)/invite"
         
         if (validDays != nil) {
             url = url + "?validDays=\(validDays!)"
         }
         
-        return self.authenticatedPost(url, params: [:], successHandler: { apiResponse in
-            
-            let inviteResponse = apiResponse.toObject(InviteResponse.self, property: nil)
-            print(inviteResponse)
-            
-        }, failHandler: failHandler)
+        return self.authenticatedPost(url, params: [:]).map({ apiResponse in
+            return apiResponse.toObject(InviteResponse.self, property: nil)
+        })
         
     }
     
     
-    func getMyMemberships(successHandler: @escaping MembershipsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func getMyMemberships() -> Promise<[Membership]> {
         let url = "memberships/my"
         
-        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
-            
+        return self.authenticatedGet(url, headers: [:]).map({ apiResponse in
             let memberships = apiResponse.toArray(Membership.self, property: "memberships")
             MembershipManager.shared.storeMemberships(memberships: memberships)
-            successHandler(memberships)
-            
-        }, failHandler: failHandler)
+            return memberships
+        })
     }
     
-    func getMembers(teamId:String, successHandler: @escaping MembershipsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func getMembers(teamId:String) -> Promise<[Membership]> {
         let url = "teams/\(teamId)/members"
         
-        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
-            
-            let memberships = apiResponse.toArray(Membership.self, property: "members")
-            successHandler(memberships)
-            
-        }, failHandler: failHandler)
+        return self.authenticatedGet(url, headers: [:]).map({ apiResponse in
+            return apiResponse.toArray(Membership.self, property: "members")
+        })
     }
     
-    func getMembershipsOfUser(userId:String, successHandler: @escaping MembershipsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func getMembershipsOfUser(userId:String) -> Promise<[Membership]> {
         let url = "users/\(userId)/memberships"
         
-        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
-            
+        return self.authenticatedGet(url, headers: [:]).map({ apiResponse in
             let memberships = apiResponse.toArray(Membership.self, property: "memberships")
-            successHandler(memberships)
-            
-        }, failHandler: failHandler)
+            return memberships
+        })
     }
     
-    func getEventsOfTeam(team:Team, successHandler: @escaping EventsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func getEventsOfTeam(team:Team) -> Promise<[Event]> {
         
         let url = "teams/\(team.id)/events"
         
-        return self.authenticatedGet(url, headers: [:], successHandler: { apiResponse in
+        return self.authenticatedGet(url, headers: [:]).map({ apiResponse in
             
             let events = apiResponse.toArray(Event.self, property: "events")
-            successHandler(events)
+            return events
             
-        }, failHandler: failHandler)
+        })
     }
     
-    func createEvent(team:Team, createEvent:[String:Any], successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func createEvent(team:Team, createEvent:[String:Any]) -> Promise<ApiResponse> {
         
         let url = "teams/\(team.id)/events"
         
-        return self.authenticatedPost(url, params: createEvent, successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPost(url, params: createEvent)
         
     }
     
-    func createTeam(createTeam:[String:Any], successHandler: @escaping MembershipSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func deleteEvent(team: Team, event: Event) -> Promise<ApiResponse> {
+        let url = "teams/\(team.id)/events/\(event.id)"
+        return self.authenticatedDelete(url)
+    }
+    
+    func createTeam(createTeam:[String:Any]) -> Promise<Membership> {
         
         let url = "teams/register"
         
-        return self.authenticatedPost(url, params: createTeam, successHandler: { apiResponse in
+        return self.authenticatedPost(url, params: createTeam).map({ apiResponse in
             
             let membership = apiResponse.toObject(Membership.self, property: nil)
-            successHandler(membership)
+            return membership
             
-        }, failHandler: failHandler)
+        })
         
     }
     
-    func createInviteLink(team:Team, validDays:Int?, successHandler: @escaping CreateInviteLinkSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func createInviteLink(team:Team, validDays:Int?) -> Promise<String> {
         
         let url = "teams/\(team.id)/invite"
         
@@ -295,17 +273,15 @@ class DataHandler {
             params["validDays"] = validDays!
         }
         
-        return self.authenticatedPost(url, params: params, successHandler: { apiResponse in
-            
+        return self.authenticatedPost(url, params: params).map({ apiResponse in
             let link = apiResponse.content?[0]["url"].stringValue
-            successHandler(link!)
-            
-        }, failHandler: failHandler)
+            return link ?? ""
+        })
         
     }
     
     
-    func joinTeam(inviteId:String, teamType:JoinTeamViewController.TeamType, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func joinTeam(inviteId:String, teamType:JoinTeamViewController.TeamType) -> Promise<ApiResponse> {
         var url = ""
         
         if (teamType == .publicTeam) {
@@ -316,85 +292,85 @@ class DataHandler {
             url = "teams/private/join/\(inviteId)"
         }
         
-        return self.authenticatedPost(url, params: [:], successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPost(url, params: [:])
     }
     
     
-    func willAttend(teamId:String, eventId:String, userId:String, willAttend:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func willAttend(teamId:String, eventId:String, userId:String, willAttend:Bool) -> Promise<ApiResponse> {
         
         let url = "teams/\(teamId)/events/\(eventId)/participation/\(userId)/willAttend"
         
         return self.authenticatedPut(url, params: [
-            "willAttend": willAttend ], successHandler: successHandler, failHandler: failHandler)
+            "willAttend": willAttend ])
     }
     
     
-    func didAttend(event:Event, user:User, didAttend:Bool, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func didAttend(event:Event, user:User, didAttend:Bool) -> Promise<ApiResponse> {
         
         let url = "teams/\(event.teamId)/events/\(event.id)/participation/\(user.id)/didAttend"
         
         return self.authenticatedPut(url, params:
-            ["didAttend": didAttend ], successHandler: successHandler, failHandler: failHandler)
+            ["didAttend": didAttend ])
     }
     
-    func getParticipations(event:Event, successHandler: @escaping ParticipationsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func getParticipations(event:Event) -> Promise<[ParticipationItem]> {
         
         let url = "teams/\(event.teamId)/events/\(event.id)/participation"
         
-        return self.authenticatedGet(url, headers: nil, successHandler: { apiResponse in
+        return self.authenticatedGet(url, headers: nil).map({ apiResponse in
             let participations = apiResponse.toArray(ParticipationItem.self, property: "participation")
-            successHandler(participations)
-        }, failHandler: failHandler)
+            return participations
+        })
     }
     
-    func getNews(event:Event, successHandler: @escaping NewsSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func getNews(event:Event) -> Promise<[News]> {
         
         let url = "teams/\(event.teamId)/events/\(event.id)/news"
         
-        return self.authenticatedGet(url, headers: nil, successHandler: { apiResponse in
+        return self.authenticatedGet(url, headers: nil).map({ apiResponse in
             let news = apiResponse.toArray(News.self, property: "news")
-            successHandler(news)
-        }, failHandler: failHandler)
+            return news
+        })
     }
     
-    func createNews(event:Event, createNews:[String:Any], successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func createNews(event:Event, createNews:[String:Any]) -> Promise<ApiResponse> {
         
         let url = "teams/\(event.teamId)/events/\(event.id)/news"
         
-        return self.authenticatedPost(url, params: createNews, successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPost(url, params: createNews)
     }
     
     
-    func deleteNews(teamId:String, news:News, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func deleteNews(teamId:String, news:News) -> Promise<ApiResponse> {
         
         let url = "teams/\(teamId)/events/\(news.eventId)/news/\(news.id)"
         
-        return self.authenticatedDelete(url, successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedDelete(url)
     }
     
-    func updateUserImage(image:String, successHandler: @escaping UserSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func updateUserImage(image:String) -> Promise<User> {
         let url = "users/me"
         let params = [
             "image": image
         ]
-        return self.authenticatedPut(url, params: params, successHandler: { apiResponse in
+        return self.authenticatedPut(url, params: params).map({ apiResponse in
             let user = apiResponse.toObject(User.self, property: nil)
-            successHandler(user)
-        }, failHandler: failHandler)
+            return user
+        })
     }
     
-    func updateTeamImage(teamId:String, image:String, successHandler: @escaping TeamSuccessHandler, failHandler: @escaping FailHandler) -> DataRequest {
+    func updateTeamImage(teamId:String, image:String) -> Promise<Team> {
         let url = "teams/\(teamId)"
         let params = [
             "image": image
         ]
-        return self.authenticatedPut(url, params: params, successHandler: { apiResponse in
+        return self.authenticatedPut(url, params: params).map({ apiResponse in
             let team = apiResponse.toObject(Team.self, property: nil)
-            successHandler(team)
-        }, failHandler: failHandler)
+            return team
+        })
     }
     
-    func registerDevice(pushId:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest? {
+    func registerDevice(pushId:String) -> Promise<ApiResponse>? {
         let userId = Authentication.getUser().id
         guard userId != "" else {
             return nil
@@ -406,22 +382,22 @@ class DataHandler {
             "pushId": pushId,
             "system": "ios"
         ]
-        return self.authenticatedPost(url, params: params, successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPost(url, params: params)
     }
     
-    func sendReminder(teamId:String, eventId:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest? {
+    func sendReminder(teamId:String, eventId:String) -> Promise<ApiResponse> {
         
         let url = "teams/\(teamId)/events/\(eventId)/reminder"
         
-        return self.authenticatedPost(url, params: [:], successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPost(url, params: [:])
     }
     
-    func setRole(membershipId:String, role:String, successHandler: @escaping SuccessHandler, failHandler: @escaping FailHandler) -> DataRequest? {
+    func setRole(membershipId:String, role:String) -> Promise<ApiResponse> {
         let url = "memberships/\(membershipId)/role"
         let payload:Parameters = [
             "role": role
         ]
-        return self.authenticatedPut(url, params: payload, successHandler: successHandler, failHandler: failHandler)
+        return self.authenticatedPut(url, params: payload)
     }
     
     

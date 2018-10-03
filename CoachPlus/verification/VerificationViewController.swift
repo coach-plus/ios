@@ -38,25 +38,17 @@ class VerificationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.viewDidAppear(animated)
         verifyToken()
-        
     }
     
     func verifyToken() {
-        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.mode = MBProgressHUDMode.indeterminate
-        hud.label.text = "Verififying.."
-        
-        _ = DataHandler.def.verifyToken(token: self.token, successHandler: {
+        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.verifyToken(token: self.token)).done({ response in
             self.textLbl.text = "You are now verified."
             self.iconLbl.setIcon(icon: .fontAwesome(.check), iconSize: 60)
             self.resultView.isHidden = false
-            hud.hide(animated: true)
-            
-        }, failHandler: { apiResponse in
+        }).catch({ err in
             self.textLbl.text = "Verification failed."
             self.iconLbl.setIcon(icon: .fontAwesome(.times), iconSize: 60)
             self.resultView.isHidden = false
-            hud.hide(animated: true)
         })
     }
 

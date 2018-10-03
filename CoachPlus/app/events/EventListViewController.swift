@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import DZNEmptyDataSet
 import SwiftIcons
 
-class EventListViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, IndicatorInfoProvider, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class EventListViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, IndicatorInfoProvider, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EventDetailCellActions {
     
     
     enum Selection {
@@ -53,7 +53,7 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let event = self.events[indexPath.row]
-        self.pushToEventDetail(event: event)
+        self.pushToEventDetail(currentVC: self, event: event)
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -85,4 +85,10 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
         return attributedString
     }
     
+    func delete(event: Event) {
+        self.events = self.events.filter({ e in
+            return e.id != event.id
+        })
+        self.tableView.reloadData()
+    }
 }

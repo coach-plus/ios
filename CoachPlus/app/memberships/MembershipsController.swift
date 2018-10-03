@@ -66,7 +66,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func loadTeams() {
-        _ = DataHandler.def.getMyMemberships(successHandler: { memberships in
+        DataHandler.def.getMyMemberships().done({ memberships in
             self.memberships = memberships
             self.setSeparator()
             self.tableView.reloadData()
@@ -81,7 +81,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
                 
             }
             self.refreshControl.endRefreshing()
-        }, failHandler: { err in
+        }).catch({ err in
             print(err)
             self.setSeparator()
             self.refreshControl.endRefreshing()

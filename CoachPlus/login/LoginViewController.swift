@@ -38,21 +38,17 @@ class LoginViewController: UIViewController {
         
         MBProgressHUD.createHUD(view: self.view, msg: "LOGIN".localize())
         
-        _ = DataHandler.def.login(email: email, password: password, successHandler: { apiResponse in
+        DataHandler.def.login(email: email, password: password).done({ apiResponse in
             
-            _ = DataHandler.def.getMyMemberships(successHandler: { memberships in
+            DataHandler.def.getMyMemberships().done({ memberships in
                 
                 FlowManager.goToHome(sourceVc: self)
                 
-            }, failHandler: { apiResponse in
+            }).catch({ err in
                 FlowManager.goToHome(sourceVc: self)
             })
-            
-            
-            
-            
-        }, failHandler: { apiResponse in
-            DropdownAlert.error(message: apiResponse.message)
+        }).catch({ err in
+            //DropdownAlert.error(message: err)
         })
         
     }

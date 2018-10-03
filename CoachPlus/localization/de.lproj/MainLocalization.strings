@@ -31,7 +31,28 @@
 
 "NEWS" = "Neuigkeiten";
 
+"NO_EVENTS" = "Keine Events gefunden";
+
 "NO_DESCRIPTION" = "keine Beschreibung vorhanden";
 
 "PARTICIPATION" = "Teilnahme";
 
+"UPCOMING_EVENTS" = "Zukünftige Events";
+"PAST_EVENTS" = "Vergangene Events";
+
+"NEWS_TITLE" = "Titel";
+"NEWS_MESSAGE" = "Nachricht";
+"NEWS_CREATE_HEADER" = "Neuigkeit anlegen";
+
+"MAINTAIN_WILL" = "Bitte wähle aus, ob du teilnimmst oder nicht.";
+"MAINTAIN_DID" = "Du kannst nun auswählen, wer nicht da war.";
+
+"USER_IS_IN_THESE_TEAMS" = "%@ ist in folgenden Teams";
+"YOU_ARE_IN_THESE_TEAMS" = "Du bist in folgenden Teams";
+
+"DID_ATTEND" = "Teilgenommen";
+"DID_NOT_ATTEND" = "Nicht teilgenommen";
+"DID_NOT_ATTEND_UNEXCUSED" = "Unentschuldigt";
+"WILL_NOT_ATTEND" = "Nimmt nicht teil";
+"WILL_ATTEND" = "Nimmt teil";
+"UNKNOWN" = "?";

@@ -32,25 +32,24 @@ class HomeViewController: UIViewController {
 
     
     func getMyTeams() {
-        _ = DataHandler.def.getMyTeams(successHandler: { teams in
-            
-        }, failHandler: { err in
+        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.getMyTeams()).done({ apiResponse in
+        }).catch({ err in
             print(err)
         })
     }
     
     func createTeam(name:String, isPublic:Bool) {
         
-        _ = DataHandler.def.createTeam(name: name, isPublic: isPublic, successHandler: { apiResponse in
-            print("success")
-        }, failHandler: { err in
+        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.createTeam(name: name, isPublic: isPublic)).done({ apiResponse in
+        }).catch({ err in
             print(err)
         })
         
     }
     
     func createInvitationLink(teamId:String, validDays:Int?) {
-        _ = DataHandler.def.createInviteLink(teamId: teamId, validDays: validDays, failHandler: { err in
+        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.createInviteLink(teamId: teamId, validDays: validDays)).done({ apiResponse in
+        }).catch({ err in
             print(err)
         })
     }

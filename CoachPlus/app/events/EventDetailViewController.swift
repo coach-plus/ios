@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate, ParticipationTableViewCellDelegate {
+class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate, ParticipationTableViewCellDelegate, EventDetailCellActions {
     
     enum Section:Int {
         case general = 0
@@ -23,16 +23,6 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     
     @IBOutlet weak var tableView: UITableView!
     
-    /**
-    @IBAction func reminderBtnTapped(_ sender: Any) {
-        _ = DataHandler.def.sendReminder(teamId: (self.event?.teamId)!, eventId: (self.event?.id)!, successHandler: { res in
-            
-        }, failHandler: { err in
-            
-        })
-    }**/
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -41,6 +31,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         self.tableView.register(nib: "ParticipationTableViewCell", reuseIdentifier: "ParticipationTableViewCell")
         self.tableView.register(nib: "NewsTableViewCell", reuseIdentifier: "NewsTableViewCell")
         self.tableView.register(nib: "EventDetailCell", reuseIdentifier: "EventDetailCell")
+        self.tableView.register(nib: "BannerTableViewCell", reuseIdentifier: "BannerTableViewCell")
         
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
@@ -56,19 +47,19 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     }
     
     func loadParticipations() {
-        _ = DataHandler.def.getParticipations(event: self.event!, successHandler: { participationItems in
+        DataHandler.def.getParticipations(event: self.event!).done({ participationItems in
             self.participationItems = participationItems
             self.tableView.reloadData()
-        }, failHandler: { err in
+        }).catch({ err in
             print(err)
         });
     }
     
     func loadNews() {
-        _ = DataHandler.def.getNews(event: self.event!, successHandler: { news in
+        DataHandler.def.getNews(event: self.event!).done({ news in
             self.news = news
             self.tableView.reloadData()
-        }, failHandler: { err in
+        }).catch({ err in
             print(err)
         });
     }
@@ -96,7 +87,10 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
             }
             return self.news.count
         case .participation:
-            return self.participationItems.count
+            if (self.participationItems.count > 0) {
+                return self.participationItems.count + 1
+            }
+            return 0
         }
     }
     
@@ -107,13 +101,37 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         case .news:
             return self.newsCell(indexPath: indexPath)
         case .participation:
-            return self.participationCell(indexPath: indexPath)
+            if (indexPath.row == 0) {
+                return self.bannerCell(indexPath: indexPath)
+            } else {
+                return self.participationCell(indexPath: indexPath)
+            }
         }
+    }
+    
+    func bannerCell(indexPath: IndexPath) -> BannerTableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell", for: indexPath) as! BannerTableViewCell
+        
+        var text = "MAINTAIN_WILL"
+        var bgColor = UIColor.coachPlusBannerBackgroundColor
+        var textColor = UIColor.coachPlusBlue
+        
+        if (self.userIsCoach() && event!.startedInPast()) {
+            text = "MAINTAIN_DID"
+            textColor = UIColor.coachPlusParticipationNoColor
+        }
+        
+        
+        cell.configure(text: text.localize(), bgColor: bgColor, textColor: textColor)
+        
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        
+        return cell
     }
     
     func participationCell(indexPath:IndexPath) -> ParticipationTableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ParticipationTableViewCell", for: indexPath) as! ParticipationTableViewCell
-        let participationItem = self.participationItems[indexPath.row]
+        let participationItem = self.participationItems[indexPath.row - 1]
         cell.configure(delegate: self, participationItem: participationItem, event: self.event!)
         return cell
     }
@@ -133,7 +151,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     
     func generalCell(indexPath:IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "EventDetailCell", for: indexPath) as! EventDetailCell
-        cell.configure(event: self.event!, isCoach: self.membership?.isCoach(), vc: self)
+        cell.configure(event: self.event!, team: self.membership!.team!, isCoach: self.membership?.isCoach(), vc: self)
         return cell
     }
     
@@ -147,8 +165,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
             let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableHeader")
             let view = cell as! ReusableTableHeader
             
-            if  (self.membership?.team?.id == self.event?.teamId &&
-                (self.membership?.isCoach())!) {
+            if  (self.userIsCoach()) {
                 
                 view.tableHeader.btn.tag = Section.news.rawValue
                 view.tableHeader.delegate = self
@@ -167,6 +184,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
             
             view.tableHeader.setTitle(title: "PARTICIPATION".localize())
         
+            view.tableHeader.eventIsInPast = self.event!.isInPast()
             view.tableHeader.setLabels(participations: self.participationItems)
             
             return view
@@ -229,16 +247,15 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         
         let news = self.news[indexPath.row]
         
-        DataHandler.def.deleteNews(teamId: (self.event?.teamId)!, news: news, successHandler: { response in
+        DataHandler.def.deleteNews(teamId: (self.event?.teamId)!, news: news).done({ response in
             if (self.news.count > 1) {
                 self.news.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
             }
             self.loadNews()
-        }, failHandler: { err in
+        }).catch({ err in
             
         })
-        
         
     }
     
@@ -246,5 +263,15 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         if let headerView = self.tableView.headerView(forSection: Section.participation.rawValue) as? ReusableParticipationHeaderView {
             headerView.tableHeader.refresh()
         }
+    }
+    
+    func delete(event: Event) {
+        if let delegate = self.previousVC as? EventDetailCellActions {
+            delegate.delete(event: self.event!)
+        }
+    }
+    
+    func userIsCoach() -> Bool {
+        return (self.membership?.team?.id == self.event?.teamId && (self.membership?.isCoach())!)
     }
 }

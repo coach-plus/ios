@@ -68,7 +68,7 @@ class FlowManager {
         
         let vc = storyboard.instantiateInitialViewController()!
         
-        UIApplication.shared.keyWindow?.currentViewController()?.present(vc, animated: true, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
     }
     
     static func goToHome(sourceVc:UIViewController) {

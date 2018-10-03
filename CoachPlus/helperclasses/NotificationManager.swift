@@ -58,11 +58,17 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     static func registerDeviceOnServer(pushId:String) {
-        _ = DataHandler.def.registerDevice(pushId: pushId, successHandler: { res in
-            print("Device registered successfully")
-        }, failHandler: {err in
-            print("Device could not be registered")
-        })
+        
+        
+        let p = DataHandler.def.registerDevice(pushId: pushId)
+        
+        if (p != nil) {
+            p?.done({ res in
+                print("Device registered successfully")
+            }).catch({err in
+                print("Device could not be registered")
+            })
+        }
     }
     
     func setUpCategories() {
@@ -89,9 +95,9 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             if let eventId = values["eventId"] as? String,
                 let teamId = values["teamId"] as? String {
                     let willAttend = (response.actionIdentifier == NotificationAction.eventReminderWillAttend.rawValue)
-                    _ = DataHandler.def.willAttend(teamId: teamId, eventId: eventId, userId: Authentication.getUser().id, willAttend: willAttend, successHandler: { res in
+                    DataHandler.def.willAttend(teamId: teamId, eventId: eventId, userId: Authentication.getUser().id, willAttend: willAttend).done({ res in
                     completionHandler()
-                }, failHandler: {err in
+                }).catch({err in
                     completionHandler()
                 })
             } else {

@@ -17,12 +17,12 @@ class EventTableViewCell: UITableViewCell {
     
     func setup(event:Event) {
         
-        self.heroID = "event\(event.id)"
+        //self.heroID = "event\(event.id)"
         
         let name = event.name
         
         self.nameLbl.text = name
-        self.nameLbl.heroID = "\(self.heroID!)/name"
+        //self.nameLbl.heroID = "\(self.heroID!)/name"
         
         self.dateTimeLbl.text = event.fromToString()
         self.locationLbl.text = event.getLocationString()

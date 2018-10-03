@@ -74,18 +74,15 @@ class MemberTableViewCell: UITableViewCell {
         let alertController = UIAlertController(title: "ACTIONS".localize(), message: "ACTIONS_WHAT_TO_DO".localize(), preferredStyle: .actionSheet)
         
         let makeCoach = UIAlertAction(title: "ACTION_MAKE_COACH".localize(), style: .default, handler: { (action) -> Void in
-            _ = DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.coach.rawValue, successHandler: { response in
+            
+            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.coach.rawValue)).done({ response in
                 self.delegate?.dataChanged()
-            }, failHandler: {err in
-                
             })
         })
         
         let makeUser = UIAlertAction(title: "ACTION_MAKE_USER".localize(), style: .default, handler: { (action) -> Void in
-            _ = DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.user.rawValue, successHandler: { response in
+            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.user.rawValue)).done({ response in
                 self.delegate?.dataChanged()
-            }, failHandler: {err in
-                
             })
         })
         

@@ -9,9 +9,9 @@ def all_pods
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'MBProgressHUD'
-  pod 'RKDropdownAlert'
+  pod 'NotificationBannerSwift'
   pod "JWTDecode"
-  pod 'Hero', '1.0.0'
+  pod 'Hero'
   pod 'SwiftyUserDefaults'
   pod 'NibDesignable', :git => 'https://github.com/dzzh/NibDesignable.git', :branch => 'great-swift4'
   pod 'SwiftDate'
@@ -22,8 +22,8 @@ def all_pods
   pod 'SwiftIcons'
   pod 'RSKImageCropper'
   pod 'TextFieldEffects'
-  pod 'MMDrawerController', '~> 0.5.7'
-  pod "PromiseKit", "~> 6.0"
+  pod 'MMDrawerController'
+  pod "PromiseKit"
 end
 
 target 'CoachPlus' do

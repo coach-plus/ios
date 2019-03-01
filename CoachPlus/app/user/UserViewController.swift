@@ -11,11 +11,10 @@ import AlamofireImage
 import DZNEmptyDataSet
 import ImagePicker
 
-class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ImageHelperDelegate {
+class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ImageHelperDelegate, MembershipTableViewCellActionDelegate {
 
     var user:User?
     var memberships = [Membership]()
-    
     var imageHelper: ImageHelper?
     
     @IBOutlet weak var imageV: UIImageView!
@@ -45,9 +44,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             self.navigationItem.titleView?.heroID = "\(self.heroId)/text"
         }
         
-        self.editImageBtn.setIcon(icon: .googleMaterialDesign(.modeEdit), iconSize: 20, color: .coachPlusGrey, backgroundColor: .clear, forState: .normal)
-        
-        self.editImageBtn.isHidden = !(self.membership?.user?.id == user?.id)
+        self.editImageBtn.setCoachPlusIcon(fontType: .googleMaterialDesign(.modeEdit), color: .coachPlusGrey)
         
         
         guard self.user != nil else {
@@ -59,6 +56,8 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             return
         }
         
+        self.editImageBtn.isHidden = !UserManager.isSelf(userId: self.user!.id)
+        
         self.displayUser()
         self.setupTableView()
         
@@ -67,9 +66,13 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     
     func getMemberships() {
+        self.loaded = false
         DataHandler.def.getMembershipsOfUser(userId: self.user!.id).done({ memberships in
+            
             self.memberships = memberships
+            self.loaded = true
             self.tableView.reloadData()
+            
         })
     }
     
@@ -99,7 +102,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func setupTableView() {
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 83
         self.tableView.register(nib: "MembershipTableViewCell", reuseIdentifier: "MembershipCell")
     }
@@ -116,35 +119,60 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "MembershipCell", for: indexPath) as! MembershipTableViewCell
         let membership = self.memberships[indexPath.row]
-        cell.setup(membership: membership)
-        if (membership.joined != true) {
-            cell.backgroundColor = UIColor.green
+        if (UserManager.isSelf(userId: self.user!.id)) {
+            membership.user = self.user!
         }
+        cell.actionDelegate = self
+        cell.inMembershipList = false
+        cell.setup(membership: membership)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let membership = self.memberships[indexPath.row]
         
-        if (!(membership.team?.isPublic)! || membership.joined == true) {
+        if (membership.team!.id == MembershipManager.shared.selectedMembership?.team!.id) {
+            self.navigationController?.popViewController(animated: true)
             return
         }
         
-        self.loadData(text: "JOIN_TEAM", promise: DataHandler.def.joinTeam(inviteId: membership.team!.id, teamType: JoinTeamViewController.TeamType.publicTeam))
+        if (UserManager.isSelf(userId: user?.id)) {
+            FlowManager.selectAndOpenTeam(vc: self, teamId: membership.team!.id)
+            return
+        } else {
+            if (membership.joined == true) {
+                FlowManager.selectAndOpenTeam(vc: self, teamId: membership.team!.id)
+                return
+            } else if (membership.team!.isPublic) {
+                self.showJoinTeamActionSheet(team: membership.team!)
+            }
+        }
     }
     
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(icon: .fontAwesome(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage? {
+        if (self.loaded == false) {
+            return nil
+        }
+        return UIImage(icon: .fontAwesomeSolid(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
-        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
-        
-        var string = "Loading.."
-        
-        let attributedString = NSAttributedString(string: string, attributes: attributes)
-        return attributedString
+        if (self.loaded) {
+            let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary<NSAttributedString.Key, Any>!
+            
+            var string = "NO_TEAMS".localize()
+            
+            let attributedString = NSAttributedString(string: string, attributes: attributes)
+            return attributedString
+        } else {
+            let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary<NSAttributedString.Key, Any>!
+            
+            var string = "Loading.."
+            
+            let attributedString = NSAttributedString(string: string, attributes: attributes)
+            return attributedString
+        }
         
     }
     
@@ -159,5 +187,64 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             self.user = user
             self.displayUser()
         })
+    }
+    
+    func showJoinTeamActionSheet(team: Team) {
+        let alertController = UIAlertController(title: "JOIN_TEAM".localize(), message: String(format: "JOIN_TEAM_NAME".localize()
+            , team.name), preferredStyle: .actionSheet)
+        
+        let yesButton = UIAlertAction(title: "JOIN_TEAM".localize(), style: .default, handler: { (action) -> Void in
+            
+            self.loadData(text: "JOIN_TEAM", promise: DataHandler.def.joinTeam(inviteId: team.id, teamType: JoinTeamViewController.TeamType.publicTeam)).done({ apiResponse in
+                FlowManager.selectAndOpenTeam(vc: self, teamId: team.id)
+            })
+        })
+        
+        let noButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in })
+        
+        alertController.addAction(yesButton)
+        alertController.addAction(noButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showLeaveTeamActionSheet(membership: Membership) {
+        let alertController = UIAlertController(title: "LEAVE_TEAM".localize(), message: String(format: "LEAVE_TEAM_NAME".localize()
+            , membership.team!.name), preferredStyle: .actionSheet)
+        
+        let yesButton = UIAlertAction(title: "LEAVE_TEAM".localize(), style: .default, handler: { (action) -> Void in
+            
+            self.loadData(text: "LEAVE_TEAM_LOADING", promise: DataHandler.def.leaveTeam(teamId: membership.team!.id)).done({ apiResponse in
+            
+                let selectedMembership = MembershipManager.shared.selectedMembership
+                if (selectedMembership != nil) {
+                    if (membership.team!.id == selectedMembership!.team!.id) {
+                        FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
+                        return
+                    }
+                }
+                self.getMemberships()
+            })
+        })
+        
+        let noButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in })
+        
+        alertController.addAction(yesButton)
+        alertController.addAction(noButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showActions(membership: Membership, mode: MembershipTableViewCell.Mode) {
+        switch mode {
+        case .Join:
+            self.showJoinTeamActionSheet(team: membership.team!)
+            break
+        case .Leave:
+            self.showLeaveTeamActionSheet(membership: membership)
+            break
+        default: break
+            // do nothing
+        }
     }
 }

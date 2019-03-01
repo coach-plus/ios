@@ -160,8 +160,8 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
         self.barTintColor = UIColor(hexString: "#3381b8")
         self.tintColor = UIColor.white
         self.titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.white,
-            NSAttributedStringKey.font : UIFont(name: "Roboto-BoldItalic", size: 14)
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font : UIFont(name: "Roboto-BoldItalic", size: 14)
         ]
     }
     

@@ -23,7 +23,7 @@ extension UIImage {
     }
     
     func toBase64() -> String {
-        let imageData:Data =  UIImageJPEGRepresentation(self, 1.0)!
+        let imageData:Data = self.jpegData(compressionQuality: 1.0)!
         let base64String = String.init(format: "%@%@", "data:image/jpeg;base64,", imageData.base64EncodedString())
         return base64String
     }

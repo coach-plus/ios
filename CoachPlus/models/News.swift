@@ -64,6 +64,6 @@ class News:JSONable, BackJSONable {
     }
     
     func dateTimeString() -> String {
-        return self.created.string(dateStyle: .short, timeStyle: .short, in: nil)
+        return self.created.simpleFormatted()
     }
 }

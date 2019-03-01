@@ -9,6 +9,7 @@
 import UIKit
 import SkyFloatingLabelTextField
 import SwiftIcons
+import SwiftDate
 
 class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
 
@@ -45,9 +46,9 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         
         self.configureFields()
         
-        self.setImage(imageView: self.startImageV, icon: .fontAwesome(.clockO))
-        self.setImage(imageView: self.locationImageV, icon: .fontAwesome(.mapMarker))
-        self.setImage(imageView: self.descriptionImageV, icon: .fontAwesome(.alignJustify))
+        self.setImage(imageView: self.startImageV, icon: .fontAwesomeSolid(.clock))
+        self.setImage(imageView: self.locationImageV, icon: .fontAwesomeSolid(.mapMarker))
+        self.setImage(imageView: self.descriptionImageV, icon: .fontAwesomeSolid(.alignJustify))
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -137,10 +138,10 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
     
     func updateDateTimeLabels() {
         if let dt = self.start {
-            self.startL.text = dt.string(dateStyle: .short, timeStyle: .short , in: nil)
+            self.startL.text = dt.simpleFormatted()
         }
         if let dt = self.end {
-            self.endL.text = dt.string(dateStyle: .short, timeStyle: .short, in: nil)
+            self.endL.text = dt.simpleFormatted()
         }
     }
     

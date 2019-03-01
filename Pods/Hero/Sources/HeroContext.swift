@@ -46,15 +46,15 @@ public class HeroContext {
 
   internal func process(views: [UIView], idMap: inout [String: UIView]) {
     for view in views {
-      view.layer.removeAllAnimations()
+      view.layer.removeAllHeroAnimations()
       let targetState: HeroTargetState?
-      if let modifiers = view.heroModifiers {
+      if let modifiers = view.hero.modifiers {
         targetState = HeroTargetState(modifiers: modifiers)
       } else {
         targetState = nil
       }
       if targetState?.forceAnimate == true || container.convert(view.bounds, from: view).intersects(container.bounds) {
-        if let heroID = view.heroID {
+        if let heroID = view.hero.id {
           idMap[heroID] = view
         }
         targetStates[view] = targetState
@@ -99,7 +99,7 @@ extension HeroContext {
    - Returns: a view with the same heroID, but on different view controller, nil if not found
    */
   public func pairedView(for view: UIView) -> UIView? {
-    if let id = view.heroID {
+    if let id = view.hero.id {
       if sourceView(for: id) == view {
         return destinationView(for: id)
       } else if destinationView(for: id) == view {
@@ -138,11 +138,19 @@ extension HeroContext {
 
     unhide(view: view)
 
-    // capture a snapshot without alpha & cornerRadius
+    // capture a snapshot without alpha, cornerRadius, or shadows
     let oldCornerRadius = view.layer.cornerRadius
     let oldAlpha = view.alpha
+		let oldShadowRadius = view.layer.shadowRadius
+		let oldShadowOffset = view.layer.shadowOffset
+		let oldShadowPath = view.layer.shadowPath
+		let oldShadowOpacity = view.layer.shadowOpacity
     view.layer.cornerRadius = 0
     view.alpha = 1
+		view.layer.shadowRadius = 0.0
+		view.layer.shadowOffset = .zero
+		view.layer.shadowPath = nil
+		view.layer.shadowOpacity = 0.0
 
     let snapshot: UIView
     let snapshotType: HeroSnapshotType = self[view]?.snapshotType ?? .optimized
@@ -172,6 +180,9 @@ extension HeroContext {
           contentView.contentMode = imageView.contentMode
           contentView.tintColor = imageView.tintColor
           contentView.backgroundColor = imageView.backgroundColor
+          contentView.layer.magnificationFilter = imageView.layer.magnificationFilter
+          contentView.layer.minificationFilter = imageView.layer.minificationFilter
+          contentView.layer.minificationFilterBias = imageView.layer.minificationFilterBias
           let snapShotView = UIView()
           snapShotView.addSubview(contentView)
           snapshot = snapShotView
@@ -207,12 +218,16 @@ extension HeroContext {
 
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
+		view.layer.shadowRadius = oldShadowRadius
+		view.layer.shadowOffset = oldShadowOffset
+		view.layer.shadowPath = oldShadowPath
+		view.layer.shadowOpacity = oldShadowOpacity
 
     snapshot.layer.anchorPoint = view.layer.anchorPoint
     snapshot.layer.position = containerView.convert(view.layer.position, from: view.superview!)
     snapshot.layer.transform = containerView.layer.flatTransformTo(layer: view.layer)
     snapshot.layer.bounds = view.layer.bounds
-    snapshot.heroID = view.heroID
+    snapshot.hero.id = view.hero.id
 
     if snapshotType != .noSnapshot {
       if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
@@ -332,7 +347,7 @@ extension HeroContext {
       if view != snapshot {
         snapshot.removeFromSuperview()
       } else {
-        view.layer.removeAllAnimations()
+        view.layer.removeAllHeroAnimations()
       }
     }
   }
@@ -341,7 +356,7 @@ extension HeroContext {
       if rootView != snapshot {
         snapshot.removeFromSuperview()
       } else {
-        rootView.layer.removeAllAnimations()
+        rootView.layer.removeAllHeroAnimations()
       }
     }
     for subview in rootView.subviews {
@@ -358,16 +373,16 @@ extension HeroContext {
     return snapshots
   }
   internal func loadViewAlpha(rootView: UIView) {
-    if let storedAlpha = rootView.heroStoredAlpha {
+    if let storedAlpha = rootView.hero.storedAlpha {
       rootView.alpha = storedAlpha
-      rootView.heroStoredAlpha = nil
+      rootView.hero.storedAlpha = nil
     }
     for subview in rootView.subviews {
       loadViewAlpha(rootView: subview)
     }
   }
   internal func storeViewAlpha(rootView: UIView) {
-    rootView.heroStoredAlpha = viewAlphas[rootView]
+    rootView.hero.storedAlpha = viewAlphas[rootView]
     for subview in rootView.subviews {
       storeViewAlpha(rootView: subview)
     }

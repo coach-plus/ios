@@ -11,7 +11,6 @@ import SkyFloatingLabelTextField
 import SwiftyJSON
 import MBProgressHUD
 import Alamofire
-import RKDropdownAlert
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
@@ -136,7 +135,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func showDone(hud:MBProgressHUD) {
         
         let checkLbl = UILabel()
-        checkLbl.setIcon(icon: .fontAwesome(.check), iconSize: 40)
+        checkLbl.setIcon(icon: .fontAwesomeSolid(.check), iconSize: 40)
         checkLbl.textColor = UIColor.white
         
         hud.mode = MBProgressHUDMode.customView

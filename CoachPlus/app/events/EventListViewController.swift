@@ -30,7 +30,7 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 83
         self.tableView.register(nib: "EventTableViewCell", reuseIdentifier: "EventTableViewCell")
         self.tableView.emptyDataSetSource = self
@@ -76,7 +76,7 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
         let string = "NO_EVENTS".localize()
         

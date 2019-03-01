@@ -42,27 +42,23 @@ class DataHandler {
         
             Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
                 .responseJSON { response in
-                    
-                    print(response.response?.statusCode)
-                    
-                    guard (response.result.value != nil) else {
-                        p.reject(ApiError())
-                        return
-                    }
-                    
-                    let val = JSON(response.result.value!)
-                    
-                    let apiResponse = ApiResponse(json: val)
-                    
                     switch response.result {
                     case .success(let json):
+                        guard (response.result.value != nil) else {
+                            p.reject(ApiError(message: "", statusCode: (response.response?.statusCode)!))
+                            return
+                        }
+                        
+                        let val = JSON(response.result.value!)
+                        
+                        let apiResponse = ApiResponse(json: val)
                         if ((response.response?.statusCode)! >= 400) {
-                            p.reject(ApiError(message: "\(String(describing: response.response?.statusCode))"))
+                            p.reject(ApiError(message: apiResponse.message ?? "", statusCode: (response.response?.statusCode)!))
                         } else {
                             if (apiResponse.isSuccess()) {
                                 p.fulfill(apiResponse)
                             } else {
-                                p.reject(ApiError(message: ""))
+                                p.reject(ApiError(message: "", statusCode: (response.response?.statusCode)!))
                             }
                         }
                     case .failure(let error):
@@ -131,7 +127,7 @@ class DataHandler {
                 if (Authentication.storeJWT(jwt: jwtString!)) {
                     p.fulfill(apiResponse)
                 } else {
-                    p.reject(ApiError())
+                    p.reject(ApiError(message: "", statusCode: 999))
                 }
             }
         }
@@ -150,7 +146,7 @@ class DataHandler {
                 if (Authentication.storeJWT(jwt: token!)) {
                     p.fulfill(apiResponse)
                 } else {
-                    p.reject(ApiError())
+                    p.reject(ApiError(message: "", statusCode: 999))
                 }
             }
         }
@@ -281,7 +277,7 @@ class DataHandler {
     }
     
     
-    func joinTeam(inviteId:String, teamType:JoinTeamViewController.TeamType) -> Promise<ApiResponse> {
+    func joinTeam(inviteId:String, teamType:JoinTeamViewController.TeamType) -> Promise<Membership> {
         var url = ""
         
         if (teamType == .publicTeam) {
@@ -292,7 +288,16 @@ class DataHandler {
             url = "teams/private/join/\(inviteId)"
         }
         
-        return self.authenticatedPost(url, params: [:])
+        return self.authenticatedPost(url, params: [:]).map({ apiResponse in
+            let membership = apiResponse.toObject(Membership.self, property: nil)
+            return membership
+        })
+    }
+    
+    func leaveTeam(teamId: String) -> Promise<ApiResponse> {
+        let url = "teams/\(teamId)/memberships"
+        
+        return self.authenticatedDelete(url)
     }
     
     
@@ -355,6 +360,14 @@ class DataHandler {
         ]
         return self.authenticatedPut(url, params: params).map({ apiResponse in
             let user = apiResponse.toObject(User.self, property: nil)
+            return user
+        })
+    }
+    
+    func getUser() -> Promise<User> {
+        let url = "users/me"
+        return self.authenticatedGet(url, headers: nil).map({ apiResponse in
+            let user = apiResponse.toObject(User.self, property: "user")
             return user
         })
     }

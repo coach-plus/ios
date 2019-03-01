@@ -63,8 +63,8 @@ class ParticipationView: NibDesignable {
     }
     
     func setup() {
-        self.yesBtn.setIcon(icon: .googleMaterialDesign(.check), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
-        self.noBtn.setIcon(icon: .googleMaterialDesign(.close), iconSize: 20, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+        self.yesBtn.setIcon(icon: .fontAwesomeSolid(.checkCircle), iconSize: 30, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
+        self.noBtn.setIcon(icon: .fontAwesomeSolid(.timesCircle), iconSize: 30, color: .coachPlusLightGrey, backgroundColor: .clear, forState: .normal)
         
         self.yesBg.backgroundColor = UIColor.clear
         self.noBg.backgroundColor = UIColor.clear

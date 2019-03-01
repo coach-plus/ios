@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RKDropdownAlert
+import NotificationBannerSwift
 
 class DropdownAlert {
     
@@ -16,9 +16,10 @@ class DropdownAlert {
     static let errorTitle = "Error"
     static let errorTime = 3
     
-    static func error(message: String?) {
-        let msg = message?.localize()
-        RKDropdownAlert.title(errorTitle, message: msg, backgroundColor: errorBgColor, textColor: errorTextColor, time: errorTime)
+    static func error(message: String) {
+        let msg = message.localize()
+        let banner = NotificationBanner(title: self.errorTitle, subtitle: msg, style: .danger)
+        banner.show()
     }
     
     

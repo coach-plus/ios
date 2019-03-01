@@ -16,7 +16,7 @@ class MailSentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        iconLabel.setIcon(icon: .fontAwesome(.paperPlaneO), iconSize: 60)
+        iconLabel?.setIcon(icon: .fontAwesomeSolid(.paperPlane), iconSize: 60)
         
     }
 

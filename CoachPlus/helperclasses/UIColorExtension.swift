@@ -97,11 +97,19 @@ extension UIColor {
     }
     
     static let coachPlusParticipationYesColor = UIColor(hexString: "#73ba26")
-    static let coachPlusParticipationNoColor = UIColor(hexString: "#FF3B30")
+    static let coachPlusParticipationNoColor = UIColor.coachPlusRedColor
     
-    static let coachPlusParticipationWrongColor = UIColor(hexString: "#F5DEDE")
+    static let coachPlusParticipationDidNotAttendColor = UIColor.orange
     
-    static let coachPlusBannerBackgroundColor = UIColor(hexString: "#DCE3E8")
+    static let coachPlusRedColor = UIColor(hexString: "#FF3B30")
+    
+    static let coachPlusParticipationWrongColor = UIColor.coachPlusRedColor // UIColor(hexString: "#F5DEDE")
+    
+    static let coachPlusBannerBackgroundColor = UIColor.coachPlusLightBlue // UIColor(hexString: "#DCE3E8")
     
     static let unselectedColor = UIColor(hexString: "9b9b9b")
+    
+    static let leaveTeamRed = UIColor(hexString: "dc3545")
+    
+    static let coachPlusLightBlue = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.1)
 }

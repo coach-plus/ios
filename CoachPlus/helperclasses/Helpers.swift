@@ -67,7 +67,7 @@ extension String {
 extension MBProgressHUD {
     static func createHUD(view:UIView, msg:String) -> MBProgressHUD {
         let hud = MBProgressHUD(view: view)
-        hud.graceTime = 1
+        hud.graceTime = 0.5
         hud.detailsLabel.text = msg
         hud.mode = .indeterminate
         hud.animationType = .zoom

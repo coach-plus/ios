@@ -66,9 +66,15 @@ class ParticipationTableHeaderView: NibDesignable {
             $0.participation != nil && $0.participation!.getValue(eventIsInPast: self.eventIsInPast) == false
             }.count
         
-        self.setLabel(label: self.unknownL, icon: .fontAwesome(.question), count: unknownCount, iconColor: self.titleL.textColor)
-        self.setLabel(label: self.yesL, icon: .fontAwesome(.check), count: yesCount, iconColor: UIColor.coachPlusParticipationYesColor)
-        self.setLabel(label: self.noL, icon: .fontAwesome(.times), count: noCount, iconColor: UIColor.coachPlusParticipationNoColor.darkerColor(percent: 0.25))
+        self.setLabel(label: self.unknownL, icon: .fontAwesomeSolid(.questionCircle), count: unknownCount, iconColor: UIColor.coachPlusBlue)
+        self.setLabel(label: self.yesL, icon: .fontAwesomeSolid(.checkCircle), count: yesCount, iconColor: UIColor.coachPlusParticipationYesColor)
+        self.setLabel(label: self.noL, icon: .fontAwesomeSolid(.timesCircle), count: noCount, iconColor: UIColor.coachPlusParticipationNoColor)
+        
+        if (unknownCount == 0) {
+            self.unknownL.isHidden = true
+        } else {
+            self.unknownL.isHidden = false
+        }
     }
     
     func setLabel(label: UILabel, icon: FontType, count: Int, iconColor: UIColor) {

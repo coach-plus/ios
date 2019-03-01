@@ -11,13 +11,11 @@ import PromiseKit
 
 class ApiError: Error {
     
-    var message: String?
+    var message: String
+    var statusCode: Int
     
-    init(message: String) {
+    init(message: String, statusCode: Int) {
         self.message = message
-    }
-    
-    init() {
-        
+        self.statusCode = statusCode
     }
 }

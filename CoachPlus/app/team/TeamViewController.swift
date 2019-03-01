@@ -55,7 +55,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.register(nib: "MemberTableViewCell", reuseIdentifier: "MemberTableViewCell")
         self.tableView.register(nib: "SeeAllTableViewCell", reuseIdentifier: "SeeAllTableViewCell")
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 83
         
         self.tableView.emptyDataSetSource = self
@@ -192,9 +192,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         super.viewDidAppear(animated)
         self.enableDrawer()
         self.loadData(forceLoadingIndicator: false)
-        
-        self.notificationManager = NotificationManager(vc: self)
-        self.notificationManager?.registerForNotifications()
     }
     
     func loadData(forceLoadingIndicator: Bool) {
@@ -226,6 +223,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         DataHandler.def.getMembers(teamId: (self.membership?.team?.id)!).done({ memberships in
             self.members = memberships
             self.dispatchGroup.leave()
+        }).catch({error in
+            if let apiError = error as? ApiError, apiError != nil, apiError.statusCode == 401 {
+                FlowManager.selectAndOpenTeam(vc: self, teamId: "any")
+                self.dismiss(animated: false, completion: nil)
+                return
+            }
+            print(error)
         })
     }
     
@@ -237,6 +241,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             })
             self.events = self.getNextEvents()
             self.dispatchGroup.leave()
+        }).catch({error in
+            if let apiError = error as? ApiError, apiError != nil, apiError.statusCode == 401 {
+                FlowManager.selectAndOpenTeam(vc: self, teamId: "any")
+                self.dismiss(animated: false, completion: nil)
+                return
+            }
+            print(error)
         })
     }
     
@@ -408,8 +419,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             
             let vc = UIActivityViewController(activityItems: ["Aloha! Join your awesome team", url], applicationActivities: nil)
             vc.excludedActivityTypes =
-                [UIActivityType.assignToContact, UIActivityType.saveToCameraRoll, UIActivityType.postToFlickr,
-                 UIActivityType.postToVimeo, UIActivityType.openInIBooks]
+                [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.saveToCameraRoll, UIActivity.ActivityType.postToFlickr,
+                 UIActivity.ActivityType.postToVimeo, UIActivity.ActivityType.openInIBooks]
             self.present(vc, animated: true, completion: nil)
             
         }).catch({ err in
@@ -466,7 +477,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
     
@@ -477,11 +488,11 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(icon: .fontAwesome(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
+        return UIImage(icon: .fontAwesomeSolid(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
         let string = "Why so lonely?\nCreate a team and invite your buddies!"
         

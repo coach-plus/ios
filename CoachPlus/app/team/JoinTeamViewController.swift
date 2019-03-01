@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class JoinTeamViewController: CoachPlusViewController {
     
     enum TeamType {
@@ -39,8 +38,13 @@ class JoinTeamViewController: CoachPlusViewController {
         
         self.loadData(text: "LOAD_DATA", promise: DataHandler.def.joinTeam(inviteId: self.inviteId!, teamType: self.mode!)).done({ apiResponse in
             self.dismiss(animated: true, completion: nil)
+            FlowManager.selectAndOpenTeam(vc: self, teamId: apiResponse.team!.id)
         }).catch({ err in
+            if let apiError = err as? ApiError {
+                DropdownAlert.error(message: apiError.message)
+            }
             print(err)
+            self.dismiss(animated: true, completion: nil)
         })
     }
     

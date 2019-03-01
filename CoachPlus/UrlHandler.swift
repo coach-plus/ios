@@ -38,7 +38,7 @@ class UrlHandler {
                     
                     let storyboard = UIStoryboard(name: "JoinTeam", bundle: nil)
                     let navVc = storyboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
-                    let joinVc = navVc.childViewControllers[0] as! JoinTeamViewController
+                    let joinVc = navVc.children[0] as! JoinTeamViewController
                     
                     if (mode == "private") {
                         joinVc.mode = .privateTeam
@@ -52,7 +52,7 @@ class UrlHandler {
                     
                     print(rootVc)
                     
-                    let vcs = rootVc!.childViewControllers
+                    let vcs = rootVc!.children
                     
                     for vc in vcs {
                         print(vc)

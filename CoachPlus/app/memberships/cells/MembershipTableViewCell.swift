@@ -9,8 +9,21 @@
 import UIKit
 import AlamofireImage
 
-class MembershipTableViewCell: UITableViewCell {
 
+protocol MembershipTableViewCellActionDelegate {
+    func showActions(membership: Membership, mode: MembershipTableViewCell.Mode)
+}
+
+
+
+class MembershipTableViewCell: UITableViewCell {
+    
+    public enum Mode{
+        case Join
+        case Leave
+        case None
+    }
+    
     @IBOutlet weak var leftLbl: UILabel!
     
     @IBOutlet weak var descriptionLbl: UILabel!
@@ -19,6 +32,20 @@ class MembershipTableViewCell: UITableViewCell {
     
     @IBOutlet weak var privateIndicatorLbl: UILabel!
     
+    @IBOutlet weak var moreBtn: UIButton!
+    
+    @IBAction func moreBtnTapped(_ sender: Any) {
+        if (self.actionDelegate != nil && self.membership != nil) {
+            self.actionDelegate?.showActions(membership: self.membership!, mode: self.mode)
+        }
+    }
+    
+    var actionDelegate: MembershipTableViewCellActionDelegate?
+    var membership: Membership?
+    
+    var mode: Mode = Mode.None
+    
+    var inMembershipList: Bool = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,22 +58,34 @@ class MembershipTableViewCell: UITableViewCell {
     }
     
     func setup(membership:Membership) {
+        self.membership = membership
         self.leftLbl.text = membership.team!.name
         
         self.descriptionLbl.text = membership.team?.getMemberCountString()
         
-        /*
-        if (membership.isCoach()) {
-            self.editBtn.titleLabel?.font = UIFont.fontAwesome(ofSize: 20)
-            self.editBtn.setTitle(String.fontAwesomeIcon(name: .pencil), for: UIControlState.normal)
-        } else {
-            self.editBtn.setTitle("", for: UIControlState.normal)
-        }*/
+        self.moreBtn.setTitle("", for: .normal)
+        self.moreBtn.isHidden = true
+        
+        if (self.inMembershipList == false) {
+            if (UserManager.isSelf(userId: membership.user?.id)) {
+                self.moreBtn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.signOutAlt), color: UIColor.leaveTeamRed)
+                self.moreBtn.isHidden = false
+                self.mode = Mode.Leave
+            } else {
+                if (membership.joined == true) {
+                    self.mode = Mode.None
+                } else {
+                    self.moreBtn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.signInAlt), color: .coachPlusBlue)
+                    self.moreBtn.isHidden = false
+                    self.mode = Mode.Join
+                }
+            }
+        }
         
         if (membership.team?.isPublic)! {
             self.privateIndicatorLbl.text = ""
         } else {
-            self.privateIndicatorLbl.setIcon(icon: .fontAwesome(.lock), iconSize: 15, color: .coachPlusLightGrey, bgColor: .clear)
+            self.privateIndicatorLbl!.setIcon(icon: .fontAwesomeSolid(.lock), iconSize: 15, color: .coachPlusLightGrey, bgColor: .clear)
         }
         
         self.imageV.setTeamImage(team: membership.team!, placeholderColor: nil)

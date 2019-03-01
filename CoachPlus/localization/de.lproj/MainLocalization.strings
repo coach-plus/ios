@@ -56,3 +56,5 @@
 "WILL_NOT_ATTEND" = "Nimmt nicht teil";
 "WILL_ATTEND" = "Nimmt teil";
 "UNKNOWN" = "?";
+
+"JOIN_TEAM_NAME" = "Team \"%@\" beitreten?";

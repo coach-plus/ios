@@ -5,8 +5,8 @@ import Dispatch
  A `Guarantee` is a functional abstraction around an asynchronous operation that cannot error.
  - See: `Thenable`
 */
-public class Guarantee<T>: Thenable {
-    let box: Box<T>
+public final class Guarantee<T>: Thenable {
+    let box: PromiseKit.Box<T>
 
     fileprivate init(box: SealedBox<T>) {
         self.box = box
@@ -19,7 +19,7 @@ public class Guarantee<T>: Thenable {
 
     /// Returns a pending `Guarantee` that can be resolved with the provided closure’s parameter.
     public init(resolver body: (@escaping(T) -> Void) -> Void) {
-        box = EmptyBox()
+        box = Box()
         body(box.seal)
     }
 
@@ -54,8 +54,19 @@ public class Guarantee<T>: Thenable {
         }
     }
 
+    final private class Box<T>: EmptyBox<T> {
+        deinit {
+            switch inspect() {
+            case .pending:
+                PromiseKit.conf.logHandler(.pendingGuaranteeDeallocated)
+            case .resolved:
+                break
+            }
+        }
+    }
+
     init(_: PMKUnambiguousInitializer) {
-        box = EmptyBox()
+        box = Box()
     }
 
     /// Returns a tuple of a pending `Guarantee` and a function that resolves it.
@@ -66,21 +77,28 @@ public class Guarantee<T>: Thenable {
 
 public extension Guarantee {
     @discardableResult
-    func done(on: DispatchQueue? = conf.Q.return, _ body: @escaping(T) -> Void) -> Guarantee<Void> {
+    func done(on: DispatchQueue? = conf.Q.return, flags: DispatchWorkItemFlags? = nil, _ body: @escaping(T) -> Void) -> Guarantee<Void> {
         let rg = Guarantee<Void>(.pending)
         pipe { (value: T) in
-            on.async {
+            on.async(flags: flags) {
                 body(value)
                 rg.box.seal(())
             }
         }
         return rg
     }
+    
+    func get(on: DispatchQueue? = conf.Q.return, flags: DispatchWorkItemFlags? = nil, _ body: @escaping (T) -> Void) -> Guarantee<T> {
+        return map(on: on, flags: flags) {
+            body($0)
+            return $0
+        }
+    }
 
-    func map<U>(on: DispatchQueue? = conf.Q.map, _ body: @escaping(T) -> U) -> Guarantee<U> {
+    func map<U>(on: DispatchQueue? = conf.Q.map, flags: DispatchWorkItemFlags? = nil, _ body: @escaping(T) -> U) -> Guarantee<U> {
         let rg = Guarantee<U>(.pending)
         pipe { value in
-            on.async {
+            on.async(flags: flags) {
                 rg.box.seal(body(value))
             }
         }
@@ -88,17 +106,17 @@ public extension Guarantee {
     }
 
 	@discardableResult
-    func then<U>(on: DispatchQueue? = conf.Q.map, _ body: @escaping(T) -> Guarantee<U>) -> Guarantee<U> {
+    func then<U>(on: DispatchQueue? = conf.Q.map, flags: DispatchWorkItemFlags? = nil, _ body: @escaping(T) -> Guarantee<U>) -> Guarantee<U> {
         let rg = Guarantee<U>(.pending)
         pipe { value in
-            on.async {
+            on.async(flags: flags) {
                 body(value).pipe(to: rg.box.seal)
             }
         }
         return rg
     }
 
-    public func asVoid() -> Guarantee<Void> {
+    func asVoid() -> Guarantee<Void> {
         return map(on: nil) { _ in }
     }
     
@@ -106,10 +124,10 @@ public extension Guarantee {
      Blocks this thread, so you know, don’t call this on a serial thread that
      any part of your chain may use. Like the main thread for example.
      */
-    public func wait() -> T {
+    func wait() -> T {
 
         if Thread.isMainThread {
-            print("PromiseKit: warning: `wait()` called on main thread!")
+            conf.logHandler(.waitOnMainThread)
         }
 
         var result = value
@@ -122,6 +140,29 @@ public extension Guarantee {
         }
         
         return result!
+    }
+}
+
+public extension Guarantee where T: Sequence {
+
+    /**
+     `Guarantee<[T]>` => `T` -> `Guarantee<U>` => `Guaranetee<[U]>`
+
+         firstly {
+             .value([1,2,3])
+         }.thenMap {
+             .value($0 * 2)
+         }.done {
+             // $0 => [2,4,6]
+         }
+     */
+    func thenMap<U>(on: DispatchQueue? = conf.Q.map, flags: DispatchWorkItemFlags? = nil, _ transform: @escaping(T.Iterator.Element) -> Guarantee<U>) -> Guarantee<[U]> {
+        return then(on: on, flags: flags) {
+            when(fulfilled: $0.map(transform))
+        }.recover {
+            // if happens then is bug inside PromiseKit
+            fatalError(String(describing: $0))
+        }
     }
 }
 

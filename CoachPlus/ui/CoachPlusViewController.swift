@@ -18,14 +18,22 @@ class CoachPlusViewController: UIViewController {
 
     var heroId:String = ""
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNeedsStatusBarAppearanceUpdate()
         
         self.isHeroEnabled = true
         
         if (self.membership == nil) {
             self.membership = MembershipManager.shared.getPreviouslySelectedMembership()
         }
+        
+        self.view.backgroundColor = UIColor.coachPlusBlue
     }
     
     override func viewDidAppear(_ animated: Bool) {

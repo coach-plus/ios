@@ -74,13 +74,13 @@ class Event:JSONable, BackJSONable {
     }
     
     func fromToStringWithDate() -> String {
-        return "\(self.start.string(dateStyle: .short, timeStyle: .short, in: nil)) - \(self.end.string(dateStyle: .none, timeStyle: .short, in: nil))"
+        return "\(self.start.simpleFormatted()) - \(self.end.timeShort())"
     }
     
     func fromToString() -> String {
         
-        if (self.start.isInSameDayOf(date: self.end)) {
-            return "\(self.start.toDefaultFormatted()) \("TIME_TO".localize()) \(self.end.string(dateStyle: .none, timeStyle: .short, in: nil))"
+        if (self.start.compare(.isSameDay(self.end))) {
+            return "\(self.start.toDefaultFormatted()) \("TIME_TO".localize()) \(self.end.timeShort())"
         } else {
             return "\(self.start.toDefaultFormatted()) \("TIME_TO".localize()) \(self.end.toDefaultFormatted())"
         }
@@ -88,7 +88,7 @@ class Event:JSONable, BackJSONable {
     }
     
     func dateString() -> String {
-        return self.start.string(dateStyle: .short, timeStyle: .none, in: nil)
+        return self.start.dateShort()
     }
     
     func hasStarted() -> Bool {

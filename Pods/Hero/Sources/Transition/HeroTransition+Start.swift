@@ -28,7 +28,11 @@ extension HeroTransition {
     state = .starting
 
     if let toView = toView, let fromView = fromView {
-      toView.frame = fromView.frame
+      if let toViewController = toViewController, let transitionContext = transitionContext {
+        toView.frame = transitionContext.finalFrame(for: toViewController)
+      } else {
+        toView.frame = fromView.frame
+      }
       toView.setNeedsLayout()
       toView.layoutIfNeeded()
     }
@@ -51,13 +55,13 @@ extension HeroTransition {
       (transitionContainer?.window ?? transitionContainer)?.addSubview(fullScreenSnapshot)
     }
 
-    if let oldSnapshot = fromViewController?.heroStoredSnapshot {
+    if let oldSnapshot = fromViewController?.hero.storedSnapshot {
       oldSnapshot.removeFromSuperview()
-      fromViewController?.heroStoredSnapshot = nil
+      fromViewController?.hero.storedSnapshot = nil
     }
-    if let oldSnapshot = toViewController?.heroStoredSnapshot {
+    if let oldSnapshot = toViewController?.hero.storedSnapshot {
       oldSnapshot.removeFromSuperview()
-      toViewController?.heroStoredSnapshot = nil
+      toViewController?.hero.storedSnapshot = nil
     }
 
     plugins = HeroTransition.enabledPlugins.map({ return $0.init() })
@@ -92,7 +96,7 @@ extension HeroTransition {
     }
     transitionContainer?.addSubview(container)
 
-    context = HeroContext(container:container)
+    context = HeroContext(container: container)
 
     for processor in processors {
       processor.hero = self

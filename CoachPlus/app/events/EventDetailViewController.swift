@@ -39,7 +39,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         let pNib = UINib(nibName: "ReusableParticipationHeaderView", bundle: nil)
         self.tableView.register(pNib, forHeaderFooterViewReuseIdentifier: "ReusableParticipationHeaderView")
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 70
         
         self.loadParticipations()
@@ -76,6 +76,10 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         return Section(rawValue: section)!
     }
     
+    func showHeaderRow() -> Bool {
+        return ((event!.startedInPast() && self.userIsCoach()) || (self.participationItems.count > 0 && event!.startedInPast() == false))
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = self.getSectionType(section: section)
         switch sectionType {
@@ -87,10 +91,10 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
             }
             return self.news.count
         case .participation:
-            if (self.participationItems.count > 0) {
+            if (self.showHeaderRow()) {
                 return self.participationItems.count + 1
             }
-            return 0
+            return self.participationItems.count
         }
     }
     
@@ -101,8 +105,12 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         case .news:
             return self.newsCell(indexPath: indexPath)
         case .participation:
-            if (indexPath.row == 0) {
-                return self.bannerCell(indexPath: indexPath)
+            if (self.showHeaderRow()) {
+                if (indexPath.row == 0) {
+                    return self.bannerCell(indexPath: indexPath)
+                } else {
+                    return self.participationCell(indexPath: indexPath)
+                }
             } else {
                 return self.participationCell(indexPath: indexPath)
             }
@@ -118,9 +126,8 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         
         if (self.userIsCoach() && event!.startedInPast()) {
             text = "MAINTAIN_DID"
-            textColor = UIColor.coachPlusParticipationNoColor
+            textColor = UIColor.coachPlusBlue
         }
-        
         
         cell.configure(text: text.localize(), bgColor: bgColor, textColor: textColor)
         
@@ -131,7 +138,11 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     
     func participationCell(indexPath:IndexPath) -> ParticipationTableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ParticipationTableViewCell", for: indexPath) as! ParticipationTableViewCell
-        let participationItem = self.participationItems[indexPath.row - 1]
+        var row = indexPath.row
+        if (self.showHeaderRow()) {
+            row = row - 1
+        }
+        let participationItem = self.participationItems[row]
         cell.configure(delegate: self, participationItem: participationItem, event: self.event!)
         return cell
     }

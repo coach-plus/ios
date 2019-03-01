@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.shared.enable = true
         
@@ -30,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             FlowManager.setHome()
         }
+        
+        DataHandler.def.getUser().done({user in
+            UserManager.storeUser(user: user)
+        }).catch({error in
+            print("could not get user")
+        })
         
         
         return true
@@ -66,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ai = UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [MBProgressHUD.self])
         ai.color = UIColor.coachPlusBlue
         
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
     }
     
@@ -100,12 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Universal Link
     
-    func application(_ application: UIApplication,
-                     continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        
-        
-        
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         // 1
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
             let url = userActivity.webpageURL,
@@ -118,6 +120,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return UrlHandler.handleUrlComponents(components: components)
     }
+    
+    /*
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        // 1
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let url = userActivity.webpageURL,
+            let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+                return false
+        }
+        
+        print(url)
+        
+        
+        return UrlHandler.handleUrlComponents(components: components)
+        
+    }
+ */
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print(url)
+        return true
+    }
+    
 
 }
 

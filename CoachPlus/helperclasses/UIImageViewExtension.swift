@@ -25,7 +25,7 @@ extension UIImageView {
         var placeholder:UIImage? = nil
         
         if (showPlaceholder) {
-            placeholder = UIImage.init(icon: .fontAwesome(.userCircleO), size: self.frame.size, textColor: .coachPlusBlue, backgroundColor: .clear)
+            placeholder = UIImage.init(icon: .fontAwesomeSolid(.userCircle), size: self.frame.size, textColor: .coachPlusBlue, backgroundColor: .clear)
         }
         
         if user.image != nil {
@@ -59,7 +59,7 @@ extension UIImageView {
             color = placeholderColor!
         }
         
-        let placeholder = UIImage.init(icon: .fontAwesome(.users), size: self.frame.size, textColor: .coachPlusBlue, backgroundColor: .clear)
+        let placeholder = UIImage.init(icon: .fontAwesomeSolid(.users), size: self.frame.size, textColor: .coachPlusBlue, backgroundColor: .clear)
         
         if (team != nil && team?.image != nil) {
             let fullUrl = team?.getTeamImageUrl()

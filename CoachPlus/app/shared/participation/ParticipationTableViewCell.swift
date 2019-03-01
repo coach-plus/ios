@@ -64,15 +64,9 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
             
             self.participationStatusView = ParticipationStatus(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
             
-            var status: Participation.Status
             
-            if (self.participationItem?.participation != nil && self.event != nil) {
-                status = self.participationItem!.participation!.getStatus(event: self.event!)
-            } else {
-                status = Participation.Status.unknown
-            }
             
-            self.participationStatusView?.configure(status: status)
+            self.participationStatusView?.configure(participation: participationItem, event: event, delegate: self.delegate)
             
             self.interactionContainerView.addSubview(self.participationStatusView!)
             

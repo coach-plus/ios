@@ -20,6 +20,10 @@ class UserManager {
         let userString = Defaults[.userJSON]
         return userString.toObject(User.self)
     }
+    
+    static func isSelf(userId: String?) -> Bool {
+        return self.getUser().id == userId
+    }
 }
 
 extension DefaultsKeys {

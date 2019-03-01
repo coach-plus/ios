@@ -43,11 +43,11 @@ class VerificationViewController: UIViewController {
     func verifyToken() {
         self.loadData(text: "LOAD_DATA", promise: DataHandler.def.verifyToken(token: self.token)).done({ response in
             self.textLbl.text = "You are now verified."
-            self.iconLbl.setIcon(icon: .fontAwesome(.check), iconSize: 60)
+            self.iconLbl!.setIcon(icon: .fontAwesomeSolid(.check), iconSize: 60)
             self.resultView.isHidden = false
         }).catch({ err in
             self.textLbl.text = "Verification failed."
-            self.iconLbl.setIcon(icon: .fontAwesome(.times), iconSize: 60)
+            self.iconLbl!.setIcon(icon: .fontAwesomeSolid(.times), iconSize: 60)
             self.resultView.isHidden = false
         })
     }

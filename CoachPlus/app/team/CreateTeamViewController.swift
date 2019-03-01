@@ -42,7 +42,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     var imageHelper:ImageHelper?
     
     static let publicIconSize = CGSize(width: 20, height: 20)
-    let privateIcon = UIImage.init(icon: .fontAwesome(.lock), size: CreateTeamViewController.publicIconSize, textColor: .coachPlusGrey, backgroundColor: .clear)
+    let privateIcon = UIImage.init(icon: .fontAwesomeSolid(.lock), size: CreateTeamViewController.publicIconSize, textColor: .coachPlusGrey, backgroundColor: .clear)
     
     @IBAction func selectImageTapped(_ sender: Any) {
         self.imageHelper?.showImagePicker()
@@ -91,7 +91,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
         self.nameTf.coachPlus()
         self.nameTf.delegate = self
         
-        let placeholder = UIImage.init(icon: .fontAwesome(.camera), size: CGSize(width: 50, height: 50), textColor: .white, backgroundColor: .clear)
+        let placeholder = UIImage.init(icon: .fontAwesomeSolid(.camera), size: CGSize(width: 50, height: 50), textColor: .white, backgroundColor: .clear)
         
         self.publicSwitch.onTintColor = .coachPlusBlue
         self.publicSwitch.isOn = false

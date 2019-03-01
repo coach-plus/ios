@@ -10,13 +10,31 @@ import Foundation
 
 extension Date {
     
-    func toString() -> String {
+    func toString1() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter.string(from: self)
     }
     
+    func toFormatted(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+    
+    func simpleFormatted() -> String {
+        return self.toFormatted(format: "dd.MM.YY - HH:mm")
+    }
+    
+    func timeShort() -> String {
+        return self.toFormatted(format: "HH:mm")
+    }
+    
+    func dateShort() -> String {
+        return self.toFormatted(format: "dd.MM.YY")
+    }
+    
     func toDefaultFormatted() -> String {
-        return self.string(format: .custom("EEE dd.MM.YY - HH:mm"))
+        return self.toFormatted(format: "EEE dd.MM.YY - HH:mm")
     }
 }

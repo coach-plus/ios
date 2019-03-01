@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+                self.view.backgroundColor = UIColor.coachPlusBlue
 
         // Do any additional setup after loading the view.
         

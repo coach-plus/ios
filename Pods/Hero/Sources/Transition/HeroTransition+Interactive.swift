@@ -26,12 +26,15 @@ extension HeroTransition {
   /**
    Update the progress for the interactive transition.
    - Parameters:
-   - progress: the current progress, must be between -1...1
+   - progress: the current progress, must be between 0...1
    */
   public func update(_ percentageComplete: CGFloat) {
-    guard state == .animating else { return }
+    guard state == .animating else {
+      startingProgress = percentageComplete
+      return
+    }
     self.progressRunner.stop()
-    self.progress = max(-1, min(1, Double(percentageComplete)))
+    self.progress = Double(percentageComplete.clamp(0, 1))
   }
 
   /**
@@ -42,12 +45,12 @@ extension HeroTransition {
   public func finish(animate: Bool = true) {
     guard state == .animating || state == .notified || state == .starting else { return }
     if !animate {
-      self.complete(finished:true)
+      self.complete(finished: true)
       return
     }
     var maxTime: TimeInterval = 0
     for animator in self.animators {
-      maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
+      maxTime = max(maxTime, animator.resume(timePassed: self.progress * self.totalDuration,
                                              reverse: false))
     }
     self.complete(after: maxTime, finishing: true)
@@ -61,7 +64,7 @@ extension HeroTransition {
   public func cancel(animate: Bool = true) {
     guard state == .animating || state == .notified || state == .starting else { return }
     if !animate {
-      self.complete(finished:false)
+      self.complete(finished: false)
       return
     }
     var maxTime: TimeInterval = 0
@@ -70,7 +73,7 @@ extension HeroTransition {
       if adjustedProgress < 0 {
         adjustedProgress = -adjustedProgress
       }
-      maxTime = max(maxTime, animator.resume(timePassed:adjustedProgress * self.totalDuration,
+      maxTime = max(maxTime, animator.resume(timePassed: adjustedProgress * self.totalDuration,
                                              reverse: true))
     }
     self.complete(after: maxTime, finishing: false)
@@ -98,6 +101,32 @@ extension HeroTransition {
     }
     for animator in self.animators {
       animator.apply(state: targetState, to: view)
+    }
+  }
+
+  /**
+   Override target state during an interactive animation.
+
+   For example:
+
+   Hero.shared.changeTarget([.position(x:50, y:50)], to:view)
+
+   will animate the view's position to 50, 50 once `finish(animate:)` is called
+   - Parameters:
+   - modifiers: the modifiers to override
+   - isDestination: if false, it changes the starting state
+   - view: the view to override to
+   */
+  public func changeTarget(modifiers: [HeroModifier], isDestination: Bool = true, to view: UIView) {
+    guard state == .animating else { return }
+    let targetState = HeroTargetState(modifiers: modifiers)
+    if let otherView = self.context.pairedView(for: view) {
+      for animator in self.animators {
+        animator.changeTarget(state: targetState, isDestination: !isDestination, to: otherView)
+      }
+    }
+    for animator in self.animators {
+      animator.changeTarget(state: targetState, isDestination: isDestination, to: view)
     }
   }
 }

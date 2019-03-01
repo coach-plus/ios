@@ -11,10 +11,17 @@ import UIKit
 import SwiftIcons
 import DZNEmptyDataSet
 
-class MembershipsController: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class MembershipsController: ViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var infoBtn: UIButton!
+    
+    @IBOutlet weak var topbarView: UIView!
+    @IBOutlet weak var bottombarView: UIView!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     var memberships:[Membership] = MembershipManager.shared.getMemberships()
     
@@ -29,6 +36,10 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.coachPlusBlue
+        self.bottombarView.backgroundColor = UIColor.coachPlusBlue
+        self.topbarView.backgroundColor = UIColor.coachPlusBlue
+        
         self.setSeparator()
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
@@ -36,7 +47,7 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
         let cellNib = UINib(nibName: "MembershipTableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "MembershipCell")
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 70
         
         if #available(iOS 10.0, *) {
@@ -71,14 +82,19 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
             self.setSeparator()
             self.tableView.reloadData()
             if (self.teamIdToBeSelected != nil) {
-                let membership = self.memberships.first(where: { membership in
+                var membership: Membership?
+                membership = self.memberships.first(where: { membership in
                     return membership.team?.id == self.teamIdToBeSelected
                 })
+                if (membership == nil && self.memberships.count > 0) {
+                    membership = self.memberships[0]
+                }
                 if (membership != nil) {
                     self.selectMembership(membership: membership!)
-                    self.teamIdToBeSelected = nil
+                } else {
+                    self.goToHomeWithoutMembership()
                 }
-                
+                self.teamIdToBeSelected = nil
             }
             self.refreshControl.endRefreshing()
         }).catch({ err in
@@ -133,10 +149,25 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    func goToHomeWithoutMembership() {
+        
+        MembershipManager.shared.selectedMembership = nil
+        
+        let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
+        
+        let navController = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
+        let teamController = navController.viewControllers[0] as! TeamViewController
+        teamController.membershipsController = self
+        teamController.membership = nil
+        
+        FlowManager.openVcInCenter(vc: navController)
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goToNewTeam") {
             if let targetNavVc = segue.destination as? CoachPlusNavigationViewController {
-                if targetNavVc.childViewControllers.count > 0, let targetVc = targetNavVc.childViewControllers[0] as? CreateTeamViewController {
+                if targetNavVc.children.count > 0, let targetVc = targetNavVc.children[0] as? CreateTeamViewController {
                     targetVc.membershipsController = self
                 }
                 
@@ -145,11 +176,11 @@ class MembershipsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(icon: .fontAwesome(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
+        return UIImage(icon: .fontAwesomeSolid(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
         let string = "EMPTY_TEAMS".localize()
         

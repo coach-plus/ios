@@ -1,4 +1,4 @@
-# TextFieldEffects
+# TextFieldEffects [![Build Status](https://travis-ci.org/raulriera/TextFieldEffects.svg?branch=master)](https://travis-ci.org/raulriera/TextFieldEffects)
 
 I fell in love with the text inputs effects in [this article](http://tympanus.net/codrops/2015/01/08/inspiration-text-input-effects/). As an exercise I decided to recreate as many of them as I can using Swift *(some of them have a personal touch)*.
 
@@ -59,7 +59,7 @@ Add the following to your Podfile:
 
 ``` ruby
 use_frameworks!
-pod "TextFieldEffects"
+pod 'TextFieldEffects'
 ```
 
 ### Carthage
@@ -67,7 +67,7 @@ pod "TextFieldEffects"
 Add the following to your Cartfile:
 
 ``` ruby
-github "raulriera/TextFieldEffects"
+github 'raulriera/TextFieldEffects'
 ```
 
 ## How to use them

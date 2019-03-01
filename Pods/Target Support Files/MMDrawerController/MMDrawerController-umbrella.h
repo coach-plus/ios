@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "MMDrawerController+Subclass.h"
 #import "MMDrawerController.h"
 #import "UIViewController+MMDrawerController.h"
 #import "MMDrawerBarButtonItem.h"

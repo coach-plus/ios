@@ -9,9 +9,15 @@
 import UIKit
 
 class CoachPlusNavigationViewController: UINavigationController {
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNeedsStatusBarAppearanceUpdate()
         interactivePopGestureRecognizer?.delegate = self as! UIGestureRecognizerDelegate
     }
     

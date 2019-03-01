@@ -121,7 +121,30 @@ class FlowManager {
     }
     
     static func openVcInCenter(vc: UIViewController) {
+        FlowManager.hideHUD()
         FlowManager.getDrawerController().centerViewController = vc
         getDrawerController().closeDrawer(animated: true, completion: nil)
+        
+    }
+    
+    static func selectAndOpenTeam(vc: UIViewController, teamId: String?) {
+        let rootVc = self.getDrawerController()
+        
+        MBProgressHUD.createHUD(view: rootVc.view, msg: "LOAD_TEAM".localize())
+        
+        let navVc = rootVc.leftDrawerViewController as! UINavigationController
+        let membershipsController = navVc.children[0] as! MembershipsController
+        if (teamId != nil) {
+            membershipsController.teamIdToBeSelected = teamId
+        } else {
+            membershipsController.teamIdToBeSelected = "any"
+        }
+        
+        membershipsController.loadTeams()
+    }
+    
+    static func hideHUD() {
+        let rootVc = self.getDrawerController()
+        MBProgressHUD.hide(for: rootVc.view, animated: true)
     }
 }

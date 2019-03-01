@@ -74,7 +74,13 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
 
   public func apply(state: HeroTargetState, to view: UIView) {
     if let context = viewContexts[view] {
-      context.apply(state:state)
+      context.apply(state: state)
+    }
+  }
+
+  public func changeTarget(state: HeroTargetState, isDestination: Bool, to view: UIView) {
+    if let context = viewContexts[view] {
+      context.changeTarget(state: state, isDestination: isDestination)
     }
   }
 
@@ -120,7 +126,7 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
 
   func createViewContext(view: UIView, appearing: Bool) {
     let snapshot = context.snapshotView(for: view)
-    let viewContext = ViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
+    let viewContext = ViewContext(animator: self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
   }
 

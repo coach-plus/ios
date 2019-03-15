@@ -9,7 +9,6 @@
 import UIKit
 import DZNEmptyDataSet
 import Hero
-import AlamofireImage
 import MBProgressHUD
 
 class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate, ImageHelperDelegate, MemberTableViewCellDelegate {
@@ -37,11 +36,11 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     var membershipsController:MembershipsController?
     
-    let downloader = ImageDownloader()
-    
     var context = CIContext(options: nil)
     
     var imageHelper:ImageHelper?
+    
+    var headerView: HeaderView?
     
     private let refreshControl = UIRefreshControl()
     
@@ -85,11 +84,18 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func setupRefreshControl() {
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
+        
+        if (self.headerView != nil) {
+            self.headerView!.addSubview(refreshControl)
         } else {
-            tableView.addSubview(refreshControl)
+            if #available(iOS 10.0, *) {
+                tableView.refreshControl = refreshControl
+            } else {
+                tableView.addSubview(refreshControl)
+            }
         }
+        
+        
         self.refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
     }
     
@@ -106,11 +112,19 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         let width = self.view.bounds.width
         let height:CGFloat = width
         
+        /*
         let placeholder = UIImage.init(icon: .ionicons(.tshirtOutline), size: CGSize(width: width, height: height), textColor: .coachPlusBlue, backgroundColor: .white)
+        */
         
-        self.tableView.tableHeaderView  = HeaderView.init(frame: CGRect(x: 0, y: 0, width: width, height: height), image: placeholder)
+        self.headerView = HeaderView.init(frame: CGRect(x: 0, y: 0, width: width, height: height), team: (self.membership?.team ?? nil) ?? nil)
+        self.tableView.tableHeaderView  = headerView
+        
+//        headerView.setup(team: (self.membership?.team ?? nil) ?? nil)
         self.addSettingsButtonToHeaderView()
         
+        
+        
+        /*
         if !(self.membership?.team?.image == nil || self.membership?.team?.image == "") {
             let urlRequest = URLRequest(url: URL(string: (self.membership?.team?.getTeamImageUrl())!)!)
             downloader.download(urlRequest) { response in
@@ -119,7 +133,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                     self.addSettingsButtonToHeaderView()
                 }
             }
-        }
+        }*/
         
         
         
@@ -159,8 +173,17 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     @objc func editTapped(sender: UIButton) {
+        
+        let editTeamNavVc: CoachPlusNavigationViewController = FlowManager.createEditTeamVc()
+        let editTeamVc = editTeamNavVc.children[0] as! CreateTeamViewController
+        editTeamVc.mode = .Edit
+        editTeamVc.team = self.membership?.team
+        self.present(editTeamNavVc, animated: true, completion: nil)
+        
+        /*
         self.imageHelper = ImageHelper(vc: self)
         self.imageHelper?.showImagePicker()
+        */
     }
     
     func imageSelectedAndCropped(image: UIImage) {
@@ -177,6 +200,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         if let headerView = self.tableView.tableHeaderView as? HeaderView {
             headerView.scrollViewDidScroll(scrollView: scrollView)
         }
+        
         
     }
     
@@ -479,12 +503,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
-    }
-    
-    func setRole(member:Membership, role:String) {
-        DataHandler.def.setRole(membershipId: member.id, role: role).done({ response in
-            self.getMembers()
-        })
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {

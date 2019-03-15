@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I9T-ae-eWh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I9T-ae-eWh">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -144,7 +144,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHD-bx-UNb">
-                                                        <rect key="frame" x="0.0" y="214" width="320" height="250"/>
+                                                        <rect key="frame" x="0.0" y="214" width="320" height="300"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privates Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxj-3O-Rkf">
                                                                 <rect key="frame" x="106.33333333333334" y="39" width="107.33333333333334" height="20"/>
@@ -193,6 +193,18 @@ und nur per Einladung zu erreichen</string>
                                                                     <constraint firstAttribute="width" constant="20" id="pmA-Zv-LGc"/>
                                                                 </constraints>
                                                             </imageView>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5H-ln-471" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
+                                                                <rect key="frame" x="30" y="245" width="260" height="54"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54" id="Be2-Tj-gdX"/>
+                                                                    <constraint firstAttribute="height" constant="54" id="VsO-Cc-KMd"/>
+                                                                </constraints>
+                                                                <color key="tintColor" red="0.20000000000000001" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <state key="normal" title="Team löschen"/>
+                                                                <connections>
+                                                                    <action selector="createBtnTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="p4s-cV-7rY"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -204,10 +216,13 @@ und nur per Einladung zu erreichen</string>
                                                             <constraint firstItem="rLa-os-BNm" firstAttribute="top" secondItem="uxj-3O-Rkf" secondAttribute="bottom" constant="20" id="SnG-bv-EHa"/>
                                                             <constraint firstItem="uxj-3O-Rkf" firstAttribute="leading" secondItem="sYA-34-Xee" secondAttribute="trailing" constant="2" id="VO3-lt-jfC"/>
                                                             <constraint firstItem="uxj-3O-Rkf" firstAttribute="top" secondItem="NHD-bx-UNb" secondAttribute="top" constant="39" id="W0T-W0-kYA"/>
-                                                            <constraint firstAttribute="height" constant="250" id="YOE-Yi-dM5"/>
+                                                            <constraint firstItem="i5H-ln-471" firstAttribute="leading" secondItem="NHD-bx-UNb" secondAttribute="leading" constant="30" id="YIB-J1-zu5"/>
+                                                            <constraint firstAttribute="height" constant="300" id="YOE-Yi-dM5"/>
+                                                            <constraint firstItem="i5H-ln-471" firstAttribute="top" secondItem="GuM-Gy-2RL" secondAttribute="bottom" constant="8" id="ahC-wW-rj5"/>
                                                             <constraint firstItem="GuM-Gy-2RL" firstAttribute="trailing" secondItem="4Gu-kd-LIy" secondAttribute="trailing" id="dli-9o-hLH"/>
+                                                            <constraint firstAttribute="trailing" secondItem="i5H-ln-471" secondAttribute="trailing" constant="30" id="eNp-aN-BqF"/>
                                                             <constraint firstItem="GuM-Gy-2RL" firstAttribute="leading" secondItem="4Gu-kd-LIy" secondAttribute="leading" id="kUs-ID-viy"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="mve-L4-KHC"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="mve-L4-KHC"/>
                                                             <constraint firstAttribute="trailing" secondItem="4Gu-kd-LIy" secondAttribute="trailing" constant="30" id="nKn-6T-srt"/>
                                                             <constraint firstItem="rLa-os-BNm" firstAttribute="centerX" secondItem="NHD-bx-UNb" secondAttribute="centerX" id="se2-JW-Tp1"/>
                                                             <constraint firstItem="uxj-3O-Rkf" firstAttribute="top" secondItem="sYA-34-Xee" secondAttribute="top" id="wch-ZF-d2h"/>
@@ -269,6 +284,7 @@ und nur per Einladung zu erreichen</string>
                         <outlet property="cameraContainer" destination="uGb-eB-O3s" id="C2R-BY-3tn"/>
                         <outlet property="cameraImageV" destination="9Gq-FD-0bI" id="fDh-oW-sbe"/>
                         <outlet property="createBtn" destination="GuM-Gy-2RL" id="KyN-fU-gBV"/>
+                        <outlet property="deleteBtn" destination="i5H-ln-471" id="44E-FX-L45"/>
                         <outlet property="headerView" destination="Z6j-OD-Nwp" id="vYh-Bg-31m"/>
                         <outlet property="imageV" destination="Lac-Vr-fcz" id="oCF-Nv-bjy"/>
                         <outlet property="nameTf" destination="oGd-YZ-mFr" id="pw6-DC-bEe"/>

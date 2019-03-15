@@ -8,7 +8,6 @@
 
 import UIKit
 import NibDesignable
-import AlamofireImage
 
 class TeamSelectionView: NibDesignable {
     
@@ -52,7 +51,6 @@ class TeamSelectionView: NibDesignable {
     }
     
     @objc func teamTapped(sender:UIBarButtonItem) {
-        print("TEAMSELECTION")
         
         FlowManager.openDrawer()
         /**

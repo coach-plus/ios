@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0E09E884984B26BCB60BAC66 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F37F74EC4CBD0B2B2BC02DB /* Pods_CoachPlus.framework */; };
+		47182F4D22329D0900E4FD06 /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
+		47182F4E22329D0900E4FD06 /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
+		47182F502233F2E700E4FD06 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */; };
+		47182F512233F2E700E4FD06 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */; };
+		471C0BFC2229A1960022A779 /* CoachPlusImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */; };
+		471C0BFD2229A1960022A779 /* CoachPlusImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */; };
+		471C0BFF2229A1B00022A779 /* CoachPlusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C0BFE2229A1B00022A779 /* CoachPlusImageView.swift */; };
+		471C0C002229A1B00022A779 /* CoachPlusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C0BFE2229A1B00022A779 /* CoachPlusImageView.swift */; };
 		472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */; };
 		472B9C0E1E86C6B300706E6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */; };
 		472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
@@ -281,6 +289,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47182F4C22329D0900E4FD06 /* UserSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = UserSettings.storyboard; path = app/usersettings/UserSettings.storyboard; sourceTree = "<group>"; };
+		47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserSettingsViewController.swift; path = app/usersettings/UserSettingsViewController.swift; sourceTree = "<group>"; };
+		471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoachPlusImageView.xib; sourceTree = "<group>"; };
+		471C0BFE2229A1B00022A779 /* CoachPlusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachPlusImageView.swift; sourceTree = "<group>"; };
 		472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailSentViewController.swift; path = register/MailSentViewController.swift; sourceTree = "<group>"; };
 		472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = register/RegisterViewController.swift; sourceTree = "<group>"; };
 		472B9C0F1E86CDE000706E6B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = helperclasses/StringExtension.swift; sourceTree = "<group>"; };
@@ -493,6 +505,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		47182F4B22329CDE00E4FD06 /* usersettings */ = {
+			isa = PBXGroup;
+			children = (
+				47182F4C22329D0900E4FD06 /* UserSettings.storyboard */,
+				47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */,
+			);
+			name = usersettings;
+			sourceTree = "<group>";
+		};
+		471C0BFA2229A1790022A779 /* coachplus-image */ = {
+			isa = PBXGroup;
+			children = (
+				471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */,
+				471C0BFE2229A1B00022A779 /* CoachPlusImageView.swift */,
+			);
+			path = "coachplus-image";
+			sourceTree = "<group>";
+		};
 		4734831E1EC208BA00F60110 /* assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +701,7 @@
 		47A9B9141E8561D000DC8247 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				47182F4B22329CDE00E4FD06 /* usersettings */,
 				473DCE191EC3A68700A42F51 /* user */,
 				61CA9C7E1EA227B7004AFAC7 /* events */,
 				616616EF1E9F9DE900E8D8D5 /* shared */,
@@ -744,6 +775,7 @@
 		47F041F91E8E61DD0020D78E /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				471C0BFA2229A1790022A779 /* coachplus-image */,
 				47C58D1D2164EBA200E9E8C9 /* participationstatus */,
 				61CA9C9F1EA5243A004AFAC7 /* participationview */,
 				61CA9C981EA521DA004AFAC7 /* title */,
@@ -1091,6 +1123,7 @@
 				61C51A2D20408FF0009B8BA2 /* Roboto-Regular.ttf in Resources */,
 				61C51A3220408FF0009B8BA2 /* Roboto-Black.ttf in Resources */,
 				61CA9C901EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
+				471C0BFC2229A1960022A779 /* CoachPlusImageView.xib in Resources */,
 				61C51A2B20408FF0009B8BA2 /* Roboto-Bold.ttf in Resources */,
 				61CA9C7C1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
 				61CA9C9D1EA52211004AFAC7 /* TitleView.xib in Resources */,
@@ -1112,6 +1145,7 @@
 				61CA9CAE1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
 				616616ED1E9F952C00E8D8D5 /* ReusableTableHeader.xib in Resources */,
 				47C58D1A2164374300E9E8C9 /* BannerTableViewCell.xib in Resources */,
+				47182F4D22329D0900E4FD06 /* UserSettings.storyboard in Resources */,
 				61D98DA620415C8A00D4B722 /* NewTeam.storyboard in Resources */,
 				611330DD20DE66CC008D8E70 /* EventDetailCell.xib in Resources */,
 				61CA9C801EA227C6004AFAC7 /* Events.storyboard in Resources */,
@@ -1143,6 +1177,7 @@
 				61C51A3720408FFB009B8BA2 /* Roboto-Bold.ttf in Resources */,
 				61C51A3820408FFB009B8BA2 /* Roboto-BoldItalic.ttf in Resources */,
 				61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
+				471C0BFD2229A1960022A779 /* CoachPlusImageView.xib in Resources */,
 				61C51A3920408FFB009B8BA2 /* Roboto-Italic.ttf in Resources */,
 				61CA9C7D1EA2250D004AFAC7 /* SeeAllTableViewCell.xib in Resources */,
 				61CA9C9E1EA52211004AFAC7 /* TitleView.xib in Resources */,
@@ -1164,6 +1199,7 @@
 				61C51A3520408FFB009B8BA2 /* Roboto-Black.ttf in Resources */,
 				473483281EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
 				47C58D1B2164374300E9E8C9 /* BannerTableViewCell.xib in Resources */,
+				47182F4E22329D0900E4FD06 /* UserSettings.storyboard in Resources */,
 				61ACB7211EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				611330DE20DE66CC008D8E70 /* EventDetailCell.xib in Resources */,
 				61CA9CAF1EA53355004AFAC7 /* ParticipationTableViewCell.xib in Resources */,
@@ -1229,12 +1265,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
@@ -1243,6 +1279,9 @@
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
@@ -1255,12 +1294,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
@@ -1269,6 +1308,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
@@ -1309,12 +1351,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
@@ -1323,6 +1365,9 @@
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
@@ -1335,12 +1380,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
@@ -1349,6 +1394,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
@@ -1442,6 +1490,7 @@
 				473A5F881E8A9224002FD833 /* User.swift in Sources */,
 				61A006171F3468CF003E2651 /* News.swift in Sources */,
 				612E14D01F1823C400D19674 /* HeaderView.swift in Sources */,
+				47182F502233F2E700E4FD06 /* UserSettingsViewController.swift in Sources */,
 				47F042121E8E70660020D78E /* TeamViewController.swift in Sources */,
 				61D98DBB2041866B00D4B722 /* LaunchScreenController.swift in Sources */,
 				473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */,
@@ -1479,6 +1528,7 @@
 				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
 				611330DB20DE66CC008D8E70 /* EventDetailCell.swift in Sources */,
 				477A27591E8C3775005516ED /* InviteResponse.swift in Sources */,
+				471C0BFF2229A1B00022A779 /* CoachPlusImageView.swift in Sources */,
 				61CA9CA41EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				473DCE1E1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
 				473A5F6D1E8A749A002FD833 /* FlowManager.swift in Sources */,
@@ -1527,6 +1577,7 @@
 				473A5F891E8A9224002FD833 /* User.swift in Sources */,
 				61A006181F3468CF003E2651 /* News.swift in Sources */,
 				612E14D11F1823C400D19674 /* HeaderView.swift in Sources */,
+				47182F512233F2E700E4FD06 /* UserSettingsViewController.swift in Sources */,
 				47F042131E8E70660020D78E /* TeamViewController.swift in Sources */,
 				61D98DBC2041866B00D4B722 /* LaunchScreenController.swift in Sources */,
 				478DE2381E85409300DCF74A /* UIColorExtension.swift in Sources */,
@@ -1564,6 +1615,7 @@
 				4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */,
 				611330DC20DE66CC008D8E70 /* EventDetailCell.swift in Sources */,
 				477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */,
+				471C0C002229A1B00022A779 /* CoachPlusImageView.swift in Sources */,
 				61CA9CA51EA52575004AFAC7 /* ParticipationView.swift in Sources */,
 				473DCE1F1EC3B9BB00A42F51 /* UserViewController.swift in Sources */,
 				47B1B6261E87C81B00F80101 /* FlowManager.swift in Sources */,
@@ -1657,7 +1709,7 @@
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
@@ -1682,7 +1734,7 @@
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";

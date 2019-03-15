@@ -28,6 +28,16 @@ class FlowManager {
         return vc
     }
     
+    static func userSettingsVc() -> UIViewController {
+        let vc = UIStoryboard(name: "UserSettings", bundle: nil).instantiateInitialViewController()!
+        return vc
+    }
+    
+    static func createEditTeamVc() -> CoachPlusNavigationViewController {
+        let vc = UIStoryboard(name: "NewTeam", bundle: nil).instantiateInitialViewController() as! CoachPlusNavigationViewController
+        return vc
+    }
+    
     static func setLogin() {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let vc = loginVc()
@@ -108,6 +118,11 @@ class FlowManager {
     static func getDrawerController() -> MMDrawerController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         return delegate.window?.rootViewController as! MMDrawerController
+    }
+    
+    static func openTeamSelection(vc: UIViewController) {
+        let membershipsVc = self.membershipsVc()
+        vc.present(membershipsVc, animated: true, completion: nil)
     }
     
     static func openDrawer() {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 protocol MemberTableViewCellDelegate {
     func dataChanged()
@@ -15,11 +14,9 @@ protocol MemberTableViewCellDelegate {
 
 class MemberTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var imageV: UIImageView!
+    @IBOutlet weak var imageV: CoachPlusImageView!
 
     @IBOutlet weak var textLbl: UILabel!
-    
-    @IBOutlet weak var coachLogoIv: UIImageView!
     
     @IBOutlet weak var actionBtn: UIButton!
     
@@ -48,14 +45,9 @@ class MemberTableViewCell: UITableViewCell {
         self.textLbl.heroID = "\(heroID)/text"
         
         textLbl.text = membership.user?.fullname
-        self.imageV.setUserImage(user: membership.user!)
         
-        if (membership.isCoach()) {
-            coachLogoIv.image = UIImage(named: "CoachLogo")
-            coachLogoIv.isHidden = false
-        } else {
-            coachLogoIv.isHidden = true
-        }
+        self.imageV.imageView.setUserImage(user: membership.user!)
+        self.imageV.setIsCoach(isCoach: membership.isCoach())
         
         let isCoach = self.ownMembership?.isCoach()
         
@@ -87,7 +79,11 @@ class MemberTableViewCell: UITableViewCell {
         })
         
         let  deleteButton = UIAlertAction(title: "ACTION_KICK_USER".localize(), style: .destructive, handler: { (action) -> Void in
-            
+            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.removeUserFromTeam(teamId: self.membership!.team!.id, membershipId: self.membership!.id)).done({ response in
+                self.delegate?.dataChanged()
+            }).catch({ err in
+                print(err)
+            })
         })
         
         let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in
@@ -105,6 +101,10 @@ class MemberTableViewCell: UITableViewCell {
         
         self.vc?.present(alertController, animated: true, completion: nil)
         
+    }
+    
+    func handleError(_ error: Error) {
+        // do somethign
     }
     
 }

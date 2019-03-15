@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import AlamofireImage
 import DZNEmptyDataSet
 import ImagePicker
 
-class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ImageHelperDelegate, MembershipTableViewCellActionDelegate {
+class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, ImageHelperDelegate, MembershipTableViewCellActionDelegate, CoachPlusNavigationBarDelegate {
 
     var user:User?
     var memberships = [Membership]()
@@ -56,12 +55,34 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             return
         }
         
+        
+        
         self.editImageBtn.isHidden = !UserManager.isSelf(userId: self.user!.id)
         
         self.displayUser()
         self.setupTableView()
         
         self.getMemberships()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.setupNavbar()
+    }
+
+    func setupNavbar() {
+        let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
+        if (UserManager.isSelf(userId: self.membership!.user!.id)) {
+            navbar.setRightBarButtonType(type: .userSettings)
+        }
+        self.setupNavBarDelegate()
+    }
+
+    func userSettings(sender: UIBarButtonItem) {
+        if (UserManager.isSelf(userId: self.membership!.user!.id)) {
+            let settingsVc = FlowManager.userSettingsVc()
+            self.present(settingsVc, animated: true, completion: nil)
+        }
     }
     
     

@@ -9,13 +9,14 @@
 import Foundation
 import SwiftyUserDefaults
 import SwiftyJSON
+import RxSwift
 
 class MembershipManager {
     
     static let shared = MembershipManager()
     
     var selectedMembership:Membership?
-    
+        
     var memberships:[Membership] = []
     
     func selectMembership(membership:Membership) {

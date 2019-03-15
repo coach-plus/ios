@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if (Authentication.loggedIn() == false) {
             FlowManager.setLogin()
+            return true
         } else {
             FlowManager.setHome()
         }

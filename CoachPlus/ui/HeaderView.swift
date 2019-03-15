@@ -16,7 +16,9 @@ class HeaderView: UIView {
     var containerView = UIView()
     var containerLayoutConstraint = NSLayoutConstraint()
     
-    init(frame: CGRect, image:UIImage) {
+    var imageView: UIImageView?
+    
+    init(frame: CGRect, team: Team?) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         
@@ -26,7 +28,6 @@ class HeaderView: UIView {
         // effect would not work correctly
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = UIColor.red
         self.addSubview(containerView)
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[containerView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[containerView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
@@ -38,7 +39,9 @@ class HeaderView: UIView {
         imageView.backgroundColor = UIColor.white
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.image = image
+        self.imageView = imageView
+        self.setup(team: team)
+        
         
         containerView.addSubview(imageView)
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["imageView" : imageView]))
@@ -53,11 +56,16 @@ class HeaderView: UIView {
         super.init(coder: aDecoder)
     }
     
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         containerLayoutConstraint.constant = scrollView.contentInset.top;
         let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top);
         containerView.clipsToBounds = offsetY <= 0
         bottomLayoutConstraint.constant = offsetY >= 0 ? 0 : -offsetY / 2
         heightLayoutConstraint.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
+    }
+    
+    func setup(team: Team?) {
+        self.imageView!.setTeamHeaderImage(team: team)
     }
 }

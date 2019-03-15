@@ -75,9 +75,15 @@ class CoachPlusViewController: UIViewController {
     func setNavbarTitle() {
         if (self.membership != nil) {
             self.navigationItem.titleView = nil
-            self.navigationController?.navigationBar.topItem?.title = self.membership?.team?.name
+            self.setNavbarTitle(title: self.membership?.team?.name)
         } else {
             self.setCoachPlusLogo()
+        }
+    }
+    
+    func setNavbarTitle(title: String?) {
+        if (title != nil) {
+            self.navigationController?.navigationBar.topItem?.title = title
         }
     }
     

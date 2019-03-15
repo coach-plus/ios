@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FDo-cm-Ph4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FDo-cm-Ph4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,10 +14,6 @@
         <scene sceneID="6DF-Nz-UaW">
             <objects>
                 <viewController id="U4M-kS-Ed3" customClass="HomeViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cL3-lh-9Wd"/>
-                        <viewControllerLayoutGuide type="bottom" id="mS1-4a-bp8"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fw5-nR-QYO" customClass="GradientView" customModule="CoachPlus" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +53,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6Ak-cA-mFL" secondAttribute="trailing" constant="147" id="4uz-3t-K4n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="czJ-36-169" secondAttribute="trailing" constant="149" id="B4S-2i-Afp"/>
-                            <constraint firstItem="6Ak-cA-mFL" firstAttribute="top" secondItem="cL3-lh-9Wd" secondAttribute="bottom" constant="137" id="I9q-dh-etK"/>
+                            <constraint firstItem="6Ak-cA-mFL" firstAttribute="top" secondItem="5Jo-su-OrY" secondAttribute="top" constant="137" id="I9q-dh-etK"/>
                             <constraint firstItem="LsL-0g-aBE" firstAttribute="top" secondItem="6Ak-cA-mFL" secondAttribute="bottom" constant="34" id="ZUV-ug-97P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LsL-0g-aBE" secondAttribute="trailing" constant="140" id="a73-Wj-F64"/>
                             <constraint firstItem="6Ak-cA-mFL" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="150" id="a74-VF-SiE"/>
@@ -65,6 +61,7 @@
                             <constraint firstItem="czJ-36-169" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="149" id="jKp-lD-mPB"/>
                             <constraint firstItem="LsL-0g-aBE" firstAttribute="leading" secondItem="Fw5-nR-QYO" secondAttribute="leadingMargin" constant="140" id="rG2-j1-Yyl"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Jo-su-OrY"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="rootView"/>
                         </userDefinedRuntimeAttributes>
@@ -90,14 +87,11 @@
         <scene sceneID="gCB-he-J2p">
             <objects>
                 <viewController id="FDo-cm-Ph4" customClass="HomeDrawerController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ueE-xY-QZh"/>
-                        <viewControllerLayoutGuide type="bottom" id="MGX-JK-lff"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O5b-9A-NYX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Zbk-9v-IgF"/>
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>

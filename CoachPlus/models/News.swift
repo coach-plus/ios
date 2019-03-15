@@ -9,7 +9,6 @@
 import Foundation
 import Foundation
 import SwiftyJSON
-import AlamofireImage
 
 class News:JSONable, BackJSONable {
     

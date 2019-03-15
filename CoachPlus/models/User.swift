@@ -8,7 +8,6 @@
 
 import Foundation
 import SwiftyJSON
-import AlamofireImage
 
 class User:JSONable, BackJSONable {
     

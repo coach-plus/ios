@@ -85,7 +85,7 @@ class Participation: JSONable, BackJSONable {
             } else if (self.didAttend == true) {
                 return .didAttend
             } else {
-                if (self.willAttend == true) {
+                if (self.willAttend == true || self.willAttend == nil) {
                     return .didNotAttendUnexcused
                 } else {
                     return .didNotAttend

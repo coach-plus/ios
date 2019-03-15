@@ -13,11 +13,17 @@ import SkyFloatingLabelTextField
 import MBProgressHUD
 
 class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UITextFieldDelegate {
+    
+    enum Mode {
+        case Create
+        case Edit
+    }
 
     @IBOutlet weak var headerView: TableHeaderView!
     @IBOutlet weak var nameTf: SkyFloatingLabelTextField!
     
     @IBOutlet weak var createBtn: OutlineButton!
+    @IBOutlet weak var deleteBtn: OutlineButton!
     
     @IBOutlet weak var imageV: UIImageView!
     
@@ -36,6 +42,9 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     @IBAction func onPublicChange(_ sender: Any) {
         self.handlePublicSwitchState()
     }
+    
+    var mode = Mode.Create
+    var team: Team?
     
     var membershipsController:MembershipsController?
     var selectedImage:UIImage?
@@ -66,28 +75,33 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
             base64String = (self.selectedImage?.toTeamImage().toBase64())!
         }
         
+        if (self.mode == .Create) {
+            self.loadData(text: "CREATE_TEAM", promise: DataHandler.def.createTeam(createTeam: [
+                "name": teamName,
+                "isPublic": isPublic,
+                "image": base64String
+                ])).done({ membership in
+                    if (self.membershipsController != nil) {
+                        self.membershipsController?.teamIdToBeSelected = membership.id
+                        self.membershipsController?.loadTeams()
+                    }
+                    self.dismiss(animated: true, completion: nil)
+                }).catch({ err in
+                    print(err)
+                })
+        } else if (self.mode == .Edit) {
+            //TODO: implement
+        }
         
-        self.loadData(text: "CREATE_TEAM", promise: DataHandler.def.createTeam(createTeam: [
-            "name": teamName,
-            "isPublic": isPublic,
-            "image": base64String
-            ])).done({ membership in
-                if (self.membershipsController != nil) {
-                    self.membershipsController?.teamIdToBeSelected = membership.id
-                    self.membershipsController?.loadTeams()
-                }
-                self.dismiss(animated: true, completion: nil)
-            }).catch({ err in
-                print(err)
-            })
     }
     
     override func viewDidLoad() {
+        
+        
         self.imageV.isHidden = true
         
         self.setCoachPlusLogo()
         
-        self.headerView.title = "NEW_TEAM".localize()
         self.nameTf.coachPlus()
         self.nameTf.delegate = self
         
@@ -102,25 +116,74 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
         self.cameraImageV.image = placeholder
         self.imageHelper = ImageHelper(vc: self)
         
+        self.cameraContainer.backgroundColor = UIColor.coachPlusBlue
+        
+        if (self.mode == .Create) {
+            self.setupCreateMode()
+        } else if (self.mode == .Edit) {
+            self.setupEditMode()
+        }
+        
+        super.viewDidLoad()
+    }
+    
+    func setupCreateMode() {
+        self.deleteBtn.isHidden = true
+        
+        self.headerView.title = "NEW_TEAM".localize()
+        
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(CreateTeamViewController.selectImageTapped(_:)))
         cameraImageV.isUserInteractionEnabled = true
         cameraImageV.addGestureRecognizer(singleTap)
+    }
+    
+    func setupEditMode() {
+        self.createBtn.setTitle("SAVE_TEAM", for: .normal)
+        self.createBtn.setTitle("SAVE_TEAM", for: .focused)
+        self.createBtn.setTitle("SAVE_TEAM", for: .highlighted)
+        self.createBtn.setTitle("SAVE_TEAM", for: .selected)
         
-        self.cameraContainer.backgroundColor = UIColor.coachPlusBlue
+        self.deleteBtn.isHidden = false
+        self.deleteBtn.tintColor = UIColor.coachPlusRedColor
+        self.deleteBtn.setup()
         
-        super.viewDidLoad()
-
+        self.headerView.title = "EDIT_TEAM".localize()
+        
+        self.nameTf.text = self.team?.name
+        self.publicSwitch.setOn(!self.team!.isPublic, animated: false)
+        self.handlePublicSwitchState()
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(CreateTeamViewController.selectImageTapped(_:)))
+        
+        if (self.team?.image != nil) {
+            self.imageV.setTeamImage(team: self.team, placeholderColor: UIColor.coachPlusBlue)
+            self.cameraContainer.isHidden = true
+            self.imageV.isHidden = false
+            self.imageV.isUserInteractionEnabled = true
+            self.imageV.addGestureRecognizer(singleTap)
+        } else {
+            cameraImageV.isUserInteractionEnabled = true
+            cameraImageV.addGestureRecognizer(singleTap)
+        }
+        
+        
+        
+        
+        
+        
     }
     
     func imageSelectedAndCropped(image: UIImage) {
         self.selectedImage = image
-        self.imageV.setTeamImage(image: image)
+        self.imageV.image = self.selectedImage
         self.cameraContainer.isHidden = true
         self.imageV.isHidden = false
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(CreateTeamViewController.selectImageTapped(_:)))
         imageV.isUserInteractionEnabled = true
         imageV.addGestureRecognizer(singleTap)
+        self.imageV.layer.cornerRadius = self.imageV.frame.size.width / 2
+        self.imageV.clipsToBounds = true
     }
     
     

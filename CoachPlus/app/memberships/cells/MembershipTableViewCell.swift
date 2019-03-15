@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 
 protocol MembershipTableViewCellActionDelegate {
@@ -28,9 +27,7 @@ class MembershipTableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLbl: UILabel!
     
-    @IBOutlet weak var imageV: UIImageView!
-    
-    @IBOutlet weak var privateIndicatorLbl: UILabel!
+    @IBOutlet weak var imageV: CoachPlusImageView!
     
     @IBOutlet weak var moreBtn: UIButton!
     
@@ -82,13 +79,8 @@ class MembershipTableViewCell: UITableViewCell {
             }
         }
         
-        if (membership.team?.isPublic)! {
-            self.privateIndicatorLbl.text = ""
-        } else {
-            self.privateIndicatorLbl!.setIcon(icon: .fontAwesomeSolid(.lock), iconSize: 15, color: .coachPlusLightGrey, bgColor: .clear)
-        }
-        
-        self.imageV.setTeamImage(team: membership.team!, placeholderColor: nil)
+        self.imageV.setIsPrivate(isPrivate: (membership.team?.isPublic)! == false)
+        self.imageV.imageView.setTeamImage(team: membership.team!, placeholderColor: nil)
     }
     
 }

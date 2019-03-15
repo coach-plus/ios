@@ -42,6 +42,7 @@ class DataHandler {
         
             Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
                 .responseJSON { response in
+                    print(response.data!)
                     switch response.result {
                     case .success(let json):
                         guard (response.result.value != nil) else {
@@ -413,7 +414,9 @@ class DataHandler {
         return self.authenticatedPut(url, params: payload)
     }
     
-    
-    
+    func removeUserFromTeam(teamId: String, membershipId: String) -> Promise<ApiResponse> {
+        let url = "teams/\(teamId)/memberships/\(membershipId)"
+        return self.authenticatedDelete(url)
+    }
     
 }

@@ -15,6 +15,12 @@ import MMDrawerController
 
 protocol CoachPlusNavigationBarDelegate {
     func profile(sender:UIBarButtonItem)
+    func userSettings(sender: UIBarButtonItem)
+}
+
+extension CoachPlusNavigationBarDelegate {
+    func profile(sender: UIBarButtonItem) {}
+    func userSettings(sender: UIBarButtonItem) {}
 }
 
 class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
@@ -26,6 +32,7 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
         case teams = "team"
         case selectedTeam = "selectedTeam"
         case profile = "profile"
+        case userSettings = "userSettings"
     }
 
     var team:Team?
@@ -106,6 +113,8 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
                 btn = self.createTeamsBarButton()
             case .profile:
                 btn = self.createProfileBarButton()
+            case .userSettings:
+                btn = self.createUserSettingsBarButton()
             default:
                 break
         }
@@ -135,6 +144,12 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     func createProfileBarButton() -> UIBarButtonItem {
         let btn = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profile(sender:)))
         btn.setCoachPlusIcon(fontType: .ionicons(.iosPerson), color: .white)
+        return btn
+    }
+    
+    func createUserSettingsBarButton() -> UIBarButtonItem {
+        let btn = UIBarButtonItem(title: "UserSettings", style: .plain, target: self, action: #selector(userSettings(sender:)))
+        btn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.cogs), color: .white)
         return btn
     }
     
@@ -186,6 +201,10 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     
     @objc func profile(sender:UIBarButtonItem) {
         self.coachPlusNavigationBarDelegate?.profile(sender: sender)
+    }
+    
+    @objc func userSettings(sender: UIBarButtonItem) {
+        self.coachPlusNavigationBarDelegate?.userSettings(sender: sender)
     }
     
     

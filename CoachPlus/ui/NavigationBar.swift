@@ -29,6 +29,7 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
         case none = "none"
         case back = "back"
         case done = "done"
+        case cancel = "cancel"
         case teams = "team"
         case selectedTeam = "selectedTeam"
         case profile = "profile"
@@ -115,6 +116,8 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
                 btn = self.createProfileBarButton()
             case .userSettings:
                 btn = self.createUserSettingsBarButton()
+        case .cancel:
+                btn = self.createCancelBarButton()
             default:
                 break
         }
@@ -139,6 +142,10 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     
     func createDoneBarButton() -> UIBarButtonItem {
         return UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(done(sender:)))
+    }
+    
+    func createCancelBarButton() -> UIBarButtonItem {
+        return UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel(sender:)))
     }
     
     func createProfileBarButton() -> UIBarButtonItem {
@@ -190,6 +197,11 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     }
     
     @objc func done(sender:UIBarButtonItem) {
+        let controller = UIApplication.shared.keyWindow?.rootViewController
+        controller?.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func cancel(sender:UIBarButtonItem) {
         let controller = UIApplication.shared.keyWindow?.rootViewController
         controller?.dismiss(animated: true, completion: nil)
     }

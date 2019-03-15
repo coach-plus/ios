@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hZ1-Jd-6lk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lgj-b5-10H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Coach Plus Navigation View Controller-->
+        <scene sceneID="qP3-hK-DKW">
+            <objects>
+                <navigationController id="Lgj-b5-10H" customClass="CoachPlusNavigationViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zag-Tk-HEE" customClass="CoachPlusNavigationBar" customModule="CoachPlus" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hZ1-Jd-6lk" kind="relationship" relationship="rootViewController" id="Ife-eJ-RNU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qjy-q3-qiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1106" y="-97"/>
+        </scene>
         <!--Create Event View Controller-->
         <scene sceneID="jMK-EW-gqF">
             <objects>
@@ -22,10 +38,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6H-MX-sTu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="780"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJA-Pg-8CY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="484"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Titleasasd" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crf-ow-Txd">
                                                 <rect key="frame" x="10" y="10" width="355" height="45"/>
@@ -111,6 +127,19 @@
                                                 <rect key="frame" x="10" y="378" width="355" height="1"/>
                                                 <color key="backgroundColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPr-LE-DpR" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="489" width="275" height="50"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="eaC-pX-oCn"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="fp2-xX-cx5"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Delete Event"/>
+                                                <connections>
+                                                    <action selector="deleteBtnTap:" destination="hZ1-Jd-6lk" eventType="touchUpInside" id="GjP-xm-tKC"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -129,13 +158,13 @@
                                             <constraint firstItem="8sx-pO-EEl" firstAttribute="height" secondItem="lMo-qM-IVg" secondAttribute="height" id="QzG-to-GNb"/>
                                             <constraint firstItem="EvI-b9-ecH" firstAttribute="height" secondItem="Fms-G7-5FR" secondAttribute="height" id="THx-7L-XUy"/>
                                             <constraint firstItem="EvI-b9-ecH" firstAttribute="leading" secondItem="Fms-G7-5FR" secondAttribute="leading" id="TYh-Ez-IIn"/>
+                                            <constraint firstAttribute="bottom" secondItem="tPr-LE-DpR" secondAttribute="bottom" constant="25" id="W1P-Xu-8Qn"/>
                                             <constraint firstItem="7BB-ay-WK7" firstAttribute="trailing" secondItem="lMo-qM-IVg" secondAttribute="trailing" id="XEs-cl-1su"/>
                                             <constraint firstItem="lMo-qM-IVg" firstAttribute="leading" secondItem="Fms-G7-5FR" secondAttribute="trailing" constant="8" id="XJT-bU-ZOJ"/>
                                             <constraint firstAttribute="trailing" secondItem="ogO-sm-mo4" secondAttribute="trailing" constant="50" id="Xwl-Un-9gi"/>
                                             <constraint firstItem="Tik-9i-uAL" firstAttribute="top" secondItem="8sx-pO-EEl" secondAttribute="bottom" constant="8" id="YZn-E6-Bci"/>
                                             <constraint firstItem="O7b-je-0hK" firstAttribute="top" secondItem="aOK-Ji-brB" secondAttribute="bottom" constant="14" id="Ydr-YA-rQr"/>
                                             <constraint firstItem="7BB-ay-WK7" firstAttribute="top" secondItem="EvI-b9-ecH" secondAttribute="top" id="aAi-CD-hXK"/>
-                                            <constraint firstAttribute="bottom" secondItem="ogO-sm-mo4" secondAttribute="bottom" constant="25" id="aFu-vJ-1b6"/>
                                             <constraint firstItem="Crf-ow-Txd" firstAttribute="top" secondItem="QJA-Pg-8CY" secondAttribute="top" constant="10" id="aJR-qU-YkH"/>
                                             <constraint firstItem="lG6-aG-nD0" firstAttribute="leading" secondItem="Crf-ow-Txd" secondAttribute="leading" id="aWo-JZ-z8B"/>
                                             <constraint firstItem="Fms-G7-5FR" firstAttribute="top" secondItem="lG6-aG-nD0" secondAttribute="bottom" constant="8" id="b1p-IT-ziu"/>
@@ -152,15 +181,18 @@
                                             <constraint firstItem="7BB-ay-WK7" firstAttribute="height" secondItem="lMo-qM-IVg" secondAttribute="height" id="j7v-0F-EBh"/>
                                             <constraint firstItem="Tik-9i-uAL" firstAttribute="leading" secondItem="lG6-aG-nD0" secondAttribute="leading" id="l0q-Q4-zsQ"/>
                                             <constraint firstItem="HBS-yY-ZS2" firstAttribute="width" secondItem="EvI-b9-ecH" secondAttribute="width" id="mPU-ql-JV8"/>
+                                            <constraint firstItem="tPr-LE-DpR" firstAttribute="top" secondItem="ogO-sm-mo4" secondAttribute="bottom" constant="30" id="nOS-2a-mZ8"/>
                                             <constraint firstItem="7BB-ay-WK7" firstAttribute="leading" secondItem="lMo-qM-IVg" secondAttribute="leading" id="pZq-4M-3Jf"/>
                                             <constraint firstItem="HBS-yY-ZS2" firstAttribute="height" secondItem="EvI-b9-ecH" secondAttribute="height" id="q67-cW-uye"/>
                                             <constraint firstItem="8sx-pO-EEl" firstAttribute="trailing" secondItem="lMo-qM-IVg" secondAttribute="trailing" id="r1J-Kv-wVu"/>
                                             <constraint firstItem="Y1b-ei-4YO" firstAttribute="trailing" secondItem="aOK-Ji-brB" secondAttribute="trailing" id="rxV-cR-Uar"/>
                                             <constraint firstItem="Y1b-ei-4YO" firstAttribute="leading" secondItem="aOK-Ji-brB" secondAttribute="leading" id="sOV-YM-NnX"/>
+                                            <constraint firstItem="tPr-LE-DpR" firstAttribute="trailing" secondItem="ogO-sm-mo4" secondAttribute="trailing" id="srG-ul-nWW"/>
                                             <constraint firstItem="lMo-qM-IVg" firstAttribute="trailing" secondItem="lG6-aG-nD0" secondAttribute="trailing" id="t1L-bY-bvb"/>
                                             <constraint firstItem="HBS-yY-ZS2" firstAttribute="trailing" secondItem="EvI-b9-ecH" secondAttribute="trailing" id="tac-ma-zlJ"/>
                                             <constraint firstItem="HBS-yY-ZS2" firstAttribute="top" secondItem="aOK-Ji-brB" secondAttribute="bottom" constant="8" id="xDu-co-ePC"/>
                                             <constraint firstItem="HBS-yY-ZS2" firstAttribute="leading" secondItem="EvI-b9-ecH" secondAttribute="leading" id="xLy-yd-m3l"/>
+                                            <constraint firstItem="tPr-LE-DpR" firstAttribute="leading" secondItem="ogO-sm-mo4" secondAttribute="leading" id="xRS-yU-sKK"/>
                                             <constraint firstItem="aOK-Ji-brB" firstAttribute="trailing" secondItem="Tik-9i-uAL" secondAttribute="trailing" id="yIF-no-PgA"/>
                                         </constraints>
                                     </view>
@@ -183,9 +215,12 @@
                             <constraint firstItem="QJA-Pg-8CY" firstAttribute="width" secondItem="rQa-kz-npl" secondAttribute="width" id="uhr-Nm-yoQ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="BvK-8Y-QZq"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="createSaveBtn" destination="ogO-sm-mo4" id="Ocs-Eb-GOk"/>
+                        <outlet property="deleteBtn" destination="tPr-LE-DpR" id="G1a-4r-Tsr"/>
                         <outlet property="descriptionImageV" destination="HBS-yY-ZS2" id="dan-VW-dsZ"/>
                         <outlet property="descriptionTv" destination="O7b-je-0hK" id="wdA-kF-LRk"/>
                         <outlet property="endL" destination="8sx-pO-EEl" id="GIO-8L-fXr"/>

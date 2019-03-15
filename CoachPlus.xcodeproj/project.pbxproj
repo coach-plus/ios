@@ -12,6 +12,8 @@
 		47182F4E22329D0900E4FD06 /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
 		47182F502233F2E700E4FD06 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */; };
 		47182F512233F2E700E4FD06 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */; };
+		47182F53223BC46D00E4FD06 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */; };
+		47182F54223BC46F00E4FD06 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */; };
 		471C0BFC2229A1960022A779 /* CoachPlusImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */; };
 		471C0BFD2229A1960022A779 /* CoachPlusImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */; };
 		471C0BFF2229A1B00022A779 /* CoachPlusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C0BFE2229A1B00022A779 /* CoachPlusImageView.swift */; };
@@ -291,6 +293,7 @@
 /* Begin PBXFileReference section */
 		47182F4C22329D0900E4FD06 /* UserSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = UserSettings.storyboard; path = app/usersettings/UserSettings.storyboard; sourceTree = "<group>"; };
 		47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserSettingsViewController.swift; path = app/usersettings/UserSettingsViewController.swift; sourceTree = "<group>"; };
+		47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIButtonExtension.swift; path = helperclasses/UIButtonExtension.swift; sourceTree = "<group>"; };
 		471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoachPlusImageView.xib; sourceTree = "<group>"; };
 		471C0BFE2229A1B00022A779 /* CoachPlusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachPlusImageView.swift; sourceTree = "<group>"; };
 		472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailSentViewController.swift; path = register/MailSentViewController.swift; sourceTree = "<group>"; };
@@ -675,6 +678,7 @@
 				61D98DA12040BD2600D4B722 /* UIViewExtension.swift */,
 				47C58D122164108400E9E8C9 /* LoadingIndicatorHelper.swift */,
 				47C58D242164F7C700E9E8C9 /* ApiError.swift */,
+				47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -1054,7 +1058,7 @@
 				TargetAttributes = {
 					473A5F571E8A749A002FD833 = {
 						DevelopmentTeam = R6AW526K22;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -1064,7 +1068,7 @@
 					4749C4FB1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = R6AW526K22;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -1504,6 +1508,7 @@
 				473A5F651E8A749A002FD833 /* Authentication.swift in Sources */,
 				61EB04072039BEDA003C1A17 /* ButtonExtensions.swift in Sources */,
 				47C58D1F2164EBCC00E9E8C9 /* ParticipationStatus.swift in Sources */,
+				47182F53223BC46D00E4FD06 /* UIButtonExtension.swift in Sources */,
 				473DCE211EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
 				611330E620DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
@@ -1591,6 +1596,7 @@
 				47B1B6221E87265500F80101 /* Authentication.swift in Sources */,
 				61EB04082039BEDC003C1A17 /* ButtonExtensions.swift in Sources */,
 				47C58D202164EBCC00E9E8C9 /* ParticipationStatus.swift in Sources */,
+				47182F54223BC46F00E4FD06 /* UIButtonExtension.swift in Sources */,
 				473DCE221EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
 				611330E720DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
@@ -1705,7 +1711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
@@ -1730,7 +1736,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
@@ -1851,7 +1857,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;
@@ -1876,7 +1882,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;

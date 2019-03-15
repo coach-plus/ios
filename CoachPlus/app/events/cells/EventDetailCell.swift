@@ -40,7 +40,7 @@ class EventDetailCell: UITableViewCell {
     var isCoach = false
     var vc: UIViewController?
 
-    func configure(event: Event, team: Team, isCoach: Bool?, vc: UIViewController) {
+    func configure(event: Event, team: Team, isCoach: Bool?, vc: UIViewController?) {
         
         self.event = event
         self.team = team
@@ -71,28 +71,18 @@ class EventDetailCell: UITableViewCell {
     func showActions() {
         let alertController = UIAlertController(title: "ACTIONS".localize(), message: "ACTIONS_WHAT_TO_DO".localize(), preferredStyle: .actionSheet)
         
-        /*
-        let sendButton = UIAlertAction(title: "EDIT".localize(), style: .default, handler: { (action) -> Void in
-        })*/
-        
-        let deleteButton = UIAlertAction(title: "DELETE".localize(), style: .destructive, handler: { (action) -> Void in
+        let editButton = UIAlertAction(title: "EDIT".localize(), style: .default, handler: { (action) -> Void in
             
-            self.vc?.loadData(text: "DELETE_EVENT", promise: DataHandler.def.deleteEvent(team: self.team!, event: self.event!)).done({ apiResponse in
-                
-                if let delegate = self.vc as? EventDetailCellActions {
-                    delegate.delete(event: self.event!)
-                }
-                self.vc?.navigationController?.popViewController(animated: true)
-            })
+            let editEventVc = FlowManager.createEditEventVc(mode: .Edit, membership: MembershipManager.shared.selectedMembership, event: self.event, delegate: self.vc as? CreateEventViewControllerDelegate)
+            
+            self.vc?.present(editEventVc, animated: true, completion: nil)
         })
         
         let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in
             
         })
         
-        
-        //alertController.addAction(sendButton)
-        alertController.addAction(deleteButton)
+        alertController.addAction(editButton)
         alertController.addAction(cancelButton)
         
         self.vc?.present(alertController, animated: true, completion: nil)

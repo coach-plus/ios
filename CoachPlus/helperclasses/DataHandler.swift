@@ -242,8 +242,20 @@ class DataHandler {
         
     }
     
-    func deleteEvent(team: Team, event: Event) -> Promise<ApiResponse> {
-        let url = "teams/\(team.id)/events/\(event.id)"
+    func getEvent(teamId: String, eventId: String) -> Promise<Event> {
+        let url = "teams/\(teamId)/events/\(eventId)"
+        return self.authenticatedGet(url, headers: nil).map({ apiResponse in
+            return apiResponse.toObject(Event.self, property: nil)
+        })
+    }
+    
+    func updateEvent(teamId: String, eventId: String, updateEvent:[String:Any]) -> Promise<ApiResponse> {
+        let url = "teams/\(teamId)/events/\(eventId)"
+        return self.authenticatedPut(url, params: updateEvent)
+    }
+    
+    func deleteEvent(event: Event) -> Promise<ApiResponse> {
+        let url = "teams/\(event.teamId)/events/\(event.id)"
         return self.authenticatedDelete(url)
     }
     
@@ -414,8 +426,8 @@ class DataHandler {
         return self.authenticatedPut(url, params: payload)
     }
     
-    func removeUserFromTeam(teamId: String, membershipId: String) -> Promise<ApiResponse> {
-        let url = "teams/\(teamId)/memberships/\(membershipId)"
+    func removeUserFromTeam(membershipId: String) -> Promise<ApiResponse> {
+        let url = "memberships/\(membershipId)"
         return self.authenticatedDelete(url)
     }
     

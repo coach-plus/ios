@@ -38,6 +38,25 @@ class FlowManager {
         return vc
     }
     
+    static func createEditEventVc(mode: CreateEventViewController.Mode, membership: Membership?, event: Event?, delegate: CreateEventViewControllerDelegate?) -> CoachPlusNavigationViewController {
+        let vc = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as! CoachPlusNavigationViewController
+        let createEventVc = vc.children[0] as! CreateEventViewController
+        
+        createEventVc.mode = mode
+        
+        if (membership != nil) {
+            createEventVc.membership = membership
+        }
+        if (event != nil) {
+            createEventVc.event = event
+        }
+        if (delegate != nil) {
+            createEventVc.delegate = delegate
+        }
+        
+        return vc
+    }
+    
     static func setLogin() {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let vc = loginVc()

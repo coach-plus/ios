@@ -47,4 +47,20 @@ extension UIViewController {
         }
     }
     
+    func showConfirmation(title: String, message: String, yes: String, no: String, yesStyle: UIAlertAction.Style, noStyle: UIAlertAction.Style, yesHandler: ((UIAlertAction) -> Void)? = nil, noHandler: ((UIAlertAction) -> Void)? = nil, style: UIAlertController.Style = UIAlertController.Style.actionSheet) {
+        let alertController = UIAlertController(title: title.localize(), message: message.localize(), preferredStyle: style)
+        
+        let yesButton = UIAlertAction(title: yes.localize(), style: yesStyle, handler: yesHandler)
+        
+        let noButton = UIAlertAction(title: no.localize(), style: noStyle, handler: noHandler)
+        
+        let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: nil)
+        
+        alertController.addAction(yesButton)
+        alertController.addAction(noButton)
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }

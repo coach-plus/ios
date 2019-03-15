@@ -67,7 +67,7 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tableView.reloadData()
+        self.loadEvents()
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
@@ -90,5 +90,16 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
             return e.id != event.id
         })
         self.tableView.reloadData()
+    }
+    
+    func loadEvents() {
+        DataHandler.def.getEventsOfTeam(team: (MembershipManager.shared.selectedMembership!.team!)).done({ events in
+            if (self.selection == .upcoming) {
+                self.events = events.upcoming()
+            } else if (self.selection == .past) {
+                self.events = events.past()
+            }
+            self.tableView.reloadData()
+        })
     }
 }

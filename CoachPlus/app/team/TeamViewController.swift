@@ -431,9 +431,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func newEvent() {
         print("new Event")
-        let vc = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as! CreateEventViewController
-        vc.membership = self.membership
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = FlowManager.createEditEventVc(mode: .Create, membership: self.membership, event: nil, delegate: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     func newMember() {

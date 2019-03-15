@@ -34,6 +34,7 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
     var mode: Mode = Mode.View
     
     func configure(delegate: ParticipationTableViewCellDelegate?, participationItem:ParticipationItem, event:Event) {
+        
         self.participationItem = participationItem
         self.delegate = delegate
         
@@ -53,6 +54,9 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
         
         let frame = self.interactionContainerView.frame
         
+        self.participationStatusView?.removeFromSuperview()
+        self.participationView?.removeFromSuperview()
+        
         if (self.mode == Mode.Edit) {
             
             self.participationView = ParticipationView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
@@ -62,15 +66,15 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
             
         } else {
             
+            if (self.participationView != nil) {
+                self.participationView?.removeFromSuperview()
+            }
+            
             self.participationStatusView = ParticipationStatus(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-            
-            
             
             self.participationStatusView?.configure(participation: participationItem, event: event, delegate: self.delegate)
             
             self.interactionContainerView.addSubview(self.participationStatusView!)
-            
-            
             
             //self.interactionContainerView.backgroundColor = UIColor.green
         }

@@ -138,10 +138,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     }
     
     func setupEditMode() {
-        self.createBtn.setTitle("SAVE_TEAM", for: .normal)
-        self.createBtn.setTitle("SAVE_TEAM", for: .focused)
-        self.createBtn.setTitle("SAVE_TEAM", for: .highlighted)
-        self.createBtn.setTitle("SAVE_TEAM", for: .selected)
+        self.createBtn.setTitleForAllStates(title: "SAVE_TEAM")
         
         self.deleteBtn.isHidden = false
         self.deleteBtn.tintColor = UIColor.coachPlusRedColor

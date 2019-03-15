@@ -79,7 +79,7 @@ class MemberTableViewCell: UITableViewCell {
         })
         
         let  deleteButton = UIAlertAction(title: "ACTION_KICK_USER".localize(), style: .destructive, handler: { (action) -> Void in
-            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.removeUserFromTeam(teamId: self.membership!.team!.id, membershipId: self.membership!.id)).done({ response in
+            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.removeUserFromTeam(membershipId: self.membership!.id)).done({ response in
                 self.delegate?.dataChanged()
             }).catch({ err in
                 print(err)

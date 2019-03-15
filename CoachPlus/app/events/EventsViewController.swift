@@ -26,12 +26,8 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
         self.upcomingEventsViewController?.selection = EventListViewController.Selection.upcoming
         self.pastEventsViewController?.selection = EventListViewController.Selection.past
         
-        self.upcomingEventsViewController?.events = self.filterEvents(selection: .upcoming).sorted(by: {(eventA, eventB) in
-            return eventA.start < eventB.start
-        })
-        self.pastEventsViewController?.events = self.filterEvents(selection: .past).sorted(by: {(eventA, eventB) in
-            return eventA.end > eventB.end
-        })
+        self.upcomingEventsViewController?.events = self.events.upcoming()
+        self.pastEventsViewController?.events = self.events.past()
         
         self.settings.style.buttonBarBackgroundColor = UIColor.white
         self.settings.style.selectedBarBackgroundColor = UIColor.coachPlusBlue
@@ -72,14 +68,6 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
         
         super.viewDidLoad()
         
-    }
-    
-    func filterEvents(selection: EventListViewController.Selection) -> [Event] {
-        let filterPast = selection == .past
-        let events = self.events.filter({event in
-            return filterPast == event.isInPast()
-        })
-        return events
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

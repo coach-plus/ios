@@ -9,7 +9,20 @@
 import Foundation
 import UIKit
 
-class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate, ParticipationTableViewCellDelegate, EventDetailCellActions {
+class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate, ParticipationTableViewCellDelegate, EventDetailCellActions, CreateEventViewControllerDelegate {
+    
+    func eventCreated() {
+        return
+    }
+    
+    func eventChanged(newEvent: Event) {
+        self.gotNewEvent(event: newEvent)
+    }
+    
+    func eventDeleted() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     enum Section:Int {
         case general = 0
@@ -42,8 +55,14 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 70
         
+        self.gotNewEvent(event: self.event!)
+    }
+    
+    func gotNewEvent(event: Event) {
+        self.event = event
         self.loadParticipations()
         self.loadNews()
+        self.tableView.reloadData()
     }
     
     func loadParticipations() {

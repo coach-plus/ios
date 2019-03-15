@@ -18,6 +18,28 @@ protocol BackJSONable {
     func toJson() -> JSON
 }
 
+extension Array where Element:Event {
+    func upcoming() -> [Event] {
+        return self.filterEvents(selection: .upcoming).sorted(by: {(eventA, eventB) in
+            return eventA.start < eventB.start
+        })
+    }
+    
+    func past() -> [Event] {
+        return self.filterEvents(selection: .past).sorted(by: {(eventA, eventB) in
+            return eventA.end > eventB.end
+        })
+    }
+    
+    func filterEvents(selection: EventListViewController.Selection) -> [Event] {
+        let filterPast = selection == .past
+        let events = self.filter({event in
+            return filterPast == event.isInPast()
+        })
+        return events
+    }
+}
+
 extension Array where Element:BackJSONable {
     func toJsonArray() -> [JSON] {
         return self.map({(element:BackJSONable) -> (JSON) in

@@ -38,6 +38,9 @@ class CoachPlusImageView: NibDesignable {
         detailContainerView.clipsToBounds = true
         detailContainerView.backgroundColor = .white
         
+        imageView.layer.cornerRadius = self.frame.width / 2
+        imageView.clipsToBounds = true
+        
         /*
         detailContainerView.layer.borderColor = UIColor.coachPlusBlue.cgColor
         detailContainerView.layer.borderWidth = 1.0
@@ -61,6 +64,15 @@ class CoachPlusImageView: NibDesignable {
             self.detailContainerView.isHidden = false
         } else {
             self.detailContainerView.isHidden = true
+        }
+    }
+    
+    public func setSelected(selected: Bool) {
+        if (selected) {
+            self.imageView.layer.borderColor = UIColor.coachPlusBlue.cgColor
+            self.imageView.layer.borderWidth = 4
+        } else {
+            self.imageView.layer.borderWidth = 0
         }
     }
 

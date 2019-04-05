@@ -14,6 +14,8 @@ import Alamofire
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var backBtn: UIButton!
+    
     @IBOutlet weak var firstnameLbl: SkyFloatingLabelTextField!
     
     @IBOutlet weak var lastnameLbl: SkyFloatingLabelTextField!
@@ -26,6 +28,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var signInBtn: OutlineButton!
     
+    
+    
     var hud:MBProgressHUD?
     
     @IBAction func signUpTapped(_ sender: Any) {
@@ -35,6 +39,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.emailLbl.errorColor = UIColor.coachPlusLightRed
+        self.backBtn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.arrowLeft), color: .white, size: 20.0)
+        
+        self.signInBtn.setTitleForAllStates(title: "REGISTER")
+        
+        self.firstnameLbl.placeholder = "FIRSTNAME".localize()
+        self.lastnameLbl.placeholder = "LASTNAME".localize()
+        self.emailLbl.placeholder = "EMAIL".localize()
+        self.passwordLbl.placeholder = "PW".localize()
+        self.repeatPasswordLbl.placeholder = "PW_REPEAT".localize()
+        
+        
 
         // Do any additional setup after loading the view.
     }

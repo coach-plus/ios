@@ -270,8 +270,8 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         let name = self.titleTf.text
         let location = self.locationTf.text
         let description = self.descriptionTv.text
-        let start = self.start?.toString()
-        let end = self.end?.toString()
+        let start = self.start?.toTimestamp()
+        let end = self.end?.toTimestamp()
         
         let createEvent = [
             "name": name,
@@ -314,7 +314,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
                 })
             })
             
-        }, noHandler: nil, style: .alert)
+        }, noHandler: nil, style: .alert, showCancelButton: false)
         
         
     }

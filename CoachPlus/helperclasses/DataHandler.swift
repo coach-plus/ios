@@ -160,19 +160,6 @@ class DataHandler {
         return self.unauthenticatedPost(url, params: [:])
     }
     
-    func createTeam(name:String, isPublic:Bool) -> Promise<ApiResponse> {
-        
-        let url = "teams/register"
-        
-        let params:Parameters = [
-            "name":name,
-            "isPublic":isPublic
-        ]
-        
-        return self.authenticatedPost(url, params: params)
-        
-    }
-    
     func getMyTeams() -> Promise<[Team]> {
         let url = "teams/my"
         
@@ -396,6 +383,19 @@ class DataHandler {
         })
     }
     
+    func updateTeam(teamId:String, updatedTeam:[String:Any]) -> Promise<Team> {
+        let url = "teams/\(teamId)"
+        return self.authenticatedPut(url, params: updatedTeam).map({ apiResponse in
+            let team = apiResponse.toObject(Team.self, property: nil)
+            return team
+        })
+    }
+    
+    func deleteTeam(teamId:String) -> Promise<ApiResponse> {
+        let url = "teams/\(teamId)"
+        return self.authenticatedDelete(url)
+    }
+    
     func registerDevice(pushId:String) -> Promise<ApiResponse>? {
         let userId = Authentication.getUser().id
         guard userId != "" else {
@@ -425,6 +425,16 @@ class DataHandler {
         ]
         return self.authenticatedPut(url, params: payload)
     }
+    
+    /*
+    func getMembership(membershipId: String) -> Promise<Membership> {
+        let url = "memberships/\(membershipId)"
+        return self.authenticatedGet(url, headers: nil).map({ apiResponse in
+            let membership = apiResponse.toObject(Membership.self, property: "membership")
+            return membership
+        })
+    }
+     */
     
     func removeUserFromTeam(membershipId: String) -> Promise<ApiResponse> {
         let url = "memberships/\(membershipId)"

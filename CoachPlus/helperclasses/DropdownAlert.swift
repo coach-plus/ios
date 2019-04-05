@@ -16,9 +16,16 @@ class DropdownAlert {
     static let errorTitle = "Error"
     static let errorTime = 3
     
+    static let successTitle = "Erfolg"
+    
     static func error(message: String) {
         let msg = message.localize()
         let banner = NotificationBanner(title: self.errorTitle, subtitle: msg, style: .danger)
+        banner.show()
+    }
+    
+    static func success(message: String) {
+        let banner = NotificationBanner(title: self.successTitle, subtitle: message, style: .success)
         banner.show()
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 import SwiftIcons
 import DZNEmptyDataSet
+import RxSwift
 
 class MembershipsController: ViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
@@ -23,9 +24,9 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
         return .lightContent
     }
     
-    var memberships:[Membership] = MembershipManager.shared.getMemberships()
+    let disposeBag = DisposeBag()
     
-    var teamIdToBeSelected:String?
+    var memberships:[Membership] = []
     
     private let refreshControl = UIRefreshControl()
 
@@ -39,6 +40,17 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
         self.view.backgroundColor = UIColor.coachPlusBlue
         self.bottombarView.backgroundColor = UIColor.coachPlusBlue
         self.topbarView.backgroundColor = UIColor.coachPlusBlue
+        
+        MembershipManager.shared.membershipsSubject.subscribe({ event in
+            self.memberships = event.element!
+            self.setSeparator()
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }).disposed(by: self.disposeBag)
+        
+        MembershipManager.shared.selectedMembershipSubject.subscribe({event in
+            self.tableView.reloadData()
+        }).disposed(by: self.disposeBag)
         
         self.setSeparator()
         self.tableView.emptyDataSetSource = self
@@ -77,31 +89,7 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
     
     
     func loadTeams() {
-        DataHandler.def.getMyMemberships().done({ memberships in
-            self.memberships = memberships
-            self.setSeparator()
-            self.tableView.reloadData()
-            if (self.teamIdToBeSelected != nil) {
-                var membership: Membership?
-                membership = self.memberships.first(where: { membership in
-                    return membership.team?.id == self.teamIdToBeSelected
-                })
-                if (membership == nil && self.memberships.count > 0) {
-                    membership = self.memberships[0]
-                }
-                if (membership != nil) {
-                    self.selectMembership(membership: membership!)
-                } else {
-                    self.goToHomeWithoutMembership()
-                }
-                self.teamIdToBeSelected = nil
-            }
-            self.refreshControl.endRefreshing()
-        }).catch({ err in
-            print(err)
-            self.setSeparator()
-            self.refreshControl.endRefreshing()
-        })
+        MembershipManager.shared.loadMemberships()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,15 +108,18 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let membership = self.memberships[indexPath.row]
         self.selectMembership(membership: membership)
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func selectMembership(membership:Membership) {
         let team = membership.team
+        FlowManager.selectAndOpenTeam(vc: self, teamId: team?.id)
         
-        let selectedMembership = MembershipManager.shared.selectedMembership
-        
+        /*
         if (selectedMembership?.team?.id != team?.id) {
             
+            
+            /*
             membership.user = Authentication.getUser()
             
             MembershipManager.shared.selectMembership(membership: membership)
@@ -141,11 +132,12 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
             teamController.membership = membership
             
             FlowManager.openVcInCenter(vc: navController)
+             */
             
         } else {
             self.dismiss(animated: true, completion: nil)
             FlowManager.getDrawerController().closeDrawer(animated: true, completion: nil)
-        }
+        }*/
 
     }
     

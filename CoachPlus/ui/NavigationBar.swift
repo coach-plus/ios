@@ -25,15 +25,15 @@ extension CoachPlusNavigationBarDelegate {
 
 class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     
-    enum BarButtonType:String {
-        case none = "none"
-        case back = "back"
-        case done = "done"
-        case cancel = "cancel"
-        case teams = "team"
-        case selectedTeam = "selectedTeam"
-        case profile = "profile"
-        case userSettings = "userSettings"
+    enum BarButtonType {
+        case none
+        case back
+        case done
+        case cancel
+        case teams
+        case selectedTeam
+        case profile
+        case userSettings
     }
 
     var team:Team?
@@ -42,48 +42,8 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     
     var coachPlusNavigationBarDelegate:CoachPlusNavigationBarDelegate?
     
-    private var leftBarButtonType:BarButtonType = .none
-    
-    @IBInspectable var leftBarButtonTypeString: String {
-        get {
-            return self.leftBarButtonType.rawValue
-        }
-        set(type) {
-            if let typeEnum = BarButtonType(rawValue: type) {
-                self.leftBarButtonType = typeEnum
-            } else {
-                self.leftBarButtonType = .none
-            }
-            
-            self.setLeftBarButton()
-        }
-    }
-    
-    func setLeftBarButtonType(type:BarButtonType) {
-        self.leftBarButtonTypeString = type.rawValue
-    }
-    
-    
-    private var rightBarButtonType:BarButtonType = .none
-    
-    @IBInspectable var rightBarButtonTypeString: String {
-        get {
-            return self.rightBarButtonType.rawValue
-        }
-        set(type) {
-            if let typeEnum = BarButtonType(rawValue: type) {
-                self.rightBarButtonType = typeEnum
-            } else {
-                self.rightBarButtonType = .none
-            }
-            
-            self.setRightBarButton()
-        }
-    }
-    
-    func setRightBarButtonType(type:BarButtonType) {
-        self.rightBarButtonTypeString = type.rawValue
-    }
+    var leftBarButtonType:BarButtonType = .none
+    var rightBarButtonType:BarButtonType = .none
     
     
     
@@ -124,20 +84,20 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
         return btn
     }
     
-    private func setRightBarButton() {
+    func setRightBarButton(item: UINavigationItem) {
         let btn = self.createBarButton(type: self.rightBarButtonType)
         guard btn != nil else {
             return
         }
-        self.topItem?.setRightBarButton(btn, animated: true)
+        item.setRightBarButton(btn, animated: true)
     }
     
-    private func setLeftBarButton() {
+    func setLeftBarButton(item: UINavigationItem) {
         let btn = self.createBarButton(type: self.leftBarButtonType)
         guard btn != nil else {
             return
         }
-        self.topItem?.setLeftBarButton(btn, animated: true)
+        item.setLeftBarButton(btn, animated: true)
     }
     
     func createDoneBarButton() -> UIBarButtonItem {
@@ -185,11 +145,6 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font : UIFont(name: "Roboto-BoldItalic", size: 14)
         ]
-    }
-    
-    func setTeamSelection(team: Team?) {
-        self.team = team
-        self.setLeftBarButtonType(type: .selectedTeam)
     }
     
     @objc func openSlider(sender:UIBarButtonItem) {

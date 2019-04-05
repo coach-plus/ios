@@ -11,6 +11,7 @@ import UIKit
 import MMDrawerController
 import SafariServices
 import PromiseKit
+import MBProgressHUD
 
 extension UIViewController {
     
@@ -23,11 +24,11 @@ extension UIViewController {
     }
     
     func enableDrawer(){
-        FlowManager.getDrawerController().openDrawerGestureModeMask = MMOpenDrawerGestureMode.bezelPanningCenterView
+        FlowManager.getDrawerController()?.openDrawerGestureModeMask = MMOpenDrawerGestureMode.bezelPanningCenterView
     }
     
     func disableDrawer() {
-        FlowManager.getDrawerController().openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningNavigationBar
+        FlowManager.getDrawerController()?.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningNavigationBar
     }
     
     func openWebpage(urlString:String) {
@@ -47,18 +48,25 @@ extension UIViewController {
         }
     }
     
-    func showConfirmation(title: String, message: String, yes: String, no: String, yesStyle: UIAlertAction.Style, noStyle: UIAlertAction.Style, yesHandler: ((UIAlertAction) -> Void)? = nil, noHandler: ((UIAlertAction) -> Void)? = nil, style: UIAlertController.Style = UIAlertController.Style.actionSheet) {
+    func showConfirmation(title: String, message: String, yes: String, no: String, yesStyle: UIAlertAction.Style, noStyle: UIAlertAction.Style, yesHandler: ((UIAlertAction) -> Void)? = nil, noHandler: ((UIAlertAction) -> Void)? = nil, style: UIAlertController.Style = UIAlertController.Style.actionSheet, showCancelButton: Bool?) {
         let alertController = UIAlertController(title: title.localize(), message: message.localize(), preferredStyle: style)
         
         let yesButton = UIAlertAction(title: yes.localize(), style: yesStyle, handler: yesHandler)
         
         let noButton = UIAlertAction(title: no.localize(), style: noStyle, handler: noHandler)
         
-        let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: nil)
+        
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self.view
+        }
         
         alertController.addAction(yesButton)
         alertController.addAction(noButton)
-        alertController.addAction(cancelButton)
+        
+        if (showCancelButton == true) {
+            let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: nil)
+            alertController.addAction(cancelButton)
+        }
         
         self.present(alertController, animated: true, completion: nil)
     }

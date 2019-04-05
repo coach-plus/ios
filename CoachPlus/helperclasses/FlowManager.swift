@@ -9,6 +9,8 @@
 import Foundation
 import Hero
 import MMDrawerController
+import PromiseKit
+import MBProgressHUD
 
 class FlowManager {
     
@@ -134,9 +136,9 @@ class FlowManager {
         print(sourceVc.navigationController)
     }
     
-    static func getDrawerController() -> MMDrawerController {
+    static func getDrawerController() -> MMDrawerController? {
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        return delegate.window?.rootViewController as! MMDrawerController
+        return delegate.window?.rootViewController as? MMDrawerController
     }
     
     static func openTeamSelection(vc: UIViewController) {
@@ -147,38 +149,60 @@ class FlowManager {
     static func openDrawer() {
         let controller = getDrawerController()
         
-        if (controller.openSide == MMDrawerSide.left) {
-            controller.closeDrawer(animated: true, completion: nil)
-        } else {
-            controller.open(MMDrawerSide.left, animated: true, completion: nil)
+        if let vc = controller {
+            if (vc.openSide == MMDrawerSide.left) {
+                vc.closeDrawer(animated: true, completion: nil)
+            } else {
+                vc.open(MMDrawerSide.left, animated: true, completion: nil)
+            }
         }
+        
+        
     }
     
     static func openVcInCenter(vc: UIViewController) {
         FlowManager.hideHUD()
-        FlowManager.getDrawerController().centerViewController = vc
-        getDrawerController().closeDrawer(animated: true, completion: nil)
+        FlowManager.getDrawerController()?.centerViewController = vc
+        getDrawerController()?.closeDrawer(animated: true, completion: nil)
         
     }
     
     static func selectAndOpenTeam(vc: UIViewController, teamId: String?) {
         let rootVc = self.getDrawerController()
         
-        MBProgressHUD.createHUD(view: rootVc.view, msg: "LOAD_TEAM".localize())
-        
-        let navVc = rootVc.leftDrawerViewController as! UINavigationController
-        let membershipsController = navVc.children[0] as! MembershipsController
-        if (teamId != nil) {
-            membershipsController.teamIdToBeSelected = teamId
-        } else {
-            membershipsController.teamIdToBeSelected = "any"
+        if (rootVc != nil) {
+            MBProgressHUD.createHUD(view: rootVc!.view, msg: "LOAD_TEAM".localize())
         }
         
-        membershipsController.loadTeams()
+        
+        var promise: Promise<Membership>?
+        
+        if (teamId != nil) {
+            promise = MembershipManager.shared.getMembershipForTeam(teamId: teamId!)
+        } else {
+            promise = MembershipManager.shared.getRandomMembership()
+        }
+        
+        promise?.done({membership in
+            let centerVc = rootVc?.centerViewController as! CoachPlusNavigationViewController
+            let teamVc = centerVc.children[0] as! TeamViewController
+            rootVc?.closeDrawer(animated: true, completion: nil)
+            self.hideHUD()
+            MembershipManager.shared.setSelectedMembership(membership: membership)
+            //teamVc.selectedMembership(membership: membership)
+            vc.dismiss(animated: true, completion: nil)
+        }).catch({ err in
+            print(err)
+            self.hideHUD()
+        })
+        
     }
     
     static func hideHUD() {
         let rootVc = self.getDrawerController()
-        MBProgressHUD.hide(for: rootVc.view, animated: true)
+        if (rootVc != nil) {
+            MBProgressHUD.hide(for: rootVc!.view, animated: true)
+        }
+        
     }
 }

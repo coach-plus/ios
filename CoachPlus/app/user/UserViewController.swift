@@ -61,19 +61,15 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         self.displayUser()
         self.setupTableView()
+        self.setupNavbar()
         
         self.getMemberships()
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.setupNavbar()
-    }
 
     func setupNavbar() {
-        let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
-        if (UserManager.isSelf(userId: self.membership!.user!.id)) {
-            navbar.setRightBarButtonType(type: .userSettings)
+        if (UserManager.isSelf(userId: self.user!.id)) {
+            self.setRightBarButton(type: .userSettings)
         }
         self.setupNavBarDelegate()
     }
@@ -159,10 +155,12 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         if (UserManager.isSelf(userId: user?.id)) {
             FlowManager.selectAndOpenTeam(vc: self, teamId: membership.team!.id)
+            self.navigationController?.popViewController(animated: true)
             return
         } else {
             if (membership.joined == true) {
                 FlowManager.selectAndOpenTeam(vc: self, teamId: membership.team!.id)
+                self.navigationController?.popViewController(animated: true)
                 return
             } else if (membership.team!.isPublic) {
                 self.showJoinTeamActionSheet(team: membership.team!)
@@ -217,7 +215,9 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         let yesButton = UIAlertAction(title: "JOIN_TEAM".localize(), style: .default, handler: { (action) -> Void in
             
             self.loadData(text: "JOIN_TEAM", promise: DataHandler.def.joinTeam(inviteId: team.id, teamType: JoinTeamViewController.TeamType.publicTeam)).done({ apiResponse in
+                DropdownAlert.success(message: String(format: "JOIN_TEAM_SUCCESS".localize(), team.name))
                 FlowManager.selectAndOpenTeam(vc: self, teamId: team.id)
+                self.navigationController?.popViewController(animated: true)
             })
         })
         
@@ -240,7 +240,9 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 let selectedMembership = MembershipManager.shared.selectedMembership
                 if (selectedMembership != nil) {
                     if (membership.team!.id == selectedMembership!.team!.id) {
+                        DropdownAlert.success(message: String(format: "LEAVE_TEAM_SUCCESS".localize(), membership.team!.name))
                         FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
+                        self.navigationController?.popViewController(animated: true)
                         return
                     }
                 }

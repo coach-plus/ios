@@ -13,7 +13,6 @@
         <!--Coach Plus Navigation View Controller-->
         <scene sceneID="9i3-rs-HPr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yg-ax-q8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="uuN-hb-iYd" customClass="CoachPlusNavigationViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Txg-Z1-1AY" customClass="CoachPlusNavigationBar" customModule="CoachPlus" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -23,6 +22,7 @@
                         <segue destination="wsX-As-wF2" kind="relationship" relationship="rootViewController" id="czK-fR-TzR"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yg-ax-q8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-545" y="143"/>
         </scene>
@@ -33,14 +33,128 @@
                     <view key="view" contentMode="scaleToFill" id="uVC-4J-VYP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvK-VY-mS9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQc-s7-AnB">
+                                        <rect key="frame" x="0.0" y="286" width="375" height="332"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1r-mA-glP" customClass="TableHeaderView" customModule="CoachPlus" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoY-u6-sFo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="30" y="60" width="315" height="54"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kTo-TL-b7k" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="30" y="122" width="315" height="54"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRN-GI-YWn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="30" y="184" width="315" height="54"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CC9-7P-AD9" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="258" width="315" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="ior-0f-J5b"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="CC9-7P-AD9" firstAttribute="leading" secondItem="oRN-GI-YWn" secondAttribute="leading" id="2YT-IA-jDO"/>
+                                            <constraint firstItem="j1r-mA-glP" firstAttribute="leading" secondItem="jQc-s7-AnB" secondAttribute="leading" id="3u4-lc-NOZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="j1r-mA-glP" secondAttribute="trailing" id="6RK-iY-DYZ"/>
+                                            <constraint firstItem="CC9-7P-AD9" firstAttribute="top" secondItem="oRN-GI-YWn" secondAttribute="bottom" constant="20" id="9FU-53-f1P"/>
+                                            <constraint firstItem="kTo-TL-b7k" firstAttribute="trailing" secondItem="PoY-u6-sFo" secondAttribute="trailing" id="CyP-zh-EmV"/>
+                                            <constraint firstItem="oRN-GI-YWn" firstAttribute="leading" secondItem="PoY-u6-sFo" secondAttribute="leading" id="GJc-UU-jZN"/>
+                                            <constraint firstItem="oRN-GI-YWn" firstAttribute="trailing" secondItem="PoY-u6-sFo" secondAttribute="trailing" id="LCw-BY-xV2"/>
+                                            <constraint firstAttribute="bottom" secondItem="CC9-7P-AD9" secondAttribute="bottom" constant="20" id="MuD-1x-wgx"/>
+                                            <constraint firstItem="j1r-mA-glP" firstAttribute="top" secondItem="jQc-s7-AnB" secondAttribute="top" id="RH8-cc-rjz"/>
+                                            <constraint firstItem="CC9-7P-AD9" firstAttribute="trailing" secondItem="oRN-GI-YWn" secondAttribute="trailing" id="c2Q-tZ-eRT"/>
+                                            <constraint firstItem="oRN-GI-YWn" firstAttribute="height" secondItem="kTo-TL-b7k" secondAttribute="height" id="czN-Xr-0nT"/>
+                                            <constraint firstItem="PoY-u6-sFo" firstAttribute="top" secondItem="j1r-mA-glP" secondAttribute="bottom" constant="15" id="eiO-uQ-jYW"/>
+                                            <constraint firstItem="kTo-TL-b7k" firstAttribute="top" secondItem="PoY-u6-sFo" secondAttribute="bottom" constant="8" id="gHZ-uj-gFz"/>
+                                            <constraint firstItem="oRN-GI-YWn" firstAttribute="top" secondItem="kTo-TL-b7k" secondAttribute="bottom" constant="8" id="kAP-Ix-YOw"/>
+                                            <constraint firstItem="kTo-TL-b7k" firstAttribute="height" secondItem="PoY-u6-sFo" secondAttribute="height" id="o8k-nU-qG0"/>
+                                            <constraint firstItem="kTo-TL-b7k" firstAttribute="leading" secondItem="PoY-u6-sFo" secondAttribute="leading" id="zT7-FQ-7UN"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndw-wS-tPk">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mwa-zl-vue" customClass="TableHeaderView" customModule="CoachPlus" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="Deg-8Y-bIc"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZT-Wi-vtc" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="30" y="53" width="315" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="cuV-Yj-6DJ"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="AZT-Wi-vtc" secondAttribute="trailing" constant="30" id="9ch-0V-JQl"/>
+                                            <constraint firstAttribute="height" constant="185" id="CUL-h3-nvj"/>
+                                            <constraint firstItem="Mwa-zl-vue" firstAttribute="top" secondItem="ndw-wS-tPk" secondAttribute="top" id="ECA-WL-Y2l"/>
+                                            <constraint firstItem="Mwa-zl-vue" firstAttribute="leading" secondItem="ndw-wS-tPk" secondAttribute="leading" id="F0P-lW-CBo"/>
+                                            <constraint firstItem="AZT-Wi-vtc" firstAttribute="leading" secondItem="ndw-wS-tPk" secondAttribute="leading" constant="30" id="Ux8-gP-3my"/>
+                                            <constraint firstItem="AZT-Wi-vtc" firstAttribute="top" secondItem="Mwa-zl-vue" secondAttribute="bottom" constant="8" id="XXi-U9-Ebm"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mwa-zl-vue" secondAttribute="trailing" id="aC0-lw-kzD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PoY-u6-sFo" firstAttribute="leading" secondItem="AZT-Wi-vtc" secondAttribute="leading" id="1IG-1I-zUX"/>
+                                    <constraint firstItem="PoY-u6-sFo" firstAttribute="height" secondItem="AZT-Wi-vtc" secondAttribute="height" id="9lH-Rx-A7G"/>
+                                    <constraint firstItem="jQc-s7-AnB" firstAttribute="leading" secondItem="FvK-VY-mS9" secondAttribute="leading" id="JZp-Hx-OiE"/>
+                                    <constraint firstItem="ndw-wS-tPk" firstAttribute="top" secondItem="FvK-VY-mS9" secondAttribute="top" id="LZn-x6-3IX"/>
+                                    <constraint firstAttribute="trailing" secondItem="ndw-wS-tPk" secondAttribute="trailing" id="acj-2K-eiy"/>
+                                    <constraint firstItem="PoY-u6-sFo" firstAttribute="trailing" secondItem="AZT-Wi-vtc" secondAttribute="trailing" id="agN-Wi-pA5"/>
+                                    <constraint firstItem="ndw-wS-tPk" firstAttribute="leading" secondItem="FvK-VY-mS9" secondAttribute="leading" id="np2-vB-Gn7"/>
+                                    <constraint firstAttribute="trailing" secondItem="jQc-s7-AnB" secondAttribute="trailing" id="tVv-jQ-cWT"/>
+                                    <constraint firstItem="j1r-mA-glP" firstAttribute="height" secondItem="Mwa-zl-vue" secondAttribute="height" id="xTS-Ke-yjg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FvK-VY-mS9" firstAttribute="top" secondItem="4cz-xh-ize" secondAttribute="top" id="7E2-il-4xm"/>
+                            <constraint firstItem="FvK-VY-mS9" firstAttribute="trailing" secondItem="4cz-xh-ize" secondAttribute="trailing" id="JgT-nM-Edi"/>
+                            <constraint firstItem="FvK-VY-mS9" firstAttribute="leading" secondItem="4cz-xh-ize" secondAttribute="leading" id="Mhd-DI-eFE"/>
+                            <constraint firstItem="FvK-VY-mS9" firstAttribute="bottom" secondItem="4cz-xh-ize" secondAttribute="bottom" id="Y4b-hF-RbR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4cz-xh-ize"/>
                     </view>
                     <navigationItem key="navigationItem" id="JaB-N6-Wbi"/>
+                    <connections>
+                        <outlet property="changePwBtn" destination="CC9-7P-AD9" id="LAn-x6-eAg"/>
+                        <outlet property="changePwHeader" destination="j1r-mA-glP" id="Itu-44-mIM"/>
+                        <outlet property="currentPwTf" destination="PoY-u6-sFo" id="IPh-cG-t4z"/>
+                        <outlet property="newPwTf" destination="kTo-TL-b7k" id="PUW-mh-gc6"/>
+                        <outlet property="repeatPwTf" destination="oRN-GI-YWn" id="nte-IC-lmV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjd-8E-bsI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405" y="149"/>
+            <point key="canvasLocation" x="404" y="148.87556221889056"/>
         </scene>
     </scenes>
 </document>

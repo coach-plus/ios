@@ -23,9 +23,10 @@ def all_pods
   pod 'TextFieldEffects'
   pod 'MMDrawerController'
   pod "PromiseKit"
-  pod 'Kingfisher', '~> 5.0'
+  pod 'Kingfisher', '~> 5.3.1'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
+  pod 'Eureka', '~> 4.3.1'
 end
 
 target 'CoachPlus' do

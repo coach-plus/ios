@@ -9,12 +9,18 @@
 import UIKit
 import SafariServices
 import SkyFloatingLabelTextField
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTf: SkyFloatingLabelTextField!
     
     @IBOutlet weak var passwordTf: SkyFloatingLabelTextField!
+    
+    
+    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var loginBtn: OutlineButton!
+    @IBOutlet weak var forgotPwBtn: UIButton!
     
     @IBAction func signInTapped(_ sender: Any) {
         self.signIn()
@@ -26,6 +32,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loginBtn.setTitleForAllStates(title: "LOGIN".localize())
+        self.registerBtn.setTitleForAllStates(title: "REGISTER".localize())
+        self.forgotPwBtn.setTitleForAllStates(title: "FORGOT_PW".localize())
     }
     
     func goToForgotPw() {

@@ -19,4 +19,10 @@ extension UITableView {
         let nib = UINib(nibName: nib, bundle: bundle)
         self.register(nib, forCellReuseIdentifier: reuseIdentifier)
     }
+    
+    func clearSelection() {
+        if let selectedIndexPath = self.indexPathForSelectedRow {
+            self.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
 }

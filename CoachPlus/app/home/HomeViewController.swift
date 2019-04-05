@@ -39,15 +39,6 @@ class HomeViewController: UIViewController {
         })
     }
     
-    func createTeam(name:String, isPublic:Bool) {
-        
-        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.createTeam(name: name, isPublic: isPublic)).done({ apiResponse in
-        }).catch({ err in
-            print(err)
-        })
-        
-    }
-    
     func createInvitationLink(teamId:String, validDays:Int?) {
         self.loadData(text: "LOAD_DATA", promise: DataHandler.def.createInviteLink(teamId: teamId, validDays: validDays)).done({ apiResponse in
         }).catch({ err in

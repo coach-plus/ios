@@ -10,7 +10,6 @@ import UIKit
 import SkyFloatingLabelTextField
 import SwiftIcons
 import SkyFloatingLabelTextField
-import MBProgressHUD
 
 class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UITextFieldDelegate {
     
@@ -75,23 +74,41 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
             base64String = (self.selectedImage?.toTeamImage().toBase64())!
         }
         
+        let team = [
+            "name": teamName,
+            "isPublic": isPublic,
+            "image": base64String
+            ] as [String : Any]
+        
         if (self.mode == .Create) {
-            self.loadData(text: "CREATE_TEAM", promise: DataHandler.def.createTeam(createTeam: [
-                "name": teamName,
-                "isPublic": isPublic,
-                "image": base64String
-                ])).done({ membership in
-                    if (self.membershipsController != nil) {
-                        self.membershipsController?.teamIdToBeSelected = membership.id
-                        self.membershipsController?.loadTeams()
-                    }
+            self.loadData(text: "CREATE_TEAM", promise: DataHandler.def.createTeam(createTeam: team)).done({ membership in
+                    FlowManager.selectAndOpenTeam(vc: self, teamId: membership.team?.id)
                     self.dismiss(animated: true, completion: nil)
+                    MembershipManager.shared.loadMemberships()
                 }).catch({ err in
                     print(err)
                 })
         } else if (self.mode == .Edit) {
-            //TODO: implement
+            self.loadData(text: "UPDATE_TEAM", promise: DataHandler.def.updateTeam(teamId: self.team!.id, updatedTeam: team)).done({ team in
+                self.dismiss(animated: true, completion: nil)
+                MembershipManager.shared.loadMemberships()
+            }).catch({ err in
+                print(err)
+            })
         }
+        
+    }
+    
+    @IBAction func deleteBtnTapped(_ sender: Any) {
+        
+        self.showConfirmation(title: "DELETE_TEAM", message: "DELETE_TEAM_MESSAGE", yes: "DELETE_TEAM_YES", no: "CANCEL", yesStyle: .destructive, noStyle: .cancel, yesHandler: { _ in
+            self.loadData(text: "DELETE_TEAM", promise: DataHandler.def.deleteTeam(teamId: self.team!.id)).done({ response in
+                DropdownAlert.success(message: String(format: "DELETE_TEAM_SUCCESS".localize(), self.team!.name))
+                FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
+            }).catch({ err in
+                print(err)
+            })
+        }, noHandler: nil, style: .actionSheet, showCancelButton: false)
         
     }
     
@@ -124,6 +141,8 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
             self.setupEditMode()
         }
         
+        self.setRightBarButton(type: .cancel)
+        
         super.viewDidLoad()
     }
     
@@ -141,8 +160,8 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
         self.createBtn.setTitleForAllStates(title: "SAVE_TEAM")
         
         self.deleteBtn.isHidden = false
-        self.deleteBtn.tintColor = UIColor.coachPlusRedColor
         self.deleteBtn.setup()
+        self.deleteBtn.tintColor = UIColor.coachPlusRedColor
         
         self.headerView.title = "EDIT_TEAM".localize()
         

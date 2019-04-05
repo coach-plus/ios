@@ -38,6 +38,7 @@ class CoachPlusViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setupNavBarDelegate()
         self.disableDrawer()
     }
     
@@ -62,13 +63,15 @@ class CoachPlusViewController: UIViewController {
     
     func setLeftBarButton(type:CoachPlusNavigationBar.BarButtonType) {
         if let navbar = self.navigationController?.navigationBar as? CoachPlusNavigationBar {
-            navbar.setLeftBarButtonType(type: type)
+            navbar.leftBarButtonType = type
+            navbar.setLeftBarButton(item: self.navigationItem)
         }
     }
     
     func setRightBarButton(type:CoachPlusNavigationBar.BarButtonType) {
         if let navbar = self.navigationController?.navigationBar as? CoachPlusNavigationBar {
-            navbar.setRightBarButtonType(type: type)
+            navbar.rightBarButtonType = type
+            navbar.setRightBarButton(item: self.navigationItem)
         }
     }
     

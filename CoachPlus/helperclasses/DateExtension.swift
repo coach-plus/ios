@@ -10,7 +10,7 @@ import Foundation
 
 extension Date {
     
-    func toString1() -> String {
+    func toTimestamp() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter.string(from: self)
@@ -36,5 +36,13 @@ extension Date {
     
     func toDefaultFormatted() -> String {
         return self.toFormatted(format: "EEE dd.MM.YY - HH:mm")
+    }
+    
+    func dayOfMonth() -> String {
+        return self.toFormatted(format: "dd")
+    }
+    
+    func monthName() -> String {
+        return self.toFormatted(format: "MMMM")
     }
 }

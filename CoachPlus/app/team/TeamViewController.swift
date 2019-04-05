@@ -10,8 +10,22 @@ import UIKit
 import DZNEmptyDataSet
 import Hero
 import MBProgressHUD
+import RxSwift
 
-class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate, ImageHelperDelegate, MemberTableViewCellDelegate {
+class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachPlusNavigationBarDelegate, ImageHelperDelegate, MemberTableViewCellDelegate, CreateEventViewControllerDelegate {
+    
+    func eventCreated() {
+        self.getEvents(showData: true)
+    }
+    
+    func eventChanged(newEvent: Event) {
+        self.getEvents(showData: true)
+    }
+    
+    func eventDeleted() {
+        self.getEvents(showData: true)
+    }
+    
 
     enum Section:Int {
         case events = 0
@@ -22,6 +36,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         case empty
         case event
         case seeAll
+    }
+    
+    enum Mode {
+        case noTeamSelected
+        case notAvailable
+        case team
+        case error
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -41,6 +62,10 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     var imageHelper:ImageHelper?
     
     var headerView: HeaderView?
+    
+    let disposeBag = DisposeBag()
+    
+    var mode: Mode = .team
     
     private let refreshControl = UIRefreshControl()
     
@@ -64,23 +89,38 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         self.tableView.isHeroEnabled = true
         self.tableView.heroModifiers = [.cascade]
         
-        if (self.membership == nil) {
-            let memberships = MembershipManager.shared.getMemberships()
-            if (memberships.count > 0) {
-                self.membership = memberships[0]
+        self.setupRefreshControl()
+        
+        self.setLeftBarButton(type: .teams)
+        self.setRightBarButton(type: .profile)
+        
+        self.setupNavbar()
+        self.setupParallax()
+        
+        MembershipManager.shared.selectedMembershipSubject.subscribe({event in
+            if let membership = event.element {
+                self.selectedMembership(membership: membership)
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func selectedMembership(membership: Membership?) {
+        if (membership == nil) {
+            self.mode = .noTeamSelected
+            self.tableView.setContentOffset(.zero, animated: true)
+        } else {
+            self.mode = .team
+            if (membership?.id != self.membership?.id) {
+                self.tableView.setContentOffset(.zero, animated: true)
+                self.members = []
+                self.events = []
+                self.allEvents = []
             }
         }
         
-        if (self.membership != nil) {
-            MembershipManager.shared.selectMembership(membership: self.membership!)
-        }
         
-        self.setupNavbar()
-        
-        self.setupParallax()
-        
-        self.setupRefreshControl()
-        
+        self.membership = membership
+        self.loadData(forceLoadingIndicator: true)
     }
     
     func setupRefreshControl() {
@@ -105,7 +145,12 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func setupParallax() {
 
-        if (self.membership == nil) {
+        if (self.shouldTableBeEmpty()) {
+            
+            if (self.headerView != nil) {
+                self.headerView?.removeFromSuperview()
+                self.headerView = nil
+            }
             return
         }
         
@@ -205,17 +250,13 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func setupNavbar() {
-        let navbar = self.navigationController?.navigationBar as! CoachPlusNavigationBar
-        navbar.setLeftBarButtonType(type: .teams)
-        navbar.setRightBarButtonType(type: .profile)
         self.setNavbarTitle()
-        self.setupNavBarDelegate()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.tableView.clearSelection()
         self.enableDrawer()
-        self.loadData(forceLoadingIndicator: false)
     }
     
     func loadData(forceLoadingIndicator: Bool) {
@@ -234,6 +275,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func showData() {
+        self.setupNavbar()
+        self.setupParallax()
         self.tableView.reloadData()
         MBProgressHUD.hide(for: self.view, animated: true)
     }
@@ -242,22 +285,25 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         super.didReceiveMemoryWarning()
     }
     
-    func getMembers() {
+    func getMembers(showData: Bool = false) {
         self.dispatchGroup.enter()
         DataHandler.def.getMembers(teamId: (self.membership?.team?.id)!).done({ memberships in
             self.members = memberships
             self.dispatchGroup.leave()
         }).catch({error in
-            if let apiError = error as? ApiError, apiError != nil, apiError.statusCode == 401 {
-                FlowManager.selectAndOpenTeam(vc: self, teamId: "any")
-                self.dismiss(animated: false, completion: nil)
-                return
+            if let apiError = error as? ApiError, apiError != nil, apiError.statusCode == 500 {
+                self.mode = .notAvailable
             }
             print(error)
-        })
+            self.dispatchGroup.leave()
+        }).finally {
+            if (showData == true) {
+                self.showData()
+            }
+        }
     }
     
-    func getEvents() {
+    func getEvents(showData: Bool = false) {
         self.dispatchGroup.enter()
         DataHandler.def.getEventsOfTeam(team: (self.membership?.team!)!).done({ events in
             self.allEvents = events.sorted(by: {(eventA, eventB) in
@@ -267,12 +313,15 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             self.dispatchGroup.leave()
         }).catch({error in
             if let apiError = error as? ApiError, apiError != nil, apiError.statusCode == 401 {
-                FlowManager.selectAndOpenTeam(vc: self, teamId: "any")
-                self.dismiss(animated: false, completion: nil)
-                return
+                self.mode = .notAvailable
             }
             print(error)
-        })
+            self.dispatchGroup.leave()
+        }).finally {
+            if (showData == true) {
+                self.showData()
+            }
+        }
     }
     
     func getNextEvents() -> [Event]{
@@ -281,18 +330,24 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         })
     }
     
+    func shouldTableBeEmpty() -> Bool {
+        return (self.mode == .notAvailable || self.mode == .noTeamSelected || self.mode == .error || self.membership?.team == nil)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if (self.membership?.team == nil) {
+        if (self.shouldTableBeEmpty()) {
             return 0
         }
         
         return 2
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if (self.membership?.team == nil) {
+        if (self.shouldTableBeEmpty()) {
             return 0
         }
         
@@ -395,7 +450,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (self.membership?.team == nil) {
+        if (self.shouldTableBeEmpty()) {
             return nil
         }
         
@@ -423,15 +478,14 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (self.membership?.team == nil) {
+        if (self.shouldTableBeEmpty()) {
             return 0
         }
         return 45
     }
     
     func newEvent() {
-        print("new Event")
-        let vc = FlowManager.createEditEventVc(mode: .Create, membership: self.membership, event: nil, delegate: nil)
+        let vc = FlowManager.createEditEventVc(mode: .Create, membership: self.membership, event: nil, delegate: self)
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -470,33 +524,35 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.section == Section.events.rawValue) {
-            switch self.eventRowType(indexPath) {
-            case .seeAll:
-                let vc = UIStoryboard(name: "Events", bundle: nil).instantiateInitialViewController() as! EventsViewController
-                vc.events = self.allEvents
-                self.navigationController?.pushViewController(vc, animated: true)
-                return
-            case .empty:
-                return
-            case .event:
-                let event = self.events[indexPath.row]
-                
-                let cell = self.tableView.cellForRow(at: indexPath)
-                
-                self.pushToEventDetail(currentVC: self, event: event)
-                return
-            default:
-                return
+        if (self.mode == .team) {
+            if (indexPath.section == Section.events.rawValue) {
+                switch self.eventRowType(indexPath) {
+                case .seeAll:
+                    let vc = UIStoryboard(name: "Events", bundle: nil).instantiateInitialViewController() as! EventsViewController
+                    vc.events = self.allEvents
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    return
+                case .empty:
+                    return
+                case .event:
+                    let event = self.events[indexPath.row]
+                    
+                    let cell = self.tableView.cellForRow(at: indexPath)
+                    
+                    self.pushToEventDetail(currentVC: self, event: event)
+                    return
+                default:
+                    return
+                }
             }
-        }
-        if (indexPath.section == Section.members.rawValue) {
-            let vc = FlowManager.profileVc()
-            let user = self.members[indexPath.row].user
-            vc.isHeroEnabled = true
-            vc.heroId = "\(user!.id)"
-            vc.user = user
-            self.navigationController?.pushViewController(vc, animated: true)
+            if (indexPath.section == Section.members.rawValue) {
+                let vc = FlowManager.profileVc()
+                let user = self.members[indexPath.row].user
+                vc.isHeroEnabled = true
+                vc.heroId = "\(user!.id)"
+                vc.user = user
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
@@ -504,17 +560,62 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         return .none
     }
     
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(icon: .fontAwesomeSolid(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage? {
+        
+        switch self.mode {
+        case .notAvailable:
+            return UIImage(icon: .fontAwesomeSolid(.lock), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
+        case .noTeamSelected,
+             .error:
+            return UIImage(icon: .fontAwesomeSolid(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
+        default:
+            return nil
+        }
     }
     
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString? {
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 28)] as Dictionary!
+        var string = ""
         
-        let string = "Why so lonely?\nCreate a team and invite your buddies!"
+        switch self.mode {
+            case .notAvailable:
+                string = "TEAM_NOT_AVAILABLE".localize()
+                break
+            
+            case .noTeamSelected,
+                 .error:
+                string = "Why so lonely?\nCreate a team and invite your buddies!"
+                break
+            
+            default:
+                return nil
+            }
         
         let attributedString = NSAttributedString(string: string, attributes: attributes)
+        return attributedString
+    }
+    
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
+        var string = ""
+        
+        switch self.mode {
+        case .notAvailable:
+            string = "TEAM_NOT_AVAILABLE_DESCRIPTION".localize()
+            break
+            
+        case .noTeamSelected,
+             .error:
+            string = "Why so lonely?\nCreate a team and invite your buddies!"
+            break
+            
+        default:
+            return nil
+        }
+        
+        let attributedString = NSAttributedString(string: string, attributes: attributes)
         return attributedString
     }
     

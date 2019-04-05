@@ -202,7 +202,7 @@ und nur per Einladung zu erreichen</string>
                                                                 <color key="tintColor" red="0.20000000000000001" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <state key="normal" title="Team löschen"/>
                                                                 <connections>
-                                                                    <action selector="createBtnTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="p4s-cV-7rY"/>
+                                                                    <action selector="deleteBtnTapped:" destination="nSL-MB-k88" eventType="touchUpInside" id="FsR-bX-07X"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

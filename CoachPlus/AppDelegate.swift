@@ -9,7 +9,6 @@
 import UIKit
 import UserNotifications
 import IQKeyboardManagerSwift
-import MBProgressHUD
 import Hero
 
 @UIApplicationMain
@@ -70,10 +69,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupStyling() {
         Hero.shared.containerColor = .clear
-        let ai = UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [MBProgressHUD.self])
-        ai.color = UIColor.coachPlusBlue
+        //let ai = UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [MBProgressHUD.self])
+        //ai.color = UIColor.coachPlusBlue
         
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
     }
     

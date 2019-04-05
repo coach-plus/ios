@@ -27,5 +27,9 @@ class OutlineButton: UIButton {
         self.layer.cornerRadius = self.bounds.height / 2
         self.titleLabel?.font = UIFont.systemFont(ofSize: 20)
     }
+    
+    func coachPlus() {
+        self.tintColor = UIColor.coachPlusBlue
+    }
 
 }

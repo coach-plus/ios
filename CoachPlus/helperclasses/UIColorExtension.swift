@@ -102,6 +102,7 @@ extension UIColor {
     static let coachPlusParticipationDidNotAttendColor = UIColor.orange
     
     static let coachPlusRedColor = UIColor(hexString: "#FF3B30")
+    static let coachPlusLightRed = UIColor(hexString: "#a72c38")
     
     static let coachPlusParticipationWrongColor = UIColor.coachPlusRedColor // UIColor(hexString: "#F5DEDE")
     

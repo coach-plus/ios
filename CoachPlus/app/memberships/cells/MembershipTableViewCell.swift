@@ -77,6 +77,13 @@ class MembershipTableViewCell: UITableViewCell {
                     self.mode = Mode.Join
                 }
             }
+        } else {
+            self.imageV.setSelected(selected: false)
+            if let selectedMembership = MembershipManager.shared.selectedMembership {
+                if (selectedMembership.id == self.membership?.id) {
+                    self.imageV.setSelected(selected: true)
+                }
+            }
         }
         
         self.imageV.setIsPrivate(isPrivate: (membership.team?.isPublic)! == false)

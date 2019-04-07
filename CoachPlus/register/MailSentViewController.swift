@@ -13,11 +13,16 @@ class MailSentViewController: UIViewController {
 
     @IBOutlet weak var iconLabel: UILabel!
     
+    @IBOutlet weak var infoLbl: UILabel!
+    @IBOutlet weak var continueBtn: OutlineButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        iconLabel?.setIcon(icon: .fontAwesomeSolid(.paperPlane), iconSize: 60)
+        iconLabel.setIcon(icon: .fontAwesomeSolid(.paperPlane), iconSize: 60, color: .white, bgColor: .clear)
         
+        continueBtn.setTitleForAllStates(title: "CONTINUE".localize())
+        infoLbl.text = "EMAIL_CONFIRMATION_INFO".localize()
     }
 
     override func didReceiveMemoryWarning() {

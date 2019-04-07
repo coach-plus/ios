@@ -39,7 +39,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     enum Mode {
-        case noTeamSelected
+        case noTeams
         case notAvailable
         case team
         case error
@@ -62,8 +62,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     var imageHelper:ImageHelper?
     
     var headerView: HeaderView?
-    
-    let disposeBag = DisposeBag()
     
     var mode: Mode = .team
     
@@ -102,12 +100,21 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 self.selectedMembership(membership: membership)
             }
         }).disposed(by: self.disposeBag)
+        
+        UserManager.shared.userWasEdited.subscribe({event in
+            if let user = event.element {
+                self.loadData(forceLoadingIndicator: false)
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     func selectedMembership(membership: Membership?) {
         if (membership == nil) {
-            self.mode = .noTeamSelected
+            self.mode = .noTeams
             self.tableView.setContentOffset(.zero, animated: true)
+            self.members = []
+            self.events = []
+            self.allEvents = []
         } else {
             self.mode = .team
             if (membership?.id != self.membership?.id) {
@@ -117,7 +124,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 self.allEvents = []
             }
         }
-        
         
         self.membership = membership
         self.loadData(forceLoadingIndicator: true)
@@ -140,7 +146,16 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     @objc func refresh(_ sender: Any) {
-        self.loadData(forceLoadingIndicator: true)
+        
+        MembershipManager.shared.loadMemberships().done({memberships in
+            if let ms = memberships.first(where: { $0.id == self.membership?.id }) {
+                self.selectedMembership(membership: ms)
+            } else {
+                self.selectedMembership(membership: nil)
+            }
+        })
+        
+        
     }
     
     func setupParallax() {
@@ -264,12 +279,15 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             if ((self.members.count == 0 && self.events.count == 0) || forceLoadingIndicator) {
                 MBProgressHUD.createHUD(view: self.view, msg: "LOAD_TEAM".localize())
             }
+            
             self.getMembers()
             self.getEvents()
             self.dispatchGroup.notify(queue: .main) {
                 self.showData()
                 self.refreshControl.endRefreshing()
             }
+        } else {
+            self.showData()
         }
         
     }
@@ -331,7 +349,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func shouldTableBeEmpty() -> Bool {
-        return (self.mode == .notAvailable || self.mode == .noTeamSelected || self.mode == .error || self.membership?.team == nil)
+        return (self.mode == .notAvailable || self.mode == .noTeams || self.mode == .error || self.membership?.team == nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -530,6 +548,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 case .seeAll:
                     let vc = UIStoryboard(name: "Events", bundle: nil).instantiateInitialViewController() as! EventsViewController
                     vc.events = self.allEvents
+                    vc.membership = self.membership
                     self.navigationController?.pushViewController(vc, animated: true)
                     return
                 case .empty:
@@ -565,8 +584,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         switch self.mode {
         case .notAvailable:
             return UIImage(icon: .fontAwesomeSolid(.lock), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
-        case .noTeamSelected,
-             .error:
+        case .error:
+            return nil
+        case .noTeams:
             return UIImage(icon: .fontAwesomeSolid(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
         default:
             return nil
@@ -581,12 +601,11 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             case .notAvailable:
                 string = "TEAM_NOT_AVAILABLE".localize()
                 break
-            
-            case .noTeamSelected,
-                 .error:
-                string = "Why so lonely?\nCreate a team and invite your buddies!"
+            case .noTeams:
+                return nil
+            case .error:
+                string = "TEAM_ERROR".localize()
                 break
-            
             default:
                 return nil
             }
@@ -606,9 +625,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             string = "TEAM_NOT_AVAILABLE_DESCRIPTION".localize()
             break
             
-        case .noTeamSelected,
-             .error:
-            string = "Why so lonely?\nCreate a team and invite your buddies!"
+        case .noTeams:
+            string = "NO_TEAM_SELECTED_DESCRIPTION".localize()
             break
             
         default:
@@ -617,6 +635,29 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         let attributedString = NSAttributedString(string: string, attributes: attributes)
         return attributedString
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0), NSAttributedString.Key.foregroundColor: UIColor.coachPlusBlue] as Dictionary!
+        var string = ""
+        
+        switch self.mode {
+            
+        case .noTeams:
+            string = "CREATE_TEAM".localize()
+            break
+            
+        default:
+            return nil
+        }
+        
+        let attributedString = NSAttributedString(string: string, attributes: attributes)
+        return attributedString
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        let vc = FlowManager.createEditTeamVc()
+        self.present(vc, animated: true, completion: nil)
     }
     
     func profile(sender:UIBarButtonItem) {
@@ -632,4 +673,6 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func dataChanged() {
         self.loadData(forceLoadingIndicator: false)
     }
+    
+    
 }

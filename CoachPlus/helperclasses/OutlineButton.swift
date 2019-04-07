@@ -30,6 +30,7 @@ class OutlineButton: UIButton {
     
     func coachPlus() {
         self.tintColor = UIColor.coachPlusBlue
+        self.setup()
     }
 
 }

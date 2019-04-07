@@ -63,6 +63,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         self.loadParticipations()
         self.loadNews()
         self.tableView.reloadData()
+        self.navigationItem.title = self.event?.name
     }
     
     func loadParticipations() {

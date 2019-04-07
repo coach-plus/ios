@@ -64,7 +64,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
 
         let teamName = self.nameTf.text
         
-        let isPublic = true
+        let isPublic = !self.publicSwitch.isOn
         
         var base64String = ""
         
@@ -160,8 +160,8 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
         self.createBtn.setTitleForAllStates(title: "SAVE_TEAM")
         
         self.deleteBtn.isHidden = false
-        self.deleteBtn.setup()
         self.deleteBtn.tintColor = UIColor.coachPlusRedColor
+        self.deleteBtn.setup()
         
         self.headerView.title = "EDIT_TEAM".localize()
         

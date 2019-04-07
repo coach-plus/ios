@@ -17,6 +17,8 @@ class CoachPlusNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .coachPlusBlue
+        
         setNeedsStatusBarAppearanceUpdate()
         interactivePopGestureRecognizer?.delegate = self as! UIGestureRecognizerDelegate
     }

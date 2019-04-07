@@ -25,13 +25,13 @@ class LoginViewController: UIViewController {
     @IBAction func signInTapped(_ sender: Any) {
         self.signIn()
     }
-    
-    @IBAction func forgotPwTapped(_ sender: Any) {
-        goToForgotPw()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.emailTf.placeholder = "EMAIL".localize()
+        self.passwordTf.placeholder = "PASSWORD".localize()
+        
         self.loginBtn.setTitleForAllStates(title: "LOGIN".localize())
         self.registerBtn.setTitleForAllStates(title: "REGISTER".localize())
         self.forgotPwBtn.setTitleForAllStates(title: "FORGOT_PW".localize())
@@ -45,19 +45,22 @@ class LoginViewController: UIViewController {
         let email = self.emailTf.text!
         let password = self.passwordTf.text!
         
-        MBProgressHUD.createHUD(view: self.view, msg: "LOGIN".localize())
+        let hud = MBProgressHUD.createHUD(view: self.view, msg: "LOGIN".localize())
         
         DataHandler.def.login(email: email, password: password).done({ apiResponse in
             
             DataHandler.def.getMyMemberships().done({ memberships in
+                hud.hide(animated: true)
                 
                 FlowManager.goToHome(sourceVc: self)
                 
             }).catch({ err in
+                hud.hide(animated: true)
                 FlowManager.goToHome(sourceVc: self)
             })
         }).catch({ err in
-            //DropdownAlert.error(message: err)
+            hud.hide(animated: true)
+            DropdownAlert.error(message: err.localizedDescription)
         })
         
     }

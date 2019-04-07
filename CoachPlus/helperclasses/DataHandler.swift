@@ -43,6 +43,14 @@ class DataHandler {
             Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
                 .responseJSON { response in
                     print(response.data!)
+                    print("Request: \(response.request)")
+                    print("Response: \(response.response)")
+                    print("Error: \(response.error)")
+                    print("Timeline: \(response.timeline)")
+                    
+                    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                        print("Data: \(utf8Text)")
+                    }
                     switch response.result {
                     case .success(let json):
                         guard (response.result.value != nil) else {
@@ -149,7 +157,9 @@ class DataHandler {
                 } else {
                     p.reject(ApiError(message: "", statusCode: 999))
                 }
-            }
+                }.catch({err in
+                    p.reject(ApiError(message: err.localizedDescription, statusCode: 999))
+                })
         }
     }
     
@@ -354,12 +364,38 @@ class DataHandler {
     }
     
     func updateUserImage(image:String) -> Promise<User> {
-        let url = "users/me"
+        let url = "users/me/image"
         let params = [
             "image": image
         ]
         return self.authenticatedPut(url, params: params).map({ apiResponse in
             let user = apiResponse.toObject(User.self, property: nil)
+            return user
+        })
+    }
+    
+    func updateUserInfo(firstname:String, lastname: String, email: String) -> Promise<User> {
+        let url = "users/me/information"
+        let params = [
+            "firstname": firstname,
+            "lastname": lastname,
+            "email": email
+        ]
+        return self.authenticatedPut(url, params: params).map({ apiResponse in
+            let user = apiResponse.toObject(User.self, property: "user")
+            return user
+        })
+    }
+    
+    func changePassword(oldPassword:String, newPassword: String, newPasswordRepeat: String) -> Promise<User> {
+        let url = "users/me/password"
+        let params = [
+            "oldPassword": oldPassword,
+            "newPassword": newPassword,
+            "newPasswordRepeat": newPasswordRepeat
+        ]
+        return self.authenticatedPut(url, params: params).map({ apiResponse in
+            let user = apiResponse.toObject(User.self, property: "user")
             return user
         })
     }

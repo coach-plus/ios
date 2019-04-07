@@ -60,6 +60,9 @@ class Team:JSONable, BackJSONable {
     
     func getMemberCountString() -> String {
         if let count = self.memberCount {
+            if (count == 1) {
+                return "\(count) \("MEMBER".localize())"
+            }
             return "\(count) \("MEMBERS".localize())"
         } else {
             return ""

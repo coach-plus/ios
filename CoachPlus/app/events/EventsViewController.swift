@@ -15,6 +15,7 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
     var pastEventsViewController: EventListViewController?
     
     var events: [Event] = []
+    var membership: Membership?
     
     override func viewDidLoad() {
         
@@ -66,12 +67,19 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
             containerView.panGestureRecognizer.require(toFail: popGest)
         }
         
+        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(EventsViewController.newEvent)), animated: true)
+        
         super.viewDidLoad()
         
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return [self.upcomingEventsViewController!, self.pastEventsViewController!]
+    }
+    
+    @objc func newEvent() {
+        let vc = FlowManager.createEditEventVc(mode: .Create, membership: self.membership, event: nil, delegate: nil)
+        self.present(vc, animated: true, completion: nil)
     }
 
 }

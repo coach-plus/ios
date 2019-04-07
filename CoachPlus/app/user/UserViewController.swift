@@ -65,6 +65,13 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         self.getMemberships()
         
+        UserManager.shared.userWasEdited.subscribe({ event in
+            if let user = event.element, user != nil {
+                self.user = user
+                self.displayUser()
+            }
+        }).disposed(by: self.disposeBag)
+        
     }
 
     func setupNavbar() {
@@ -75,9 +82,11 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
 
     func userSettings(sender: UIBarButtonItem) {
-        if (UserManager.isSelf(userId: self.membership!.user!.id)) {
-            let settingsVc = FlowManager.userSettingsVc()
-            self.present(settingsVc, animated: true, completion: nil)
+        if (self.user != nil && UserManager.isSelf(userId: self.user!.id)) {
+            let navVc = FlowManager.userSettingsVc()
+            let settingsVc = navVc.children[0] as! UserSettingsViewController
+            settingsVc.user = self.user!
+            self.present(navVc, animated: true, completion: nil)
         }
     }
     

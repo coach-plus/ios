@@ -9,8 +9,18 @@
 import Foundation
 import SwiftyJSON
 import SwiftyUserDefaults
+import RxSwift
 
 class UserManager {
+    
+    static let shared = UserManager()
+    
+    var userWasEdited: PublishSubject<User>
+    
+    init() {
+        self.userWasEdited = PublishSubject<User>()
+    }
+    
     static func storeUser(user:User) {
         let userString = user.toJson().rawString()!
         Defaults[.userJSON] = userString

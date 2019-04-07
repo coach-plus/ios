@@ -84,7 +84,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         self.configureFields()
         
         self.setImage(imageView: self.startImageV, icon: .fontAwesomeSolid(.clock))
-        self.setImage(imageView: self.locationImageV, icon: .fontAwesomeSolid(.mapMarker))
+        self.setImage(imageView: self.locationImageV, icon: .fontAwesomeSolid(.mapMarkerAlt))
         self.setImage(imageView: self.descriptionImageV, icon: .fontAwesomeSolid(.alignJustify))
         
         self.setRightBarButton(type: .cancel)

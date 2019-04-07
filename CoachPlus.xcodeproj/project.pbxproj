@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0E09E884984B26BCB60BAC66 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F37F74EC4CBD0B2B2BC02DB /* Pods_CoachPlus.framework */; };
+		4715265E22590080005262F5 /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
+		4715265F22590080005262F5 /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
+		4715266022590080005262F5 /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
+		4715266122590080005262F5 /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
+		47152663225937F5005262F5 /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47152662225937F5005262F5 /* ForgotPwViewController.swift */; };
+		47152664225937F5005262F5 /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47152662225937F5005262F5 /* ForgotPwViewController.swift */; };
 		47182F4D22329D0900E4FD06 /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
 		47182F4E22329D0900E4FD06 /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
 		47182F502233F2E700E4FD06 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */; };
@@ -73,6 +79,16 @@
 		4749C50A1E81B7FE0068B0FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */; };
 		4749C5151E81B7FF0068B0FA /* CoachPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C5141E81B7FF0068B0FA /* CoachPlusTests.swift */; };
 		4749C5201E81B7FF0068B0FA /* CoachPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C51F1E81B7FF0068B0FA /* CoachPlusUITests.swift */; };
+		474EEEDE2259F57F008EAADE /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */; };
+		474EEEDF2259F57F008EAADE /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */; };
+		474EEEE12259F591008EAADE /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47152662225937F5005262F5 /* ForgotPwViewController.swift */; };
+		474EEEE22259F591008EAADE /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47152662225937F5005262F5 /* ForgotPwViewController.swift */; };
+		474EEEE32259F605008EAADE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
+		474EEEE42259F605008EAADE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
+		474EEEE52259F960008EAADE /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
+		474EEEE62259F960008EAADE /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
+		474EEEE72259FBFC008EAADE /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
+		474EEEE82259FBFC008EAADE /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
 		4756825B1E81D320008547AF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4756825A1E81D320008547AF /* UserNotifications.framework */; };
 		477A27591E8C3775005516ED /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A27581E8C3775005516ED /* InviteResponse.swift */; };
 		477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A27581E8C3775005516ED /* InviteResponse.swift */; };
@@ -291,6 +307,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4715265D22590080005262F5 /* ForgotPw.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ForgotPw.storyboard; path = "CoachPlus/app/forgot-pw/ForgotPw.storyboard"; sourceTree = SOURCE_ROOT; };
+		47152662225937F5005262F5 /* ForgotPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwViewController.swift; sourceTree = "<group>"; };
 		47182F4C22329D0900E4FD06 /* UserSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = UserSettings.storyboard; path = app/usersettings/UserSettings.storyboard; sourceTree = "<group>"; };
 		47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserSettingsViewController.swift; path = app/usersettings/UserSettingsViewController.swift; sourceTree = "<group>"; };
 		47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIButtonExtension.swift; path = helperclasses/UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -508,6 +526,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4715265C2259005D005262F5 /* forgot-pw */ = {
+			isa = PBXGroup;
+			children = (
+				4715265D22590080005262F5 /* ForgotPw.storyboard */,
+				47152662225937F5005262F5 /* ForgotPwViewController.swift */,
+			);
+			path = "forgot-pw";
+			sourceTree = "<group>";
+		};
 		47182F4B22329CDE00E4FD06 /* usersettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +732,7 @@
 		47A9B9141E8561D000DC8247 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				4715265C2259005D005262F5 /* forgot-pw */,
 				47182F4B22329CDE00E4FD06 /* usersettings */,
 				473DCE191EC3A68700A42F51 /* user */,
 				61CA9C7E1EA227B7004AFAC7 /* events */,
@@ -1125,6 +1153,7 @@
 			files = (
 				61C51A2C20408FF0009B8BA2 /* Roboto-LightItalic.ttf in Resources */,
 				473A5F721E8A749A002FD833 /* Home.storyboard in Resources */,
+				4715265E22590080005262F5 /* ForgotPw.storyboard in Resources */,
 				61C51A2D20408FF0009B8BA2 /* Roboto-Regular.ttf in Resources */,
 				61C51A3220408FF0009B8BA2 /* Roboto-Black.ttf in Resources */,
 				61CA9C901EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
@@ -1179,6 +1208,7 @@
 			files = (
 				47A9B9171E8561F800DC8247 /* Home.storyboard in Resources */,
 				61C51A3620408FFB009B8BA2 /* Roboto-BlackItalic.ttf in Resources */,
+				4715265F22590080005262F5 /* ForgotPw.storyboard in Resources */,
 				61C51A3720408FFB009B8BA2 /* Roboto-Bold.ttf in Resources */,
 				61C51A3820408FFB009B8BA2 /* Roboto-BoldItalic.ttf in Resources */,
 				61CA9C911EA40D3F004AFAC7 /* CreateEvent.storyboard in Resources */,
@@ -1231,6 +1261,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4715266022590080005262F5 /* ForgotPw.storyboard in Resources */,
+				474EEEE72259FBFC008EAADE /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,6 +1270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4715266122590080005262F5 /* ForgotPw.storyboard in Resources */,
+				474EEEE82259FBFC008EAADE /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1553,7 @@
 				611330E620DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
 				61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
+				47152663225937F5005262F5 /* ForgotPwViewController.swift in Sources */,
 				61A006271F34832E003E2651 /* NewNewsViewController.swift in Sources */,
 				61CA9CA71EA526C1004AFAC7 /* Participation.swift in Sources */,
 				61CA9CAC1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */,
@@ -1607,6 +1642,7 @@
 				611330E720DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
 				61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */,
+				47152664225937F5005262F5 /* ForgotPwViewController.swift in Sources */,
 				61A006281F34832E003E2651 /* NewNewsViewController.swift in Sources */,
 				61CA9CA81EA526C1004AFAC7 /* Participation.swift in Sources */,
 				61CA9CAD1EA53355004AFAC7 /* ParticipationTableViewCell.swift in Sources */,
@@ -1639,7 +1675,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474EEEE32259F605008EAADE /* StringExtension.swift in Sources */,
+				474EEEE12259F591008EAADE /* ForgotPwViewController.swift in Sources */,
 				4749C5151E81B7FF0068B0FA /* CoachPlusTests.swift in Sources */,
+				474EEEDE2259F57F008EAADE /* OutlineButton.swift in Sources */,
+				474EEEE52259F960008EAADE /* ButtonExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1647,7 +1687,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474EEEE42259F605008EAADE /* StringExtension.swift in Sources */,
+				474EEEE22259F591008EAADE /* ForgotPwViewController.swift in Sources */,
 				4749C5201E81B7FF0068B0FA /* CoachPlusUITests.swift in Sources */,
+				474EEEDF2259F57F008EAADE /* OutlineButton.swift in Sources */,
+				474EEEE62259F960008EAADE /* ButtonExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

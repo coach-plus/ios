@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DataHandler.def.getUser().done({user in
             UserManager.storeUser(user: user)
+            UserManager.shared.userWasEdited.onNext(user)
         }).catch({error in
             print("could not get user")
         })
@@ -69,11 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupStyling() {
         Hero.shared.containerColor = .clear
+        self.window?.backgroundColor = .coachPlusBlue
         //let ai = UIActivityIndicatorView.appearance(whenContainedInInstancesOf: [MBProgressHUD.self])
         //ai.color = UIColor.coachPlusBlue
         
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        
     }
     
     

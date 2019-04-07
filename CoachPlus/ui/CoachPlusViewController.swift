@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CoachPlusViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class CoachPlusViewController: UIViewController {
     var previousVC: CoachPlusViewController?
 
     var heroId:String = ""
+    
+    public let disposeBag = DisposeBag()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

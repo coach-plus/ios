@@ -78,11 +78,18 @@ class EventDetailCell: UITableViewCell {
             self.vc?.present(editEventVc, animated: true, completion: nil)
         })
         
+        let reminderButton = UIAlertAction(title: "SEND_REMINDER".localize(), style: .default, handler: { (action) -> Void in
+            
+            // TODO: send reminder
+            
+        })
+        
         let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in
             
         })
         
         alertController.addAction(editButton)
+        alertController.addAction(reminderButton)
         alertController.addAction(cancelButton)
         
         self.vc?.present(alertController, animated: true, completion: nil)

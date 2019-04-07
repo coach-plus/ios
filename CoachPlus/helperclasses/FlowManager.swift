@@ -175,7 +175,7 @@ class FlowManager {
         }
         
         
-        var promise: Promise<Membership>?
+        var promise: Promise<Membership?>?
         
         if (teamId != nil) {
             promise = MembershipManager.shared.getMembershipForTeam(teamId: teamId!)

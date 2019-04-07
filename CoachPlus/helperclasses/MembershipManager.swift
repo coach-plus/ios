@@ -56,30 +56,26 @@ class MembershipManager {
         self.selectedMembershipSubject.onNext(self.selectedMembership)
     }
     
-    func getRandomMembership() -> Promise<Membership> {
-        return Promise<Membership> { p in
-            if (self.memberships.count > 0) {
-                p.fulfill(self.memberships[0])
-                return
-            } else {
-                self.loadMemberships().done({ memberships in
-                    if (memberships.count > 0) {
-                        p.fulfill(self.memberships[0])
-                        return
-                    } else {
-                        p.reject(MembershipError.notFound)
-                        return
-                    }
-                }).catch({ err in
-                    p.reject(MembershipError.notFound)
+    func getRandomMembership() -> Promise<Membership?> {
+        return Promise<Membership?> { p in
+            self.loadMemberships().done({ memberships in
+                self.storeMemberships(memberships: memberships)
+                if (memberships.count > 0) {
+                    p.fulfill(self.memberships[0])
                     return
-                })
-            }
+                } else {
+                    p.fulfill(nil)
+                    return
+                }
+            }).catch({ err in
+                p.fulfill(nil)
+                return
+            })
         }
     }
     
-    func getMembershipForTeam(teamId: String) -> Promise<Membership> {
-        return Promise<Membership> { p in
+    func getMembershipForTeam(teamId: String) -> Promise<Membership?> {
+        return Promise<Membership?> { p in
             
             let localMembership = self.getMembershipFromLocalMemberships(teamId: teamId)
             if (localMembership != nil) {

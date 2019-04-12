@@ -22,7 +22,7 @@ class MemberTableViewCell: UITableViewCell {
     
     var ownMembership:Membership?
     var membership: Membership?
-    var vc:UIViewController?
+    var vc:CoachPlusViewController?
     var delegate: MemberTableViewCellDelegate?
     
     @IBAction func actionBtnTapped(_ sender: Any) {
@@ -33,7 +33,7 @@ class MemberTableViewCell: UITableViewCell {
     }
     
     
-    func setup(membership: Membership, ownMembership: Membership, vc:UIViewController) {
+    func setup(membership: Membership, ownMembership: Membership, vc:CoachPlusViewController) {
         
         self.vc = vc
         self.ownMembership = ownMembership

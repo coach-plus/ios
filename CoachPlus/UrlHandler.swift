@@ -21,6 +21,10 @@ class UrlHandler {
             return false
         }
         
+        if (!Authentication.loggedIn()) {
+            return false
+        }
+        
         if (pathArray[1] == "verification") {
             pathArray.remove(at: 0)
             pathArray.remove(at: 0)
@@ -107,12 +111,7 @@ class UrlHandler {
             
             let rootVc = UIApplication.shared.keyWindow?.rootViewController
             
-            print(rootVc)
-            
             rootVc!.present(verificationVC, animated: true, completion: nil)
-            
-            //rootVc.present(navVc, animated: true, completion: nil)
-            
             
             return true
         }

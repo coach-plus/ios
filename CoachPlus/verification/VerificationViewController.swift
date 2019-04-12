@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VerificationViewController: UIViewController {
+class VerificationViewController: CoachPlusViewController {
 
     var token:String = ""
     
@@ -18,6 +18,7 @@ class VerificationViewController: UIViewController {
     
     @IBOutlet weak var textLbl: UILabel!
     
+    @IBOutlet weak var continueBtn: OutlineButton!
     
     @IBAction func continueTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -28,25 +29,27 @@ class VerificationViewController: UIViewController {
         
         self.textLbl.text = ""
         self.iconLbl.text = ""
+        self.iconLbl.textColor = .white
+        self.continueBtn.tintColor = .white
+        self.continueBtn.setup()
+        self.continueBtn.setTitleForAllStates(title: "CONTINUE")
         
         self.resultView.isHidden = true
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.viewDidAppear(animated)
+        super.viewDidAppear(animated)
         verifyToken()
     }
     
     func verifyToken() {
         self.loadData(text: "LOAD_DATA", promise: DataHandler.def.verifyToken(token: self.token)).done({ response in
             self.textLbl.text = "You are now verified."
-            self.iconLbl!.setIcon(icon: .fontAwesomeSolid(.check), iconSize: 60)
+            self.iconLbl.setIcon(icon: .fontAwesomeSolid(.check), iconSize: 60, color: .white, bgColor: .clear)
             self.resultView.isHidden = false
         }).catch({ err in
             self.textLbl.text = "Verification failed."
-            self.iconLbl!.setIcon(icon: .fontAwesomeSolid(.times), iconSize: 60)
+            self.iconLbl.setIcon(icon: .fontAwesomeSolid(.times), iconSize: 60, color: .coachPlusLightRed, bgColor: .clear)
             self.resultView.isHidden = false
         })
     }

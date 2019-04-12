@@ -71,7 +71,7 @@ class DataHandler {
                             }
                         }
                     case .failure(let error):
-                        p.reject(error)
+                        p.reject(ApiError(message: "GENERAL_ERROR", statusCode: 0))
                     }
             }
         }
@@ -92,6 +92,10 @@ class DataHandler {
     
     func unauthenticatedPost(_ url:String, params:Parameters) -> Promise<ApiResponse> {
         return self.post(url, params: params, headers: [:])
+    }
+    
+    func unauthenticatedPut(_ url:String, params:Parameters) -> Promise<ApiResponse> {
+        return self.put(url, params: params, headers: [:])
     }
     
     func authenticatedPost(_ url:String, params:Parameters) -> Promise<ApiResponse> {
@@ -157,8 +161,8 @@ class DataHandler {
                 } else {
                     p.reject(ApiError(message: "", statusCode: 999))
                 }
-                }.catch({err in
-                    p.reject(ApiError(message: err.localizedDescription, statusCode: 999))
+                }.catch({ err in
+                    p.reject(err)
                 })
         }
     }
@@ -194,11 +198,18 @@ class DataHandler {
     
     func getMyMemberships() -> Promise<[Membership]> {
         let url = "memberships/my"
-        
         return self.authenticatedGet(url, headers: [:]).map({ apiResponse in
             let memberships = apiResponse.toArray(Membership.self, property: "memberships")
             MembershipManager.shared.storeMemberships(memberships: memberships)
             return memberships
+        })
+    }
+    
+    func getMembershipById(membershipId: String) -> Promise<Membership> {
+        let url = "memberships/\(membershipId)"
+        return self.authenticatedGet(url, headers: [:]).map({apiResponse in
+            let membership = apiResponse.toObject(Membership.self, property: "membership")
+            return membership
         })
     }
     
@@ -287,7 +298,7 @@ class DataHandler {
     }
     
     
-    func joinTeam(inviteId:String, teamType:JoinTeamViewController.TeamType) -> Promise<Membership> {
+    func joinTeam(inviteId:String, teamType: JoinTeamViewController.TeamType) -> Promise<Membership> {
         var url = ""
         
         if (teamType == .publicTeam) {
@@ -398,6 +409,19 @@ class DataHandler {
             let user = apiResponse.toObject(User.self, property: "user")
             return user
         })
+    }
+    
+    func requestNewPassword(email: String) -> Promise<ApiResponse> {
+        let url = "users/password"
+        let params = [
+            "email": email
+        ]
+        return self.unauthenticatedPut(url, params: params)
+    }
+    
+    func resendVerificationEmail() -> Promise<ApiResponse> {
+        let url = "users/me/verification"
+        return self.authenticatedPost(url, params: [:])
     }
     
     func getUser() -> Promise<User> {

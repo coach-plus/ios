@@ -10,8 +10,9 @@ import UIKit
 import SkyFloatingLabelTextField
 import SwiftIcons
 import Hero
+import MBProgressHUD
 
-class ForgotPwViewController: UIViewController {
+class ForgotPwViewController: UIViewController, ErrorHandlerDelegate {
 
     @IBOutlet weak var emailTf: SkyFloatingLabelTextField!
     
@@ -23,13 +24,19 @@ class ForgotPwViewController: UIViewController {
     
     @IBOutlet weak var descriptionLbl: UILabel!
     
+    var errorHandler: ErrorHandler?
+    
     @IBAction func requestBtnTapped(_ sender: Any) {
+        self.requestNewPassword()
     }
+    
     @IBAction func backBtnTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
+        
+        self.errorHandler = ErrorHandler(delegate: self)
         
         self.hero.isEnabled = true
         
@@ -39,6 +46,7 @@ class ForgotPwViewController: UIViewController {
         self.logoIv.hero.isEnabled = true
         self.logoIv.hero.id = "launchLogo"
         
+        self.requestBtn.setTitleForAllStates(title: "REQUEST_NEW_PW")
         self.requestBtn.tintColor = .white
         self.requestBtn.setup()
         
@@ -54,5 +62,23 @@ class ForgotPwViewController: UIViewController {
         self.emailTf.lineColor = .white
         self.emailTf.selectedLineColor = .white
         self.emailTf.selectedTitleColor = .white
+    }
+    
+    func requestNewPassword() {
+        let email = self.emailTf.text
+        if (email == nil || email?.count == 0 || !email!.isValidEmail) {
+            DropdownAlert.error(message: "PLEASE_ENTER_A_VALID_EMAIL")
+            return
+        }
+        
+        let hud = MBProgressHUD.createHUD(view: self.view, msg: "REQUESTING_NEW_PASSWORD")
+        
+        DataHandler.def.requestNewPassword(email: email!).done({response in
+            DropdownAlert.success(message: "REQUEST_NEW_PASSWORD_SUCCESS")
+            self.dismiss(animated: true, completion: nil)
+        }).ensure {
+            hud.hide(animated: true)
+        }.catch({ error in self.errorHandler?.handleError(error: error)})
+        
     }
 }

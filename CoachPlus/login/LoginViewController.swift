@@ -11,7 +11,7 @@ import SafariServices
 import SkyFloatingLabelTextField
 import MBProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: CoachPlusViewController {
 
     @IBOutlet weak var emailTf: SkyFloatingLabelTextField!
     
@@ -45,22 +45,14 @@ class LoginViewController: UIViewController {
         let email = self.emailTf.text!
         let password = self.passwordTf.text!
         
-        let hud = MBProgressHUD.createHUD(view: self.view, msg: "LOGIN".localize())
         
-        DataHandler.def.login(email: email, password: password).done({ apiResponse in
+        self.loadData(text: "LOGIN", promise: DataHandler.def.login(email: email, password: password)).done({ apiResponse in
             
             DataHandler.def.getMyMemberships().done({ memberships in
-                hud.hide(animated: true)
-                
                 FlowManager.goToHome(sourceVc: self)
-                
             }).catch({ err in
-                hud.hide(animated: true)
                 FlowManager.goToHome(sourceVc: self)
             })
-        }).catch({ err in
-            hud.hide(animated: true)
-            DropdownAlert.error(message: err.localizedDescription)
         })
         
     }

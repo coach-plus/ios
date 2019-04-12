@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: CoachPlusViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

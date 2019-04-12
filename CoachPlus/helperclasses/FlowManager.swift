@@ -82,7 +82,9 @@ class FlowManager {
         centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningNavigationBar
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.all
         
-        centerContainer?.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionMode.none
+        centerContainer!.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionMode.none
+        
+        self.openAndCloseDrawer(vc: centerContainer!)
         
         return centerContainer!
     }
@@ -93,13 +95,13 @@ class FlowManager {
         delegate.window?.makeKeyAndVisible()
     }
     
-    static func goToLogin() {
+    static func goToLogin(completion: (() -> Void)? = nil) {
         
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         
         let vc = storyboard.instantiateInitialViewController()!
         
-        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: completion)
     }
     
     static func goToHome(sourceVc:UIViewController) {
@@ -156,8 +158,12 @@ class FlowManager {
                 vc.open(MMDrawerSide.left, animated: true, completion: nil)
             }
         }
-        
-        
+    }
+
+    static func openAndCloseDrawer(vc: MMDrawerController) {
+        vc.open(MMDrawerSide.left, animated: false, completion: { _ in
+            vc.closeDrawer(animated: false, completion: nil)
+        })
     }
     
     static func openVcInCenter(vc: UIViewController) {

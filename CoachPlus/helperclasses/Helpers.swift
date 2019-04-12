@@ -90,7 +90,7 @@ extension MBProgressHUD {
     static func createHUD(view:UIView, msg:String) -> MBProgressHUD {
         let hud = MBProgressHUD(view: view)
         hud.graceTime = 0.5
-        hud.detailsLabel.text = msg
+        hud.detailsLabel.text = msg.localize()
         hud.mode = .indeterminate
         hud.animationType = .zoom
         view.addSubview(hud)

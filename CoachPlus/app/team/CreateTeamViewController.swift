@@ -105,8 +105,6 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
             self.loadData(text: "DELETE_TEAM", promise: DataHandler.def.deleteTeam(teamId: self.team!.id)).done({ response in
                 DropdownAlert.success(message: String(format: "DELETE_TEAM_SUCCESS".localize(), self.team!.name))
                 FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
-            }).catch({ err in
-                print(err)
             })
         }, noHandler: nil, style: .actionSheet, showCancelButton: false)
         
@@ -181,11 +179,6 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
             cameraImageV.isUserInteractionEnabled = true
             cameraImageV.addGestureRecognizer(singleTap)
         }
-        
-        
-        
-        
-        
         
     }
     

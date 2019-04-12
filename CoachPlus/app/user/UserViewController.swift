@@ -85,7 +85,6 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         if (self.user != nil && UserManager.isSelf(userId: self.user!.id)) {
             let navVc = FlowManager.userSettingsVc()
             let settingsVc = navVc.children[0] as! UserSettingsViewController
-            settingsVc.user = self.user!
             self.present(navVc, animated: true, completion: nil)
         }
     }

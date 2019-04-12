@@ -37,17 +37,6 @@ extension UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    func loadData<T>(text: String?, promise: Promise<T>) -> Promise<T> {
-        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.detailsLabel.text = text?.localize()
-        
-        return promise.map({ result in
-            return result
-        }).ensure {
-            hud.hide(animated: true)
-        }
-    }
-    
     func showConfirmation(title: String, message: String, yes: String, no: String, yesStyle: UIAlertAction.Style, noStyle: UIAlertAction.Style, yesHandler: ((UIAlertAction) -> Void)? = nil, noHandler: ((UIAlertAction) -> Void)? = nil, style: UIAlertController.Style = UIAlertController.Style.actionSheet, showCancelButton: Bool?) {
         let alertController = UIAlertController(title: title.localize(), message: message.localize(), preferredStyle: style)
         
@@ -69,6 +58,14 @@ extension UIViewController {
         }
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func handleApiError(apiError: ApiError) {
+        DropdownAlert.error(message: apiError.message)
+    }
+    
+    func handleGeneralError(error: Error) {
+        DropdownAlert.error(message: error.localizedDescription)
     }
     
 }

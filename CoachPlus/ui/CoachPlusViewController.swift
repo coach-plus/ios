@@ -8,8 +8,10 @@
 
 import UIKit
 import RxSwift
+import PromiseKit
+import MBProgressHUD
 
-class CoachPlusViewController: UIViewController {
+class CoachPlusViewController: UIViewController, ErrorHandlerDelegate {
     
     var loaded = false
     
@@ -19,6 +21,8 @@ class CoachPlusViewController: UIViewController {
 
     var heroId:String = ""
     
+    var errorHandler: ErrorHandler?
+    
     public let disposeBag = DisposeBag()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -27,6 +31,8 @@ class CoachPlusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.errorHandler = ErrorHandler(delegate: self)
         
         setNeedsStatusBarAppearanceUpdate()
         
@@ -102,6 +108,22 @@ class CoachPlusViewController: UIViewController {
         img.frame = title.bounds
         title.addSubview(img)
         topItem.titleView = title
+    }
+    
+    func loadData<T>(text: String?, promise: Promise<T>) -> Promise<T> {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.detailsLabel.text = text?.localize()
+        
+        return Promise { p in
+            promise.done({ result in
+                p.fulfill(result)
+            }).ensure({
+                hud.hide(animated: true)
+            }).catch({err in
+                self.errorHandler?.handleError(error: err)
+                p.reject(err)
+            })
+        }
     }
 
 }

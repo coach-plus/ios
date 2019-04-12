@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I0K-ho-lCe">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I0K-ho-lCe">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,16 +13,12 @@
         <scene sceneID="W6a-cJ-An4">
             <objects>
                 <viewController id="I0K-ho-lCe" customClass="VerificationViewController" customModule="CoachPlus" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YdD-Mt-JQn"/>
-                        <viewControllerLayoutGuide type="bottom" id="ttc-QX-tK5"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8MY-2t-2OZ" customClass="GradientView" customModule="CoachPlus" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvk-AR-wuP" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="708" width="335" height="50"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="7U5-CP-Jip"/>
@@ -37,15 +32,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="OLv-jx-nfX">
-                                <rect key="frame" x="20" y="20" width="335" height="100"/>
+                                <rect key="frame" x="20" y="144" width="335" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="I51-Ei-Yrs"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="V4T-dy-y82"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="v7Q-D6-Oof"/>
+                                    <constraint firstAttribute="height" constant="50" id="I51-Ei-Yrs"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDe-Qd-iNp">
-                                <rect key="frame" x="20" y="128" width="335" height="449"/>
+                                <rect key="frame" x="20" y="202" width="335" height="486"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="icon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPn-gM-ink">
                                         <rect key="frame" x="8" y="8" width="319" height="100"/>
@@ -79,21 +72,23 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FDe-Qd-iNp" firstAttribute="leading" secondItem="8MY-2t-2OZ" secondAttribute="leading" constant="20" id="YUA-kJ-xRb"/>
-                            <constraint firstItem="ttc-QX-tK5" firstAttribute="top" secondItem="Yvk-AR-wuP" secondAttribute="bottom" constant="20" id="asD-G1-fA1"/>
+                            <constraint firstItem="FDe-Qd-iNp" firstAttribute="leading" secondItem="PRT-xf-hUb" secondAttribute="leading" constant="20" id="YUA-kJ-xRb"/>
+                            <constraint firstItem="PRT-xf-hUb" firstAttribute="bottom" secondItem="Yvk-AR-wuP" secondAttribute="bottom" constant="20" id="asD-G1-fA1"/>
                             <constraint firstItem="FDe-Qd-iNp" firstAttribute="top" secondItem="OLv-jx-nfX" secondAttribute="bottom" constant="8" id="iao-91-bJ5"/>
                             <constraint firstItem="Yvk-AR-wuP" firstAttribute="leading" secondItem="8MY-2t-2OZ" secondAttribute="leadingMargin" constant="4" id="jec-ab-B2A"/>
                             <constraint firstItem="Yvk-AR-wuP" firstAttribute="top" secondItem="FDe-Qd-iNp" secondAttribute="bottom" constant="20" id="obz-0O-C8L"/>
-                            <constraint firstAttribute="trailing" secondItem="OLv-jx-nfX" secondAttribute="trailing" constant="20" id="sQH-7y-ACv"/>
-                            <constraint firstItem="OLv-jx-nfX" firstAttribute="leading" secondItem="8MY-2t-2OZ" secondAttribute="leading" constant="20" id="wTo-L9-LN7"/>
-                            <constraint firstItem="OLv-jx-nfX" firstAttribute="top" secondItem="YdD-Mt-JQn" secondAttribute="bottom" id="xES-h3-KeY"/>
-                            <constraint firstAttribute="trailing" secondItem="FDe-Qd-iNp" secondAttribute="trailing" constant="20" id="ySP-E7-Reh"/>
+                            <constraint firstItem="PRT-xf-hUb" firstAttribute="trailing" secondItem="OLv-jx-nfX" secondAttribute="trailing" constant="20" id="sQH-7y-ACv"/>
+                            <constraint firstItem="OLv-jx-nfX" firstAttribute="leading" secondItem="PRT-xf-hUb" secondAttribute="leading" constant="20" id="wTo-L9-LN7"/>
+                            <constraint firstItem="OLv-jx-nfX" firstAttribute="top" secondItem="PRT-xf-hUb" secondAttribute="top" constant="100" id="xES-h3-KeY"/>
+                            <constraint firstItem="PRT-xf-hUb" firstAttribute="trailing" secondItem="FDe-Qd-iNp" secondAttribute="trailing" constant="20" id="ySP-E7-Reh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Yvk-AR-wuP" secondAttribute="trailing" constant="4" id="yjL-Ri-AGP"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="PRT-xf-hUb"/>
                     </view>
                     <navigationItem key="navigationItem" id="VHV-FK-SAP"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="continueBtn" destination="Yvk-AR-wuP" id="1NE-gO-ZWX"/>
                         <outlet property="iconLbl" destination="lPn-gM-ink" id="Xxq-AA-PCw"/>
                         <outlet property="resultView" destination="FDe-Qd-iNp" id="IEN-91-g9b"/>
                         <outlet property="textLbl" destination="Ioj-Yc-u1c" id="bAG-MH-7dX"/>
@@ -113,6 +108,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoWhite" width="360" height="180"/>
+        <image name="LogoWhite" width="275" height="58"/>
     </resources>
 </document>

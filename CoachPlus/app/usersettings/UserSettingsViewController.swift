@@ -20,6 +20,7 @@ class UserSettingsViewController: CoachPlusViewController {
     @IBOutlet weak var verificationBtn: UIButton!
     
     @IBAction func verificationBtnTapped(_ sender: Any) {
+        self.resendVerificationEmail()
     }
     
     @IBOutlet weak var verificationViewHeight: NSLayoutConstraint!
@@ -57,15 +58,23 @@ class UserSettingsViewController: CoachPlusViewController {
         
         super.viewDidLoad()
         
+        self.setup()
+        
+        
+        self.loadData(text: nil, promise: DataHandler.def.getUser()).done({user in
+            self.user = user
+            self.showUserData()
+        })
+    }
+    
+    func setup() {
         self.setupVerification()
-        
         self.setupNavBar()
-        
         self.setupTextFields()
     }
     
     func setupVerification() {
-        let isVerified = true
+        let isVerified = self.user?.emailVerified ?? false
         if (isVerified) {
             self.verificationViewHeight.constant = 0
         } else {
@@ -76,7 +85,7 @@ class UserSettingsViewController: CoachPlusViewController {
     
     func setupNavBar() {
         
-        self.setNavbarTitle(title: "UserSettings".localize())
+        self.setNavbarTitle(title: "USER_SETTINGS".localize())
         self.setLeftBarButton(type: .done)
  
     }
@@ -84,9 +93,6 @@ class UserSettingsViewController: CoachPlusViewController {
     
     
     func setupTextFields() {
-        
-        
-        
         self.personalHeader.title = "USER_SETTINGS_PERSONAL".localize()
         self.personalHeader.showBtn = false
         
@@ -121,11 +127,11 @@ class UserSettingsViewController: CoachPlusViewController {
         self.repeatPwTf.placeholder = "USER_SETTINGS_CHANGE_PW_REPEAT_PLACEHOLDER"
         
         self.currentPwTf.isSecureTextEntry = true
+        self.newPwTf.isSecureTextEntry = true
+        self.repeatPwTf.isSecureTextEntry = true
         
         self.changePwBtn.setTitleForAllStates(title: "USER_SETTINGS_CHANGE_PW_BUTTON_TITLE")
         self.changePwBtn.coachPlus()
-        
-        self.showData()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -142,7 +148,7 @@ class UserSettingsViewController: CoachPlusViewController {
     }
 
     
-    func showData() {
+    func showUserData() {
         self.firstnameTf.text = self.user!.firstname
         self.lastnameTf.text = self.user!.lastname
         self.emailTf.text = self.user!.email
@@ -159,8 +165,7 @@ class UserSettingsViewController: CoachPlusViewController {
             UserManager.storeUser(user: user)
             self.user = user
             UserManager.shared.userWasEdited.onNext(user)
-        }).catch({err in
-            
+            DropdownAlert.success(message: "PERSONAL_DATA_CHANGED")
         })
     }
     
@@ -170,9 +175,7 @@ class UserSettingsViewController: CoachPlusViewController {
         }
         
         self.loadData(text: "LOADING", promise: DataHandler.def.changePassword(oldPassword: self.currentPwTf.text!, newPassword: self.newPwTf.text!, newPasswordRepeat: self.repeatPwTf.text!)).done({ user in
-            
-        }).catch({err in
-            
+            DropdownAlert.success(message: "PASSWORD_CHANGED")
         })
     }
     
@@ -219,4 +222,9 @@ class UserSettingsViewController: CoachPlusViewController {
         }
     }
 
+    func resendVerificationEmail() {
+        self.loadData(text: "LOADING", promise: DataHandler.def.resendVerificationEmail()).done({ response in
+            DropdownAlert.success(message: "VERIFICATION_MAIL_SENT")
+        })
+    }
 }

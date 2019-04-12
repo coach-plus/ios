@@ -14,7 +14,7 @@ class Authentication {
     
     static func loggedIn() -> Bool {
         let jwt = getJWT()
-        return (jwt != nil && (jwt?.characters.count)! > 0)
+        return (jwt != nil && (jwt?.count)! > 0)
     }
     
     
@@ -29,7 +29,7 @@ class Authentication {
                 
             }
             
-            let user = User(id: jwtObject.claim(name: "_id").string!, firstname: jwtObject.claim(name: "firstname").string!, lastname: jwtObject.claim(name: "lastname").string!, email: jwtObject.claim(name: "email").string!, image: jwtObject.claim(name: "image").string)
+            let user = User(id: jwtObject.claim(name: "_id").string!, firstname: jwtObject.claim(name: "firstname").string!, lastname: jwtObject.claim(name: "lastname").string!, email: jwtObject.claim(name: "email").string!, image: jwtObject.claim(name: "image").string, emailVerified: false)
             UserManager.storeUser(user: user)
 
             try Locksmith.saveData(data: [
@@ -79,7 +79,10 @@ class Authentication {
             print("Failed to delete Data: \(error)")
         }
         MembershipManager.shared.clearMemberships()
-        FlowManager.goToLogin()
+        FlowManager.goToLogin(completion: {
+            MembershipManager.shared.membershipsSubject.onNext([])
+            MembershipManager.shared.selectedMembershipSubject.onNext(nil)
+        })
     }
     
 }

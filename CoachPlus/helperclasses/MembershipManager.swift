@@ -110,7 +110,7 @@ class MembershipManager {
         }
     }
     
-    private func getMembershipFromLocalMemberships(teamId: String) -> Membership? {
+    public func getMembershipFromLocalMemberships(teamId: String) -> Membership? {
         let membershipIndex = self.memberships.firstIndex(where: { membership in
             return membership.team?.id == teamId
         })

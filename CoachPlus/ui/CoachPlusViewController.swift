@@ -47,6 +47,7 @@ class CoachPlusViewController: UIViewController, ErrorHandlerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        NotificationManager.shared.setCurrentVc(currentVc: self)
         self.setupNavBarDelegate()
         self.disableDrawer()
     }
@@ -95,7 +96,7 @@ class CoachPlusViewController: UIViewController, ErrorHandlerDelegate {
     
     func setNavbarTitle(title: String?) {
         if (title != nil) {
-            self.navigationController?.navigationBar.topItem?.title = title
+            self.navigationItem.title = title
         }
     }
     

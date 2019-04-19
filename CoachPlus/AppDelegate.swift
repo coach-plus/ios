@@ -39,6 +39,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         
+        UNUserNotificationCenter.current().delegate = NotificationManager.shared
+        //NotificationManager.shared
+        
+        /*
+        registerForPushNotifications()
+        
+        // handle notifications
+        
+        
+        
+        // 1
+        if let notification = notificationOption as? [String: AnyObject],
+            let aps = notification["aps"] as? [String: AnyObject] {
+            
+            print(aps)
+            print(notification)
+            
+            // 2
+            /*
+            NewsItem.makeNewsItem(aps)
+            
+            // 3
+            (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
+ */
+        }
+        */
+        
         return true
     }
 
@@ -83,13 +110,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     // Called when APNs has assigned the device a unique token
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         if (!Authentication.loggedIn()) {
             return
         }
         
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let deviceTokenString = tokenParts.joined()
+        
         print("APNs device token: \(deviceTokenString)")
         NotificationManager.registerDeviceOnServer(pushId: deviceTokenString)
     }
@@ -144,7 +174,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(url)
         return true
     }
-    
-
 }
 

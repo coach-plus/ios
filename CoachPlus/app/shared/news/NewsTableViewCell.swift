@@ -19,11 +19,11 @@ class NewsTableViewCell: UITableViewCell {
     
     func configure(news:News) {
         self.news = news
-        self.titleLbl.text = news.title
+        self.titleLbl.text = news.author!.fullname
         self.imageV.setUserImage(user: news.author!)
         self.descriptionTv.text = news.text
         self.descriptionTv.fixPadding()
-        self.authorLbl.text = "\(news.author!.fullname) - \(news.dateTimeString())"
+        self.authorLbl.text = "\(news.dateTimeString())"
     }
     
 }

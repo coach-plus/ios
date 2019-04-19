@@ -19,8 +19,6 @@ class NewNewsViewController: CoachPlusViewController {
     
     @IBOutlet weak var tableHeaderView: TableHeaderView!
     
-    @IBOutlet weak var titleTf: SkyFloatingLabelTextField!
-    
     @IBOutlet weak var messageTf: SkyFloatingLabelTextField!
     
     @IBAction func btnTap(_ sender: Any) {
@@ -31,7 +29,6 @@ class NewNewsViewController: CoachPlusViewController {
     var event:Event?
     
     override func viewDidLoad() {
-        self.titleTf.placeholder = "NEWS_TITLE".localize()
         self.messageTf.placeholder = "NEWS_MESSAGE".localize()
         self.tableHeaderView.title = "NEWS_CREATE_HEADER".localize()
         self.createBtn.setTitle("NEWS_CREATE_HEADER".localize(), for: .normal)
@@ -39,15 +36,14 @@ class NewNewsViewController: CoachPlusViewController {
     
     func createNews() {
         
-        let title = self.titleTf.text
         let message = self.messageTf.text
         
-        guard title != nil || message != nil else {
+        guard message != nil else {
             return
         }
         
         let createNews = [
-            "title": title,
+            "title": "",
             "text": message
         ]
         

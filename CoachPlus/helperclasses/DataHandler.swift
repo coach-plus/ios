@@ -15,7 +15,8 @@ class DataHandler {
     static let def = DataHandler()
     
     func getUrl(_ url:String) -> String {
-        return "https://dev.coach.plus/api/" + url
+        // return "https://dev.coach.plus/api/" + url
+        return "http://192.168.222.37:5200/api/" + url
     }
     
     func authHeaders() -> HTTPHeaders {
@@ -253,7 +254,7 @@ class DataHandler {
     func getEvent(teamId: String, eventId: String) -> Promise<Event> {
         let url = "teams/\(teamId)/events/\(eventId)"
         return self.authenticatedGet(url, headers: nil).map({ apiResponse in
-            return apiResponse.toObject(Event.self, property: nil)
+            return apiResponse.toObject(Event.self, property: "event")
         })
     }
     

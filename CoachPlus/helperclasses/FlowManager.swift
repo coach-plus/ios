@@ -68,7 +68,10 @@ class FlowManager {
     
     static func homeVc() -> CoachPlusNavigationViewController {
         let teamStoryboard = UIStoryboard(name: "Team", bundle: nil)
-        return teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
+        let teamNavVc = teamStoryboard.instantiateInitialViewController() as! CoachPlusNavigationViewController
+        NotificationManager.shared.setCurrentVc(currentVc: teamNavVc.children[0] as! TeamViewController)
+        NotificationManager.shared.setTeamVc(teamVc: teamNavVc.children[0] as! TeamViewController)
+        return teamNavVc
     }
     
     static func drawerVc() -> MMDrawerController {
@@ -91,7 +94,8 @@ class FlowManager {
     
     static func setHome() {
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.window?.rootViewController = FlowManager.drawerVc()
+        let drawerVc = FlowManager.drawerVc()
+        delegate.window?.rootViewController = drawerVc
         delegate.window?.makeKeyAndVisible()
     }
     

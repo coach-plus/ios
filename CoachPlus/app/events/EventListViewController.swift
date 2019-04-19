@@ -11,8 +11,7 @@ import XLPagerTabStrip
 import DZNEmptyDataSet
 import SwiftIcons
 
-class EventListViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, IndicatorInfoProvider, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EventDetailCellActions {
-    
+class EventListViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, IndicatorInfoProvider, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EventDetailCellDeleteDelegate {
     
     enum Selection {
         case upcoming

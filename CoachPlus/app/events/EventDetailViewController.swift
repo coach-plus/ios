@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate, ParticipationTableViewCellDelegate, EventDetailCellActions, CreateEventViewControllerDelegate {
+class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, UITableViewDataSource, TableHeaderViewButtonDelegate, NewNewsDelegate, ParticipationTableViewCellDelegate, EventDetailCellReminderDelegate, EventDetailCellDeleteDelegate, CreateEventViewControllerDelegate {
     
     func eventCreated() {
         return
@@ -34,6 +34,8 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     var news = [News]()
     var participationItems = [ParticipationItem]()
     
+    private let refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -55,7 +57,27 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 70
         
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
         self.gotNewEvent(event: self.event!)
+    }
+    
+    @objc private func refresh(_ sender: Any) {
+        
+        guard self.event != nil else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        self.loadData(text: nil, promise: DataHandler.def.getEvent(teamId: event!.teamId, eventId: event!.id)).done({ event in
+            self.gotNewEvent(event: event)
+        })
+        
     }
     
     func gotNewEvent(event: Event) {
@@ -64,6 +86,8 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
         self.loadNews()
         self.tableView.reloadData()
         self.navigationItem.title = self.event?.name
+        
+        self.refreshControl.endRefreshing()
     }
     
     func loadParticipations() {
@@ -183,6 +207,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     func generalCell(indexPath:IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "EventDetailCell", for: indexPath) as! EventDetailCell
         cell.configure(event: self.event!, team: self.membership!.team!, isCoach: self.membership?.isCoach(), vc: self)
+        cell.reminderDelegate = self
         return cell
     }
     
@@ -297,12 +322,16 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     }
     
     func delete(event: Event) {
-        if let delegate = self.previousVC as? EventDetailCellActions {
+        if let delegate = self.previousVC as? EventDetailCellDeleteDelegate {
             delegate.delete(event: self.event!)
         }
     }
     
     func userIsCoach() -> Bool {
         return (self.membership?.team?.id == self.event?.teamId && (self.membership?.isCoach())!)
+    }
+    
+    func sendReminder(event: Event) {
+        self.loadData(text: nil, promise: DataHandler.def.sendReminder(teamId: self.event!.teamId, eventId: self.event!.id))
     }
 }

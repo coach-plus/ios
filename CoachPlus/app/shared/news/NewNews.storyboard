@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Btn-Tc-E7M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Btn-Tc-E7M">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,38 +31,20 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="NEW ANNOUNCEMENT"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifu-Y5-zCf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="41" y="90" width="293" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-yq-TVo" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
+                                <rect key="frame" x="41" y="165" width="293" height="50"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="sAX-qF-ucn"/>
+                                    <constraint firstAttribute="height" constant="50" id="xyv-iB-cB9"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Title"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
+                                <color key="tintColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create Announcement"/>
+                                <connections>
+                                    <action selector="btnTap:" destination="Btn-Tc-E7M" eventType="touchUpInside" id="soO-yd-yP1"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FNd-IV-qY6" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="41" y="165" width="293" height="45"/>
+                                <rect key="frame" x="41" y="90" width="293" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="GNG-Zh-sBi"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="rjq-xc-fUE"/>
@@ -93,18 +74,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Message"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4D-yq-TVo" customClass="OutlineButton" customModule="CoachPlus" customModuleProvider="target">
-                                <rect key="frame" x="41" y="240" width="293" height="50"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="xyv-iB-cB9"/>
-                                </constraints>
-                                <color key="tintColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Create Announcement"/>
-                                <connections>
-                                    <action selector="btnTap:" destination="Btn-Tc-E7M" eventType="touchUpInside" id="soO-yd-yP1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -112,13 +81,10 @@
                             <constraint firstItem="vOp-ba-oyK" firstAttribute="leading" secondItem="gCu-dg-TmP" secondAttribute="leading" id="7bY-fr-T3n"/>
                             <constraint firstItem="vOp-ba-oyK" firstAttribute="top" secondItem="Gnc-uT-OK3" secondAttribute="bottom" id="AWg-ZH-Zht"/>
                             <constraint firstItem="I4D-yq-TVo" firstAttribute="trailing" secondItem="FNd-IV-qY6" secondAttribute="trailing" id="BXp-As-LaH"/>
-                            <constraint firstItem="ifu-Y5-zCf" firstAttribute="top" secondItem="vOp-ba-oyK" secondAttribute="bottom" constant="25" id="EKo-9O-45o"/>
-                            <constraint firstItem="FNd-IV-qY6" firstAttribute="leading" secondItem="ifu-Y5-zCf" secondAttribute="leading" id="Qmt-8x-LbG"/>
-                            <constraint firstItem="FNd-IV-qY6" firstAttribute="trailing" secondItem="ifu-Y5-zCf" secondAttribute="trailing" id="TUc-KY-tEo"/>
-                            <constraint firstItem="FNd-IV-qY6" firstAttribute="top" secondItem="ifu-Y5-zCf" secondAttribute="bottom" constant="30" id="Xq0-lU-7dB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ifu-Y5-zCf" secondAttribute="trailing" constant="25" id="aY2-ri-VKm"/>
-                            <constraint firstItem="ifu-Y5-zCf" firstAttribute="leading" secondItem="gCu-dg-TmP" secondAttribute="leadingMargin" constant="25" id="f17-Gq-csh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FNd-IV-qY6" secondAttribute="trailing" constant="25" id="hgC-Qs-rfD"/>
                             <constraint firstItem="I4D-yq-TVo" firstAttribute="top" secondItem="FNd-IV-qY6" secondAttribute="bottom" constant="30" id="jil-Dm-MI6"/>
+                            <constraint firstItem="FNd-IV-qY6" firstAttribute="top" secondItem="vOp-ba-oyK" secondAttribute="bottom" constant="25" id="jzr-1l-or7"/>
+                            <constraint firstItem="FNd-IV-qY6" firstAttribute="leading" secondItem="gCu-dg-TmP" secondAttribute="leadingMargin" constant="25" id="nB6-UE-aNd"/>
                             <constraint firstAttribute="trailing" secondItem="vOp-ba-oyK" secondAttribute="trailing" id="yex-6T-Gho"/>
                         </constraints>
                     </view>
@@ -126,7 +92,6 @@
                         <outlet property="createBtn" destination="I4D-yq-TVo" id="ZCH-0Z-A9f"/>
                         <outlet property="messageTf" destination="FNd-IV-qY6" id="HKh-UD-GVv"/>
                         <outlet property="tableHeaderView" destination="vOp-ba-oyK" id="NV3-Aq-JyI"/>
-                        <outlet property="titleTf" destination="ifu-Y5-zCf" id="SJ9-oz-OTs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CmL-ox-Y5a" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -264,6 +264,94 @@
 		47A9B90E1E8543CB00DC8247 /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */; };
 		47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
 		47A9B9171E8561F800DC8247 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9161E8561F800DC8247 /* Home.storyboard */; };
+		47AC1C6A2269A97D001057DA /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
+		47AC1C6B2269A97D001057DA /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
+		47AC1C6C2269A9C1001057DA /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
+		47AC1C6D2269A9C2001057DA /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
+		47AC1C6E2269A9C7001057DA /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
+		47AC1C6F2269A9C7001057DA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */; };
+		47AC1C702269A9C7001057DA /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
+		47AC1C712269A9C7001057DA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */; };
+		47AC1C722269A9CD001057DA /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
+		47AC1C732269A9CD001057DA /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330DA20DE66CC008D8E70 /* EventDetailCell.xib */; };
+		47AC1C742269A9CD001057DA /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
+		47AC1C752269A9CD001057DA /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330DA20DE66CC008D8E70 /* EventDetailCell.xib */; };
+		47AC1C762269A9D0001057DA /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */; };
+		47AC1C772269A9D0001057DA /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A92001F0EF2D900826879 /* EventsViewController.swift */; };
+		47AC1C782269A9D0001057DA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C821EA3F6E3004AFAC7 /* EventListViewController.swift */; };
+		47AC1C792269A9D0001057DA /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */; };
+		47AC1C7A2269A9D0001057DA /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C921EA51A22004AFAC7 /* CreateEventViewController.swift */; };
+		47AC1C7B2269A9D0001057DA /* EventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C951EA51EA2004AFAC7 /* EventDetail.storyboard */; };
+		47AC1C7C2269A9D0001057DA /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
+		47AC1C7D2269A9D0001057DA /* EventsButtonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A92031F0EF7D900826879 /* EventsButtonBarView.swift */; };
+		47AC1C7E2269A9D0001057DA /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */; };
+		47AC1C7F2269A9D0001057DA /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A92001F0EF2D900826879 /* EventsViewController.swift */; };
+		47AC1C802269A9D0001057DA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C821EA3F6E3004AFAC7 /* EventListViewController.swift */; };
+		47AC1C812269A9D0001057DA /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */; };
+		47AC1C822269A9D0001057DA /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C921EA51A22004AFAC7 /* CreateEventViewController.swift */; };
+		47AC1C832269A9D0001057DA /* EventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C951EA51EA2004AFAC7 /* EventDetail.storyboard */; };
+		47AC1C842269A9D0001057DA /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
+		47AC1C852269A9D0001057DA /* EventsButtonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A92031F0EF7D900826879 /* EventsButtonBarView.swift */; };
+		47AC1C862269A9D6001057DA /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D162164374300E9E8C9 /* BannerTableViewCell.swift */; };
+		47AC1C872269A9D6001057DA /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D172164374300E9E8C9 /* BannerTableViewCell.xib */; };
+		47AC1C882269A9D6001057DA /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D162164374300E9E8C9 /* BannerTableViewCell.swift */; };
+		47AC1C892269A9D6001057DA /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D172164374300E9E8C9 /* BannerTableViewCell.xib */; };
+		47AC1C8A2269A9DA001057DA /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A0061A1F346D66003E2651 /* NewsTableViewCell.swift */; };
+		47AC1C8B2269A9DA001057DA /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A0061B1F346D66003E2651 /* NewsTableViewCell.xib */; };
+		47AC1C8C2269A9DA001057DA /* NewNews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A006231F34808A003E2651 /* NewNews.storyboard */; };
+		47AC1C8D2269A9DA001057DA /* NewNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006261F34832E003E2651 /* NewNewsViewController.swift */; };
+		47AC1C8E2269A9DA001057DA /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A0061A1F346D66003E2651 /* NewsTableViewCell.swift */; };
+		47AC1C8F2269A9DA001057DA /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A0061B1F346D66003E2651 /* NewsTableViewCell.xib */; };
+		47AC1C902269A9DA001057DA /* NewNews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A006231F34808A003E2651 /* NewNews.storyboard */; };
+		47AC1C912269A9DA001057DA /* NewNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006261F34832E003E2651 /* NewNewsViewController.swift */; };
+		47AC1C922269A9DE001057DA /* ParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */; };
+		47AC1C932269A9DE001057DA /* ParticipationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */; };
+		47AC1C942269A9DE001057DA /* ParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */; };
+		47AC1C952269A9DE001057DA /* ParticipationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */; };
+		47AC1C962269A9E2001057DA /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */; };
+		47AC1C972269A9E2001057DA /* SeeAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */; };
+		47AC1C982269A9E3001057DA /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */; };
+		47AC1C992269A9E3001057DA /* SeeAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */; };
+		47AC1C9A2269A9E7001057DA /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
+		47AC1C9B2269A9E7001057DA /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
+		47AC1C9C2269A9EB001057DA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616F11E9F9E1000E8D8D5 /* EventTableViewCell.swift */; };
+		47AC1C9D2269A9EB001057DA /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616616F21E9F9E1000E8D8D5 /* EventTableViewCell.xib */; };
+		47AC1C9E2269A9EB001057DA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616F11E9F9E1000E8D8D5 /* EventTableViewCell.swift */; };
+		47AC1C9F2269A9EB001057DA /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616616F21E9F9E1000E8D8D5 /* EventTableViewCell.xib */; };
+		47AC1CA02269A9F5001057DA /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DA920415C8A00D4B722 /* NewTeam.storyboard */; };
+		47AC1CA12269A9F6001057DA /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DA920415C8A00D4B722 /* NewTeam.storyboard */; };
+		47AC1CA22269A9F8001057DA /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
+		47AC1CA32269A9F8001057DA /* JoinTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473483261EC25F6A00F60110 /* JoinTeam.storyboard */; };
+		47AC1CA42269A9F9001057DA /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
+		47AC1CA52269A9F9001057DA /* JoinTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473483261EC25F6A00F60110 /* JoinTeam.storyboard */; };
+		47AC1CA62269A9FE001057DA /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041F61E8E5FF90020D78E /* Team.storyboard */; };
+		47AC1CA72269A9FE001057DA /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041F61E8E5FF90020D78E /* Team.storyboard */; };
+		47AC1CA82269AA05001057DA /* MembershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E61E8E59540020D78E /* MembershipTableViewCell.swift */; };
+		47AC1CA92269AA05001057DA /* MembershipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F041E71E8E59540020D78E /* MembershipTableViewCell.xib */; };
+		47AC1CAA2269AA06001057DA /* MembershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E61E8E59540020D78E /* MembershipTableViewCell.swift */; };
+		47AC1CAB2269AA06001057DA /* MembershipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F041E71E8E59540020D78E /* MembershipTableViewCell.xib */; };
+		47AC1CAC2269AA09001057DA /* Memberships.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041E81E8E59540020D78E /* Memberships.storyboard */; };
+		47AC1CAD2269AA09001057DA /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E91E8E59540020D78E /* MembershipsController.swift */; };
+		47AC1CAE2269AA09001057DA /* Memberships.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041E81E8E59540020D78E /* Memberships.storyboard */; };
+		47AC1CAF2269AA09001057DA /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E91E8E59540020D78E /* MembershipsController.swift */; };
+		47AC1CB02269AA0E001057DA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9161E8561F800DC8247 /* Home.storyboard */; };
+		47AC1CB12269AA0E001057DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6271E87CBC700F80101 /* HomeViewController.swift */; };
+		47AC1CB22269AA0E001057DA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9161E8561F800DC8247 /* Home.storyboard */; };
+		47AC1CB32269AA0E001057DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6271E87CBC700F80101 /* HomeViewController.swift */; };
+		47AC1CB42269AA1E001057DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D51E8429AD009788E2 /* LoginViewController.swift */; };
+		47AC1CB52269AA1E001057DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D51E8429AD009788E2 /* LoginViewController.swift */; };
+		47AC1CB62269AA25001057DA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
+		47AC1CB72269AA26001057DA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
+		47AC1CB82269AA32001057DA /* CoachPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D71E842D30009788E2 /* CoachPlus.swift */; };
+		47AC1CB92269AA32001057DA /* CoachPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D71E842D30009788E2 /* CoachPlus.swift */; };
+		47AC1CBA2269AA3D001057DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */; };
+		47AC1CBB2269AA3D001057DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */; };
+		47AC1CBC2269AA43001057DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5031E81B7FE0068B0FA /* Main.storyboard */; };
+		47AC1CBD2269AA43001057DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5031E81B7FE0068B0FA /* Main.storyboard */; };
+		47AC1CBE2269AA47001057DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C5011E81B7FE0068B0FA /* ViewController.swift */; };
+		47AC1CBF2269AA47001057DA /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */; };
+		47AC1CC02269AA47001057DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C5011E81B7FE0068B0FA /* ViewController.swift */; };
+		47AC1CC12269AA47001057DA /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */; };
 		47B1B6221E87265500F80101 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6211E87265500F80101 /* Authentication.swift */; };
 		47B1B6241E87C6A500F80101 /* DropdownAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6231E87C6A500F80101 /* DropdownAlert.swift */; };
 		47B1B6261E87C81B00F80101 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6251E87C81B00F80101 /* FlowManager.swift */; };
@@ -1277,8 +1365,7 @@
 					};
 					4749C50F1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = EMYEJ6A5DS;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 4749C4FB1E81B7FE0068B0FA;
 					};
 					4749C51A1E81B7FF0068B0FA = {
@@ -1429,30 +1516,52 @@
 			files = (
 				477AF33A22609396004F7F2E /* MainLocalization.strings in Resources */,
 				477AF341226093A2004F7F2E /* ParticipationStatus.xib in Resources */,
+				47AC1CA02269A9F5001057DA /* NewTeam.storyboard in Resources */,
+				47AC1C8B2269A9DA001057DA /* NewsTableViewCell.xib in Resources */,
+				47AC1C7B2269A9D0001057DA /* EventDetail.storyboard in Resources */,
 				477AF33C2260939D004F7F2E /* CoachPlusImageView.xib in Resources */,
 				477AF32B22609390004F7F2E /* Roboto-ThinItalic.ttf in Resources */,
 				477AF353226093B6004F7F2E /* ReusableTableHeader.xib in Resources */,
+				47AC1C6E2269A9C7001057DA /* User.storyboard in Resources */,
+				47AC1C6C2269A9C1001057DA /* UserSettings.storyboard in Resources */,
 				477AF344226093A6004F7F2E /* ParticipationView.xib in Resources */,
 				477AF351226093B6004F7F2E /* TableHeaderView.xib in Resources */,
+				47AC1C972269A9E2001057DA /* SeeAllTableViewCell.xib in Resources */,
+				47AC1C9D2269A9EB001057DA /* EventTableViewCell.xib in Resources */,
 				477AF32A22609390004F7F2E /* Roboto-Thin.ttf in Resources */,
+				47AC1CA62269A9FE001057DA /* Team.storyboard in Resources */,
 				477AF357226093B6004F7F2E /* ReusableParticipationHeaderView.xib in Resources */,
 				477AF31622609376004F7F2E /* Verification.storyboard in Resources */,
 				4715266022590080005262F5 /* ForgotPw.storyboard in Resources */,
+				47AC1C872269A9D6001057DA /* BannerTableViewCell.xib in Resources */,
 				477AF349226093AA004F7F2E /* TitleView.xib in Resources */,
+				47AC1CB02269AA0E001057DA /* Home.storyboard in Resources */,
 				477AF32622609390004F7F2E /* Roboto-LightItalic.ttf in Resources */,
 				477AF32222609390004F7F2E /* Roboto-Bold.ttf in Resources */,
 				477AF355226093B6004F7F2E /* ParticipationTableHeaderView.xib in Resources */,
 				477AF32822609390004F7F2E /* Roboto-MediumItalic.ttf in Resources */,
 				477AF32122609390004F7F2E /* Roboto-BlackItalic.ttf in Resources */,
+				47AC1CBC2269AA43001057DA /* Main.storyboard in Resources */,
 				474EEEE72259FBFC008EAADE /* Register.storyboard in Resources */,
 				477AF32422609390004F7F2E /* Roboto-Italic.ttf in Resources */,
+				47AC1C792269A9D0001057DA /* CreateEvent.storyboard in Resources */,
+				47AC1CA32269A9F8001057DA /* JoinTeam.storyboard in Resources */,
+				47AC1C932269A9DE001057DA /* ParticipationTableViewCell.xib in Resources */,
+				47AC1C9A2269A9E7001057DA /* MemberTableViewCell.xib in Resources */,
+				47AC1CAC2269AA09001057DA /* Memberships.storyboard in Resources */,
 				477AF32322609390004F7F2E /* Roboto-BoldItalic.ttf in Resources */,
 				477AF32722609390004F7F2E /* Roboto-Medium.ttf in Resources */,
 				477AF32922609390004F7F2E /* Roboto-Regular.ttf in Resources */,
+				47AC1CBA2269AA3D001057DA /* LaunchScreen.storyboard in Resources */,
 				477AF32022609390004F7F2E /* Roboto-Black.ttf in Resources */,
 				477AF32C22609390004F7F2E /* Assets.xcassets in Resources */,
 				477AF34D226093B0004F7F2E /* TeamSelectionView.xib in Resources */,
+				47AC1C8C2269A9DA001057DA /* NewNews.storyboard in Resources */,
+				47AC1CA92269AA05001057DA /* MembershipTableViewCell.xib in Resources */,
+				47AC1C732269A9CD001057DA /* EventDetailCell.xib in Resources */,
 				477AF32522609390004F7F2E /* Roboto-Light.ttf in Resources */,
+				47AC1CB62269AA25001057DA /* Login.storyboard in Resources */,
+				47AC1C762269A9D0001057DA /* Events.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,30 +1571,52 @@
 			files = (
 				477AF33B22609396004F7F2E /* MainLocalization.strings in Resources */,
 				477AF343226093A2004F7F2E /* ParticipationStatus.xib in Resources */,
+				47AC1CA12269A9F6001057DA /* NewTeam.storyboard in Resources */,
+				47AC1C8F2269A9DA001057DA /* NewsTableViewCell.xib in Resources */,
+				47AC1C832269A9D0001057DA /* EventDetail.storyboard in Resources */,
 				477AF33E2260939D004F7F2E /* CoachPlusImageView.xib in Resources */,
 				477AF33822609390004F7F2E /* Roboto-ThinItalic.ttf in Resources */,
 				477AF35F226093B6004F7F2E /* ReusableTableHeader.xib in Resources */,
+				47AC1C702269A9C7001057DA /* User.storyboard in Resources */,
+				47AC1C6D2269A9C2001057DA /* UserSettings.storyboard in Resources */,
 				477AF346226093A6004F7F2E /* ParticipationView.xib in Resources */,
 				477AF35D226093B6004F7F2E /* TableHeaderView.xib in Resources */,
+				47AC1C992269A9E3001057DA /* SeeAllTableViewCell.xib in Resources */,
+				47AC1C9F2269A9EB001057DA /* EventTableViewCell.xib in Resources */,
 				477AF33722609390004F7F2E /* Roboto-Thin.ttf in Resources */,
+				47AC1CA72269A9FE001057DA /* Team.storyboard in Resources */,
 				477AF363226093B6004F7F2E /* ReusableParticipationHeaderView.xib in Resources */,
 				477AF31822609376004F7F2E /* Verification.storyboard in Resources */,
 				4715266122590080005262F5 /* ForgotPw.storyboard in Resources */,
+				47AC1C892269A9D6001057DA /* BannerTableViewCell.xib in Resources */,
 				477AF34B226093AB004F7F2E /* TitleView.xib in Resources */,
+				47AC1CB22269AA0E001057DA /* Home.storyboard in Resources */,
 				477AF33322609390004F7F2E /* Roboto-LightItalic.ttf in Resources */,
 				477AF32F22609390004F7F2E /* Roboto-Bold.ttf in Resources */,
 				477AF361226093B6004F7F2E /* ParticipationTableHeaderView.xib in Resources */,
 				477AF33522609390004F7F2E /* Roboto-MediumItalic.ttf in Resources */,
 				477AF32E22609390004F7F2E /* Roboto-BlackItalic.ttf in Resources */,
+				47AC1CBD2269AA43001057DA /* Main.storyboard in Resources */,
 				474EEEE82259FBFC008EAADE /* Register.storyboard in Resources */,
 				477AF33122609390004F7F2E /* Roboto-Italic.ttf in Resources */,
+				47AC1C812269A9D0001057DA /* CreateEvent.storyboard in Resources */,
+				47AC1CA52269A9F9001057DA /* JoinTeam.storyboard in Resources */,
+				47AC1C952269A9DE001057DA /* ParticipationTableViewCell.xib in Resources */,
+				47AC1C9B2269A9E7001057DA /* MemberTableViewCell.xib in Resources */,
+				47AC1CAE2269AA09001057DA /* Memberships.storyboard in Resources */,
 				477AF33022609390004F7F2E /* Roboto-BoldItalic.ttf in Resources */,
 				477AF33422609390004F7F2E /* Roboto-Medium.ttf in Resources */,
 				477AF33622609390004F7F2E /* Roboto-Regular.ttf in Resources */,
+				47AC1CBB2269AA3D001057DA /* LaunchScreen.storyboard in Resources */,
 				477AF32D22609390004F7F2E /* Roboto-Black.ttf in Resources */,
 				477AF33922609390004F7F2E /* Assets.xcassets in Resources */,
 				477AF34F226093B0004F7F2E /* TeamSelectionView.xib in Resources */,
+				47AC1C902269A9DA001057DA /* NewNews.storyboard in Resources */,
+				47AC1CAB2269AA06001057DA /* MembershipTableViewCell.xib in Resources */,
+				47AC1C752269A9CD001057DA /* EventDetailCell.xib in Resources */,
 				477AF33222609390004F7F2E /* Roboto-Light.ttf in Resources */,
+				47AC1CB72269AA26001057DA /* Login.storyboard in Resources */,
+				47AC1C7E2269A9D0001057DA /* Events.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1891,6 +2022,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC1CB42269AA1E001057DA /* LoginViewController.swift in Sources */,
 				477AF369226093BC004F7F2E /* User.swift in Sources */,
 				477AF2F822607812004F7F2E /* LoadingIndicatorHelper.swift in Sources */,
 				477AF2E922607812004F7F2E /* MembershipManager.swift in Sources */,
@@ -1902,12 +2034,17 @@
 				477AF31422609370004F7F2E /* News.swift in Sources */,
 				477AF36B226093BC004F7F2E /* InviteResponse.swift in Sources */,
 				477AF2E222607812004F7F2E /* OutlineButton.swift in Sources */,
+				47AC1CA82269AA05001057DA /* MembershipTableViewCell.swift in Sources */,
+				47AC1C772269A9D0001057DA /* EventsViewController.swift in Sources */,
 				477AF358226093B6004F7F2E /* NavigationBar.swift in Sources */,
 				477AF2F122607812004F7F2E /* UITextViewExtension.swift in Sources */,
+				47AC1CA22269A9F8001057DA /* CreateTeamViewController.swift in Sources */,
 				477AF354226093B6004F7F2E /* ParticipationTableHeaderView.swift in Sources */,
+				47AC1CBF2269AA47001057DA /* LaunchScreenController.swift in Sources */,
 				477AF2F422607812004F7F2E /* NotificationManager.swift in Sources */,
 				477AF350226093B6004F7F2E /* TableHeaderView.swift in Sources */,
 				477AF2FA22607812004F7F2E /* UIButtonExtension.swift in Sources */,
+				47AC1C6F2269A9C7001057DA /* UserViewController.swift in Sources */,
 				477AF345226093A6004F7F2E /* ParticipationView.swift in Sources */,
 				477AF37822609ADA004F7F2E /* ForgotPwViewController.swift in Sources */,
 				477AF2E822607812004F7F2E /* ApiResponse.swift in Sources */,
@@ -1915,22 +2052,31 @@
 				477AF37F2260A6EF004F7F2E /* JoinTeamViewController.swift in Sources */,
 				477AF3832260CBE7004F7F2E /* AppDelegate.swift in Sources */,
 				477AF31A2260937C004F7F2E /* MailSentViewController.swift in Sources */,
+				47AC1C8A2269A9DA001057DA /* NewsTableViewCell.swift in Sources */,
 				477AF2F022607812004F7F2E /* UIImageViewExtension.swift in Sources */,
 				477AF36A226093BC004F7F2E /* Membership.swift in Sources */,
 				477AF35A226093B6004F7F2E /* HeaderView.swift in Sources */,
+				47AC1C862269A9D6001057DA /* BannerTableViewCell.swift in Sources */,
 				477AF2F622607812004F7F2E /* UIFontExtension.swift in Sources */,
 				477AF31722609376004F7F2E /* VerificationViewController.swift in Sources */,
 				477AF3812260B76E004F7F2E /* TeamViewController.swift in Sources */,
 				477AF2E422607812004F7F2E /* Helpers.swift in Sources */,
+				47AC1CB82269AA32001057DA /* CoachPlus.swift in Sources */,
+				47AC1C6A2269A97D001057DA /* MemberTableViewCell.swift in Sources */,
 				477AF2EA22607812004F7F2E /* UserManager.swift in Sources */,
 				477AF2E022607812004F7F2E /* FlowManager.swift in Sources */,
+				47AC1C7C2269A9D0001057DA /* EventDetailViewController.swift in Sources */,
 				477AF37D22609E07004F7F2E /* ErrorHandler.swift in Sources */,
 				477AF359226093B6004F7F2E /* CoachPlusViewController.swift in Sources */,
 				4749C5151E81B7FF0068B0FA /* CoachPlusTests.swift in Sources */,
 				477AF352226093B6004F7F2E /* ReusableTableHeader.swift in Sources */,
 				477AF33D2260939D004F7F2E /* CoachPlusImageView.swift in Sources */,
+				47AC1C962269A9E2001057DA /* SeeAllTableViewCell.swift in Sources */,
+				47AC1C782269A9D0001057DA /* EventListViewController.swift in Sources */,
+				47AC1C8D2269A9DA001057DA /* NewNewsViewController.swift in Sources */,
 				477AF2E322607812004F7F2E /* StringExtension.swift in Sources */,
 				477AF36C226093BC004F7F2E /* Event.swift in Sources */,
+				47AC1C722269A9CD001057DA /* EventDetailCell.swift in Sources */,
 				477AF2EE22607812004F7F2E /* CoachPlusNavigationViewController.swift in Sources */,
 				477AF2EF22607812004F7F2E /* UIApplicationExtension.swift in Sources */,
 				477AF2E622607812004F7F2E /* DropdownAlert.swift in Sources */,
@@ -1944,11 +2090,18 @@
 				477AF2C2226077F6004F7F2E /* UserSettingsViewController.swift in Sources */,
 				477AF368226093BC004F7F2E /* Team.swift in Sources */,
 				477AF35B226093B6004F7F2E /* SeparatorView.swift in Sources */,
+				47AC1C922269A9DE001057DA /* ParticipationTableViewCell.swift in Sources */,
+				47AC1CAD2269AA09001057DA /* MembershipsController.swift in Sources */,
+				47AC1C7D2269A9D0001057DA /* EventsButtonBarView.swift in Sources */,
 				477AF2EC22607812004F7F2E /* UITableViewExtension.swift in Sources */,
 				477AF348226093AA004F7F2E /* TitleView.swift in Sources */,
 				477AF2F722607812004F7F2E /* UIViewExtension.swift in Sources */,
+				47AC1CBE2269AA47001057DA /* ViewController.swift in Sources */,
+				47AC1C9C2269A9EB001057DA /* EventTableViewCell.swift in Sources */,
 				477AF2ED22607812004F7F2E /* UIViewControllerExtension.swift in Sources */,
 				477AF2E722607812004F7F2E /* DataHandler.swift in Sources */,
+				47AC1C7A2269A9D0001057DA /* CreateEventViewController.swift in Sources */,
+				47AC1CB12269AA0E001057DA /* HomeViewController.swift in Sources */,
 				477AF36D226093BC004F7F2E /* Participation.swift in Sources */,
 				477AF2E522607812004F7F2E /* Authentication.swift in Sources */,
 				477AF36E226093BC004F7F2E /* ParticipationItem.swift in Sources */,
@@ -1960,6 +2113,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC1CB52269AA1E001057DA /* LoginViewController.swift in Sources */,
 				477AF371226093BD004F7F2E /* User.swift in Sources */,
 				477AF31122607812004F7F2E /* LoadingIndicatorHelper.swift in Sources */,
 				474EEEE42259F605008EAADE /* StringExtension.swift in Sources */,
@@ -1971,12 +2125,17 @@
 				477AF31522609370004F7F2E /* News.swift in Sources */,
 				477AF373226093BD004F7F2E /* InviteResponse.swift in Sources */,
 				477AF30022607812004F7F2E /* DropdownAlert.swift in Sources */,
+				47AC1CAA2269AA06001057DA /* MembershipTableViewCell.swift in Sources */,
+				47AC1C7F2269A9D0001057DA /* EventsViewController.swift in Sources */,
 				477AF364226093B6004F7F2E /* NavigationBar.swift in Sources */,
 				477AF30922607812004F7F2E /* UIApplicationExtension.swift in Sources */,
+				47AC1CA42269A9F9001057DA /* CreateTeamViewController.swift in Sources */,
 				477AF360226093B6004F7F2E /* ParticipationTableHeaderView.swift in Sources */,
+				47AC1CC12269AA47001057DA /* LaunchScreenController.swift in Sources */,
 				474EEEDF2259F57F008EAADE /* OutlineButton.swift in Sources */,
 				477AF35C226093B6004F7F2E /* TableHeaderView.swift in Sources */,
 				477AF31322607812004F7F2E /* UIButtonExtension.swift in Sources */,
+				47AC1C712269A9C7001057DA /* UserViewController.swift in Sources */,
 				477AF347226093A6004F7F2E /* ParticipationView.swift in Sources */,
 				477AF37922609ADB004F7F2E /* ForgotPwViewController.swift in Sources */,
 				477AF2FE22607812004F7F2E /* Helpers.swift in Sources */,
@@ -1984,22 +2143,31 @@
 				477AF3802260A6EF004F7F2E /* JoinTeamViewController.swift in Sources */,
 				477AF3842260CBE8004F7F2E /* AppDelegate.swift in Sources */,
 				477AF31C2260937C004F7F2E /* MailSentViewController.swift in Sources */,
+				47AC1C8E2269A9DA001057DA /* NewsTableViewCell.swift in Sources */,
 				477AF2C52260780C004F7F2E /* UrlHandler.swift in Sources */,
 				477AF372226093BD004F7F2E /* Membership.swift in Sources */,
 				477AF366226093B6004F7F2E /* HeaderView.swift in Sources */,
+				47AC1C882269A9D6001057DA /* BannerTableViewCell.swift in Sources */,
 				477AF30F22607812004F7F2E /* UIFontExtension.swift in Sources */,
 				477AF31922609376004F7F2E /* VerificationViewController.swift in Sources */,
 				477AF3822260B76F004F7F2E /* TeamViewController.swift in Sources */,
 				477AF2C3226077F6004F7F2E /* UserSettingsViewController.swift in Sources */,
+				47AC1CB92269AA32001057DA /* CoachPlus.swift in Sources */,
+				47AC1C6B2269A97D001057DA /* MemberTableViewCell.swift in Sources */,
 				477AF30322607812004F7F2E /* MembershipManager.swift in Sources */,
 				477AF30E22607812004F7F2E /* NotificationManager.swift in Sources */,
+				47AC1C842269A9D0001057DA /* EventDetailViewController.swift in Sources */,
 				477AF37E22609E07004F7F2E /* ErrorHandler.swift in Sources */,
 				477AF365226093B6004F7F2E /* CoachPlusViewController.swift in Sources */,
 				477AF30122607812004F7F2E /* DataHandler.swift in Sources */,
 				477AF35E226093B6004F7F2E /* ReusableTableHeader.swift in Sources */,
 				477AF33F2260939D004F7F2E /* CoachPlusImageView.swift in Sources */,
+				47AC1C982269A9E3001057DA /* SeeAllTableViewCell.swift in Sources */,
+				47AC1C802269A9D0001057DA /* EventListViewController.swift in Sources */,
+				47AC1C912269A9DA001057DA /* NewNewsViewController.swift in Sources */,
 				477AF30822607812004F7F2E /* CoachPlusNavigationViewController.swift in Sources */,
 				477AF374226093BD004F7F2E /* Event.swift in Sources */,
+				47AC1C742269A9CD001057DA /* EventDetailCell.swift in Sources */,
 				477AF30722607812004F7F2E /* UIViewControllerExtension.swift in Sources */,
 				477AF30B22607812004F7F2E /* UITextViewExtension.swift in Sources */,
 				477AF2FB22607812004F7F2E /* GradientView.swift in Sources */,
@@ -2013,11 +2181,18 @@
 				477AF30522607812004F7F2E /* DateExtension.swift in Sources */,
 				477AF370226093BD004F7F2E /* Team.swift in Sources */,
 				477AF367226093B6004F7F2E /* SeparatorView.swift in Sources */,
+				47AC1C942269A9DE001057DA /* ParticipationTableViewCell.swift in Sources */,
+				47AC1CAF2269AA09001057DA /* MembershipsController.swift in Sources */,
+				47AC1C852269A9D0001057DA /* EventsButtonBarView.swift in Sources */,
 				477AF30D22607812004F7F2E /* ImageHelper.swift in Sources */,
 				477AF34A226093AB004F7F2E /* TitleView.swift in Sources */,
 				477AF31022607812004F7F2E /* UIViewExtension.swift in Sources */,
+				47AC1CC02269AA47001057DA /* ViewController.swift in Sources */,
+				47AC1C9E2269A9EB001057DA /* EventTableViewCell.swift in Sources */,
 				477AF2FC22607812004F7F2E /* FlowManager.swift in Sources */,
 				474EEEE62259F960008EAADE /* ButtonExtensions.swift in Sources */,
+				47AC1C822269A9D0001057DA /* CreateEventViewController.swift in Sources */,
+				47AC1CB32269AA0E001057DA /* HomeViewController.swift in Sources */,
 				477AF375226093BD004F7F2E /* Participation.swift in Sources */,
 				477AF2FF22607812004F7F2E /* Authentication.swift in Sources */,
 				477AF376226093BD004F7F2E /* ParticipationItem.swift in Sources */,
@@ -2283,12 +2458,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EMYEJ6A5DS;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CoachPlusTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mathandoro.CoachPlusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoachPlus.app/CoachPlus";
 			};
@@ -2300,12 +2476,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EMYEJ6A5DS;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CoachPlusTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mathandoro.CoachPlusTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoachPlus.app/CoachPlus";
 			};
@@ -2322,7 +2499,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mathandoro.CoachPlusUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = CoachPlus;
 			};
 			name = Debug;
@@ -2338,7 +2515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mathandoro.CoachPlusUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = CoachPlus;
 			};
 			name = Release;

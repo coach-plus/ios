@@ -8,8 +8,12 @@
 
 import UIKit
 
-protocol EventDetailCellActions {
+protocol EventDetailCellDeleteDelegate {
     func delete(event: Event)
+}
+
+protocol EventDetailCellReminderDelegate {
+    func sendReminder(event: Event)
 }
 
 class EventDetailCell: UITableViewCell {
@@ -39,6 +43,7 @@ class EventDetailCell: UITableViewCell {
     var team: Team?
     var isCoach = false
     var vc: UIViewController?
+    var reminderDelegate: EventDetailCellReminderDelegate?
 
     func configure(event: Event, team: Team, isCoach: Bool?, vc: UIViewController?) {
         
@@ -79,9 +84,7 @@ class EventDetailCell: UITableViewCell {
         })
         
         let reminderButton = UIAlertAction(title: "SEND_REMINDER".localize(), style: .default, handler: { (action) -> Void in
-            
-            // TODO: send reminder
-            
+            self.reminderDelegate?.sendReminder(event: self.event!)
         })
         
         let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in
@@ -89,7 +92,11 @@ class EventDetailCell: UITableViewCell {
         })
         
         alertController.addAction(editButton)
-        alertController.addAction(reminderButton)
+        
+        if (self.event!.isInFuture()) {
+            alertController.addAction(reminderButton)
+        }
+        
         alertController.addAction(cancelButton)
         
         self.vc?.present(alertController, animated: true, completion: nil)

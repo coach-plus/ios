@@ -26,6 +26,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         case Edit
     }
     
+    @IBOutlet weak var titleImageV: UIImageView!
     @IBOutlet weak var startL: UILabel!
     @IBOutlet weak var endL: UILabel!
     @IBOutlet weak var titleTf: UITextField!
@@ -86,6 +87,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         self.setImage(imageView: self.startImageV, icon: .fontAwesomeSolid(.clock))
         self.setImage(imageView: self.locationImageV, icon: .fontAwesomeSolid(.mapMarkerAlt))
         self.setImage(imageView: self.descriptionImageV, icon: .fontAwesomeSolid(.alignJustify))
+        self.setImage(imageView: self.titleImageV, icon: .fontAwesomeSolid(.edit))
         
         self.setRightBarButton(type: .cancel)
         

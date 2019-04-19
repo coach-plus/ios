@@ -70,6 +70,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationManager.shared.setTeamVc(teamVc: self)
+        
         let nib = UINib(nibName: "ReusableTableHeader", bundle: nil)
         self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableHeader")
         

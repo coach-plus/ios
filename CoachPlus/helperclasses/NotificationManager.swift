@@ -9,11 +9,14 @@
 import Foundation
 import UIKit
 import UserNotifications
-
+import PromiseKit
 
 class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
-    var vc:UIViewController?
+    static let shared = NotificationManager()
+    
+    var teamVc: UIViewController?
+    var currentVc: CoachPlusViewController?
     var isGrantedAccess:Bool = false
     
     enum NotificationCategory:String {
@@ -26,11 +29,14 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         case eventReminderWillNotAttend = "EVENT_REMINDER-WILL_NOT_ATTEND"
     }
     
-    
-    init(vc:UIViewController) {
-        super.init()
-        self.vc = vc
+    func setTeamVc(teamVc:UIViewController) {
+        self.teamVc = teamVc
         UNUserNotificationCenter.current().delegate = self
+        self.registerForNotifications()
+    }
+    
+    func setCurrentVc(currentVc: CoachPlusViewController) {
+        self.currentVc = currentVc
     }
     
     func registerForNotifications() {
@@ -46,7 +52,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
                     let alert = UIAlertController(title: "Notification Access", message: "In order to use this application, turn on notification permissions.", preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
                     alert.addAction(alertAction)
-                    self.vc?.present(alert , animated: true, completion: nil)
+                    self.currentVc?.present(alert , animated: true, completion: nil)
                 }
         })
     }
@@ -104,13 +110,47 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
                 completionHandler()
             }
         default:
-            print("Other Action")
+            self.handleNotification(userInfo: response.notification.request.content.userInfo)
             completionHandler()
         }
         
         
     }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound])
+    }
+    
+    func handleNotification(userInfo: [AnyHashable: Any]) {
+        
+        let aps = userInfo["aps"] as! [AnyHashable: Any]
+        let category = aps["category"] as! String
+        
+        switch category {
+        case NotificationCategory.EventReminder.rawValue:
+            
+            
+            let teamId = userInfo["teamId"] as! String
+            let eventId = userInfo["eventId"] as! String
+            let membership = MembershipManager.shared.getMembershipFromLocalMemberships(teamId: teamId)
+            
+            if (membership != nil) {
+                MembershipManager.shared.setSelectedMembership(membership: membership)
+                
+                currentVc?.loadData(text: nil, promise: DataHandler.def.getEvent(teamId: teamId, eventId: eventId)).done({ event in
+                    self.currentVc!.pushToEventDetail(currentVC: self.currentVc!, event: event)
+                })
+                
+                
+                
+            }
+            
+            break
+        default:
+            break
+        }
+    }
     
     
 }

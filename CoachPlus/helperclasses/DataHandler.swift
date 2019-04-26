@@ -15,8 +15,8 @@ class DataHandler {
     static let def = DataHandler()
     
     func getUrl(_ url:String) -> String {
-        // return "https://dev.coach.plus/api/" + url
-        return "http://192.168.222.37:5200/api/" + url
+        return "https://dev.coach.plus/api/" + url
+        //return "http://192.168.222.37:5200/api/" + url
     }
     
     func authHeaders() -> HTTPHeaders {

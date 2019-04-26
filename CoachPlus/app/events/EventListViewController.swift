@@ -34,6 +34,10 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
         self.tableView.register(nib: "EventTableViewCell", reuseIdentifier: "EventTableViewCell")
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        
+        EventManager.shared.eventsChanged.subscribe({ event in
+            self.loadEvents()
+        }).disposed(by: self.disposeBag)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

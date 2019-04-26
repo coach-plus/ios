@@ -21,7 +21,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     enum NotificationCategory:String {
         case EventReminder = "EVENT_REMINDER"
-        case NewAnnouncement = "NEW_ANNOUNCEMENT"
+        case News = "NEWS"
     }
     
     enum NotificationAction:String {
@@ -127,28 +127,22 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         let aps = userInfo["aps"] as! [AnyHashable: Any]
         let category = aps["category"] as! String
         
-        switch category {
-        case NotificationCategory.EventReminder.rawValue:
-            
-            
-            let teamId = userInfo["teamId"] as! String
-            let eventId = userInfo["eventId"] as! String
-            let membership = MembershipManager.shared.getMembershipFromLocalMemberships(teamId: teamId)
-            
-            if (membership != nil) {
+        let teamId = userInfo["teamId"] as! String
+        let eventId = userInfo["eventId"] as! String
+        let membership = MembershipManager.shared.getMembershipFromLocalMemberships(teamId: teamId)
+        
+        if (membership != nil) {
+            switch category {
+            case NotificationCategory.EventReminder.rawValue,
+                 NotificationCategory.News.rawValue:
                 MembershipManager.shared.setSelectedMembership(membership: membership)
-                
                 currentVc?.loadData(text: nil, promise: DataHandler.def.getEvent(teamId: teamId, eventId: eventId)).done({ event in
                     self.currentVc!.pushToEventDetail(currentVC: self.currentVc!, event: event)
                 })
-                
-                
-                
+                break
+            default:
+                break
             }
-            
-            break
-        default:
-            break
         }
     }
     

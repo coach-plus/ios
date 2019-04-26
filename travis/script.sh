@@ -1,2 +1,2 @@
 #!/bin/sh
-fastlane build_beta
+travis_wait fastlane build_beta

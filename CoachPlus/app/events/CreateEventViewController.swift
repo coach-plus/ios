@@ -104,6 +104,12 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
             title = "CREATE_EVENT"
             createSaveBtnTitle = "CREATE_EVENT"
             self.deleteBtn.isHidden = true
+            
+            
+            self.start = Date()
+            self.end = Calendar.current.date(byAdding: .hour, value: 2, to: self.start!)
+            self.updateDateTimeLabels()
+            
             break
         case .Edit:
             title = "UPDATE_EVENT"
@@ -190,6 +196,10 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
                 (date) -> Void in
                 if let dt = date {
                     self.start = dt
+                    
+                    if (self.start!.isAfterDate(self.end!, granularity: .minute)) {
+                        self.end = self.start
+                    }
                     self.updateDateTimeLabels()
                 }
             })
@@ -202,6 +212,9 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
                 (date) -> Void in
                 if let dt = date {
                     self.end = dt
+                    if (self.start!.isAfterDate(self.end!, granularity: .minute)) {
+                        self.start = self.end
+                    }
                     self.updateDateTimeLabels()
                 }
             })
@@ -298,6 +311,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         
         self.loadData(text: "UPDATE_EVENT", promise: DataHandler.def.updateEvent(teamId: self.event!.teamId, eventId: self.event!.id, updateEvent: updateEvent)).done({response in
             self.dismiss(animated: true, completion: {
+                EventManager.shared.eventsChanged.onNext(nil)
                 self.delegate?.eventChanged(newEvent: response.toObject(Event.self, property: "event"))
             })
         }).catch({ err in
@@ -312,6 +326,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         self.showConfirmation(title: "DELETE_EVENT", message: "DELETE_EVENT_CONFIRMATION", yes: "YES", no: "NO", yesStyle: .destructive, noStyle: .default, yesHandler: { action in
             self.loadData(text: "DELETE_EVENT", promise: DataHandler.def.deleteEvent(event: self.event!)).done({ apiResponse in
                 self.dismiss(animated: true, completion: {
+                    EventManager.shared.eventsChanged.onNext(nil)
                    self.delegate?.eventDeleted()
                 })
             })

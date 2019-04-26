@@ -64,6 +64,10 @@
 		473A5F891E8A9224002FD833 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F871E8A9224002FD833 /* User.swift */; };
 		473A5F8B1E8A92D1002FD833 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F8A1E8A92D1002FD833 /* Membership.swift */; };
 		473A5F8C1E8A92D1002FD833 /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F8A1E8A92D1002FD833 /* Membership.swift */; };
+		473ADF4022732DD50055FE0B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
+		473ADF4122732DD50055FE0B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
+		473ADF4222732DD50055FE0B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
+		473ADF4322732DD50055FE0B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
 		473DCE1B1EC3A6A000A42F51 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
 		473DCE1C1EC3A6A000A42F51 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
 		473DCE1E1EC3B9BB00A42F51 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */; };
@@ -580,6 +584,7 @@
 		473A5F7E1E8A749A002FD833 /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		473A5F871E8A9224002FD833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		473A5F8A1E8A92D1002FD833 /* Membership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Membership.swift; path = models/Membership.swift; sourceTree = "<group>"; };
+		473ADF3F22732DD50055FE0B /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventManager.swift; path = helperclasses/EventManager.swift; sourceTree = "<group>"; };
 		473DCE1A1EC3A6A000A42F51 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = User.storyboard; path = app/user/User.storyboard; sourceTree = "<group>"; };
 		473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = app/user/UserViewController.swift; sourceTree = "<group>"; };
 		473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = helperclasses/UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -960,6 +965,7 @@
 				47C58D242164F7C700E9E8C9 /* ApiError.swift */,
 				47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */,
 				477AF37A22609E07004F7F2E /* ErrorHandler.swift */,
+				473ADF3F22732DD50055FE0B /* EventManager.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -1884,6 +1890,7 @@
 				473A5F631E8A749A002FD833 /* UIColorExtension.swift in Sources */,
 				61CA9C831EA3F6E3004AFAC7 /* EventListViewController.swift in Sources */,
 				618692821F352EE8002814C1 /* Location.swift in Sources */,
+				473ADF4022732DD50055FE0B /* EventManager.swift in Sources */,
 				61CA9C891EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */,
 				477AF37B22609E07004F7F2E /* ErrorHandler.swift in Sources */,
 				47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */,
@@ -1974,6 +1981,7 @@
 				478DE2381E85409300DCF74A /* UIColorExtension.swift in Sources */,
 				61CA9C841EA3F6E3004AFAC7 /* EventListViewController.swift in Sources */,
 				618692831F352EE8002814C1 /* Location.swift in Sources */,
+				473ADF4122732DD50055FE0B /* EventManager.swift in Sources */,
 				61CA9C8A1EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift in Sources */,
 				477AF37C22609E07004F7F2E /* ErrorHandler.swift in Sources */,
 				47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */,
@@ -2062,6 +2070,7 @@
 				477AF3812260B76E004F7F2E /* TeamViewController.swift in Sources */,
 				477AF2E422607812004F7F2E /* Helpers.swift in Sources */,
 				47AC1CB82269AA32001057DA /* CoachPlus.swift in Sources */,
+				473ADF4222732DD50055FE0B /* EventManager.swift in Sources */,
 				47AC1C6A2269A97D001057DA /* MemberTableViewCell.swift in Sources */,
 				477AF2EA22607812004F7F2E /* UserManager.swift in Sources */,
 				477AF2E022607812004F7F2E /* FlowManager.swift in Sources */,
@@ -2153,6 +2162,7 @@
 				477AF3822260B76F004F7F2E /* TeamViewController.swift in Sources */,
 				477AF2C3226077F6004F7F2E /* UserSettingsViewController.swift in Sources */,
 				47AC1CB92269AA32001057DA /* CoachPlus.swift in Sources */,
+				473ADF4322732DD50055FE0B /* EventManager.swift in Sources */,
 				47AC1C6B2269A97D001057DA /* MemberTableViewCell.swift in Sources */,
 				477AF30322607812004F7F2E /* MembershipManager.swift in Sources */,
 				477AF30E22607812004F7F2E /* NotificationManager.swift in Sources */,

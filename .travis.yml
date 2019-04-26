@@ -7,7 +7,7 @@ before_install:
     - export MATCH_KEYCHAIN_NAME=ios-build.keychain
     - fastlane setup_keychain
 script:
-    - chmod +x travis/script.sh && ./travis/script.sh
+    - travis_wait fastlane build_beta
 deploy:
 - provider: script
   skip_cleanup: true

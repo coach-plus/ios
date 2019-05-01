@@ -74,20 +74,20 @@ class EventDetailCell: UITableViewCell {
     }
     
     func showActions() {
-        let alertController = UIAlertController(title: "ACTIONS".localize(), message: "ACTIONS_WHAT_TO_DO".localize(), preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: L10n.actions, message: L10n.pleaseSelectAnAction, preferredStyle: .actionSheet)
         
-        let editButton = UIAlertAction(title: "EDIT".localize(), style: .default, handler: { (action) -> Void in
+        let editButton = UIAlertAction(title: L10n.edit, style: .default, handler: { (action) -> Void in
             
             let editEventVc = FlowManager.createEditEventVc(mode: .Edit, membership: MembershipManager.shared.selectedMembership, event: self.event, delegate: self.vc as? CreateEventViewControllerDelegate)
             
             self.vc?.present(editEventVc, animated: true, completion: nil)
         })
         
-        let reminderButton = UIAlertAction(title: "SEND_REMINDER".localize(), style: .default, handler: { (action) -> Void in
+        let reminderButton = UIAlertAction(title: L10n.sendReminder, style: .default, handler: { (action) -> Void in
             self.reminderDelegate?.sendReminder(event: self.event!)
         })
         
-        let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in
+        let cancelButton = UIAlertAction(title: L10n.cancel, style: .cancel, handler: { (action) -> Void in
             
         })
         

@@ -283,7 +283,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func loadData(forceLoadingIndicator: Bool) {
         if (self.membership?.team != nil) {
             if ((self.members.count == 0 && self.events.count == 0) || forceLoadingIndicator) {
-                MBProgressHUD.createHUD(view: self.view, msg: "LOAD_TEAM".localize())
+                MBProgressHUD.createHUD(view: self.view, msg: L10n.loading)
             }
             
             self.getMembers()
@@ -445,10 +445,10 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         switch self.eventRowType(indexPath) {
         case .empty:
             cell = UITableViewCell(style: .default, reuseIdentifier: "NoEventsCell")
-            cell.textLabel?.text = "NO_UPCOMING_EVENTS".localize()
+            cell.textLabel?.text = L10n.thereAreNoPlannedEvents
         case .seeAll:
             let cell1 = self.tableView.dequeueReusableCell(withIdentifier: "SeeAllTableViewCell", for: indexPath) as! SeeAllTableViewCell
-            cell1.textLbl.text = "SEE_ALL".localize()
+            cell1.textLbl.text = L10n.showAllEvents
             cell = cell1
         case .event:
             let cell1 = self.tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as! EventTableViewCell
@@ -494,9 +494,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         switch sectionType {
         case .events:
-            view.tableHeader.title = "EVENTS"
+            view.tableHeader.title = L10n.events
         default:
-            view.tableHeader.title = "MEMBERS"
+            view.tableHeader.title = L10n.members
         }
         return view
     }
@@ -518,7 +518,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             
             let url = URL(string: link)!
             
-            let vc = UIActivityViewController(activityItems: ["Aloha! Join your awesome team", url], applicationActivities: nil)
+            let vc = UIActivityViewController(activityItems: [L10n.joinThisPrivateTeam, url], applicationActivities: nil)
             vc.excludedActivityTypes =
                 [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.saveToCameraRoll, UIActivity.ActivityType.postToFlickr,
                  UIActivity.ActivityType.postToVimeo, UIActivity.ActivityType.openInIBooks]
@@ -605,12 +605,12 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         switch self.mode {
             case .notAvailable:
-                string = "TEAM_NOT_AVAILABLE".localize()
+                string = L10n.thisTeamIsNotAvailable
                 break
             case .noTeams:
                 return nil
             case .error:
-                string = "TEAM_ERROR".localize()
+                string = L10n.thereWasAnErrorLoadingThisTeam
                 break
             default:
                 return nil
@@ -628,11 +628,11 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         switch self.mode {
         case .notAvailable:
-            string = "TEAM_NOT_AVAILABLE_DESCRIPTION".localize()
+            string = ""
             break
             
         case .noTeams:
-            string = "NO_TEAM_SELECTED_DESCRIPTION".localize()
+            string = L10n.youDoNotHaveATeamYet
             break
             
         default:
@@ -650,7 +650,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         switch self.mode {
             
         case .noTeams:
-            string = "CREATE_TEAM".localize()
+            string = L10n.createTeam
             break
             
         default:

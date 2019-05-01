@@ -29,12 +29,12 @@ class LoginViewController: CoachPlusViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.emailTf.placeholder = "EMAIL".localize()
-        self.passwordTf.placeholder = "PASSWORD".localize()
+        self.emailTf.placeholder = L10n.email
+        self.passwordTf.placeholder = L10n.password
         
-        self.loginBtn.setTitleForAllStates(title: "LOGIN".localize())
-        self.registerBtn.setTitleForAllStates(title: "REGISTER".localize())
-        self.forgotPwBtn.setTitleForAllStates(title: "FORGOT_PW".localize())
+        self.loginBtn.setTitleForAllStates(title: L10n.login)
+        self.registerBtn.setTitleForAllStates(title: L10n.register)
+        self.forgotPwBtn.setTitleForAllStates(title: L10n.forgotPassword)
     }
     
     func goToForgotPw() {
@@ -46,7 +46,7 @@ class LoginViewController: CoachPlusViewController {
         let password = self.passwordTf.text!
         
         
-        self.loadData(text: "LOGIN", promise: DataHandler.def.login(email: email, password: password)).done({ apiResponse in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.login(email: email, password: password)).done({ apiResponse in
             
             DataHandler.def.getMyMemberships().done({ memberships in
                 FlowManager.goToHome(sourceVc: self)

@@ -29,9 +29,9 @@ class NewNewsViewController: CoachPlusViewController {
     var event:Event?
     
     override func viewDidLoad() {
-        self.messageTf.placeholder = "NEWS_MESSAGE".localize()
-        self.tableHeaderView.title = "NEWS_CREATE_HEADER".localize()
-        self.createBtn.setTitle("NEWS_CREATE_HEADER".localize(), for: .normal)
+        self.messageTf.placeholder = L10n.message
+        self.tableHeaderView.title = L10n.newNews
+        self.createBtn.setTitle(L10n.newNews, for: .normal)
     }
     
     func createNews() {
@@ -47,7 +47,7 @@ class NewNewsViewController: CoachPlusViewController {
             "text": message
         ]
         
-        self.loadData(text: "CREATE_NEWS", promise: DataHandler.def.createNews(event: self.event!, createNews: createNews)).done({ response in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.createNews(event: self.event!, createNews: createNews)).done({ response in
             if self.delegate != nil {
                 self.delegate!.newsCreated()
             }

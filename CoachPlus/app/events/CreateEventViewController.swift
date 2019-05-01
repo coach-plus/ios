@@ -79,8 +79,8 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         self.startTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.handleTap(sender:)))
         self.endTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.handleTap(sender:)))
         
-        self.titleTf.placeholder = "NAME".localize()
-        self.locationTf.placeholder = "LOCATION".localize()
+        self.titleTf.placeholder = L10n.eventName
+        self.locationTf.placeholder = L10n.location
         
         self.configureFields()
         
@@ -101,8 +101,8 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         
         switch self.mode {
         case .Create:
-            title = "CREATE_EVENT"
-            createSaveBtnTitle = "CREATE_EVENT"
+            title = L10n.createEvent
+            createSaveBtnTitle = L10n.createEvent
             self.deleteBtn.isHidden = true
             
             
@@ -112,8 +112,8 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
             
             break
         case .Edit:
-            title = "UPDATE_EVENT"
-            createSaveBtnTitle = "UPDATE_EVENT"
+            title = L10n.updateEvent
+            createSaveBtnTitle = L10n.updateEvent
             
             self.deleteBtn.isHidden = false
             
@@ -169,7 +169,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         
         self.descriptionTv.textColor = UIColor(hexString: "#C7C7CD")
         self.descriptionTv.font = UIFont.systemFont(ofSize: 16)//UIFont(name: "HelveticaNeue-Medium", size: 16)
-        self.descriptionTv.text = "DESCRIPTION".localize()
+        self.descriptionTv.text = L10n.description
         
     }
     
@@ -192,7 +192,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
             if let d = self.start {
                 date = d
             }
-            datePickerDialog.show("START_DATE".localize(), doneButtonTitle: "DONE".localize(), cancelButtonTitle: "CANCEL".localize(), defaultDate: date, minimumDate: nil, maximumDate: nil, datePickerMode: .dateAndTime, callback: {
+            datePickerDialog.show(L10n.start, doneButtonTitle: L10n.done, cancelButtonTitle: L10n.cancel, defaultDate: date, minimumDate: nil, maximumDate: nil, datePickerMode: .dateAndTime, callback: {
                 (date) -> Void in
                 if let dt = date {
                     self.start = dt
@@ -208,7 +208,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
             if let d = self.end {
                 date = d
             }
-            datePickerDialog.show("END_DATE".localize(), doneButtonTitle: "DONE".localize(), cancelButtonTitle: "CANCEL".localize(), defaultDate: date, minimumDate: nil, maximumDate: nil, datePickerMode: .dateAndTime, callback: {
+            datePickerDialog.show(L10n.end, doneButtonTitle: L10n.done, cancelButtonTitle: L10n.cancel, defaultDate: date, minimumDate: nil, maximumDate: nil, datePickerMode: .dateAndTime, callback: {
                 (date) -> Void in
                 if let dt = date {
                     self.end = dt
@@ -246,7 +246,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
 
         let createEvent = self.getEventFromFields()
         
-        self.loadData(text: "CREATE_EVENT", promise: DataHandler.def.createEvent(team: (self.membership?.team!)!, createEvent: createEvent)).done({response in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.createEvent(team: (self.membership?.team!)!, createEvent: createEvent)).done({response in
             self.dismiss(animated: true, completion: {
                 self.delegate?.eventCreated()
             })
@@ -259,22 +259,27 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
     func checkFields() -> Bool {
         
         guard self.titleTf.text != nil else {
-            DropdownAlert.error(message: "CREATE_EVENT_PLEASE_ENTER_NAME")
+            DropdownAlert.error(message: L10n.pleaseEnterAName)
             return false
         }
         
         guard self.locationTf.text != nil else {
-            DropdownAlert.error(message: "CREATE_EVENT_PLEASE_ENTER_LOCATION")
+            DropdownAlert.error(message: L10n.pleaseEnterALocation)
             return false
         }
         
-        guard self.start != nil && self.end != nil else {
-            DropdownAlert.error(message: "CREATE_EVENT_PLEASE_SELECT_START_AND_END")
+        guard self.start != nil else {
+            DropdownAlert.error(message: L10n.pleaseEnterAStartDate)
+            return false
+        }
+        
+        guard self.end != nil else {
+            DropdownAlert.error(message: L10n.pleaseEnterAnEndDate)
             return false
         }
         
         guard self.start! < self.end! else {
-            DropdownAlert.error(message: "CREATE_EVENT_END_MUST_BE_AFTER_START")
+            DropdownAlert.error(message: L10n.endDateMustBeAfterStartDate)
             return false
         }
         
@@ -309,7 +314,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         
         let updateEvent = self.getEventFromFields()
         
-        self.loadData(text: "UPDATE_EVENT", promise: DataHandler.def.updateEvent(teamId: self.event!.teamId, eventId: self.event!.id, updateEvent: updateEvent)).done({response in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.updateEvent(teamId: self.event!.teamId, eventId: self.event!.id, updateEvent: updateEvent)).done({response in
             self.dismiss(animated: true, completion: {
                 EventManager.shared.eventsChanged.onNext(nil)
                 self.delegate?.eventChanged(newEvent: response.toObject(Event.self, property: "event"))
@@ -323,8 +328,8 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
     
     func showDeleteConfirmation() {
         
-        self.showConfirmation(title: "DELETE_EVENT", message: "DELETE_EVENT_CONFIRMATION", yes: "YES", no: "NO", yesStyle: .destructive, noStyle: .default, yesHandler: { action in
-            self.loadData(text: "DELETE_EVENT", promise: DataHandler.def.deleteEvent(event: self.event!)).done({ apiResponse in
+        self.showConfirmation(title: L10n.deleteEvent, message: L10n.doYouReallyWantToDeleteThisEvent, yes: L10n.yes, no: L10n.no, yesStyle: .destructive, noStyle: .default, yesHandler: { action in
+            self.loadData(text: L10n.loading, promise: DataHandler.def.deleteEvent(event: self.event!)).done({ apiResponse in
                 self.dismiss(animated: true, completion: {
                     EventManager.shared.eventsChanged.onNext(nil)
                    self.delegate?.eventDeleted()

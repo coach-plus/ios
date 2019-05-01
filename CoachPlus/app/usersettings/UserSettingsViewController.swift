@@ -68,7 +68,6 @@ class UserSettingsViewController: CoachPlusViewController {
     }
     
     func setup() {
-        self.setupVerification()
         self.setupNavBar()
         self.setupTextFields()
     }
@@ -78,14 +77,14 @@ class UserSettingsViewController: CoachPlusViewController {
         if (isVerified) {
             self.verificationViewHeight.constant = 0
         } else {
-            self.verificationLbl.text = "VERIFICATION_NOT_VERIFIED".localize()
-            self.verificationBtn.setTitleForAllStates(title: "RESEND".localize())
+            self.verificationLbl.text = L10n.youAreNotVerified
+            self.verificationBtn.setTitleForAllStates(title: L10n.resendEMail)
         }
     }
     
     func setupNavBar() {
         
-        self.setNavbarTitle(title: "USER_SETTINGS".localize())
+        self.setNavbarTitle(title: L10n.userSettings)
         self.setLeftBarButton(type: .done)
  
     }
@@ -93,12 +92,12 @@ class UserSettingsViewController: CoachPlusViewController {
     
     
     func setupTextFields() {
-        self.personalHeader.title = "USER_SETTINGS_PERSONAL".localize()
+        self.personalHeader.title = L10n.personalSettings
         self.personalHeader.showBtn = false
         
-        self.firstnameTf.placeholder = "FIRSTNAME".localize()
-        self.lastnameTf.placeholder = "LASTNAME".localize()
-        self.emailTf.placeholder = "EMAIL".localize()
+        self.firstnameTf.placeholder = L10n.firstname
+        self.lastnameTf.placeholder = L10n.lastname
+        self.emailTf.placeholder = L10n.email
         
         self.firstnameTf.coachPlus()
         self.lastnameTf.coachPlus()
@@ -112,25 +111,25 @@ class UserSettingsViewController: CoachPlusViewController {
         self.newPwTf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         self.repeatPwTf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
-        self.savePersonalBtn.setTitleForAllStates(title: "SAVE")
+        self.savePersonalBtn.setTitleForAllStates(title: L10n.save)
         self.savePersonalBtn.coachPlus()
         
-        self.changePwHeader.title = "USER_SETTINGS_CHANGE_PW".localize()
+        self.changePwHeader.title = L10n.changePassword
         self.changePwHeader.showBtn = false
         
         self.currentPwTf.coachPlus()
         self.newPwTf.coachPlus()
         self.repeatPwTf.coachPlus()
         
-        self.currentPwTf.placeholder = "USER_SETTINGS_CHANGE_PW_CURRENT_PLACEHOLDER"
-        self.newPwTf.placeholder = "USER_SETTINGS_CHANGE_PW_NEW_PLACEHOLDER"
-        self.repeatPwTf.placeholder = "USER_SETTINGS_CHANGE_PW_REPEAT_PLACEHOLDER"
+        self.currentPwTf.placeholder = L10n.oldPassword
+        self.newPwTf.placeholder = L10n.newPassword
+        self.repeatPwTf.placeholder = L10n.repeatNewPassword
         
         self.currentPwTf.isSecureTextEntry = true
         self.newPwTf.isSecureTextEntry = true
         self.repeatPwTf.isSecureTextEntry = true
         
-        self.changePwBtn.setTitleForAllStates(title: "USER_SETTINGS_CHANGE_PW_BUTTON_TITLE")
+        self.changePwBtn.setTitleForAllStates(title: L10n.changePassword)
         self.changePwBtn.coachPlus()
     }
     
@@ -152,7 +151,7 @@ class UserSettingsViewController: CoachPlusViewController {
         self.firstnameTf.text = self.user!.firstname
         self.lastnameTf.text = self.user!.lastname
         self.emailTf.text = self.user!.email
-        
+        self.setupVerification()
         self.checkPersonal()
     }
     
@@ -161,11 +160,11 @@ class UserSettingsViewController: CoachPlusViewController {
             return
         }
         
-        self.loadData(text: "LOADING", promise: DataHandler.def.updateUserInfo(firstname: self.firstnameTf.text!, lastname: self.lastnameTf.text!, email: self.emailTf.text!)).done({ user in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.updateUserInfo(firstname: self.firstnameTf.text!, lastname: self.lastnameTf.text!, email: self.emailTf.text!)).done({ user in
             UserManager.storeUser(user: user)
             self.user = user
             UserManager.shared.userWasEdited.onNext(user)
-            DropdownAlert.success(message: "PERSONAL_DATA_CHANGED")
+            DropdownAlert.success(message: L10n.saved)
         })
     }
     
@@ -174,8 +173,8 @@ class UserSettingsViewController: CoachPlusViewController {
             return
         }
         
-        self.loadData(text: "LOADING", promise: DataHandler.def.changePassword(oldPassword: self.currentPwTf.text!, newPassword: self.newPwTf.text!, newPasswordRepeat: self.repeatPwTf.text!)).done({ user in
-            DropdownAlert.success(message: "PASSWORD_CHANGED")
+        self.loadData(text: L10n.loading, promise: DataHandler.def.changePassword(oldPassword: self.currentPwTf.text!, newPassword: self.newPwTf.text!, newPasswordRepeat: self.repeatPwTf.text!)).done({ user in
+            DropdownAlert.success(message: L10n.saved)
         })
     }
     
@@ -196,7 +195,7 @@ class UserSettingsViewController: CoachPlusViewController {
         let pwsAreEqual = (repeatPw && newPw && repeatPwTf.text == newPwTf.text)
         
         if (!pwsAreEqual) {
-            repeatPwTf.errorMessage = "PASSWORDS_MUST_MATCH".localize()
+            repeatPwTf.errorMessage = L10n.passwordsMustMatch
         }
         
         return oldPw && pwsAreEqual
@@ -207,7 +206,7 @@ class UserSettingsViewController: CoachPlusViewController {
             tf.errorMessage = nil
             return true
         } else {
-            tf.errorMessage = "PLEASE_FILL_IN_THIS_FIELD".localize()
+            tf.errorMessage = L10n.pleaseFillInThisField
             return false
         }
     }
@@ -217,14 +216,14 @@ class UserSettingsViewController: CoachPlusViewController {
             tf.errorMessage = nil
             return true
         } else {
-            tf.errorMessage = "PLEASE_ENTER_A_VALID_EMAIL".localize()
+            tf.errorMessage = L10n.pleaseEnterYourEmailAddress
             return false
         }
     }
 
     func resendVerificationEmail() {
-        self.loadData(text: "LOADING", promise: DataHandler.def.resendVerificationEmail()).done({ response in
-            DropdownAlert.success(message: "VERIFICATION_MAIL_SENT")
+        self.loadData(text: L10n.loading, promise: DataHandler.def.resendVerificationEmail()).done({ response in
+            DropdownAlert.success(message: L10n.confirmationEmailSent)
         })
     }
 }

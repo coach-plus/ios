@@ -164,16 +164,16 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     func bannerCell(indexPath: IndexPath) -> BannerTableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell", for: indexPath) as! BannerTableViewCell
         
-        var text = "MAINTAIN_WILL"
+        var text = L10n.pleaseSetParticipation
         var bgColor = UIColor.coachPlusBannerBackgroundColor
         var textColor = UIColor.coachPlusBlue
         
         if (self.userIsCoach() && event!.startedInPast()) {
-            text = "MAINTAIN_DID"
+            text = L10n.youCanNowSelectWhoParticipated
             textColor = UIColor.coachPlusBlue
         }
         
-        cell.configure(text: text.localize(), bgColor: bgColor, textColor: textColor)
+        cell.configure(text: text, bgColor: bgColor, textColor: textColor)
         
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         
@@ -194,7 +194,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     func newsCell(indexPath:IndexPath) -> UITableViewCell {
         if (!self.hasNews()) {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
-            cell.textLabel?.text = "No News"
+            cell.textLabel?.text = L10n.noNews
             return cell
         }
         
@@ -231,14 +231,14 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
                 view.tableHeader.showBtn = false
             }
             
-            view.tableHeader.title = "NEWS".localize()
+            view.tableHeader.title = L10n.news
             
             return view
         case .participation:
             let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReusableParticipationHeaderView")
             let view = cell as! ReusableParticipationHeaderView
             
-            view.tableHeader.setTitle(title: "PARTICIPATION".localize())
+            view.tableHeader.setTitle(title: L10n.participation)
         
             view.tableHeader.eventIsInPast = self.event!.isInPast()
             view.tableHeader.setLabels(participations: self.participationItems)
@@ -274,7 +274,6 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     }
     
     func newNews() {
-        print("new News")
         let vc = UIStoryboard(name: "NewNews", bundle: nil).instantiateInitialViewController() as! NewNewsViewController
         vc.delegate = self
         vc.event = self.event
@@ -288,7 +287,7 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let sectionType = self.getSectionType(section: indexPath.section)
         if (sectionType == .news && (self.membership?.isCoach())!) {
-            let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let delete = UITableViewRowAction(style: .destructive, title: L10n.delete) { (action, indexPath) in
                 self.deleteNews(indexPath: indexPath)
             }
             return [delete]

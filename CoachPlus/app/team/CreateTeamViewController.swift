@@ -81,7 +81,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
             ] as [String : Any]
         
         if (self.mode == .Create) {
-            self.loadData(text: "CREATE_TEAM", promise: DataHandler.def.createTeam(createTeam: team)).done({ membership in
+            self.loadData(text: L10n.loading, promise: DataHandler.def.createTeam(createTeam: team)).done({ membership in
                     FlowManager.selectAndOpenTeam(vc: self, teamId: membership.team?.id)
                     self.dismiss(animated: true, completion: nil)
                     MembershipManager.shared.loadMemberships()
@@ -89,7 +89,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
                     print(err)
                 })
         } else if (self.mode == .Edit) {
-            self.loadData(text: "UPDATE_TEAM", promise: DataHandler.def.updateTeam(teamId: self.team!.id, updatedTeam: team)).done({ team in
+            self.loadData(text: L10n.loading, promise: DataHandler.def.updateTeam(teamId: self.team!.id, updatedTeam: team)).done({ team in
                 self.dismiss(animated: true, completion: nil)
                 MembershipManager.shared.loadMemberships()
             }).catch({ err in
@@ -101,9 +101,9 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     
     @IBAction func deleteBtnTapped(_ sender: Any) {
         
-        self.showConfirmation(title: "DELETE_TEAM", message: "DELETE_TEAM_MESSAGE", yes: "DELETE_TEAM_YES", no: "CANCEL", yesStyle: .destructive, noStyle: .cancel, yesHandler: { _ in
-            self.loadData(text: "DELETE_TEAM", promise: DataHandler.def.deleteTeam(teamId: self.team!.id)).done({ response in
-                DropdownAlert.success(message: String(format: "DELETE_TEAM_SUCCESS".localize(), self.team!.name))
+        self.showConfirmation(title: L10n.deleteTeam, message: L10n.doYouReallyWantToDeleteS(self.team!.name), yes: L10n.yes, no: L10n.cancel, yesStyle: .destructive, noStyle: .cancel, yesHandler: { _ in
+            self.loadData(text: L10n.loading, promise: DataHandler.def.deleteTeam(teamId: self.team!.id)).done({ response in
+                DropdownAlert.success(message: L10n.teamDeleted)
                 FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
             })
         }, noHandler: nil, style: .actionSheet, showCancelButton: false)
@@ -146,8 +146,9 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     
     func setupCreateMode() {
         self.deleteBtn.isHidden = true
+        self.createBtn.setTitleForAllStates(title: L10n.createTeam)
         
-        self.headerView.title = "NEW_TEAM".localize()
+        self.headerView.title = L10n.newTeam
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(CreateTeamViewController.selectImageTapped(_:)))
         cameraImageV.isUserInteractionEnabled = true
@@ -155,13 +156,13 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     }
     
     func setupEditMode() {
-        self.createBtn.setTitleForAllStates(title: "SAVE_TEAM")
+        self.createBtn.setTitleForAllStates(title: L10n.save)
         
         self.deleteBtn.isHidden = false
         self.deleteBtn.tintColor = UIColor.coachPlusRedColor
         self.deleteBtn.setup()
         
-        self.headerView.title = "EDIT_TEAM".localize()
+        self.headerView.title = L10n.editTeam
         
         self.nameTf.text = self.team?.name
         self.publicSwitch.setOn(!self.team!.isPublic, animated: false)
@@ -198,9 +199,9 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     
     func handlePublicSwitchState() {
         if (self.publicSwitch.isOn) {
-            self.publicDescription.text = "CREATE_TEAM_MESSAGE_TEAM_PRIVATE".localize()
+            self.publicDescription.text = L10n.yourTeamIsPrivateAndYouCanInvitePeople
         } else {
-            self.publicDescription.text = "CREATE_TEAM_MESSAGE_TEAM_PUBLIC".localize()
+            self.publicDescription.text = L10n.yourTeamIsPublicAndEveryoneCanJoinIt
         }
     }
     
@@ -208,10 +209,10 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
                 if (text.count == 0) {
-                    floatingLabelTextField.errorMessage = "Bitte gib einen Namen ein"
+                    floatingLabelTextField.errorMessage = L10n.pleaseEnterATeamName
                     return false
                 } else if(text.count < 3) {
-                    floatingLabelTextField.errorMessage = "Der Name muss mindestens 3 Zeichen lang sein"
+                    floatingLabelTextField.errorMessage = L10n.theTeamSNameMustBeAtLeast3CharactersLong
                     return false
                 }
                 else {

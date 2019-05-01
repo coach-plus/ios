@@ -13,10 +13,10 @@ class DropdownAlert {
     
     static let errorBgColor = UIColor.red
     static let errorTextColor = UIColor.white
-    static let errorTitle = "Error"
+    static let errorTitle = L10n.error
     static let errorTime = 3
     
-    static let successTitle = "Erfolg"
+    static let successTitle = L10n.success
     
     static func error(message: String) {
         let msg = message.localize()

@@ -43,13 +43,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.emailLbl.errorColor = UIColor.coachPlusLightRed
         self.backBtn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.arrowLeft), color: .white, size: 20.0)
         
-        self.signInBtn.setTitleForAllStates(title: "REGISTER")
+        self.signInBtn.setTitleForAllStates(title: L10n.register)
         
-        self.firstnameLbl.placeholder = "FIRSTNAME".localize()
-        self.lastnameLbl.placeholder = "LASTNAME".localize()
-        self.emailLbl.placeholder = "EMAIL".localize()
-        self.passwordLbl.placeholder = "PW".localize()
-        self.repeatPasswordLbl.placeholder = "PW_REPEAT".localize()
+        self.firstnameLbl.placeholder = L10n.firstname
+        self.lastnameLbl.placeholder = L10n.lastname
+        self.emailLbl.placeholder = L10n.email
+        self.passwordLbl.placeholder = L10n.password
+        self.repeatPasswordLbl.placeholder = L10n.repeatPassword
         
         
 
@@ -82,17 +82,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
              self.lastnameLbl,
              self.passwordLbl:
             if (text.characters.count == 0) {
-                errorMessage = "Please fill out this field"
+                errorMessage = L10n.pleaseFillInThisField
             }
             break
             
         case self.emailLbl:
             if (!text.isValidEmail) {
-                errorMessage = "Invalid E-Mail Address"
+                errorMessage = L10n.pleaseEnterYourEmailAddress
             }
         case self.repeatPasswordLbl:
             if (text != self.passwordLbl.text) {
-                errorMessage = "Passwords do not match"
+                errorMessage = L10n.passwordsMustMatch
             }
         default: break
         }
@@ -135,7 +135,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.mode = MBProgressHUDMode.indeterminate
-        hud.label.text = "Registering.."
+        hud.label.text = L10n.loading
         hud.label.textColor = UIColor.white
         
         
@@ -158,7 +158,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         hud.mode = MBProgressHUDMode.customView
         hud.customView = checkLbl
         hud.isSquare = true
-        hud.label.text = "Done"
+        hud.label.text = L10n.done
         hud.label.textColor = UIColor.white
         
     }

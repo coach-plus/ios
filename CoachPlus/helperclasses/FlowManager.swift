@@ -181,7 +181,7 @@ class FlowManager {
         let rootVc = self.getDrawerController()
         
         if (rootVc != nil) {
-            MBProgressHUD.createHUD(view: rootVc!.view, msg: "LOAD_TEAM".localize())
+            MBProgressHUD.createHUD(view: rootVc!.view, msg: L10n.loading)
         }
         
         

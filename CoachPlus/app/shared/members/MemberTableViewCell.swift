@@ -63,30 +63,30 @@ class MemberTableViewCell: UITableViewCell {
     }
     
     func showActions() {
-        let alertController = UIAlertController(title: "ACTIONS".localize(), message: "ACTIONS_WHAT_TO_DO".localize(), preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: L10n.actions, message: L10n.pleaseSelectAnAction, preferredStyle: .actionSheet)
         
-        let makeCoach = UIAlertAction(title: "ACTION_MAKE_COACH".localize(), style: .default, handler: { (action) -> Void in
+        let makeCoach = UIAlertAction(title: L10n.makeCoach, style: .default, handler: { (action) -> Void in
             
-            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.coach.rawValue)).done({ response in
+            self.vc?.loadData(text: L10n.loading, promise: DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.coach.rawValue)).done({ response in
                 self.delegate?.dataChanged()
             })
         })
         
-        let makeUser = UIAlertAction(title: "ACTION_MAKE_USER".localize(), style: .default, handler: { (action) -> Void in
-            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.user.rawValue)).done({ response in
+        let makeUser = UIAlertAction(title: L10n.makeUser, style: .default, handler: { (action) -> Void in
+            self.vc?.loadData(text: L10n.loading, promise: DataHandler.def.setRole(membershipId: self.membership!.id, role: Membership.Role.user.rawValue)).done({ response in
                 self.delegate?.dataChanged()
             })
         })
         
-        let  deleteButton = UIAlertAction(title: "ACTION_KICK_USER".localize(), style: .destructive, handler: { (action) -> Void in
-            self.vc?.loadData(text: "LOAD_DATA", promise: DataHandler.def.removeUserFromTeam(membershipId: self.membership!.id)).done({ response in
+        let  deleteButton = UIAlertAction(title: L10n.removeFromTeam, style: .destructive, handler: { (action) -> Void in
+            self.vc?.loadData(text: L10n.loading, promise: DataHandler.def.removeUserFromTeam(membershipId: self.membership!.id)).done({ response in
                 self.delegate?.dataChanged()
             }).catch({ err in
                 print(err)
             })
         })
         
-        let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in
+        let cancelButton = UIAlertAction(title: L10n.cancel, style: .cancel, handler: { (action) -> Void in
             
         })
         

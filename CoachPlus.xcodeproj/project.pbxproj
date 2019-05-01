@@ -68,6 +68,14 @@
 		473ADF4122732DD50055FE0B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
 		473ADF4222732DD50055FE0B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
 		473ADF4322732DD50055FE0B /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
+		473ADF4B227350460055FE0B /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 473ADF4A227350460055FE0B /* swiftgen.yml */; };
+		473ADF4C227350460055FE0B /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 473ADF4A227350460055FE0B /* swiftgen.yml */; };
+		473ADF4D227350460055FE0B /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 473ADF4A227350460055FE0B /* swiftgen.yml */; };
+		473ADF4E227350460055FE0B /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 473ADF4A227350460055FE0B /* swiftgen.yml */; };
+		473BF18F227993FD009C5DDA /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BF18E227993FD009C5DDA /* strings.swift */; };
+		473BF190227993FD009C5DDA /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BF18E227993FD009C5DDA /* strings.swift */; };
+		473BF191227993FD009C5DDA /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BF18E227993FD009C5DDA /* strings.swift */; };
+		473BF192227993FD009C5DDA /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BF18E227993FD009C5DDA /* strings.swift */; };
 		473DCE1B1EC3A6A000A42F51 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
 		473DCE1C1EC3A6A000A42F51 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
 		473DCE1E1EC3B9BB00A42F51 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */; };
@@ -585,6 +593,8 @@
 		473A5F871E8A9224002FD833 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		473A5F8A1E8A92D1002FD833 /* Membership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Membership.swift; path = models/Membership.swift; sourceTree = "<group>"; };
 		473ADF3F22732DD50055FE0B /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventManager.swift; path = helperclasses/EventManager.swift; sourceTree = "<group>"; };
+		473ADF4A227350460055FE0B /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
+		473BF18E227993FD009C5DDA /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
 		473DCE1A1EC3A6A000A42F51 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = User.storyboard; path = app/user/User.storyboard; sourceTree = "<group>"; };
 		473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = app/user/UserViewController.swift; sourceTree = "<group>"; };
 		473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = helperclasses/UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -899,7 +909,9 @@
 				478DE22D1E85366300DCF74A /* helperclasses */,
 				474144CF1E84289F009788E2 /* login */,
 				475682591E81D273008547AF /* CoachPlus.entitlements */,
+				473BF18E227993FD009C5DDA /* strings.swift */,
 				4734832C1EC2698800F60110 /* CoachPlusDev.entitlements */,
+				473ADF4A227350460055FE0B /* swiftgen.yml */,
 				4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */,
 				4749C5011E81B7FE0068B0FA /* ViewController.swift */,
 				61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */,
@@ -1282,6 +1294,7 @@
 			buildConfigurationList = 4749C5241E81B7FF0068B0FA /* Build configuration list for PBXNativeTarget "CoachPlusDev" */;
 			buildPhases = (
 				C91B26A814E8B422E648D435 /* [CP] Check Pods Manifest.lock */,
+				473ADF44227345EB0055FE0B /* ShellScript */,
 				4749C4F81E81B7FE0068B0FA /* Sources */,
 				4749C4F91E81B7FE0068B0FA /* Frameworks */,
 				4749C4FA1E81B7FE0068B0FA /* Resources */,
@@ -1450,6 +1463,7 @@
 				473A5F781E8A749A002FD833 /* Register.storyboard in Resources */,
 				47F0420F1E8E6F4B0020D78E /* TableHeaderView.xib in Resources */,
 				61A006241F34808A003E2651 /* NewNews.storyboard in Resources */,
+				473ADF4B227350460055FE0B /* swiftgen.yml in Resources */,
 				61C51A2E20408FF0009B8BA2 /* Roboto-Thin.ttf in Resources */,
 				61CA9CA11EA52463004AFAC7 /* ParticipationView.xib in Resources */,
 				47C58D222164EBF300E9E8C9 /* ParticipationStatus.xib in Resources */,
@@ -1505,6 +1519,7 @@
 				4749C5051E81B7FE0068B0FA /* Main.storyboard in Resources */,
 				47F041EF1E8E59540020D78E /* Memberships.storyboard in Resources */,
 				47A9B9131E85569B00DC8247 /* Register.storyboard in Resources */,
+				473ADF4C227350460055FE0B /* swiftgen.yml in Resources */,
 				61A006251F34808A003E2651 /* NewNews.storyboard in Resources */,
 				61C51A3B20408FFB009B8BA2 /* Roboto-LightItalic.ttf in Resources */,
 				47C58D232164EBF300E9E8C9 /* ParticipationStatus.xib in Resources */,
@@ -1560,6 +1575,7 @@
 				477AF32922609390004F7F2E /* Roboto-Regular.ttf in Resources */,
 				47AC1CBA2269AA3D001057DA /* LaunchScreen.storyboard in Resources */,
 				477AF32022609390004F7F2E /* Roboto-Black.ttf in Resources */,
+				473ADF4D227350460055FE0B /* swiftgen.yml in Resources */,
 				477AF32C22609390004F7F2E /* Assets.xcassets in Resources */,
 				477AF34D226093B0004F7F2E /* TeamSelectionView.xib in Resources */,
 				47AC1C8C2269A9DA001057DA /* NewNews.storyboard in Resources */,
@@ -1615,6 +1631,7 @@
 				477AF33622609390004F7F2E /* Roboto-Regular.ttf in Resources */,
 				47AC1CBB2269AA3D001057DA /* LaunchScreen.storyboard in Resources */,
 				477AF32D22609390004F7F2E /* Roboto-Black.ttf in Resources */,
+				473ADF4E227350460055FE0B /* swiftgen.yml in Resources */,
 				477AF33922609390004F7F2E /* Assets.xcassets in Resources */,
 				477AF34F226093B0004F7F2E /* TeamSelectionView.xib in Resources */,
 				47AC1C902269A9DA001057DA /* NewNews.storyboard in Resources */,
@@ -1647,6 +1664,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		473ADF44227345EB0055FE0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$PODS_ROOT/SwiftGen/bin/swiftgen\n";
+		};
 		5DAEDD66A08C73F0E5063BA7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1670,7 +1704,6 @@
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -1700,7 +1733,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
@@ -1758,7 +1790,6 @@
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -1788,7 +1819,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
@@ -1921,6 +1951,7 @@
 				473A5F6A1E8A749A002FD833 /* UrlHandler.swift in Sources */,
 				473A5F6B1E8A749A002FD833 /* StringExtension.swift in Sources */,
 				61A006211F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
+				473BF18F227993FD009C5DDA /* strings.swift in Sources */,
 				61D98DA22040BD2600D4B722 /* UIViewExtension.swift in Sources */,
 				616616FB1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				473A5F6C1E8A749A002FD833 /* AppDelegate.swift in Sources */,
@@ -2012,6 +2043,7 @@
 				478DE22F1E85367000DCF74A /* UrlHandler.swift in Sources */,
 				472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */,
 				61A006221F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
+				473BF190227993FD009C5DDA /* strings.swift in Sources */,
 				61D98DA32040BD2600D4B722 /* UIViewExtension.swift in Sources */,
 				616616FC1E9FA2E200E8D8D5 /* DateExtension.swift in Sources */,
 				4749C5001E81B7FE0068B0FA /* AppDelegate.swift in Sources */,
@@ -2078,6 +2110,7 @@
 				477AF37D22609E07004F7F2E /* ErrorHandler.swift in Sources */,
 				477AF359226093B6004F7F2E /* CoachPlusViewController.swift in Sources */,
 				4749C5151E81B7FF0068B0FA /* CoachPlusTests.swift in Sources */,
+				473BF191227993FD009C5DDA /* strings.swift in Sources */,
 				477AF352226093B6004F7F2E /* ReusableTableHeader.swift in Sources */,
 				477AF33D2260939D004F7F2E /* CoachPlusImageView.swift in Sources */,
 				47AC1C962269A9E2001057DA /* SeeAllTableViewCell.swift in Sources */,
@@ -2170,6 +2203,7 @@
 				477AF37E22609E07004F7F2E /* ErrorHandler.swift in Sources */,
 				477AF365226093B6004F7F2E /* CoachPlusViewController.swift in Sources */,
 				477AF30122607812004F7F2E /* DataHandler.swift in Sources */,
+				473BF192227993FD009C5DDA /* strings.swift in Sources */,
 				477AF35E226093B6004F7F2E /* ReusableTableHeader.swift in Sources */,
 				477AF33F2260939D004F7F2E /* CoachPlusImageView.swift in Sources */,
 				47AC1C982269A9E3001057DA /* SeeAllTableViewCell.swift in Sources */,

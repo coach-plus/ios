@@ -101,39 +101,39 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     }
     
     func createDoneBarButton() -> UIBarButtonItem {
-        return UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(done(sender:)))
+        return UIBarButtonItem(title: L10n.done, style: .plain, target: self, action: #selector(done(sender:)))
     }
     
     func createCancelBarButton() -> UIBarButtonItem {
-        return UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel(sender:)))
+        return UIBarButtonItem(title: L10n.cancel, style: .plain, target: self, action: #selector(cancel(sender:)))
     }
     
     func createProfileBarButton() -> UIBarButtonItem {
-        let btn = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(profile(sender:)))
+        let btn = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(profile(sender:)))
         btn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.user), color: .white)
         return btn
     }
     
     func createUserSettingsBarButton() -> UIBarButtonItem {
-        let btn = UIBarButtonItem(title: "UserSettings", style: .plain, target: self, action: #selector(userSettings(sender:)))
+        let btn = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(userSettings(sender:)))
         btn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.cogs), color: .white)
         return btn
     }
     
     func createBackBarButton() -> UIBarButtonItem {
-        return UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
+        return UIBarButtonItem(title: L10n.back, style: .plain, target: self, action: #selector(back(sender:)))
     }
     
     func createTeamSelectionBarButton() -> UIBarButtonItem {
         self.teamSelectionV = TeamSelectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 25))
         self.teamSelectionV?.setup(team: team)
-        let bbi = UIBarButtonItem(title: "text", style: .plain, target: nil, action: nil)
+        let bbi = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         bbi.customView = self.teamSelectionV
         return bbi
     }
     
     func createTeamsBarButton() -> UIBarButtonItem {
-        let btn = UIBarButtonItem(title: "Teams", style: .plain, target: self, action: #selector(openSlider(sender:)))
+        let btn = UIBarButtonItem(title: L10n.teams, style: .plain, target: self, action: #selector(openSlider(sender:)))
         btn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.tshirt), color: .white)
         return btn
     }

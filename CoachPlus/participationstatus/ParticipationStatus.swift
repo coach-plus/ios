@@ -131,17 +131,17 @@ class ParticipationStatus: NibDesignable {
     }
     
     func showActionSheet() {
-        let alertController = UIAlertController(title: "SET_ATTENDANCE".localize(), message: "SET_ATTENDANCE_MESSAGE".localize(), preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: L10n.setAttendance, message: L10n.youCanNowSelectWhoParticipated, preferredStyle: .actionSheet)
         
-        let yesButton = UIAlertAction(title: "DID_ATTEND".localize(), style: .default, handler: { (action) -> Void in
+        let yesButton = UIAlertAction(title: L10n.didAttend, style: .default, handler: { (action) -> Void in
             self.setDidAttend(didAttend: true)
         })
         
-        let noButton = UIAlertAction(title: "DID_NOT_ATTEND".localize(), style: .default, handler: { (action) -> Void in
+        let noButton = UIAlertAction(title: L10n.didNotAttend, style: .default, handler: { (action) -> Void in
             self.setDidAttend(didAttend: false)
         })
         
-        let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in })
+        let cancelButton = UIAlertAction(title: L10n.cancel, style: .cancel, handler: { (action) -> Void in })
         
         if (self.participationItem?.participation?.didAttend != true) {
             alertController.addAction(yesButton)

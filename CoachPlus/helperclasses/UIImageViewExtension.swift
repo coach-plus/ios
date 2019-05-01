@@ -42,11 +42,10 @@ extension UIImageView {
                     result in
                     switch result {
                     case .success(let value):
-                        print("Task done for: \(value.source.url?.absoluteString ?? "")")
+                        break
                     case .failure(let error):
-                        print("Job failed: \(error.localizedDescription)")
                         self.image = placeholder
-                        print(placeholder.size)
+                        break
                     }
                 }
             } else {
@@ -82,10 +81,9 @@ extension UIImageView {
             switch result {
             case .success(let value):
                 break
-                //print("Task done for: \(value.source.url?.absoluteString ?? "")")
             case .failure(let error):
                 break
-                //print("Job failed: \(error.localizedDescription)")
+                
             }
         }
     }

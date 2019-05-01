@@ -21,8 +21,8 @@ class MailSentViewController: UIViewController {
         
         iconLabel.setIcon(icon: .fontAwesomeSolid(.paperPlane), iconSize: 60, color: .white, bgColor: .clear)
         
-        continueBtn.setTitleForAllStates(title: "CONTINUE".localize())
-        infoLbl.text = "EMAIL_CONFIRMATION_INFO".localize()
+        continueBtn.setTitleForAllStates(title: L10n.continue)
+        infoLbl.text = L10n.confirmationEmailSent
     }
 
     override func didReceiveMemoryWarning() {

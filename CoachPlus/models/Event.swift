@@ -102,7 +102,7 @@ class Event:JSONable, BackJSONable {
     
     func getLocationString() -> String {
         if (self.location == nil || self.location?.name == "") {
-            return "NO_LOCATION".localize()
+            return L10n.noLocation
         } else {
             return (self.location?.getLocationString())!
         }
@@ -110,7 +110,7 @@ class Event:JSONable, BackJSONable {
     
     func getDescriptionString() -> String {
         if (self.description == "") {
-            return "NO_DESCRIPTION".localize()
+            return L10n.noDescription
         } else {
             return (self.description)
         }

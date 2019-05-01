@@ -114,11 +114,10 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         
         if (self.user?.id == Authentication.getUser().id) {
             self.emailL.text = Authentication.getUser().email
-            text = "YOU_ARE_IN_THESE_TEAMS"
+            text = L10n.youAreInTheFollowingTeams
         } else {
             self.emailL.isHidden = true
-            let format = "USER_IS_IN_THESE_TEAMS".localize()
-            text = String(format: format, self.user!.firstname)
+            text = L10n.sIsInTheFollowingTeams(self.user!.firstname)
         }
         
         self.titleView.title = text.localize()
@@ -188,14 +187,14 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         if (self.loaded) {
             let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary<NSAttributedString.Key, Any>!
             
-            var string = "NO_TEAMS".localize()
+            var string = L10n.youDoNotHaveATeamYet
             
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             return attributedString
         } else {
             let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary<NSAttributedString.Key, Any>!
             
-            var string = "Loading.."
+            var string = L10n.loading
             
             let attributedString = NSAttributedString(string: string, attributes: attributes)
             return attributedString
@@ -217,19 +216,18 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func showJoinTeamActionSheet(team: Team) {
-        let alertController = UIAlertController(title: "JOIN_TEAM".localize(), message: String(format: "JOIN_TEAM_NAME".localize()
-            , team.name), preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: L10n.joinTeam, message: L10n.areYouSureThatYouWantToLeaveTeamS(team.name), preferredStyle: .actionSheet)
         
-        let yesButton = UIAlertAction(title: "JOIN_TEAM".localize(), style: .default, handler: { (action) -> Void in
+        let yesButton = UIAlertAction(title: L10n.joinTeam.localize(), style: .default, handler: { (action) -> Void in
             
-            self.loadData(text: "JOIN_TEAM", promise: DataHandler.def.joinTeam(inviteId: team.id, teamType: JoinTeamViewController.TeamType.publicTeam)).done({ apiResponse in
-                DropdownAlert.success(message: String(format: "JOIN_TEAM_SUCCESS".localize(), team.name))
+            self.loadData(text: L10n.loading, promise: DataHandler.def.joinTeam(inviteId: team.id, teamType: JoinTeamViewController.TeamType.publicTeam)).done({ apiResponse in
+                DropdownAlert.success(message: L10n.successfullyJoinedS(team.name))
                 FlowManager.selectAndOpenTeam(vc: self, teamId: team.id)
                 self.navigationController?.popViewController(animated: true)
             })
         })
         
-        let noButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in })
+        let noButton = UIAlertAction(title: L10n.cancel, style: .cancel, handler: { (action) -> Void in })
         
         alertController.addAction(yesButton)
         alertController.addAction(noButton)
@@ -238,17 +236,16 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func showLeaveTeamActionSheet(membership: Membership) {
-        let alertController = UIAlertController(title: "LEAVE_TEAM".localize(), message: String(format: "LEAVE_TEAM_NAME".localize()
-            , membership.team!.name), preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: L10n.leaveTeam, message: L10n.areYouSureThatYouWantToLeaveTeamS(membership.team!.name), preferredStyle: .actionSheet)
         
-        let yesButton = UIAlertAction(title: "LEAVE_TEAM".localize(), style: .default, handler: { (action) -> Void in
+        let yesButton = UIAlertAction(title: L10n.leaveTeam, style: .default, handler: { (action) -> Void in
             
-            self.loadData(text: "LEAVE_TEAM_LOADING", promise: DataHandler.def.leaveTeam(teamId: membership.team!.id)).done({ apiResponse in
+            self.loadData(text: L10n.loading, promise: DataHandler.def.leaveTeam(teamId: membership.team!.id)).done({ apiResponse in
             
                 let selectedMembership = MembershipManager.shared.selectedMembership
                 if (selectedMembership != nil) {
                     if (membership.team!.id == selectedMembership!.team!.id) {
-                        DropdownAlert.success(message: String(format: "LEAVE_TEAM_SUCCESS".localize(), membership.team!.name))
+                        DropdownAlert.success(message: L10n.successfullyLeftTeamS(membership.team!.name))
                         FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
                         self.navigationController?.popViewController(animated: true)
                         return
@@ -258,7 +255,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             })
         })
         
-        let noButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: { (action) -> Void in })
+        let noButton = UIAlertAction(title: L10n.cancel, style: .cancel, handler: { (action) -> Void in })
         
         alertController.addAction(yesButton)
         alertController.addAction(noButton)

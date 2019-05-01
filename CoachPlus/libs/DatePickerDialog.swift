@@ -83,9 +83,10 @@ open class DatePickerDialog: UIView {
     }
     
     /// Create the dialog view, and animate opening the dialog
+    
     open func show(_ title: String,
-                   doneButtonTitle: String = "Done",
-                   cancelButtonTitle: String = "Cancel",
+                   doneButtonTitle: String = L10n.done,
+                   cancelButtonTitle: String = L10n.cancel,
                    defaultDate: Date = Date(),
                    minimumDate: Date? = nil, maximumDate: Date? = nil,
                    datePickerMode: UIDatePicker.Mode = .dateAndTime,

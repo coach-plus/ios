@@ -46,15 +46,15 @@ class ForgotPwViewController: UIViewController, ErrorHandlerDelegate {
         self.logoIv.hero.isEnabled = true
         self.logoIv.hero.id = "launchLogo"
         
-        self.requestBtn.setTitleForAllStates(title: "REQUEST_NEW_PW")
+        self.requestBtn.setTitleForAllStates(title: L10n.requestNewPassword)
         self.requestBtn.tintColor = .white
         self.requestBtn.setup()
         
         self.backBtn.tintColor = .white
         self.backBtn.setCoachPlusIcon(fontType: .fontAwesomeSolid(.arrowLeft), color: .white, size: 20.0)
         
-        self.descriptionLbl.text = "FORGOT_PW_DESCRIPTION".localize()
-        self.emailTf.placeholder = "EMAIL".localize()
+        self.descriptionLbl.text = L10n.pleaseFillInYourEmailAddressAndWeWillSendYouANewPassword
+        self.emailTf.placeholder = L10n.email
         
         self.emailTf.textColor = .white
         self.emailTf.placeholderColor = .white
@@ -67,14 +67,14 @@ class ForgotPwViewController: UIViewController, ErrorHandlerDelegate {
     func requestNewPassword() {
         let email = self.emailTf.text
         if (email == nil || email?.count == 0 || !email!.isValidEmail) {
-            DropdownAlert.error(message: "PLEASE_ENTER_A_VALID_EMAIL")
+            DropdownAlert.error(message: L10n.pleaseEnterYourEmailAddress)
             return
         }
         
-        let hud = MBProgressHUD.createHUD(view: self.view, msg: "REQUESTING_NEW_PASSWORD")
+        let hud = MBProgressHUD.createHUD(view: self.view, msg: L10n.requestingNewPassword)
         
         DataHandler.def.requestNewPassword(email: email!).done({response in
-            DropdownAlert.success(message: "REQUEST_NEW_PASSWORD_SUCCESS")
+            DropdownAlert.success(message: L10n.successfullyRequestedANewPassword)
             self.dismiss(animated: true, completion: nil)
         }).ensure {
             hud.hide(animated: true)

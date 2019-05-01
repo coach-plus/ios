@@ -53,7 +53,7 @@ extension UIViewController {
         alertController.addAction(noButton)
         
         if (showCancelButton == true) {
-            let cancelButton = UIAlertAction(title: "CANCEL".localize(), style: .cancel, handler: nil)
+            let cancelButton = UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil)
             alertController.addAction(cancelButton)
         }
         

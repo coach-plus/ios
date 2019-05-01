@@ -29,8 +29,8 @@ class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDele
     
     func showImagePicker() {
         var config = Configuration()
-        config.doneButtonTitle = "DONE".localize()
-        config.noImagesTitle = "NO_IMAGES_FOUND".localize()
+        config.doneButtonTitle = L10n.done
+        config.noImagesTitle = L10n.noImagesFound
         config.recordLocation = false
         
         let imagePickerController = ImagePickerController.init(configuration: config)

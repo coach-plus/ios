@@ -49,10 +49,12 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
                     self.setUpCategories()
                     self.registerForRemote()
                 } else {
+                    /*
                     let alert = UIAlertController(title: "Notification Access", message: "In order to use this application, turn on notification permissions.", preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
                     alert.addAction(alertAction)
                     self.currentVc?.present(alert , animated: true, completion: nil)
+                    */
                 }
         })
     }
@@ -78,13 +80,12 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func setUpCategories() {
-        let setWillAttendAction = UNNotificationAction(identifier: NotificationAction.eventReminderWillAttend.rawValue, title: "Zusagen", options: [.authenticationRequired])
-        let setWillNotAttendAction = UNNotificationAction(identifier: NotificationAction.eventReminderWillNotAttend.rawValue, title: "Absagen", options: [.authenticationRequired, .destructive])
+        let setWillAttendAction = UNNotificationAction(identifier: NotificationAction.eventReminderWillAttend.rawValue, title: L10n.participateYes, options: [.authenticationRequired])
+        let setWillNotAttendAction = UNNotificationAction(identifier: NotificationAction.eventReminderWillNotAttend.rawValue, title: L10n.participateNo, options: [.authenticationRequired, .destructive])
         
         let newEventCategory = UNNotificationCategory(identifier: NotificationCategory.EventReminder.rawValue, actions: [setWillAttendAction, setWillNotAttendAction], intentIdentifiers: [], options: [])
         
         UNUserNotificationCenter.current().setNotificationCategories([newEventCategory])
-        print("Categories are set up")
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

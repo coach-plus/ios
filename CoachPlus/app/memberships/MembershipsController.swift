@@ -174,7 +174,7 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)] as Dictionary!
         
-        let string = "EMPTY_TEAMS".localize()
+        let string = L10n.YouDoNotHaveATeamYet.goAheadAndCreateOneUsingTheOnTheTopRight
         
         let attributedString = NSAttributedString(string: string, attributes: attributes)
         

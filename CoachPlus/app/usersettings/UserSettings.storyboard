@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,17 +42,17 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGi-RA-XHY">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osE-Q9-Y1s">
-                                                        <rect key="frame" x="8" y="8" width="261" height="74"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osE-Q9-Y1s">
+                                                        <rect key="frame" x="8" y="8" width="359" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="e2P-4x-sGk"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cg-hd-V9p">
-                                                        <rect key="frame" x="277" y="8" width="90" height="74"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="3Wl-34-ht1"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="8" y="52" width="359" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="verificationBtnTapped:" destination="wsX-As-wF2" eventType="touchUpInside" id="mCy-FO-LcL"/>
@@ -62,14 +61,15 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.95294117647058818" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstItem="3cg-hd-V9p" firstAttribute="top" secondItem="kGi-RA-XHY" secondAttribute="top" constant="8" id="0sB-uH-9EM"/>
-                                                    <constraint firstAttribute="trailing" secondItem="3cg-hd-V9p" secondAttribute="trailing" constant="8" id="2jv-XN-tyl"/>
-                                                    <constraint firstItem="osE-Q9-Y1s" firstAttribute="leading" secondItem="kGi-RA-XHY" secondAttribute="leading" constant="8" id="4iY-c4-GGX"/>
+                                                    <constraint firstItem="3cg-hd-V9p" firstAttribute="top" secondItem="osE-Q9-Y1s" secondAttribute="bottom" constant="8" id="7G3-Zm-O7h"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3cg-hd-V9p" secondAttribute="bottom" constant="8" id="Cwh-6B-7IG"/>
                                                     <constraint firstAttribute="height" constant="90" id="E2q-Ic-lYt"/>
-                                                    <constraint firstItem="osE-Q9-Y1s" firstAttribute="top" secondItem="kGi-RA-XHY" secondAttribute="top" constant="8" id="Emt-1E-zH5"/>
-                                                    <constraint firstAttribute="bottom" secondItem="osE-Q9-Y1s" secondAttribute="bottom" constant="8" id="NlB-Ov-RFx"/>
-                                                    <constraint firstItem="3cg-hd-V9p" firstAttribute="leading" secondItem="osE-Q9-Y1s" secondAttribute="trailing" constant="8" id="s2a-OS-aLk"/>
-                                                    <constraint firstAttribute="bottom" secondItem="3cg-hd-V9p" secondAttribute="bottom" constant="8" id="x7i-P0-EV7"/>
+                                                    <constraint firstItem="osE-Q9-Y1s" firstAttribute="top" secondItem="kGi-RA-XHY" secondAttribute="top" constant="8" id="GBZ-c4-Qui"/>
+                                                    <constraint firstAttribute="trailing" secondItem="osE-Q9-Y1s" secondAttribute="trailing" constant="8" id="HcW-I2-3EK"/>
+                                                    <constraint firstItem="3cg-hd-V9p" firstAttribute="top" secondItem="osE-Q9-Y1s" secondAttribute="bottom" constant="8" id="Wut-9s-idJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3cg-hd-V9p" secondAttribute="trailing" constant="8" id="lwF-1T-kdm"/>
+                                                    <constraint firstItem="3cg-hd-V9p" firstAttribute="leading" secondItem="kGi-RA-XHY" secondAttribute="leading" constant="8" id="qRD-Kl-mrx"/>
+                                                    <constraint firstItem="osE-Q9-Y1s" firstAttribute="leading" secondItem="kGi-RA-XHY" secondAttribute="leading" constant="8" id="wkG-wf-xZ4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndw-wS-tPk">

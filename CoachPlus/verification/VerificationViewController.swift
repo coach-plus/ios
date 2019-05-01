@@ -32,7 +32,7 @@ class VerificationViewController: CoachPlusViewController {
         self.iconLbl.textColor = .white
         self.continueBtn.tintColor = .white
         self.continueBtn.setup()
-        self.continueBtn.setTitleForAllStates(title: "CONTINUE")
+        self.continueBtn.setTitleForAllStates(title: L10n.continue)
         
         self.resultView.isHidden = true
     }
@@ -43,12 +43,12 @@ class VerificationViewController: CoachPlusViewController {
     }
     
     func verifyToken() {
-        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.verifyToken(token: self.token)).done({ response in
-            self.textLbl.text = "You are now verified."
+        self.loadData(text: L10n.loading, promise: DataHandler.def.verifyToken(token: self.token)).done({ response in
+            self.textLbl.text = L10n.youAreNowVerified
             self.iconLbl.setIcon(icon: .fontAwesomeSolid(.check), iconSize: 60, color: .white, bgColor: .clear)
             self.resultView.isHidden = false
         }).catch({ err in
-            self.textLbl.text = "Verification failed."
+            self.textLbl.text = L10n.verificationFailed
             self.iconLbl.setIcon(icon: .fontAwesomeSolid(.times), iconSize: 60, color: .coachPlusLightRed, bgColor: .clear)
             self.resultView.isHidden = false
         })

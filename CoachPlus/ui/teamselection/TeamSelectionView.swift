@@ -68,7 +68,7 @@ class TeamSelectionView: NibDesignable {
     
     func setup(team:Team?) {
         
-        self.name = "Unknown"
+        self.name = "?"
         
         if (team != nil) {
             self.nameLbl.text = team!.name

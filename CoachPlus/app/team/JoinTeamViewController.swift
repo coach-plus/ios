@@ -36,7 +36,7 @@ class JoinTeamViewController: CoachPlusViewController {
             return
         }
         
-        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.joinTeam(inviteId: self.inviteId!, teamType: self.mode!)).done({ apiResponse in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.joinTeam(inviteId: self.inviteId!, teamType: self.mode!)).done({ apiResponse in
             self.dismiss(animated: true, completion: nil)
             FlowManager.selectAndOpenTeam(vc: self, teamId: apiResponse.team!.id)
         }).catch({ err in

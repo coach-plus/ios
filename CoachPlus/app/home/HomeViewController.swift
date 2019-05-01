@@ -33,14 +33,14 @@ class HomeViewController: CoachPlusViewController {
 
     
     func getMyTeams() {
-        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.getMyTeams()).done({ apiResponse in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.getMyTeams()).done({ apiResponse in
         }).catch({ err in
             print(err)
         })
     }
     
     func createInvitationLink(teamId:String, validDays:Int?) {
-        self.loadData(text: "LOAD_DATA", promise: DataHandler.def.createInviteLink(teamId: teamId, validDays: validDays)).done({ apiResponse in
+        self.loadData(text: L10n.loading, promise: DataHandler.def.createInviteLink(teamId: teamId, validDays: validDays)).done({ apiResponse in
         }).catch({ err in
             print(err)
         })

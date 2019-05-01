@@ -1,0 +1,7 @@
+strings:
+  inputs:
+    - CoachPlus/localization/Base.lproj
+  filter: .+\.strings$
+  outputs:
+    - templateName: structured-swift4
+      output: CoachPlus/strings.swift

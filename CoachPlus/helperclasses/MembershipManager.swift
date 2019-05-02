@@ -180,6 +180,6 @@ class MembershipManager {
 
 
 extension DefaultsKeys {
-    static let membershipJSON = DefaultsKey<String>("teams")
-    static let selectedMembershipId = DefaultsKey<String>("selectedMembershipId")
+    static let membershipJSON = DefaultsKey<String>("teams", defaultValue: "")
+    static let selectedMembershipId = DefaultsKey<String>("selectedMembershipId", defaultValue: "")
 }

@@ -37,5 +37,5 @@ class UserManager {
 }
 
 extension DefaultsKeys {
-    static let userJSON = DefaultsKey<String>("user")
+    static let userJSON = DefaultsKey<String>("user", defaultValue: "")
 }

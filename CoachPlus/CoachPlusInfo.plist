@@ -26,6 +26,8 @@
 	<string>Used to select team and user images</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to select team and user images</string>
+	<key>NSLocationWhenInUseUsageDescription </key>
+	<string>Used to get your time</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black</string>

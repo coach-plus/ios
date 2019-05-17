@@ -17,8 +17,15 @@ steps:
     sshKeySecureFile: id_rsa.fastlane-ci
 - script: git clone git@github.com:Mau04/mathandoro-secret.git
   displayName: 'git clone test'
+- script: fastlane setup_keychain
+  displayName: 'Setup Keychain'
+  env:
+    MATCH_PASSWORD: '$(MATCH_PASSWORD)'
+    FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
+    MATCH_KEYCHAIN_NAME:: '$(MATCH_KEYCHAIN_NAME)'
 - script: fastlane build_beta
   displayName: 'Build beta with fastlane'
   env:
     MATCH_PASSWORD: '$(MATCH_PASSWORD)'
     FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
+    MATCH_KEYCHAIN_NAME:: '$(MATCH_KEYCHAIN_NAME)'

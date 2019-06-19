@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macOS-10.13'
+  vmImage: 'macOS-10.14'
 
 steps:
 - task: InstallSSHKey@0
@@ -15,8 +15,23 @@ steps:
     hostName: github.com,192.30.253.112 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
     sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCWQUhXiM2PrmDsO3rEWIIm0UTHf6MCaGcweV+BzlbEnKsIVsx7O3eeUl/yOcjlaDgSMRjSvYthbpOLfQfD3i19obiw897MJmtX3xovyTd6WWjnLSUmushnHT0dsZ26LOmvQCp3KmslfKTxBS4uE0f8UfDhP+LdX9CeQhtTXF8cg+aUeLuiEL871eWhiwY+aRiCkpveVN1C7BcYLHpuw7Qba/0x1kvjDW/DnPNZOFlkOSK6a+BBAdwRUQ5vqlTfBcD8/zJu5p160GEx0fX6sBWUJQnbigdNxAaE9+t1IY7CGoYRbdW+R7/XhgWGwC1NVzul5yjHUjbeKEDzQzOYmmrV d059314@C02V26PRHTD6
     sshKeySecureFile: id_rsa.fastlane-ci
+- script: git clone git@github.com:Mau04/mathandoro-secret.git
+  displayName: 'git clone test'
+- script: fastlane setup_keychain
+  displayName: 'Setup Keychain'
+  env:
+    MATCH_PASSWORD: '$(MATCH_PASSWORD)'
+    FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
+    MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
 - script: fastlane build_beta
   displayName: 'Build beta with fastlane'
   env:
     MATCH_PASSWORD: '$(MATCH_PASSWORD)'
     FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
+    MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
+- script: fastlane upload_beta
+  displayName: 'Upload beta with fastlane'
+  env:
+    MATCH_PASSWORD: '$(MATCH_PASSWORD)'
+    FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
+    MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'

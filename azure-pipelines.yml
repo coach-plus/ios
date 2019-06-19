@@ -29,9 +29,8 @@ steps:
     MATCH_PASSWORD: '$(MATCH_PASSWORD)'
     FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
     MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
-- script: fastlane upload_beta
-  displayName: 'Upload beta with fastlane'
-  env:
-    MATCH_PASSWORD: '$(MATCH_PASSWORD)'
-    FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
-    MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.ipa'
+    targetFolder: '$(build.artifactStagingDirectory)'
+- task: PublishBuildArtifacts@1

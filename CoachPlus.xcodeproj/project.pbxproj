@@ -1359,7 +1359,7 @@
 				TargetAttributes = {
 					473A5F571E8A749A002FD833 = {
 						DevelopmentTeam = R6AW526K22;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -1369,7 +1369,7 @@
 					4749C4FB1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = R6AW526K22;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -2307,9 +2307,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5854C205E291EA13A294BF8C /* Pods-CoachPlus.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
@@ -2330,20 +2331,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F3C417F6E1B3ED85CB7BA6A7 /* Pods-CoachPlus.release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = R6AW526K22;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a338cfbf-28fd-4a3c-b1d8-51662171415c";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mathandoro.coachplus";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "";
@@ -2453,9 +2456,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58F64F9A380F6E623435F897 /* Pods-CoachPlusDev.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;
@@ -2476,16 +2480,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6DA5109076260D00A51E2236 /* Pods-CoachPlusDev.release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d615ab60-348c-40e6-bb3c-c449f5911374";

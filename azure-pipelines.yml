@@ -24,13 +24,25 @@ steps:
     FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
     MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
 - script: fastlane build_beta
-  displayName: 'Build beta with fastlane'
+  displayName: 'Build beta app with fastlane'
+  env:
+    MATCH_PASSWORD: '$(MATCH_PASSWORD)'
+    FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
+    MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
+- script: fastlane build_production
+  displayName: 'Build production app with fastlane'
   env:
     MATCH_PASSWORD: '$(MATCH_PASSWORD)'
     FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
     MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
 - task: CopyFiles@2
+  displayName: 'Archive .ipa files'
   inputs:
     contents: '**/*.ipa'
+    targetFolder: '$(build.artifactStagingDirectory)'
+- task: CopyFiles@2
+  displayName: 'Archive dsyms'
+  inputs:
+    contents: '**/*.dSYM.zip'
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1

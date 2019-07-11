@@ -45,12 +45,11 @@ platform :ios do
 
   lane :build_beta do
     match(type: "appstore",
-      app_identifier: "com.mathandoro.coachplus.dev",
+      app_identifier: "com.mathandoro.coachplus.beta",
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
       keychain_password: "travis")
     disable_automatic_code_signing(path: "CoachPlus.xcodeproj")
-    gym(scheme: "CoachPlusDev") # Build your app - more options available
-    enable_automatic_code_signing(path: "CoachPlus.xcodeproj")
+    gym(scheme: "CoachPlusBeta") # Build your app - more options available
   end
 
   lane :upload_beta do

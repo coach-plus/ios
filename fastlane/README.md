@@ -46,6 +46,11 @@ fastlane ios upload_beta
 fastlane ios release
 ```
 Deploy a new version to the App Store
+### ios build_production
+```
+fastlane ios build_production
+```
+
 
 ----
 

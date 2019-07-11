@@ -15,7 +15,7 @@ class DataHandler {
     static let def = DataHandler()
     
     func getUrl(_ url:String) -> String {
-        return "https://dev.coach.plus/api/" + url
+        return "\(Environment.backendURL)api/\(url)"
         //return "http://192.168.222.37:5200/api/" + url
     }
     

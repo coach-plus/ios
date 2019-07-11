@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E09E884984B26BCB60BAC66 /* Pods_CoachPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F37F74EC4CBD0B2B2BC02DB /* Pods_CoachPlus.framework */; };
+		23DF4375457E95C33AAB0D69 /* Pods_CoachPlusDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE9A1A97293ECC4C132FBD2 /* Pods_CoachPlusDev.framework */; };
 		4715265E22590080005262F5 /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
 		4715265F22590080005262F5 /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
 		4715266022590080005262F5 /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
@@ -91,6 +92,141 @@
 		4749C50A1E81B7FE0068B0FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */; };
 		4749C5151E81B7FF0068B0FA /* CoachPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C5141E81B7FF0068B0FA /* CoachPlusTests.swift */; };
 		4749C5201E81B7FF0068B0FA /* CoachPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C51F1E81B7FF0068B0FA /* CoachPlusUITests.swift */; };
+		474E3D4E22C5DF6100255CFD /* ReusableTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616E61E9F950B00E8D8D5 /* ReusableTableHeader.swift */; };
+		474E3D4F22C5DF6100255CFD /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A0061A1F346D66003E2651 /* NewsTableViewCell.swift */; };
+		474E3D5022C5DF6100255CFD /* TeamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616617041E9FB35100E8D8D5 /* TeamSelectionView.swift */; };
+		474E3D5122C5DF6100255CFD /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C51A4120409159009B8BA2 /* UIFontExtension.swift */; };
+		474E3D5222C5DF6100255CFD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C111E870E4300706E6B /* Helpers.swift */; };
+		474E3D5322C5DF6100255CFD /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ACB71C1EA0D6C400A7A1D2 /* MemberTableViewCell.swift */; };
+		474E3D5422C5DF6100255CFD /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85C1F34B81C00A30B44 /* UserManager.swift */; };
+		474E3D5522C5DF6100255CFD /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041F21E8E59640020D78E /* Team.swift */; };
+		474E3D5622C5DF6100255CFD /* MembershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E61E8E59540020D78E /* MembershipTableViewCell.swift */; };
+		474E3D5722C5DF6100255CFD /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2331E8537B800DCF74A /* VerificationViewController.swift */; };
+		474E3D5822C5DF6100255CFD /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F5651EC0E51900974EBD /* CreateTeamViewController.swift */; };
+		474E3D5922C5DF6100255CFD /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D242164F7C700E9E8C9 /* ApiError.swift */; };
+		474E3D5A22C5DF6100255CFD /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041FB1E8E625E0020D78E /* TableHeaderView.swift */; };
+		474E3D5B22C5DF6100255CFD /* ParticipationTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */; };
+		474E3D5C22C5DF6100255CFD /* SeeAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C781EA2250D004AFAC7 /* SeeAllTableViewCell.swift */; };
+		474E3D5D22C5DF6100255CFD /* DropdownAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6231E87C6A500F80101 /* DropdownAlert.swift */; };
+		474E3D5E22C5DF6100255CFD /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C921EA51A22004AFAC7 /* CreateEventViewController.swift */; };
+		474E3D5F22C5DF6100255CFD /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5F55E1EC0D4F600974EBD /* UIApplicationExtension.swift */; };
+		474E3D6022C5DF6100255CFD /* ParticipationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006131F345115003E2651 /* ParticipationItem.swift */; };
+		474E3D6122C5DF6100255CFD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616F71E9FA07400E8D8D5 /* Event.swift */; };
+		474E3D6222C5DF6100255CFD /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330DF20DE6B9E008D8E70 /* SeparatorView.swift */; };
+		474E3D6322C5DF6100255CFD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C851EA404C4004AFAC7 /* UIViewControllerExtension.swift */; };
+		474E3D6422C5DF6100255CFD /* CoachPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D71E842D30009788E2 /* CoachPlus.swift */; };
+		474E3D6522C5DF6100255CFD /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473483291EC25FB500F60110 /* JoinTeamViewController.swift */; };
+		474E3D6622C5DF6100255CFD /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116F85F1F34D3E100A30B44 /* ImageHelper.swift */; };
+		474E3D6722C5DF6100255CFD /* ReusableParticipationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61851E0520DEAA5C008E96F0 /* ReusableParticipationHeaderView.swift */; };
+		474E3D6822C5DF6100255CFD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6271E87CBC700F80101 /* HomeViewController.swift */; };
+		474E3D6922C5DF6100255CFD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */; };
+		474E3D6A22C5DF6100255CFD /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6291E87D18300F80101 /* DataHandler.swift */; };
+		474E3D6B22C5DF6100255CFD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006291F34B060003E2651 /* UIImageExtension.swift */; };
+		474E3D6C22C5DF6100255CFD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474144D51E8429AD009788E2 /* LoginViewController.swift */; };
+		474E3D6D22C5DF6100255CFD /* LoadingIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D122164108400E9E8C9 /* LoadingIndicatorHelper.swift */; };
+		474E3D6E22C5DF6100255CFD /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C991EA52200004AFAC7 /* TitleView.swift */; };
+		474E3D6F22C5DF6100255CFD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F871E8A9224002FD833 /* User.swift */; };
+		474E3D7022C5DF6100255CFD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006161F3468CF003E2651 /* News.swift */; };
+		474E3D7122C5DF6100255CFD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612E14CF1F1823C400D19674 /* HeaderView.swift */; };
+		474E3D7222C5DF6100255CFD /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */; };
+		474E3D7322C5DF6100255CFD /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042111E8E70660020D78E /* TeamViewController.swift */; };
+		474E3D7422C5DF6100255CFD /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */; };
+		474E3D7522C5DF6100255CFD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2371E85409300DCF74A /* UIColorExtension.swift */; };
+		474E3D7622C5DF6100255CFD /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C821EA3F6E3004AFAC7 /* EventListViewController.swift */; };
+		474E3D7722C5DF6100255CFD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618692811F352EE8002814C1 /* Location.swift */; };
+		474E3D7822C5DF6100255CFD /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473ADF3F22732DD50055FE0B /* EventManager.swift */; };
+		474E3D7922C5DF6100255CFD /* CoachPlusNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C881EA406A7004AFAC7 /* CoachPlusNavigationViewController.swift */; };
+		474E3D7A22C5DF6100255CFD /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477AF37A22609E07004F7F2E /* ErrorHandler.swift */; };
+		474E3D7B22C5DF6100255CFD /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
+		474E3D7C22C5DF6100255CFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C5011E81B7FE0068B0FA /* ViewController.swift */; };
+		474E3D7D22C5DF6100255CFD /* CoachPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9C8B1EA407E8004AFAC7 /* CoachPlusViewController.swift */; };
+		474E3D7E22C5DF6100255CFD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6DC0D1F35EBCE0000970C /* NotificationManager.swift */; };
+		474E3D7F22C5DF6100255CFD /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6211E87265500F80101 /* Authentication.swift */; };
+		474E3D8022C5DF6100255CFD /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
+		474E3D8122C5DF6100255CFD /* ParticipationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D1E2164EBCC00E9E8C9 /* ParticipationStatus.swift */; };
+		474E3D8222C5DF6100255CFD /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */; };
+		474E3D8322C5DF6100255CFD /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */; };
+		474E3D8422C5DF6100255CFD /* MailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */; };
+		474E3D8522C5DF6100255CFD /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
+		474E3D8622C5DF6100255CFD /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
+		474E3D8722C5DF6100255CFD /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B62D1E8815F500F80101 /* ApiResponse.swift */; };
+		474E3D8822C5DF6100255CFD /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47152662225937F5005262F5 /* ForgotPwViewController.swift */; };
+		474E3D8922C5DF6100255CFD /* NewNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006261F34832E003E2651 /* NewNewsViewController.swift */; };
+		474E3D8A22C5DF6100255CFD /* Participation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CA61EA526C1004AFAC7 /* Participation.swift */; };
+		474E3D8B22C5DF6100255CFD /* ParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CAA1EA53355004AFAC7 /* ParticipationTableViewCell.swift */; };
+		474E3D8C22C5DF6100255CFD /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616F11E9F9E1000E8D8D5 /* EventTableViewCell.swift */; };
+		474E3D8D22C5DF6100255CFD /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */; };
+		474E3D8E22C5DF6100255CFD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE2351E85404D00DCF74A /* GradientView.swift */; };
+		474E3D8F22C5DF6100255CFD /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616617001E9FAE7200E8D8D5 /* NavigationBar.swift */; };
+		474E3D9022C5DF6100255CFD /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616FD1E9FA52300E8D8D5 /* UITableViewExtension.swift */; };
+		474E3D9122C5DF6100255CFD /* MembershipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F041E91E8E59540020D78E /* MembershipsController.swift */; };
+		474E3D9222C5DF6100255CFD /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C58D162164374300E9E8C9 /* BannerTableViewCell.swift */; };
+		474E3D9322C5DF6100255CFD /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A92001F0EF2D900826879 /* EventsViewController.swift */; };
+		474E3D9422C5DF6100255CFD /* UrlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DE22E1E85367000DCF74A /* UrlHandler.swift */; };
+		474E3D9522C5DF6100255CFD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
+		474E3D9622C5DF6100255CFD /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A006201F347C6E003E2651 /* UITextViewExtension.swift */; };
+		474E3D9722C5DF6100255CFD /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473BF18E227993FD009C5DDA /* strings.swift */; };
+		474E3D9822C5DF6100255CFD /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D98DA12040BD2600D4B722 /* UIViewExtension.swift */; };
+		474E3D9922C5DF6100255CFD /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616616FA1E9FA2E200E8D8D5 /* DateExtension.swift */; };
+		474E3D9A22C5DF6100255CFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */; };
+		474E3D9B22C5DF6100255CFD /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
+		474E3D9C22C5DF6100255CFD /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A27581E8C3775005516ED /* InviteResponse.swift */; };
+		474E3D9D22C5DF6100255CFD /* CoachPlusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C0BFE2229A1B00022A779 /* CoachPlusImageView.swift */; };
+		474E3D9E22C5DF6100255CFD /* ParticipationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CA31EA52575004AFAC7 /* ParticipationView.swift */; };
+		474E3D9F22C5DF6100255CFD /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1D1EC3B9BB00A42F51 /* UserViewController.swift */; };
+		474E3DA022C5DF6100255CFD /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B6251E87C81B00F80101 /* FlowManager.swift */; };
+		474E3DA122C5DF6100255CFD /* EventsButtonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A92031F0EF7D900826879 /* EventsButtonBarView.swift */; };
+		474E3DA222C5DF6100255CFD /* Membership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473A5F8A1E8A92D1002FD833 /* Membership.swift */; };
+		474E3DA422C5DF6100255CFD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4756825A1E81D320008547AF /* UserNotifications.framework */; };
+		474E3DA722C5DF6100255CFD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9161E8561F800DC8247 /* Home.storyboard */; };
+		474E3DA822C5DF6100255CFD /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2820408FF0009B8BA2 /* Roboto-BlackItalic.ttf */; };
+		474E3DA922C5DF6100255CFD /* ForgotPw.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4715265D22590080005262F5 /* ForgotPw.storyboard */; };
+		474E3DAA22C5DF6100255CFD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1F20408FEE009B8BA2 /* Roboto-Bold.ttf */; };
+		474E3DAB22C5DF6100255CFD /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2720408FF0009B8BA2 /* Roboto-BoldItalic.ttf */; };
+		474E3DAC22C5DF6100255CFD /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C8F1EA40D3F004AFAC7 /* CreateEvent.storyboard */; };
+		474E3DAD22C5DF6100255CFD /* CoachPlusImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471C0BFB2229A1960022A779 /* CoachPlusImageView.xib */; };
+		474E3DAE22C5DF6100255CFD /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1D20408FEE009B8BA2 /* Roboto-Italic.ttf */; };
+		474E3DAF22C5DF6100255CFD /* SeeAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C791EA2250D004AFAC7 /* SeeAllTableViewCell.xib */; };
+		474E3DB022C5DF6100255CFD /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C9C1EA52211004AFAC7 /* TitleView.xib */; };
+		474E3DB122C5DF6100255CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473483231EC20A2000F60110 /* Assets.xcassets */; };
+		474E3DB222C5DF6100255CFD /* EventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C951EA51EA2004AFAC7 /* EventDetail.storyboard */; };
+		474E3DB322C5DF6100255CFD /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2520408FEF009B8BA2 /* Roboto-Medium.ttf */; };
+		474E3DB422C5DF6100255CFD /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473DCE1A1EC3A6A000A42F51 /* User.storyboard */; };
+		474E3DB522C5DF6100255CFD /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2320408FEF009B8BA2 /* Roboto-ThinItalic.ttf */; };
+		474E3DB622C5DF6100255CFD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474144D01E8428A9009788E2 /* Login.storyboard */; };
+		474E3DB722C5DF6100255CFD /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A0061B1F346D66003E2651 /* NewsTableViewCell.xib */; };
+		474E3DB822C5DF6100255CFD /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2220408FEF009B8BA2 /* Roboto-Thin.ttf */; };
+		474E3DB922C5DF6100255CFD /* ReusableParticipationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61851E0820DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib */; };
+		474E3DBA22C5DF6100255CFD /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478DE2311E8537A600DCF74A /* Verification.storyboard */; };
+		474E3DBB22C5DF6100255CFD /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1E20408FEE009B8BA2 /* Roboto-Light.ttf */; };
+		474E3DBC22C5DF6100255CFD /* ParticipationTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330EB20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib */; };
+		474E3DBD22C5DF6100255CFD /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2420408FEF009B8BA2 /* Roboto-MediumItalic.ttf */; };
+		474E3DBE22C5DF6100255CFD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2120408FEF009B8BA2 /* Roboto-Regular.ttf */; };
+		474E3DBF22C5DF6100255CFD /* MembershipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F041E71E8E59540020D78E /* MembershipTableViewCell.xib */; };
+		474E3DC022C5DF6100255CFD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2620408FEF009B8BA2 /* Roboto-Black.ttf */; };
+		474E3DC122C5DF6100255CFD /* JoinTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473483261EC25F6A00F60110 /* JoinTeam.storyboard */; };
+		474E3DC222C5DF6100255CFD /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D172164374300E9E8C9 /* BannerTableViewCell.xib */; };
+		474E3DC322C5DF6100255CFD /* UserSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47182F4C22329D0900E4FD06 /* UserSettings.storyboard */; };
+		474E3DC422C5DF6100255CFD /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61ACB71F1EA0D6D600A7A1D2 /* MemberTableViewCell.xib */; };
+		474E3DC522C5DF6100255CFD /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330DA20DE66CC008D8E70 /* EventDetailCell.xib */; };
+		474E3DC622C5DF6100255CFD /* ParticipationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CAB1EA53355004AFAC7 /* ParticipationTableViewCell.xib */; };
+		474E3DC722C5DF6100255CFD /* MainLocalization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DB520415E6800D4B722 /* MainLocalization.strings */; };
+		474E3DC822C5DF6100255CFD /* ReusableTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616616EC1E9F952C00E8D8D5 /* ReusableTableHeader.xib */; };
+		474E3DC922C5DF6100255CFD /* NewTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D98DA920415C8A00D4B722 /* NewTeam.storyboard */; };
+		474E3DCA22C5DF6100255CFD /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9C7F1EA227C6004AFAC7 /* Events.storyboard */; };
+		474E3DCB22C5DF6100255CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */; };
+		474E3DCC22C5DF6100255CFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4749C5031E81B7FE0068B0FA /* Main.storyboard */; };
+		474E3DCD22C5DF6100255CFD /* Memberships.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041E81E8E59540020D78E /* Memberships.storyboard */; };
+		474E3DCE22C5DF6100255CFD /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
+		474E3DCF22C5DF6100255CFD /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 473ADF4A227350460055FE0B /* swiftgen.yml */; };
+		474E3DD022C5DF6100255CFD /* NewNews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A006231F34808A003E2651 /* NewNews.storyboard */; };
+		474E3DD122C5DF6100255CFD /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2020408FEF009B8BA2 /* Roboto-LightItalic.ttf */; };
+		474E3DD222C5DF6100255CFD /* ParticipationStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C58D212164EBF300E9E8C9 /* ParticipationStatus.xib */; };
+		474E3DD322C5DF6100255CFD /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F0420E1E8E6F4B0020D78E /* TableHeaderView.xib */; };
+		474E3DD422C5DF6100255CFD /* ParticipationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9CA01EA52463004AFAC7 /* ParticipationView.xib */; };
+		474E3DD522C5DF6100255CFD /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F041F61E8E5FF90020D78E /* Team.storyboard */; };
+		474E3DD622C5DF6100255CFD /* TeamSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616617071E9FB36800E8D8D5 /* TeamSelectionView.xib */; };
+		474E3DD722C5DF6100255CFD /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 616616F21E9F9E1000E8D8D5 /* EventTableViewCell.xib */; };
 		474EEEDF2259F57F008EAADE /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A9B90D1E8543CB00DC8247 /* OutlineButton.swift */; };
 		474EEEE42259F605008EAADE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0F1E86CDE000706E6B /* StringExtension.swift */; };
 		474EEEE62259F960008EAADE /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
@@ -402,6 +538,11 @@
 		47F042131E8E70660020D78E /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042111E8E70660020D78E /* TeamViewController.swift */; };
 		47F042191E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
 		47F0421A1E8E7A590020D78E /* MembershipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F042181E8E7A590020D78E /* MembershipManager.swift */; };
+		47F1486E22D4C5C8008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
+		47F1486F22D4C5C8008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
+		47F1487022D4C5C8008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
+		47F1487122D4C6BF008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
+		47F1487222D4C6BF008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
 		480B31F326F2CCD4E1F1693C /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB5815500B66DBED4D57D5E /* Pods_CoachPlusUITests.framework */; };
 		611330DB20DE66CC008D8E70 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
 		611330DC20DE66CC008D8E70 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
@@ -612,6 +753,8 @@
 		4749C51B1E81B7FF0068B0FA /* CoachPlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoachPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4749C51F1E81B7FF0068B0FA /* CoachPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachPlusUITests.swift; sourceTree = "<group>"; };
 		4749C5211E81B7FF0068B0FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		474E3DDC22C5DF6100255CFD /* CoachPlusBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlusBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		474E3DDD22C5DF6100255CFD /* CoachPlusInfoBeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = CoachPlusInfoBeta.plist; path = /priv/mathandoro/ios/CoachPlusInfoBeta.plist; sourceTree = "<absolute>"; };
 		475682591E81D273008547AF /* CoachPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoachPlus.entitlements; sourceTree = "<group>"; };
 		4756825A1E81D320008547AF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		477A27581E8C3775005516ED /* InviteResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteResponse.swift; path = models/InviteResponse.swift; sourceTree = "<group>"; };
@@ -646,6 +789,10 @@
 		47F0420E1E8E6F4B0020D78E /* TableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableHeaderView.xib; path = ui/tableheader/TableHeaderView.xib; sourceTree = "<group>"; };
 		47F042111E8E70660020D78E /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamViewController.swift; path = app/team/TeamViewController.swift; sourceTree = "<group>"; };
 		47F042181E8E7A590020D78E /* MembershipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MembershipManager.swift; path = helperclasses/MembershipManager.swift; sourceTree = "<group>"; };
+		47F1486822D4C135008CBD64 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		47F1486C22D4C1C5008CBD64 /* Beta.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Beta.xcconfig; sourceTree = "<group>"; };
+		47F1486D22D4C5C8008CBD64 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = helperclasses/Environment.swift; sourceTree = "<group>"; };
 		5854C205E291EA13A294BF8C /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		58F64F9A380F6E623435F897 /* Pods-CoachPlusDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.debug.xcconfig"; sourceTree = "<group>"; };
 		611330D920DE66CC008D8E70 /* EventDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDetailCell.swift; path = app/events/cells/EventDetailCell.swift; sourceTree = "<group>"; };
@@ -757,6 +904,7 @@
 			files = (
 				4756825B1E81D320008547AF /* UserNotifications.framework in Frameworks */,
 				EFD7AFC448429266893BCCB6 /* Pods_CoachPlusDev.framework in Frameworks */,
+				23DF4375457E95C33AAB0D69 /* Pods_CoachPlusDev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +921,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				480B31F326F2CCD4E1F1693C /* Pods_CoachPlusUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474E3DA322C5DF6100255CFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474E3DA422C5DF6100255CFD /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +1048,7 @@
 				4749C5101E81B7FE0068B0FA /* CoachPlusTests.xctest */,
 				4749C51B1E81B7FF0068B0FA /* CoachPlusUITests.xctest */,
 				473A5F7E1E8A749A002FD833 /* CoachPlus.app */,
+				474E3DDC22C5DF6100255CFD /* CoachPlusBeta.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -899,6 +1056,7 @@
 		4749C4FE1E81B7FE0068B0FA /* CoachPlus */ = {
 			isa = PBXGroup;
 			children = (
+				47F1486722D4C120008CBD64 /* configs */,
 				612E14C91F0F7E1200D19674 /* libs */,
 				4734831E1EC208BA00F60110 /* assets */,
 				47F041F91E8E61DD0020D78E /* ui */,
@@ -920,6 +1078,7 @@
 				4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */,
 				4734832D1EC26A0700F60110 /* CoachPlusInfo.plist */,
 				4734832E1EC26A1000F60110 /* CoachPlusInfoDev.plist */,
+				474E3DDD22C5DF6100255CFD /* CoachPlusInfoBeta.plist */,
 				474144D71E842D30009788E2 /* CoachPlus.swift */,
 				472B9C131E870F4F00706E6B /* CoachPlus-Bridging-Header.h */,
 			);
@@ -978,6 +1137,7 @@
 				47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */,
 				477AF37A22609E07004F7F2E /* ErrorHandler.swift */,
 				473ADF3F22732DD50055FE0B /* EventManager.swift */,
+				47F1486D22D4C5C8008CBD64 /* Environment.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -1106,6 +1266,16 @@
 				61851E0820DEAAAB008E96F0 /* ReusableParticipationHeaderView.xib */,
 			);
 			name = tableheader;
+			sourceTree = "<group>";
+		};
+		47F1486722D4C120008CBD64 /* configs */ = {
+			isa = PBXGroup;
+			children = (
+				47F1486822D4C135008CBD64 /* Production.xcconfig */,
+				47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */,
+				47F1486C22D4C1C5008CBD64 /* Beta.xcconfig */,
+			);
+			path = configs;
 			sourceTree = "<group>";
 		};
 		611330D220DE64E0008D8E70 /* cells */ = {
@@ -1347,6 +1517,24 @@
 			productReference = 4749C51B1E81B7FF0068B0FA /* CoachPlusUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		474E3D4A22C5DF6100255CFD /* CoachPlusBeta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 474E3DD922C5DF6100255CFD /* Build configuration list for PBXNativeTarget "CoachPlusBeta" */;
+			buildPhases = (
+				474E3D4C22C5DF6100255CFD /* ShellScript */,
+				474E3D4D22C5DF6100255CFD /* Sources */,
+				474E3DA322C5DF6100255CFD /* Frameworks */,
+				474E3DA622C5DF6100255CFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoachPlusBeta;
+			productName = CoachPlus;
+			productReference = 474E3DDC22C5DF6100255CFD /* CoachPlusBeta.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1384,23 +1572,26 @@
 					};
 					4749C50F1E81B7FE0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 4749C4FB1E81B7FE0068B0FA;
 					};
 					4749C51A1E81B7FF0068B0FA = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = EMYEJ6A5DS;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 4749C4FB1E81B7FE0068B0FA;
+					};
+					474E3D4A22C5DF6100255CFD = {
+						DevelopmentTeam = R6AW526K22;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = 4749C4F71E81B7FE0068B0FA /* Build configuration list for PBXProject "CoachPlus" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = German;
+			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				German,
 				en,
 				Base,
 				de,
@@ -1412,6 +1603,7 @@
 			targets = (
 				473A5F571E8A749A002FD833 /* CoachPlus */,
 				4749C4FB1E81B7FE0068B0FA /* CoachPlusDev */,
+				474E3D4A22C5DF6100255CFD /* CoachPlusBeta */,
 				4749C50F1E81B7FE0068B0FA /* CoachPlusTests */,
 				4749C51A1E81B7FF0068B0FA /* CoachPlusUITests */,
 			);
@@ -1643,6 +1835,62 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		474E3DA622C5DF6100255CFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474E3DA722C5DF6100255CFD /* Home.storyboard in Resources */,
+				474E3DA822C5DF6100255CFD /* Roboto-BlackItalic.ttf in Resources */,
+				474E3DA922C5DF6100255CFD /* ForgotPw.storyboard in Resources */,
+				474E3DAA22C5DF6100255CFD /* Roboto-Bold.ttf in Resources */,
+				474E3DAB22C5DF6100255CFD /* Roboto-BoldItalic.ttf in Resources */,
+				474E3DAC22C5DF6100255CFD /* CreateEvent.storyboard in Resources */,
+				474E3DAD22C5DF6100255CFD /* CoachPlusImageView.xib in Resources */,
+				474E3DAE22C5DF6100255CFD /* Roboto-Italic.ttf in Resources */,
+				474E3DAF22C5DF6100255CFD /* SeeAllTableViewCell.xib in Resources */,
+				474E3DB022C5DF6100255CFD /* TitleView.xib in Resources */,
+				474E3DB122C5DF6100255CFD /* Assets.xcassets in Resources */,
+				474E3DB222C5DF6100255CFD /* EventDetail.storyboard in Resources */,
+				474E3DB322C5DF6100255CFD /* Roboto-Medium.ttf in Resources */,
+				474E3DB422C5DF6100255CFD /* User.storyboard in Resources */,
+				474E3DB522C5DF6100255CFD /* Roboto-ThinItalic.ttf in Resources */,
+				474E3DB622C5DF6100255CFD /* Login.storyboard in Resources */,
+				474E3DB722C5DF6100255CFD /* NewsTableViewCell.xib in Resources */,
+				474E3DB822C5DF6100255CFD /* Roboto-Thin.ttf in Resources */,
+				474E3DB922C5DF6100255CFD /* ReusableParticipationHeaderView.xib in Resources */,
+				474E3DBA22C5DF6100255CFD /* Verification.storyboard in Resources */,
+				474E3DBB22C5DF6100255CFD /* Roboto-Light.ttf in Resources */,
+				474E3DBC22C5DF6100255CFD /* ParticipationTableHeaderView.xib in Resources */,
+				474E3DBD22C5DF6100255CFD /* Roboto-MediumItalic.ttf in Resources */,
+				474E3DBE22C5DF6100255CFD /* Roboto-Regular.ttf in Resources */,
+				474E3DBF22C5DF6100255CFD /* MembershipTableViewCell.xib in Resources */,
+				474E3DC022C5DF6100255CFD /* Roboto-Black.ttf in Resources */,
+				474E3DC122C5DF6100255CFD /* JoinTeam.storyboard in Resources */,
+				474E3DC222C5DF6100255CFD /* BannerTableViewCell.xib in Resources */,
+				474E3DC322C5DF6100255CFD /* UserSettings.storyboard in Resources */,
+				474E3DC422C5DF6100255CFD /* MemberTableViewCell.xib in Resources */,
+				474E3DC522C5DF6100255CFD /* EventDetailCell.xib in Resources */,
+				474E3DC622C5DF6100255CFD /* ParticipationTableViewCell.xib in Resources */,
+				474E3DC722C5DF6100255CFD /* MainLocalization.strings in Resources */,
+				474E3DC822C5DF6100255CFD /* ReusableTableHeader.xib in Resources */,
+				474E3DC922C5DF6100255CFD /* NewTeam.storyboard in Resources */,
+				474E3DCA22C5DF6100255CFD /* Events.storyboard in Resources */,
+				474E3DCB22C5DF6100255CFD /* LaunchScreen.storyboard in Resources */,
+				474E3DCC22C5DF6100255CFD /* Main.storyboard in Resources */,
+				474E3DCD22C5DF6100255CFD /* Memberships.storyboard in Resources */,
+				474E3DCE22C5DF6100255CFD /* Register.storyboard in Resources */,
+				474E3DCF22C5DF6100255CFD /* swiftgen.yml in Resources */,
+				474E3DD022C5DF6100255CFD /* NewNews.storyboard in Resources */,
+				474E3DD122C5DF6100255CFD /* Roboto-LightItalic.ttf in Resources */,
+				474E3DD222C5DF6100255CFD /* ParticipationStatus.xib in Resources */,
+				474E3DD322C5DF6100255CFD /* TableHeaderView.xib in Resources */,
+				474E3DD422C5DF6100255CFD /* ParticipationView.xib in Resources */,
+				474E3DD522C5DF6100255CFD /* Team.storyboard in Resources */,
+				474E3DD622C5DF6100255CFD /* TeamSelectionView.xib in Resources */,
+				474E3DD722C5DF6100255CFD /* EventTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1665,6 +1913,23 @@
 			showEnvVarsInLog = 0;
 		};
 		473ADF44227345EB0055FE0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$PODS_ROOT/SwiftGen/bin/swiftgen\n";
+		};
+		474E3D4C22C5DF6100255CFD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1911,6 +2176,7 @@
 				473A5F621E8A749A002FD833 /* LoginViewController.swift in Sources */,
 				47C58D132164108400E9E8C9 /* LoadingIndicatorHelper.swift in Sources */,
 				61CA9C9A1EA52200004AFAC7 /* TitleView.swift in Sources */,
+				47F1486E22D4C5C8008CBD64 /* Environment.swift in Sources */,
 				473A5F881E8A9224002FD833 /* User.swift in Sources */,
 				61A006171F3468CF003E2651 /* News.swift in Sources */,
 				612E14D01F1823C400D19674 /* HeaderView.swift in Sources */,
@@ -2003,6 +2269,7 @@
 				474144D61E8429AD009788E2 /* LoginViewController.swift in Sources */,
 				47C58D142164108400E9E8C9 /* LoadingIndicatorHelper.swift in Sources */,
 				61CA9C9B1EA52200004AFAC7 /* TitleView.swift in Sources */,
+				47F1486F22D4C5C8008CBD64 /* Environment.swift in Sources */,
 				473A5F891E8A9224002FD833 /* User.swift in Sources */,
 				61A006181F3468CF003E2651 /* News.swift in Sources */,
 				612E14D11F1823C400D19674 /* HeaderView.swift in Sources */,
@@ -2093,6 +2360,7 @@
 				477AF3832260CBE7004F7F2E /* AppDelegate.swift in Sources */,
 				477AF31A2260937C004F7F2E /* MailSentViewController.swift in Sources */,
 				47AC1C8A2269A9DA001057DA /* NewsTableViewCell.swift in Sources */,
+				47F1487122D4C6BF008CBD64 /* Environment.swift in Sources */,
 				477AF2F022607812004F7F2E /* UIImageViewExtension.swift in Sources */,
 				477AF36A226093BC004F7F2E /* Membership.swift in Sources */,
 				477AF35A226093B6004F7F2E /* HeaderView.swift in Sources */,
@@ -2186,6 +2454,7 @@
 				477AF3842260CBE8004F7F2E /* AppDelegate.swift in Sources */,
 				477AF31C2260937C004F7F2E /* MailSentViewController.swift in Sources */,
 				47AC1C8E2269A9DA001057DA /* NewsTableViewCell.swift in Sources */,
+				47F1487222D4C6BF008CBD64 /* Environment.swift in Sources */,
 				477AF2C52260780C004F7F2E /* UrlHandler.swift in Sources */,
 				477AF372226093BD004F7F2E /* Membership.swift in Sources */,
 				477AF366226093B6004F7F2E /* HeaderView.swift in Sources */,
@@ -2241,6 +2510,99 @@
 				477AF2FF22607812004F7F2E /* Authentication.swift in Sources */,
 				477AF376226093BD004F7F2E /* ParticipationItem.swift in Sources */,
 				477AF30422607812004F7F2E /* UserManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		474E3D4D22C5DF6100255CFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474E3D4E22C5DF6100255CFD /* ReusableTableHeader.swift in Sources */,
+				474E3D4F22C5DF6100255CFD /* NewsTableViewCell.swift in Sources */,
+				474E3D5022C5DF6100255CFD /* TeamSelectionView.swift in Sources */,
+				474E3D5122C5DF6100255CFD /* UIFontExtension.swift in Sources */,
+				474E3D5222C5DF6100255CFD /* Helpers.swift in Sources */,
+				474E3D5322C5DF6100255CFD /* MemberTableViewCell.swift in Sources */,
+				474E3D5422C5DF6100255CFD /* UserManager.swift in Sources */,
+				474E3D5522C5DF6100255CFD /* Team.swift in Sources */,
+				474E3D5622C5DF6100255CFD /* MembershipTableViewCell.swift in Sources */,
+				474E3D5722C5DF6100255CFD /* VerificationViewController.swift in Sources */,
+				474E3D5822C5DF6100255CFD /* CreateTeamViewController.swift in Sources */,
+				474E3D5922C5DF6100255CFD /* ApiError.swift in Sources */,
+				474E3D5A22C5DF6100255CFD /* TableHeaderView.swift in Sources */,
+				474E3D5B22C5DF6100255CFD /* ParticipationTableHeaderView.swift in Sources */,
+				474E3D5C22C5DF6100255CFD /* SeeAllTableViewCell.swift in Sources */,
+				474E3D5D22C5DF6100255CFD /* DropdownAlert.swift in Sources */,
+				474E3D5E22C5DF6100255CFD /* CreateEventViewController.swift in Sources */,
+				474E3D5F22C5DF6100255CFD /* UIApplicationExtension.swift in Sources */,
+				474E3D6022C5DF6100255CFD /* ParticipationItem.swift in Sources */,
+				474E3D6122C5DF6100255CFD /* Event.swift in Sources */,
+				474E3D6222C5DF6100255CFD /* SeparatorView.swift in Sources */,
+				474E3D6322C5DF6100255CFD /* UIViewControllerExtension.swift in Sources */,
+				474E3D6422C5DF6100255CFD /* CoachPlus.swift in Sources */,
+				474E3D6522C5DF6100255CFD /* JoinTeamViewController.swift in Sources */,
+				474E3D6622C5DF6100255CFD /* ImageHelper.swift in Sources */,
+				474E3D6722C5DF6100255CFD /* ReusableParticipationHeaderView.swift in Sources */,
+				474E3D6822C5DF6100255CFD /* HomeViewController.swift in Sources */,
+				474E3D6922C5DF6100255CFD /* RegisterViewController.swift in Sources */,
+				474E3D6A22C5DF6100255CFD /* DataHandler.swift in Sources */,
+				474E3D6B22C5DF6100255CFD /* UIImageExtension.swift in Sources */,
+				474E3D6C22C5DF6100255CFD /* LoginViewController.swift in Sources */,
+				474E3D6D22C5DF6100255CFD /* LoadingIndicatorHelper.swift in Sources */,
+				474E3D6E22C5DF6100255CFD /* TitleView.swift in Sources */,
+				47F1487022D4C5C8008CBD64 /* Environment.swift in Sources */,
+				474E3D6F22C5DF6100255CFD /* User.swift in Sources */,
+				474E3D7022C5DF6100255CFD /* News.swift in Sources */,
+				474E3D7122C5DF6100255CFD /* HeaderView.swift in Sources */,
+				474E3D7222C5DF6100255CFD /* UserSettingsViewController.swift in Sources */,
+				474E3D7322C5DF6100255CFD /* TeamViewController.swift in Sources */,
+				474E3D7422C5DF6100255CFD /* LaunchScreenController.swift in Sources */,
+				474E3D7522C5DF6100255CFD /* UIColorExtension.swift in Sources */,
+				474E3D7622C5DF6100255CFD /* EventListViewController.swift in Sources */,
+				474E3D7722C5DF6100255CFD /* Location.swift in Sources */,
+				474E3D7822C5DF6100255CFD /* EventManager.swift in Sources */,
+				474E3D7922C5DF6100255CFD /* CoachPlusNavigationViewController.swift in Sources */,
+				474E3D7A22C5DF6100255CFD /* ErrorHandler.swift in Sources */,
+				474E3D7B22C5DF6100255CFD /* MembershipManager.swift in Sources */,
+				474E3D7C22C5DF6100255CFD /* ViewController.swift in Sources */,
+				474E3D7D22C5DF6100255CFD /* CoachPlusViewController.swift in Sources */,
+				474E3D7E22C5DF6100255CFD /* NotificationManager.swift in Sources */,
+				474E3D7F22C5DF6100255CFD /* Authentication.swift in Sources */,
+				474E3D8022C5DF6100255CFD /* ButtonExtensions.swift in Sources */,
+				474E3D8122C5DF6100255CFD /* ParticipationStatus.swift in Sources */,
+				474E3D8222C5DF6100255CFD /* UIButtonExtension.swift in Sources */,
+				474E3D8322C5DF6100255CFD /* UIImageViewExtension.swift in Sources */,
+				474E3D8422C5DF6100255CFD /* MailSentViewController.swift in Sources */,
+				474E3D8522C5DF6100255CFD /* DatePickerDialog.swift in Sources */,
+				474E3D8622C5DF6100255CFD /* EventDetailViewController.swift in Sources */,
+				474E3D8722C5DF6100255CFD /* ApiResponse.swift in Sources */,
+				474E3D8822C5DF6100255CFD /* ForgotPwViewController.swift in Sources */,
+				474E3D8922C5DF6100255CFD /* NewNewsViewController.swift in Sources */,
+				474E3D8A22C5DF6100255CFD /* Participation.swift in Sources */,
+				474E3D8B22C5DF6100255CFD /* ParticipationTableViewCell.swift in Sources */,
+				474E3D8C22C5DF6100255CFD /* EventTableViewCell.swift in Sources */,
+				474E3D8D22C5DF6100255CFD /* OutlineButton.swift in Sources */,
+				474E3D8E22C5DF6100255CFD /* GradientView.swift in Sources */,
+				474E3D8F22C5DF6100255CFD /* NavigationBar.swift in Sources */,
+				474E3D9022C5DF6100255CFD /* UITableViewExtension.swift in Sources */,
+				474E3D9122C5DF6100255CFD /* MembershipsController.swift in Sources */,
+				474E3D9222C5DF6100255CFD /* BannerTableViewCell.swift in Sources */,
+				474E3D9322C5DF6100255CFD /* EventsViewController.swift in Sources */,
+				474E3D9422C5DF6100255CFD /* UrlHandler.swift in Sources */,
+				474E3D9522C5DF6100255CFD /* StringExtension.swift in Sources */,
+				474E3D9622C5DF6100255CFD /* UITextViewExtension.swift in Sources */,
+				474E3D9722C5DF6100255CFD /* strings.swift in Sources */,
+				474E3D9822C5DF6100255CFD /* UIViewExtension.swift in Sources */,
+				474E3D9922C5DF6100255CFD /* DateExtension.swift in Sources */,
+				474E3D9A22C5DF6100255CFD /* AppDelegate.swift in Sources */,
+				474E3D9B22C5DF6100255CFD /* EventDetailCell.swift in Sources */,
+				474E3D9C22C5DF6100255CFD /* InviteResponse.swift in Sources */,
+				474E3D9D22C5DF6100255CFD /* CoachPlusImageView.swift in Sources */,
+				474E3D9E22C5DF6100255CFD /* ParticipationView.swift in Sources */,
+				474E3D9F22C5DF6100255CFD /* UserViewController.swift in Sources */,
+				474E3DA022C5DF6100255CFD /* FlowManager.swift in Sources */,
+				474E3DA122C5DF6100255CFD /* EventsButtonBarView.swift in Sources */,
+				474E3DA222C5DF6100255CFD /* Membership.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2305,7 +2667,7 @@
 /* Begin XCBuildConfiguration section */
 		473A5F7C1E8A749A002FD833 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5854C205E291EA13A294BF8C /* Pods-CoachPlus.debug.xcconfig */;
+			baseConfigurationReference = 47F1486822D4C135008CBD64 /* Production.xcconfig */;
 			buildSettings = {
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2329,7 +2691,7 @@
 		};
 		473A5F7D1E8A749A002FD833 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3C417F6E1B3ED85CB7BA6A7 /* Pods-CoachPlus.release.xcconfig */;
+			baseConfigurationReference = 47F1486822D4C135008CBD64 /* Production.xcconfig */;
 			buildSettings = {
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2338,7 +2700,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2346,7 +2708,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a338cfbf-28fd-4a3c-b1d8-51662171415c";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mathandoro.coachplus";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "";
@@ -2454,7 +2816,7 @@
 		};
 		4749C5251E81B7FF0068B0FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58F64F9A380F6E623435F897 /* Pods-CoachPlusDev.debug.xcconfig */;
+			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
 			buildSettings = {
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
@@ -2478,7 +2840,7 @@
 		};
 		4749C5261E81B7FF0068B0FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DA5109076260D00A51E2236 /* Pods-CoachPlusDev.release.xcconfig */;
+			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
 			buildSettings = {
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
@@ -2495,7 +2857,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d615ab60-348c-40e6-bb3c-c449f5911374";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mathandoro.coachplus.dev 1530442160";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mathandoro.coachplus.dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "";
@@ -2504,11 +2866,11 @@
 		};
 		4749C5281E81B7FF0068B0FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEFA28BD1CDE91EA66DC1F8B /* Pods-CoachPlusTests.debug.xcconfig */;
+			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CoachPlusTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2522,11 +2884,11 @@
 		};
 		4749C5291E81B7FF0068B0FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC1059DEAD142EFD0DA7E6E5 /* Pods-CoachPlusTests.release.xcconfig */;
+			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CoachPlusTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2540,10 +2902,10 @@
 		};
 		4749C52B1E81B7FF0068B0FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AB1EF209E890B990B4438DB /* Pods-CoachPlusUITests.debug.xcconfig */;
+			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = EMYEJ6A5DS;
 				INFOPLIST_FILE = CoachPlusUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2556,10 +2918,10 @@
 		};
 		4749C52C1E81B7FF0068B0FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D796F6785F6B85828255AD57 /* Pods-CoachPlusUITests.release.xcconfig */;
+			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = EMYEJ6A5DS;
 				INFOPLIST_FILE = CoachPlusUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2567,6 +2929,56 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = CoachPlus;
+			};
+			name = Release;
+		};
+		474E3DDA22C5DF6100255CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBeta;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 12;
+				DEVELOPMENT_TEAM = R6AW526K22;
+				INFOPLIST_FILE = "$(SRCROOT)/CoachPlusInfoBeta.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.beta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "414ae91e-ef8a-4ed6-a919-a423712fca98";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.mathandoro.coachplus.beta";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "";
+			};
+			name = Debug;
+		};
+		474E3DDB22C5DF6100255CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47F1486C22D4C1C5008CBD64 /* Beta.xcconfig */;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBeta;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 12;
+				DEVELOPMENT_TEAM = R6AW526K22;
+				INFOPLIST_FILE = "$(SRCROOT)/CoachPlusInfoBeta.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathandoro.coachplus.beta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d615ab60-348c-40e6-bb3c-c449f5911374";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mathandoro.coachplus.beta";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoachPlus/CoachPlus-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
 		};
@@ -2614,6 +3026,15 @@
 			buildConfigurations = (
 				4749C52B1E81B7FF0068B0FA /* Debug */,
 				4749C52C1E81B7FF0068B0FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		474E3DD922C5DF6100255CFD /* Build configuration list for PBXNativeTarget "CoachPlusBeta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474E3DDA22C5DF6100255CFD /* Debug */,
+				474E3DDB22C5DF6100255CFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

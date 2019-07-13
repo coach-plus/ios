@@ -48,7 +48,7 @@ platform :ios do
     commit_version_bump(message: '***NO_CI*** Bump version', force: true)
     sh "git remote add origin2 git@github.com:coach-plus/ios.git"
     push_to_git_remote(
-      remote: "origin1"
+      remote: "origin2"
     )
   end
 

@@ -41,11 +41,6 @@ fastlane ios build_beta
 fastlane ios upload_beta
 ```
 
-### ios release
-```
-fastlane ios release
-```
-Deploy a new version to the App Store
 ### ios build_production
 ```
 fastlane ios build_production

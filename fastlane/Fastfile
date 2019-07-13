@@ -27,6 +27,8 @@ platform :ios do
 
   desc "build dev"
   lane :build_dev do
+    increment_build_number
+    commit_version_bump(message: 'Bump version', force: true)
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus.dev")
     gym(scheme: "CoachPlusDev")
@@ -44,6 +46,8 @@ platform :ios do
   end
 
   lane :build_beta do
+    increment_build_number
+    commit_version_bump(message: 'Bump version', force: true)
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus.beta",
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
@@ -56,16 +60,9 @@ platform :ios do
     pilot(app_identifier: "com.mathandoro.coachplus.dev", ipa: "CoachPlusDev.ipa")
   end
 
-  desc "Deploy a new version to the App Store"
-  lane :release do
-    # match(type: "appstore")
-    # snapshot
-    gym(scheme: "CoachPlus") # Build your app - more options available
-    deliver(force: true)
-    # frameit
-  end
-
   lane :build_production do
+    increment_build_number
+    commit_version_bump(message: 'Bump version', force: true)
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus",
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
@@ -74,27 +71,9 @@ platform :ios do
     gym(scheme: "CoachPlus")
   end
 
-  # You can define as many lanes as you want
-
   after_all do |lane|
-    # This block is called, only if the executed lane was successful
-
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
   end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
   end
 end
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://docs.fastlane.tools/actions
-
-# fastlane reports which actions are used
-# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer

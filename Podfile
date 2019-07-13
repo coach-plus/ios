@@ -49,6 +49,10 @@ target 'CoachPlusDev' do
   all_pods
 end
 
+target 'CoachPlusBeta' do
+  all_pods
+end
+
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         if ['SwiftIcons', 'NibDesignable', 'ImagePicker'].include? target.name

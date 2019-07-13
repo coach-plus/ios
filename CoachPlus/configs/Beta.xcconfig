@@ -8,5 +8,5 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-#include "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.release.xcconfig"
+#include "Pods/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta.release.xcconfig"
 BACKEND_URL = https:/$()/beta.coach.plus/

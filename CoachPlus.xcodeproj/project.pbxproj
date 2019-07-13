@@ -691,6 +691,7 @@
 		61EB04072039BEDA003C1A17 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
 		61EB04082039BEDC003C1A17 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
 		8806586083F20F4D7E538EAC /* Pods_CoachPlusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FC678EACD93952A8FC9D03 /* Pods_CoachPlusTests.framework */; };
+		DCDF97EB0B17CC7C0B6F40BD /* Pods_CoachPlusBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94958EA1B997D35762BF88AF /* Pods_CoachPlusBeta.framework */; };
 		EFD7AFC448429266893BCCB6 /* Pods_CoachPlusDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE9A1A97293ECC4C132FBD2 /* Pods_CoachPlusDev.framework */; };
 /* End PBXBuildFile section */
 
@@ -879,6 +880,7 @@
 		6DA5109076260D00A51E2236 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
 		6F37F74EC4CBD0B2B2BC02DB /* Pods_CoachPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB1EF209E890B990B4438DB /* Pods-CoachPlusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		94958EA1B997D35762BF88AF /* Pods_CoachPlusBeta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusBeta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB5815500B66DBED4D57D5E /* Pods_CoachPlusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC1059DEAD142EFD0DA7E6E5 /* Pods-CoachPlusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusTests/Pods-CoachPlusTests.release.xcconfig"; sourceTree = "<group>"; };
 		D5FC678EACD93952A8FC9D03 /* Pods_CoachPlusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -929,6 +931,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				474E3DA422C5DF6100255CFD /* UserNotifications.framework in Frameworks */,
+				DCDF97EB0B17CC7C0B6F40BD /* Pods_CoachPlusBeta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1433,6 +1436,7 @@
 				FFE9A1A97293ECC4C132FBD2 /* Pods_CoachPlusDev.framework */,
 				D5FC678EACD93952A8FC9D03 /* Pods_CoachPlusTests.framework */,
 				BEB5815500B66DBED4D57D5E /* Pods_CoachPlusUITests.framework */,
+				94958EA1B997D35762BF88AF /* Pods_CoachPlusBeta.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1521,10 +1525,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 474E3DD922C5DF6100255CFD /* Build configuration list for PBXNativeTarget "CoachPlusBeta" */;
 			buildPhases = (
+				5E1AEBDE3C65B604D12DFDEB /* [CP] Check Pods Manifest.lock */,
 				474E3D4C22C5DF6100255CFD /* ShellScript */,
 				474E3D4D22C5DF6100255CFD /* Sources */,
 				474E3DA322C5DF6100255CFD /* Frameworks */,
 				474E3DA622C5DF6100255CFD /* Resources */,
+				BC2C4ECABDA15F2C24388EF9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2012,6 +2018,100 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E1AEBDE3C65B604D12DFDEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoachPlusBeta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC2C4ECABDA15F2C24388EF9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NibDesignable/NibDesignable.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NibDesignable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C91B26A814E8B422E648D435 /* [CP] Check Pods Manifest.lock */ = {

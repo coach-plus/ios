@@ -27,8 +27,6 @@ platform :ios do
 
   desc "build dev"
   lane :build_dev do
-    increment_build_number
-    commit_version_bump(message: 'Bump version', force: true)
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus.dev")
     gym(scheme: "CoachPlusDev")
@@ -45,9 +43,13 @@ platform :ios do
     )
   end
 
-  lane :build_beta do
+  lane :set_build_number do
     increment_build_number
     commit_version_bump(message: 'Bump version', force: true)
+    sh "git push"
+  end
+
+  lane :build_beta do
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus.beta",
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
@@ -61,8 +63,6 @@ platform :ios do
   end
 
   lane :build_production do
-    increment_build_number
-    commit_version_bump(message: 'Bump version', force: true)
     match(type: "appstore",
       app_identifier: "com.mathandoro.coachplus",
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],

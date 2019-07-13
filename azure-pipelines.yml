@@ -23,6 +23,8 @@ steps:
     MATCH_PASSWORD: '$(MATCH_PASSWORD)'
     FASTLANE_PASSWORD: '$(FASTLANE_PASSWORD)'
     MATCH_KEYCHAIN_NAME: '$(MATCH_KEYCHAIN_NAME)'
+- script: fastlane set_build_number
+  displayName: 'Set build number with fastlane'
 - script: fastlane build_beta
   displayName: 'Build beta app with fastlane'
   env:

@@ -46,7 +46,7 @@ platform :ios do
   lane :set_build_number do
     increment_build_number
     commit_version_bump(message: '***NO_CI*** Bump version', force: true)
-    sh "git push origin master"
+    push_to_git_remote
   end
 
   lane :build_beta do

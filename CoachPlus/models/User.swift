@@ -65,7 +65,7 @@ class User:JSONable, BackJSONable {
         guard (self.image != nil) else {
             return ""
         }
-        return String.init(format: "%@%@", "https://dev.coach.plus/uploads/", self.image!)
+        return String.init(format: "%@%@%@", Environment.backendURL.absoluteString, "uploads/", self.image!)
     }
 
 }

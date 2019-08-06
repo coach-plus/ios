@@ -1,133 +1,298 @@
 "Events" = "Events";
 "Members" = "Mitglieder";
-"Make user" = "Zum Spieler machen";
-"Remove from team" = "Aus dem Team entfernen";
+
+/*Fuzzy*/
+"Make_user" = "Zum Spieler machen";
+
+/*Fuzzy*/
+"Remove_from_team" = "Aus dem Team entfernen";
 "Cancel" = "Abbrechen";
 "Teams" = "Teams";
 
 /*1 Member*/
-"1 Member" = "1 Mitglied";
+/*Fuzzy*/
+"one_Member" = "1 Mitglied";
 
 /*Multiple Members*/
-"%d Members" = "%d Mitglieder";
+/*Fuzzy*/
+"x_Members" = "%d Mitglieder";
 "Logout" = "Ausloggen";
-"New Team" = "Neues Team";
-"Team Name" = "Teamname";
-"Private Team" = "Privates Team";
-"Public Team" = "Öffentliches Team";
-"Your team is public and everyone can join it" = "Dein Team ist öffentlich und jeder kann beitreten";
-"Your team is private and you can invite people" = "Dein Team ist privat und du kannst Leute einladen";
-"Create Team" = "Team erstellen";
-"You are in the following Teams" = "Du bist in folgenden Teams";
-"%s is in the following Teams" = "%s ist in folgenden Teams";
-"Leave Team" = "Team verlassen";
-"Are you sure that you want to leave team %s" = "Möchtest du das Team %s wirklich verlassen?";
-"User Settings" = "Benutzereinstellungen";
-"Personal Settings" = "Persönliche Einstellungen";
+
+/*Fuzzy*/
+"New_Team" = "Neues Team";
+
+/*Fuzzy*/
+"Team_Name" = "Teamname";
+
+/*Fuzzy*/
+"Private_Team" = "Privates Team";
+
+/*Fuzzy*/
+"Public_Team" = "Öffentliches Team";
+
+/*Fuzzy*/
+"Your_team_is_public_and_everyone_can_join_it" = "Dein Team ist öffentlich und jeder kann beitreten";
+
+/*Fuzzy*/
+"Your_team_is_private_and_you_can_invite_people" = "Dein Team ist privat und du kannst Leute einladen";
+
+/*Fuzzy*/
+"Create_Team" = "Team erstellen";
+
+/*Fuzzy*/
+"You_are_in_the_following_Teams" = "Du bist in folgenden Teams";
+
+/*Fuzzy*/
+"player_is_in_the_following_Teams" = "%s ist in folgenden Teams";
+
+/*Fuzzy*/
+"Leave_Team" = "Team verlassen";
+
+/*Fuzzy*/
+"Are_you_sure_that_you_want_to_leave_team_name" = "Möchtest du das Team %s wirklich verlassen?";
+
+/*Fuzzy*/
+"User_Settings" = "Benutzereinstellungen";
+
+/*Fuzzy*/
+"Personal_Settings" = "Persönliche Einstellungen";
 "Password" = "Passwort";
-"Change Password" = "Passwort ändern";
-"Old Password" = "Altes Passwort";
-"New Password" = "Neues Passwort";
-"Repeat new Password" = "Neues Passwort wiederholen";
-"You are not verified" = "Du bist nun verifiziert";
-"Resend E-Mail" = "E-Mail erneut senden";
+
+/*Fuzzy*/
+"Change_Password" = "Passwort ändern";
+
+/*Fuzzy*/
+"Old_Password" = "Altes Passwort";
+
+/*Fuzzy*/
+"New_Password" = "Neues Passwort";
+
+/*Fuzzy*/
+"Repeat_new_Password" = "Neues Passwort wiederholen";
+
+/*Fuzzy*/
+"You_are_not_verified" = "Du bist nun verifiziert";
+
+/*Fuzzy*/
+"Resend_E_Mail" = "E-Mail erneut senden";
 "Firstname" = "Vorname";
 "Lastname" = "Nachname";
 "Email" = "E-Mail";
 "Save" = "Speichern";
-"Create Event" = "Event erstellen";
+
+/*Fuzzy*/
+"Create_Event" = "Event erstellen";
 "Start" = "Beginn";
 "End" = "Ende";
-"Event Name" = "Eventname";
+
+/*Fuzzy*/
+"Event_Name" = "Eventname";
 "Location" = "Ort";
 "Description" = "Beschreibung";
-"Show all Events" = "Zeige alle Events";
-"There are no planned events" = "Es stehen keine Events an";
-"Future Events" = "Zukünftige Events";
-"Past Events" = "Vergangene Events";
-"No Events found" = "Keine Events gefunden";
-"No Location" = "Kein Ort angegeben";
+
+/*Fuzzy*/
+"Show_all_Events" = "Zeige alle Events";
+
+/*Fuzzy*/
+"There_are_no_planned_events" = "Es stehen keine Events an";
+
+/*Fuzzy*/
+"Future_Events" = "Zukünftige Events";
+
+/*Fuzzy*/
+"Past_Events" = "Vergangene Events";
+
+/*Fuzzy*/
+"No_Events_found" = "Keine Events gefunden";
+
+/*Fuzzy*/
+"No_Location" = "Kein Ort angegeben";
 "News" = "Ankündigungen";
 "Actions" = "Aktionen";
 "Edit" = "Bearbeiten";
-"Please select an action" = "Bitte wähle eine Aktion";
-"New News" = "Neue Ankündigung";
+
+/*Fuzzy*/
+"Please_select_an_action" = "Bitte wähle eine Aktion";
+
+/*Fuzzy*/
+"New_News" = "Neue Ankündigung";
 "Message" = "Nachricht";
-"Create News" = "Ankündigung erstellen";
+
+/*Fuzzy*/
+"Create_News" = "Ankündigung erstellen";
 "Participation" = "Teilnahme";
-"You can now select who participated" = "Du kannst nun auswählen, wer teilgenommen hat";
-"Please set participation" = "Bitte sage zu oder ab";
+
+/*Fuzzy*/
+"You_can_now_select_who_participated" = "Du kannst nun auswählen, wer teilgenommen hat";
+
+/*Fuzzy*/
+"Please_set_participation" = "Bitte sage zu oder ab";
 "Login" = "Einloggen";
-"Forgot Password" = "Passwort vergessen";
+
+/*Fuzzy*/
+"Forgot_Password" = "Passwort vergessen";
 "Register" = "Registrieren";
-"Please fill in your email address and we will send you a new Password" = "Bitte gib deine E-Mail Adresse ein. Wir schicken dir dann ein neues Passwort.";
-"Request new Password" = "Neues Passwort anfordern";
-"Join this public team" = "Diesem öffentlichen Team beitreten";
-"Join this private team" = "Diesem privaten Team beitreten";
-"Confirmation email sent" = "Bestätigungsemail versendet";
+
+/*Fuzzy*/
+"Please_fill_in_your_email_address_and_we_will_send_you_a_new_password" = "Bitte gib deine E-Mail Adresse ein. Wir schicken dir dann ein neues Passwort.";
+
+/*Fuzzy*/
+"Request_new_Password" = "Neues Passwort anfordern";
+
+/*Fuzzy*/
+"Join_this_public_team" = "Diesem öffentlichen Team beitreten";
+
+/*Fuzzy*/
+"Join_this_private_team" = "Diesem privaten Team beitreten";
+
+/*Fuzzy*/
+"Confirmation_email_sent" = "Bestätigungsemail versendet";
 "Continue" = "Weiter";
-"You do not have a team yet" = "Du hast noch kein Team";
-"You do not have a team yet. Go ahead and create one using the '+' on the top right." = "Du hast noch kein Team. Erstelle eins indem du oben rechts auf das '+' drückst.";
-"Repeat Password" = "Passwort wiederholen";
+
+/*Fuzzy*/
+"You_do_not_have_a_team_yet" = "Du hast noch kein Team";
+
+/*Fuzzy*/
+"You_do_not_have_a_team_yet_Go_ahead_and_create_one_using_the_on_the_top_right" = "Du hast noch kein Team. Erstelle eins indem du oben rechts auf das '+' drückst.";
+
+/*Fuzzy*/
+"Repeat_Password" = "Passwort wiederholen";
 "Done" = "Fertig";
-"Set Attendance" = "Teilnahme setzen";
-"Did attend" = "teilgenommen";
-"Did not attend" = "nicht teilgenommen";
+
+/*Fuzzy*/
+"Set_Attendance" = "Teilnahme setzen";
+
+/*Fuzzy*/
+"Did_attend" = "teilgenommen";
+
+/*Fuzzy*/
+"Did_not_attend" = "nicht teilgenommen";
 "Back" = "Zurück";
-"No Description" = "Keine Beschreibung";
-"Please enter your email address" = "Bitte gib deine E-Mail Adresse ein";
-"Requesting new Password" = "Fordere neues Passwort an...";
-"Successfully requested a new password" = "Erfolgreich ein neues Passwort angefordert.";
+
+/*Fuzzy*/
+"No_Description" = "Keine Beschreibung";
+
+/*Fuzzy*/
+"Please_enter_your_email_address" = "Bitte gib deine E-Mail Adresse ein";
+
+/*Fuzzy*/
+"Requesting_new_Password" = "Fordere neues Passwort an...";
+
+/*Fuzzy*/
+"Successfully_requested_a_new_password" = "Erfolgreich ein neues Passwort angefordert.";
 "Loading" = "Lade..";
 "Saved" = "Gespeichert";
-"Passwords must match" = "Die Passwörter müssen übereinstimmen";
-"Please fill in this field" = "Bitte fülle dieses Feld aus";
-"Join Team" = "Team beitreten";
-"Do really want to join %s?" = "Möchtest du %s beitreten?";
-"Successfully joined %s" = "Erfolgreich %s beigetreten";
-"Successfully left team %s" = "Du hast das Team %s verlassen";
-"Send reminder" = "Erinnerung senden";
-"Update Event" = "Event aktualisieren";
+
+/*Fuzzy*/
+"Passwords_must_match" = "Die Passwörter müssen übereinstimmen";
+
+/*Fuzzy*/
+"Please_fill_in_this_field" = "Bitte fülle dieses Feld aus";
+
+/*Fuzzy*/
+"Join_Team" = "Team beitreten";
+
+/*Fuzzy*/
+"Do_really_want_to_join_x" = "Möchtest du %s beitreten?";
+
+/*Fuzzy*/
+"Successfully_joined_x" = "Erfolgreich %s beigetreten";
+
+/*Fuzzy*/
+"Successfully_left_team_x" = "Du hast das Team %s verlassen";
+
+/*Fuzzy*/
+"Send_reminder" = "Erinnerung senden";
+
+/*Fuzzy*/
+"Update_Event" = "Event aktualisieren";
 
 /*EventCreate*/
-"Please enter a name" = "Wie heißt das Event?";
+/*Fuzzy*/
+"Please_enter_a_name" = "Wie heißt das Event?";
 
 /*EventCreate*/
-"Please enter a start date" = "Wann startet das Event?";
+/*Fuzzy*/
+"Please_enter_a_start_date" = "Wann startet das Event?";
 
 /*EventCreate*/
-"Please enter an end date" = "Wann endet das Event?";
+/*Fuzzy*/
+"Please_enter_an_end_date" = "Wann endet das Event?";
 
 /*EventCreate*/
-"Please enter a location" = "Wo findet das Event statt?";
+/*Fuzzy*/
+"Please_enter_a_location" = "Wo findet das Event statt?";
 
 /*EventCreate*/
-"End date must be after start date" = "Das Ende muss vor dem Beginn sein";
-"Delete Event" = "Event löschen";
-"Do you really want to delete this event?" = "Möchtest du dieses Event wirklich löschen?";
+/*Fuzzy*/
+"End_date_must_be_after_start_date" = "Das Ende muss vor dem Beginn sein";
+
+/*Fuzzy*/
+"Delete_Event" = "Event löschen";
+
+/*Fuzzy*/
+"Do_you_really_want_to_delete_this_event" = "Möchtest du dieses Event wirklich löschen?";
 "Yes" = "Ja";
 "No" = "Nein";
-"No News" = "Keine Ankündigungen";
+
+/*Fuzzy*/
+"No_News" = "Keine Ankündigungen";
+
+/*Fuzzy*/
 "Delete" = "Löschen";
-"Make Coach" = "Zum Coach machen";
-"This team is not available" = "Dieses Team ist nicht verfügbar";
-"There was an error loading this team" = "Beim Laden des Teams ist ein Fehler aufgetreten";
-"Delete Team" = "Team löschen";
-"Do you really want to delete %s?" = "Möchtest du %s wirklich löschen?";
-"Team deleted" = "Team gelöscht";
-"Edit Team" = "Team bearbeiten";
-"The team's name must be at least 3 characters long" = "Der Teamname muss mindestens 3 Zeichen lang sein";
-"Please enter a team name" = "Bitte gib einen Teamnamen ein";
-"You are now verified" = "Du bist nun verifiziert";
-"Verification failed" = "Verfizierung fehgeschlagen";
+
+/*Fuzzy*/
+"Make_Coach" = "Zum Coach machen";
+
+/*Fuzzy*/
+"This_team_is_not_available" = "Dieses Team ist nicht verfügbar";
+
+/*Fuzzy*/
+"There_was_an_error_loading_this_team" = "Beim Laden des Teams ist ein Fehler aufgetreten";
+
+/*Fuzzy*/
+"Delete_Team" = "Team löschen";
+
+/*Fuzzy*/
+"Do_you_really_want_to_delete_x" = "Möchtest du %s wirklich löschen?";
+
+/*Fuzzy*/
+"Team_deleted" = "Team gelöscht";
+
+/*Fuzzy*/
+"Edit_Team" = "Team bearbeiten";
+
+/*Fuzzy*/
+"The_teams_name_must_be_at_least_three_characters_long" = "Der Teamname muss mindestens 3 Zeichen lang sein";
+
+/*Fuzzy*/
+"Please_enter_a_team_name" = "Bitte gib einen Teamnamen ein";
+
+/*Fuzzy*/
+"You_are_now_verified" = "Du bist nun verifiziert";
+
+/*Fuzzy*/
+"Verification_failed" = "Verfizierung fehgeschlagen";
 "Error" = "Fehler";
 "Success" = "Erfolg";
-"No images found" = "Keine Bilder gefunden";
-"Participate yes" = "Ich nehme teil";
-"Participate no" = "Ich nehme nicht teil";
+
+/*Fuzzy*/
+"No_images_found" = "Keine Bilder gefunden";
+
+/*Fuzzy*/
+"Participate_yes" = "Ich nehme teil";
+
+/*Fuzzy*/
+"Participate_no" = "Ich nehme nicht teil";
 
 /*EventDetail*/
 "to" = "bis";
-"Select Team" = "Team auswählen";
-"Awesome!" = "Super!";
-"You already have teams. Go ahead and select one." = "Du hast bereits Teams. Wähle eins aus.";
+
+/*Fuzzy*/
+"Select_Team" = "Team auswählen";
+
+/*Fuzzy*/
+"Awesome" = "Super!";
+
+/*Fuzzy*/
+"You_already_have_teams_Go_ahead_and_select_one" = "Du hast bereits Teams. Wähle eins aus.";

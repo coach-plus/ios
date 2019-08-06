@@ -11,96 +11,86 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 public enum L10n {
-  /// %d Members
-  public static func dMembers(_ p1: Int) -> String {
-    return L10n.tr("MainLocalization", "%d Members", p1)
-  }
-  /// %s is in the following Teams
-  public static func sIsInTheFollowingTeams(_ p1: UnsafePointer<CChar>) -> String {
-    return L10n.tr("MainLocalization", "%s is in the following Teams", p1)
-  }
-  /// 1 Member
-  public static let _1Member = L10n.tr("MainLocalization", "1 Member")
   /// Actions
   public static let actions = L10n.tr("MainLocalization", "Actions")
   /// Are you sure that you want to leave %s?
-  public static func areYouSureThatYouWantToLeaveTeamS(_ p1: UnsafePointer<CChar>) -> String {
-    return L10n.tr("MainLocalization", "Are you sure that you want to leave team %s", p1)
+  public static func areYouSureThatYouWantToLeaveTeamName(_ p1: UnsafePointer<CChar>) -> String {
+    return L10n.tr("MainLocalization", "Are_you_sure_that_you_want_to_leave_team_name", p1)
   }
   /// Awesome!
-  public static let awesome = L10n.tr("MainLocalization", "Awesome!")
+  public static let awesome = L10n.tr("MainLocalization", "Awesome")
   /// Back
   public static let back = L10n.tr("MainLocalization", "Back")
   /// Cancel
   public static let cancel = L10n.tr("MainLocalization", "Cancel")
   /// Change Password
-  public static let changePassword = L10n.tr("MainLocalization", "Change Password")
+  public static let changePassword = L10n.tr("MainLocalization", "Change_Password")
   /// Confirmation email sent
-  public static let confirmationEmailSent = L10n.tr("MainLocalization", "Confirmation email sent")
+  public static let confirmationEmailSent = L10n.tr("MainLocalization", "Confirmation_email_sent")
   /// Continue
   public static let `continue` = L10n.tr("MainLocalization", "Continue")
   /// Create Event
-  public static let createEvent = L10n.tr("MainLocalization", "Create Event")
+  public static let createEvent = L10n.tr("MainLocalization", "Create_Event")
   /// Create news
-  public static let createNews = L10n.tr("MainLocalization", "Create News")
+  public static let createNews = L10n.tr("MainLocalization", "Create_News")
   /// Create Team
-  public static let createTeam = L10n.tr("MainLocalization", "Create Team")
+  public static let createTeam = L10n.tr("MainLocalization", "Create_Team")
   /// Delete
   public static let delete = L10n.tr("MainLocalization", "Delete")
   /// Delete Event
-  public static let deleteEvent = L10n.tr("MainLocalization", "Delete Event")
+  public static let deleteEvent = L10n.tr("MainLocalization", "Delete_Event")
   /// Delete Team
-  public static let deleteTeam = L10n.tr("MainLocalization", "Delete Team")
+  public static let deleteTeam = L10n.tr("MainLocalization", "Delete_Team")
   /// Description
   public static let description = L10n.tr("MainLocalization", "Description")
   /// Did attend
-  public static let didAttend = L10n.tr("MainLocalization", "Did attend")
+  public static let didAttend = L10n.tr("MainLocalization", "Did_attend")
   /// Did not attend
-  public static let didNotAttend = L10n.tr("MainLocalization", "Did not attend")
+  public static let didNotAttend = L10n.tr("MainLocalization", "Did_not_attend")
   /// Do really want to join %s?
-  public static func doReallyWantToJoinS(_ p1: UnsafePointer<CChar>) -> String {
-    return L10n.tr("MainLocalization", "Do really want to join %s?", p1)
-  }
-  /// Do you really want to delete %s?
-  public static func doYouReallyWantToDeleteS(_ p1: UnsafePointer<CChar>) -> String {
-    return L10n.tr("MainLocalization", "Do you really want to delete %s?", p1)
+  public static func doReallyWantToJoinX(_ p1: UnsafePointer<CChar>) -> String {
+    return L10n.tr("MainLocalization", "Do_really_want_to_join_x", p1)
   }
   /// Do you really want to delete this event?
-  public static let doYouReallyWantToDeleteThisEvent = L10n.tr("MainLocalization", "Do you really want to delete this event?")
+  public static let doYouReallyWantToDeleteThisEvent = L10n.tr("MainLocalization", "Do_you_really_want_to_delete_this_event")
+  /// Do you really want to delete %s?
+  public static func doYouReallyWantToDeleteX(_ p1: UnsafePointer<CChar>) -> String {
+    return L10n.tr("MainLocalization", "Do_you_really_want_to_delete_x", p1)
+  }
   /// Done
   public static let done = L10n.tr("MainLocalization", "Done")
   /// Edit
   public static let edit = L10n.tr("MainLocalization", "Edit")
   /// Edit Team
-  public static let editTeam = L10n.tr("MainLocalization", "Edit Team")
+  public static let editTeam = L10n.tr("MainLocalization", "Edit_Team")
   /// Email
   public static let email = L10n.tr("MainLocalization", "Email")
   /// End
   public static let end = L10n.tr("MainLocalization", "End")
   /// End date must be after start date
-  public static let endDateMustBeAfterStartDate = L10n.tr("MainLocalization", "End date must be after start date")
+  public static let endDateMustBeAfterStartDate = L10n.tr("MainLocalization", "End_date_must_be_after_start_date")
   /// Error
   public static let error = L10n.tr("MainLocalization", "Error")
   /// Event Name
-  public static let eventName = L10n.tr("MainLocalization", "Event Name")
+  public static let eventName = L10n.tr("MainLocalization", "Event_Name")
   /// Events
   public static let events = L10n.tr("MainLocalization", "Events")
   /// Firstname
   public static let firstname = L10n.tr("MainLocalization", "Firstname")
   /// Forgot Password
-  public static let forgotPassword = L10n.tr("MainLocalization", "Forgot Password")
+  public static let forgotPassword = L10n.tr("MainLocalization", "Forgot_Password")
   /// Planned Events
-  public static let futureEvents = L10n.tr("MainLocalization", "Future Events")
+  public static let futureEvents = L10n.tr("MainLocalization", "Future_Events")
   /// Join Team
-  public static let joinTeam = L10n.tr("MainLocalization", "Join Team")
+  public static let joinTeam = L10n.tr("MainLocalization", "Join_Team")
   /// Join this private team
-  public static let joinThisPrivateTeam = L10n.tr("MainLocalization", "Join this private team")
+  public static let joinThisPrivateTeam = L10n.tr("MainLocalization", "Join_this_private_team")
   /// Join this public team
-  public static let joinThisPublicTeam = L10n.tr("MainLocalization", "Join this public team")
+  public static let joinThisPublicTeam = L10n.tr("MainLocalization", "Join_this_public_team")
   /// Lastname
   public static let lastname = L10n.tr("MainLocalization", "Lastname")
   /// Leave Team
-  public static let leaveTeam = L10n.tr("MainLocalization", "Leave Team")
+  public static let leaveTeam = L10n.tr("MainLocalization", "Leave_Team")
   /// Loading
   public static let loading = L10n.tr("MainLocalization", "Loading")
   /// Location
@@ -110,161 +100,165 @@ public enum L10n {
   /// Logout
   public static let logout = L10n.tr("MainLocalization", "Logout")
   /// Make Coach
-  public static let makeCoach = L10n.tr("MainLocalization", "Make Coach")
+  public static let makeCoach = L10n.tr("MainLocalization", "Make_Coach")
   /// Make user
-  public static let makeUser = L10n.tr("MainLocalization", "Make user")
+  public static let makeUser = L10n.tr("MainLocalization", "Make_user")
   /// Members
   public static let members = L10n.tr("MainLocalization", "Members")
   /// Message
   public static let message = L10n.tr("MainLocalization", "Message")
   /// New News
-  public static let newNews = L10n.tr("MainLocalization", "New News")
+  public static let newNews = L10n.tr("MainLocalization", "New_News")
   /// New Password
-  public static let newPassword = L10n.tr("MainLocalization", "New Password")
+  public static let newPassword = L10n.tr("MainLocalization", "New_Password")
   /// New Team
-  public static let newTeam = L10n.tr("MainLocalization", "New Team")
+  public static let newTeam = L10n.tr("MainLocalization", "New_Team")
   /// News
   public static let news = L10n.tr("MainLocalization", "News")
   /// No
   public static let no = L10n.tr("MainLocalization", "No")
   /// No Description
-  public static let noDescription = L10n.tr("MainLocalization", "No Description")
+  public static let noDescription = L10n.tr("MainLocalization", "No_Description")
   /// No Events found
-  public static let noEventsFound = L10n.tr("MainLocalization", "No Events found")
+  public static let noEventsFound = L10n.tr("MainLocalization", "No_Events_found")
   /// No images found
-  public static let noImagesFound = L10n.tr("MainLocalization", "No images found")
+  public static let noImagesFound = L10n.tr("MainLocalization", "No_images_found")
   /// No Location
-  public static let noLocation = L10n.tr("MainLocalization", "No Location")
+  public static let noLocation = L10n.tr("MainLocalization", "No_Location")
   /// No News
-  public static let noNews = L10n.tr("MainLocalization", "No News")
+  public static let noNews = L10n.tr("MainLocalization", "No_News")
   /// Old Password
-  public static let oldPassword = L10n.tr("MainLocalization", "Old Password")
+  public static let oldPassword = L10n.tr("MainLocalization", "Old_Password")
+  /// 1 Member
+  public static let oneMember = L10n.tr("MainLocalization", "one_Member")
   /// I will not attend
-  public static let participateNo = L10n.tr("MainLocalization", "Participate no")
+  public static let participateNo = L10n.tr("MainLocalization", "Participate_no")
   /// I will attend
-  public static let participateYes = L10n.tr("MainLocalization", "Participate yes")
+  public static let participateYes = L10n.tr("MainLocalization", "Participate_yes")
   /// Participation
   public static let participation = L10n.tr("MainLocalization", "Participation")
   /// Password
   public static let password = L10n.tr("MainLocalization", "Password")
   /// Passwords must match
-  public static let passwordsMustMatch = L10n.tr("MainLocalization", "Passwords must match")
+  public static let passwordsMustMatch = L10n.tr("MainLocalization", "Passwords_must_match")
   /// Past Events
-  public static let pastEvents = L10n.tr("MainLocalization", "Past Events")
+  public static let pastEvents = L10n.tr("MainLocalization", "Past_Events")
   /// Personal Settings
-  public static let personalSettings = L10n.tr("MainLocalization", "Personal Settings")
+  public static let personalSettings = L10n.tr("MainLocalization", "Personal_Settings")
+  /// %s is in the following Teams
+  public static func playerIsInTheFollowingTeams(_ p1: UnsafePointer<CChar>) -> String {
+    return L10n.tr("MainLocalization", "player_is_in_the_following_Teams", p1)
+  }
   /// Please enter a location
-  public static let pleaseEnterALocation = L10n.tr("MainLocalization", "Please enter a location")
+  public static let pleaseEnterALocation = L10n.tr("MainLocalization", "Please_enter_a_location")
   /// Please enter a name
-  public static let pleaseEnterAName = L10n.tr("MainLocalization", "Please enter a name")
+  public static let pleaseEnterAName = L10n.tr("MainLocalization", "Please_enter_a_name")
   /// Please enter a start date
-  public static let pleaseEnterAStartDate = L10n.tr("MainLocalization", "Please enter a start date")
+  public static let pleaseEnterAStartDate = L10n.tr("MainLocalization", "Please_enter_a_start_date")
   /// Please enter a team name
-  public static let pleaseEnterATeamName = L10n.tr("MainLocalization", "Please enter a team name")
+  public static let pleaseEnterATeamName = L10n.tr("MainLocalization", "Please_enter_a_team_name")
   /// Please enter an end date
-  public static let pleaseEnterAnEndDate = L10n.tr("MainLocalization", "Please enter an end date")
+  public static let pleaseEnterAnEndDate = L10n.tr("MainLocalization", "Please_enter_an_end_date")
   /// Please enter your email address
-  public static let pleaseEnterYourEmailAddress = L10n.tr("MainLocalization", "Please enter your email address")
+  public static let pleaseEnterYourEmailAddress = L10n.tr("MainLocalization", "Please_enter_your_email_address")
   /// Please fill in this field
-  public static let pleaseFillInThisField = L10n.tr("MainLocalization", "Please fill in this field")
+  public static let pleaseFillInThisField = L10n.tr("MainLocalization", "Please_fill_in_this_field")
   /// Please fill in your email address and we will send you a new Password
-  public static let pleaseFillInYourEmailAddressAndWeWillSendYouANewPassword = L10n.tr("MainLocalization", "Please fill in your email address and we will send you a new Password")
+  public static let pleaseFillInYourEmailAddressAndWeWillSendYouANewPassword = L10n.tr("MainLocalization", "Please_fill_in_your_email_address_and_we_will_send_you_a_new_password")
   /// Please select an action
-  public static let pleaseSelectAnAction = L10n.tr("MainLocalization", "Please select an action")
+  public static let pleaseSelectAnAction = L10n.tr("MainLocalization", "Please_select_an_action")
   /// Please set participation
-  public static let pleaseSetParticipation = L10n.tr("MainLocalization", "Please set participation")
+  public static let pleaseSetParticipation = L10n.tr("MainLocalization", "Please_set_participation")
   /// Private Team
-  public static let privateTeam = L10n.tr("MainLocalization", "Private Team")
+  public static let privateTeam = L10n.tr("MainLocalization", "Private_Team")
   /// Public Team
-  public static let publicTeam = L10n.tr("MainLocalization", "Public Team")
+  public static let publicTeam = L10n.tr("MainLocalization", "Public_Team")
   /// Register
   public static let register = L10n.tr("MainLocalization", "Register")
   /// Remove from team
-  public static let removeFromTeam = L10n.tr("MainLocalization", "Remove from team")
+  public static let removeFromTeam = L10n.tr("MainLocalization", "Remove_from_team")
   /// Repeat new Password
-  public static let repeatNewPassword = L10n.tr("MainLocalization", "Repeat new Password")
+  public static let repeatNewPassword = L10n.tr("MainLocalization", "Repeat_new_Password")
   /// Repeat Password
-  public static let repeatPassword = L10n.tr("MainLocalization", "Repeat Password")
+  public static let repeatPassword = L10n.tr("MainLocalization", "Repeat_Password")
   /// Request new Password
-  public static let requestNewPassword = L10n.tr("MainLocalization", "Request new Password")
+  public static let requestNewPassword = L10n.tr("MainLocalization", "Request_new_Password")
   /// Requesting new Password
-  public static let requestingNewPassword = L10n.tr("MainLocalization", "Requesting new Password")
+  public static let requestingNewPassword = L10n.tr("MainLocalization", "Requesting_new_Password")
   /// Resend E-Mail
-  public static let resendEMail = L10n.tr("MainLocalization", "Resend E-Mail")
+  public static let resendEMail = L10n.tr("MainLocalization", "Resend_E_Mail")
   /// Save
   public static let save = L10n.tr("MainLocalization", "Save")
   /// Saved
   public static let saved = L10n.tr("MainLocalization", "Saved")
   /// Select Team
-  public static let selectTeam = L10n.tr("MainLocalization", "Select Team")
+  public static let selectTeam = L10n.tr("MainLocalization", "Select_Team")
   /// Send reminder
-  public static let sendReminder = L10n.tr("MainLocalization", "Send reminder")
+  public static let sendReminder = L10n.tr("MainLocalization", "Send_reminder")
   /// Set Attendance
-  public static let setAttendance = L10n.tr("MainLocalization", "Set Attendance")
+  public static let setAttendance = L10n.tr("MainLocalization", "Set_Attendance")
   /// Show all Events
-  public static let showAllEvents = L10n.tr("MainLocalization", "Show all Events")
+  public static let showAllEvents = L10n.tr("MainLocalization", "Show_all_Events")
   /// Start
   public static let start = L10n.tr("MainLocalization", "Start")
   /// Success
   public static let success = L10n.tr("MainLocalization", "Success")
   /// Successfully joined %s
-  public static func successfullyJoinedS(_ p1: UnsafePointer<CChar>) -> String {
-    return L10n.tr("MainLocalization", "Successfully joined %s", p1)
+  public static func successfullyJoinedX(_ p1: UnsafePointer<CChar>) -> String {
+    return L10n.tr("MainLocalization", "Successfully_joined_x", p1)
   }
   /// Successfully left team %s
-  public static func successfullyLeftTeamS(_ p1: UnsafePointer<CChar>) -> String {
-    return L10n.tr("MainLocalization", "Successfully left team %s", p1)
+  public static func successfullyLeftTeamX(_ p1: UnsafePointer<CChar>) -> String {
+    return L10n.tr("MainLocalization", "Successfully_left_team_x", p1)
   }
   /// Successfully requested a new password
-  public static let successfullyRequestedANewPassword = L10n.tr("MainLocalization", "Successfully requested a new password")
+  public static let successfullyRequestedANewPassword = L10n.tr("MainLocalization", "Successfully_requested_a_new_password")
   /// Team deleted
-  public static let teamDeleted = L10n.tr("MainLocalization", "Team deleted")
+  public static let teamDeleted = L10n.tr("MainLocalization", "Team_deleted")
   /// Team Name
-  public static let teamName = L10n.tr("MainLocalization", "Team Name")
+  public static let teamName = L10n.tr("MainLocalization", "Team_Name")
   /// Teams
   public static let teams = L10n.tr("MainLocalization", "Teams")
   /// The team's name must be at least 3 characters long
-  public static let theTeamSNameMustBeAtLeast3CharactersLong = L10n.tr("MainLocalization", "The team's name must be at least 3 characters long")
+  public static let theTeamsNameMustBeAtLeastThreeCharactersLong = L10n.tr("MainLocalization", "The_teams_name_must_be_at_least_three_characters_long")
   /// There are no planned events
-  public static let thereAreNoPlannedEvents = L10n.tr("MainLocalization", "There are no planned events")
+  public static let thereAreNoPlannedEvents = L10n.tr("MainLocalization", "There_are_no_planned_events")
   /// There was an error loading this team
-  public static let thereWasAnErrorLoadingThisTeam = L10n.tr("MainLocalization", "There was an error loading this team")
+  public static let thereWasAnErrorLoadingThisTeam = L10n.tr("MainLocalization", "There_was_an_error_loading_this_team")
   /// This team is not available
-  public static let thisTeamIsNotAvailable = L10n.tr("MainLocalization", "This team is not available")
+  public static let thisTeamIsNotAvailable = L10n.tr("MainLocalization", "This_team_is_not_available")
   /// to
   public static let to = L10n.tr("MainLocalization", "to")
   /// Update Event
-  public static let updateEvent = L10n.tr("MainLocalization", "Update Event")
+  public static let updateEvent = L10n.tr("MainLocalization", "Update_Event")
   /// User Settings
-  public static let userSettings = L10n.tr("MainLocalization", "User Settings")
+  public static let userSettings = L10n.tr("MainLocalization", "User_Settings")
   /// Verification failed
-  public static let verificationFailed = L10n.tr("MainLocalization", "Verification failed")
+  public static let verificationFailed = L10n.tr("MainLocalization", "Verification_failed")
+  /// %d Members
+  public static func xMembers(_ p1: Int) -> String {
+    return L10n.tr("MainLocalization", "x_Members", p1)
+  }
   /// Yes
   public static let yes = L10n.tr("MainLocalization", "Yes")
+  /// You already have teams. Go ahead and select one.
+  public static let youAlreadyHaveTeamsGoAheadAndSelectOne = L10n.tr("MainLocalization", "You_already_have_teams_Go_ahead_and_select_one")
   /// You are in the following Teams
-  public static let youAreInTheFollowingTeams = L10n.tr("MainLocalization", "You are in the following Teams")
+  public static let youAreInTheFollowingTeams = L10n.tr("MainLocalization", "You_are_in_the_following_Teams")
   /// You are not verified
-  public static let youAreNotVerified = L10n.tr("MainLocalization", "You are not verified")
+  public static let youAreNotVerified = L10n.tr("MainLocalization", "You_are_not_verified")
   /// You are now verified
-  public static let youAreNowVerified = L10n.tr("MainLocalization", "You are now verified")
+  public static let youAreNowVerified = L10n.tr("MainLocalization", "You_are_now_verified")
   /// You can now select who participated
-  public static let youCanNowSelectWhoParticipated = L10n.tr("MainLocalization", "You can now select who participated")
+  public static let youCanNowSelectWhoParticipated = L10n.tr("MainLocalization", "You_can_now_select_who_participated")
   /// You do not have a team yet
-  public static let youDoNotHaveATeamYet = L10n.tr("MainLocalization", "You do not have a team yet")
+  public static let youDoNotHaveATeamYet = L10n.tr("MainLocalization", "You_do_not_have_a_team_yet")
+  /// You do not have a team yet. Go ahead and create one using the '+' on the top right.
+  public static let youDoNotHaveATeamYetGoAheadAndCreateOneUsingTheOnTheTopRight = L10n.tr("MainLocalization", "You_do_not_have_a_team_yet_Go_ahead_and_create_one_using_the_on_the_top_right")
   /// Your team is private and you can invite people
-  public static let yourTeamIsPrivateAndYouCanInvitePeople = L10n.tr("MainLocalization", "Your team is private and you can invite people")
+  public static let yourTeamIsPrivateAndYouCanInvitePeople = L10n.tr("MainLocalization", "Your_team_is_private_and_you_can_invite_people")
   /// Your team is public and everyone can join it
-  public static let yourTeamIsPublicAndEveryoneCanJoinIt = L10n.tr("MainLocalization", "Your team is public and everyone can join it")
-
-  public enum YouAlreadyHaveTeams {
-    /// You already have teams. Go ahead and select one.
-    public static let goAheadAndSelectOne = L10n.tr("MainLocalization", "You already have teams. Go ahead and select one.")
-  }
-
-  public enum YouDoNotHaveATeamYet {
-    /// You do not have a team yet. Go ahead and create one using the '+' on the top right.
-    public static let goAheadAndCreateOneUsingTheOnTheTopRight = L10n.tr("MainLocalization", "You do not have a team yet. Go ahead and create one using the '+' on the top right.")
-  }
+  public static let yourTeamIsPublicAndEveryoneCanJoinIt = L10n.tr("MainLocalization", "Your_team_is_public_and_everyone_can_join_it")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

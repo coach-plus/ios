@@ -647,7 +647,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             break
             
         case .noTeamSelected:
-            string = L10n.YouAlreadyHaveTeams.goAheadAndSelectOne
+            string = L10n.youAlreadyHaveTeamsGoAheadAndSelectOne
             break
             
         default:

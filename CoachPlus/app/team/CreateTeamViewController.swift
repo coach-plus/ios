@@ -101,7 +101,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     
     @IBAction func deleteBtnTapped(_ sender: Any) {
         
-        self.showConfirmation(title: L10n.deleteTeam, message: L10n.doYouReallyWantToDeleteS(self.team!.name), yes: L10n.yes, no: L10n.cancel, yesStyle: .destructive, noStyle: .cancel, yesHandler: { _ in
+        self.showConfirmation(title: L10n.deleteTeam, message: L10n.doYouReallyWantToDeleteX(self.team!.name), yes: L10n.yes, no: L10n.cancel, yesStyle: .destructive, noStyle: .cancel, yesHandler: { _ in
             self.loadData(text: L10n.loading, promise: DataHandler.def.deleteTeam(teamId: self.team!.id)).done({ response in
                 DropdownAlert.success(message: L10n.teamDeleted)
                 FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
@@ -212,7 +212,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
                     floatingLabelTextField.errorMessage = L10n.pleaseEnterATeamName
                     return false
                 } else if(text.count < 3) {
-                    floatingLabelTextField.errorMessage = L10n.theTeamSNameMustBeAtLeast3CharactersLong
+                    floatingLabelTextField.errorMessage = L10n.theTeamsNameMustBeAtLeastThreeCharactersLong
                     return false
                 }
                 else {

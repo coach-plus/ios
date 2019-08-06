@@ -37,7 +37,9 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Used to select team and user images</string>
-	<key>NSLocationWhenInUseUsageDescription </key>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Used to get your time</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Used to get your time</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to select team and user images</string>

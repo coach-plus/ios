@@ -117,7 +117,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             text = L10n.youAreInTheFollowingTeams
         } else {
             self.emailL.isHidden = true
-            text = L10n.sIsInTheFollowingTeams(self.user!.firstname)
+            text = L10n.playerIsInTheFollowingTeams(self.user!.firstname)
         }
         
         self.titleView.title = text.localize()
@@ -216,12 +216,12 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func showJoinTeamActionSheet(team: Team) {
-        let alertController = UIAlertController(title: L10n.joinTeam, message: L10n.areYouSureThatYouWantToLeaveTeamS(team.name), preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: L10n.joinTeam, message: L10n.areYouSureThatYouWantToLeaveTeamName(team.name), preferredStyle: .actionSheet)
         
         let yesButton = UIAlertAction(title: L10n.joinTeam.localize(), style: .default, handler: { (action) -> Void in
             
             self.loadData(text: L10n.loading, promise: DataHandler.def.joinTeam(inviteId: team.id, teamType: JoinTeamViewController.TeamType.publicTeam)).done({ apiResponse in
-                DropdownAlert.success(message: L10n.successfullyJoinedS(team.name))
+                DropdownAlert.success(message: L10n.successfullyJoinedX(team.name))
                 FlowManager.selectAndOpenTeam(vc: self, teamId: team.id)
                 self.navigationController?.popViewController(animated: true)
             })
@@ -236,7 +236,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func showLeaveTeamActionSheet(membership: Membership) {
-        let alertController = UIAlertController(title: L10n.leaveTeam, message: L10n.areYouSureThatYouWantToLeaveTeamS(membership.team!.name), preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: L10n.leaveTeam, message: L10n.areYouSureThatYouWantToLeaveTeamName(membership.team!.name), preferredStyle: .actionSheet)
         
         let yesButton = UIAlertAction(title: L10n.leaveTeam, style: .default, handler: { (action) -> Void in
             
@@ -245,7 +245,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 let selectedMembership = MembershipManager.shared.selectedMembership
                 if (selectedMembership != nil) {
                     if (membership.team!.id == selectedMembership!.team!.id) {
-                        DropdownAlert.success(message: L10n.successfullyLeftTeamS(membership.team!.name))
+                        DropdownAlert.success(message: L10n.successfullyLeftTeamX(membership.team!.name))
                         FlowManager.selectAndOpenTeam(vc: self, teamId: nil)
                         self.navigationController?.popViewController(animated: true)
                         return

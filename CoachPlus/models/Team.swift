@@ -61,9 +61,9 @@ class Team:JSONable, BackJSONable {
     func getMemberCountString() -> String {
         if let count = self.memberCount {
             if (count == 1) {
-                return L10n._1Member
+                return L10n.oneMember
             }
-            return L10n.dMembers(count)
+            return L10n.xMembers(count)
         } else {
             return ""
         }

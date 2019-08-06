@@ -713,6 +713,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4707B23222FA265C000A3BD3 /* CoachPlusInfoBeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoachPlusInfoBeta.plist; sourceTree = "<group>"; };
 		4715265D22590080005262F5 /* ForgotPw.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ForgotPw.storyboard; path = "CoachPlus/app/forgot-pw/ForgotPw.storyboard"; sourceTree = SOURCE_ROOT; };
 		47152662225937F5005262F5 /* ForgotPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwViewController.swift; sourceTree = "<group>"; };
 		47182F4C22329D0900E4FD06 /* UserSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = UserSettings.storyboard; path = app/usersettings/UserSettings.storyboard; sourceTree = "<group>"; };
@@ -755,7 +756,6 @@
 		4749C51F1E81B7FF0068B0FA /* CoachPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachPlusUITests.swift; sourceTree = "<group>"; };
 		4749C5211E81B7FF0068B0FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		474E3DDC22C5DF6100255CFD /* CoachPlusBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlusBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		474E3DDD22C5DF6100255CFD /* CoachPlusInfoBeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = CoachPlusInfoBeta.plist; path = /priv/mathandoro/ios/CoachPlusInfoBeta.plist; sourceTree = "<absolute>"; };
 		475682591E81D273008547AF /* CoachPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoachPlus.entitlements; sourceTree = "<group>"; };
 		4756825A1E81D320008547AF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		477A27581E8C3775005516ED /* InviteResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteResponse.swift; path = models/InviteResponse.swift; sourceTree = "<group>"; };
@@ -1081,7 +1081,7 @@
 				4749C5081E81B7FE0068B0FA /* LaunchScreen.storyboard */,
 				4734832D1EC26A0700F60110 /* CoachPlusInfo.plist */,
 				4734832E1EC26A1000F60110 /* CoachPlusInfoDev.plist */,
-				474E3DDD22C5DF6100255CFD /* CoachPlusInfoBeta.plist */,
+				4707B23222FA265C000A3BD3 /* CoachPlusInfoBeta.plist */,
 				474144D71E842D30009788E2 /* CoachPlus.swift */,
 				472B9C131E870F4F00706E6B /* CoachPlus-Bridging-Header.h */,
 			);

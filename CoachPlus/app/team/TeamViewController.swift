@@ -43,6 +43,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         case notAvailable
         case team
         case error
+        case noTeamSelected
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -116,11 +117,16 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func selectedMembership(membership: Membership?) {
         if (membership == nil) {
-            self.mode = .noTeams
+            if (MembershipManager.shared.memberships.count == 0) {
+                self.mode = .noTeams
+            } else {
+                self.mode = .noTeamSelected
+            }
             self.tableView.setContentOffset(.zero, animated: true)
             self.members = []
             self.events = []
             self.allEvents = []
+            
         } else {
             self.mode = .team
             if (membership?.id != self.membership?.id) {
@@ -592,6 +598,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             return UIImage(icon: .fontAwesomeSolid(.lock), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
         case .error:
             return nil
+        case .noTeamSelected:
+            return UIImage(icon: .fontAwesomeRegular(.grinHearts), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
         case .noTeams:
             return UIImage(icon: .fontAwesomeSolid(.lifeRing), size: CGSize.init(width: 50, height: 50), textColor: .coachPlusBlue, backgroundColor: .clear)
         default:
@@ -609,6 +617,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
                 break
             case .noTeams:
                 return nil
+            case .noTeamSelected:
+                string = L10n.awesome
+                break
             case .error:
                 string = L10n.thereWasAnErrorLoadingThisTeam
                 break
@@ -635,6 +646,10 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             string = L10n.youDoNotHaveATeamYet
             break
             
+        case .noTeamSelected:
+            string = L10n.YouAlreadyHaveTeams.goAheadAndSelectOne
+            break
+            
         default:
             return nil
         }
@@ -652,6 +667,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         case .noTeams:
             string = L10n.createTeam
             break
+        case .noTeamSelected:
+            string = L10n.selectTeam
+            break
             
         default:
             return nil
@@ -662,8 +680,18 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-        let vc = FlowManager.createEditTeamVc()
-        self.present(vc, animated: true, completion: nil)
+        switch self.mode {
+        case .noTeams:
+            let vc = FlowManager.createEditTeamVc()
+            self.present(vc, animated: true, completion: nil)
+            break
+        case .noTeamSelected:
+            FlowManager.openDrawer()
+            break
+        default:
+            break
+        }
+        
     }
     
     func profile(sender:UIBarButtonItem) {

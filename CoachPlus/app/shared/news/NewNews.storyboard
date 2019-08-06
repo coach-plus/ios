@@ -38,7 +38,6 @@
                                     <constraint firstAttribute="height" constant="50" id="xyv-iB-cB9"/>
                                 </constraints>
                                 <color key="tintColor" red="0.20392156859999999" green="0.50588235290000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Create Announcement"/>
                                 <connections>
                                     <action selector="btnTap:" destination="Btn-Tc-E7M" eventType="touchUpInside" id="soO-yd-yP1"/>
                                 </connections>
@@ -89,7 +88,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="createBtn" destination="I4D-yq-TVo" id="ZCH-0Z-A9f"/>
+                        <outlet property="createBtn" destination="I4D-yq-TVo" id="Vec-Yb-riP"/>
                         <outlet property="messageTf" destination="FNd-IV-qY6" id="HKh-UD-GVv"/>
                         <outlet property="tableHeaderView" destination="vOp-ba-oyK" id="NV3-Aq-JyI"/>
                     </connections>

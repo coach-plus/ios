@@ -1,1 +1,135 @@
+"Events" = "Events";
+"Members" = "Members";
+"Make user" = "Make user";
+"Remove from team" = "Remove from team";
+"Cancel" = "Cancel";
+"Teams" = "Teams";
 
+/*1 Member*/
+/*Fuzzy*/
+"1 Member" = "1 Member";
+
+/*Multiple Members*/
+/*Fuzzy*/
+"%d Members" = "%d Members";
+"Logout" = "Logout";
+"New Team" = "New Team";
+"Team Name" = "Team Name";
+"Private Team" = "Private Team";
+"Public Team" = "Public Team";
+"Your team is public and everyone can join it" = "Your team is public and everyone can join it";
+"Your team is private and you can invite people" = "Your team is private and you can invite people";
+"Create Team" = "Create Team";
+"You are in the following Teams" = "You are in the following Teams";
+"%s is in the following Teams" = "%s is in the following Teams";
+"Leave Team" = "Leave Team";
+"Are you sure that you want to leave team %s" = "Are you sure that you want to leave %s?";
+"User Settings" = "User Settings";
+"Personal Settings" = "Personal Settings";
+"Password" = "Password";
+"Change Password" = "Change Password";
+"Old Password" = "Old Password";
+"New Password" = "New Password";
+"Repeat new Password" = "Repeat new Password";
+"You are not verified" = "You are not verified";
+"Resend E-Mail" = "Resend E-Mail";
+"Firstname" = "Firstname";
+"Lastname" = "Lastname";
+"Email" = "Email";
+"Save" = "Save";
+"Create Event" = "Create Event";
+"Start" = "Start";
+"End" = "End";
+"Event Name" = "Event Name";
+"Location" = "Location";
+"Description" = "Description";
+"Show all Events" = "Show all Events";
+"There are no planned events" = "There are no planned events";
+"Future Events" = "Planned Events";
+"Past Events" = "Past Events";
+"No Events found" = "No Events found";
+"No Location" = "No Location";
+"News" = "News";
+"Actions" = "Actions";
+"Edit" = "Edit";
+"Please select an action" = "Please select an action";
+"New News" = "New News";
+"Message" = "Message";
+"Create News" = "Create news";
+"Participation" = "Participation";
+"You can now select who participated" = "You can now select who participated";
+"Please set participation" = "Please set participation";
+"Login" = "Login";
+"Forgot Password" = "Forgot Password";
+"Register" = "Register";
+"Please fill in your email address and we will send you a new Password" = "Please fill in your email address and we will send you a new Password";
+"Request new Password" = "Request new Password";
+"Join this public team" = "Join this public team";
+"Join this private team" = "Join this private team";
+"Confirmation email sent" = "Confirmation email sent";
+"Continue" = "Continue";
+"You do not have a team yet" = "You do not have a team yet";
+"You do not have a team yet. Go ahead and create one using the '+' on the top right." = "You do not have a team yet. Go ahead and create one using the '+' on the top right.";
+"Repeat Password" = "Repeat Password";
+"Done" = "Done";
+"Set Attendance" = "Set Attendance";
+"Did attend" = "Did attend";
+"Did not attend" = "Did not attend";
+"Back" = "Back";
+"No Description" = "No Description";
+"Please enter your email address" = "Please enter your email address";
+"Requesting new Password" = "Requesting new Password";
+"Successfully requested a new password" = "Successfully requested a new password";
+"Loading" = "Loading";
+"Saved" = "Saved";
+"Passwords must match" = "Passwords must match";
+"Please fill in this field" = "Please fill in this field";
+"Join Team" = "Join Team";
+"Do really want to join %s?" = "Do really want to join %s?";
+"Successfully joined %s" = "Successfully joined %s";
+"Successfully left team %s" = "Successfully left team %s";
+"Send reminder" = "Send reminder";
+"Update Event" = "Update Event";
+
+/*EventCreate*/
+"Please enter a name" = "Please enter a name";
+
+/*EventCreate*/
+"Please enter a start date" = "Please enter a start date";
+
+/*EventCreate*/
+"Please enter an end date" = "Please enter an end date";
+
+/*EventCreate*/
+"Please enter a location" = "Please enter a location";
+
+/*EventCreate*/
+"End date must be after start date" = "End date must be after start date";
+"Delete Event" = "Delete Event";
+"Do you really want to delete this event?" = "Do you really want to delete this event?";
+"Yes" = "Yes";
+"No" = "No";
+"No News" = "No News";
+"Delete" = "Delete";
+"Make Coach" = "Make Coach";
+"This team is not available" = "This team is not available";
+"There was an error loading this team" = "There was an error loading this team";
+"Delete Team" = "Delete Team";
+"Do you really want to delete %s?" = "Do you really want to delete %s?";
+"Team deleted" = "Team deleted";
+"Edit Team" = "Edit Team";
+"The team's name must be at least 3 characters long" = "The team's name must be at least 3 characters long";
+"Please enter a team name" = "Please enter a team name";
+"You are now verified" = "You are now verified";
+"Verification failed" = "Verification failed";
+"Error" = "Error";
+"Success" = "Success";
+"No images found" = "No images found";
+"Participate yes" = "I will attend";
+"Participate no" = "I will not attend";
+
+/*EventDetail*/
+"to" = "to";
+"Select Team" = "Select Team";
+"Awesome!" = "Awesome!";
+"You already have teams. Go ahead and select one." = "You already have teams. Go ahead and select one.";

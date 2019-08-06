@@ -26,6 +26,7 @@ class OutlineButton: UIButton {
         self.layer.borderColor = self.tintColor.cgColor
         self.layer.cornerRadius = self.bounds.height / 2
         self.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        self.setTitleForAllStates(title: self.title(for: .normal) ?? "")
     }
     
     func coachPlus() {

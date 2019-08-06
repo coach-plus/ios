@@ -1,1 +1,133 @@
+"Events" = "Events";
+"Members" = "Mitglieder";
+"Make user" = "Zum Spieler machen";
+"Remove from team" = "Aus dem Team entfernen";
+"Cancel" = "Abbrechen";
+"Teams" = "Teams";
 
+/*1 Member*/
+"1 Member" = "1 Mitglied";
+
+/*Multiple Members*/
+"%d Members" = "%d Mitglieder";
+"Logout" = "Ausloggen";
+"New Team" = "Neues Team";
+"Team Name" = "Teamname";
+"Private Team" = "Privates Team";
+"Public Team" = "Öffentliches Team";
+"Your team is public and everyone can join it" = "Dein Team ist öffentlich und jeder kann beitreten";
+"Your team is private and you can invite people" = "Dein Team ist privat und du kannst Leute einladen";
+"Create Team" = "Team erstellen";
+"You are in the following Teams" = "Du bist in folgenden Teams";
+"%s is in the following Teams" = "%s ist in folgenden Teams";
+"Leave Team" = "Team verlassen";
+"Are you sure that you want to leave team %s" = "Möchtest du das Team %s wirklich verlassen?";
+"User Settings" = "Benutzereinstellungen";
+"Personal Settings" = "Persönliche Einstellungen";
+"Password" = "Passwort";
+"Change Password" = "Passwort ändern";
+"Old Password" = "Altes Passwort";
+"New Password" = "Neues Passwort";
+"Repeat new Password" = "Neues Passwort wiederholen";
+"You are not verified" = "Du bist nun verifiziert";
+"Resend E-Mail" = "E-Mail erneut senden";
+"Firstname" = "Vorname";
+"Lastname" = "Nachname";
+"Email" = "E-Mail";
+"Save" = "Speichern";
+"Create Event" = "Event erstellen";
+"Start" = "Beginn";
+"End" = "Ende";
+"Event Name" = "Eventname";
+"Location" = "Ort";
+"Description" = "Beschreibung";
+"Show all Events" = "Zeige alle Events";
+"There are no planned events" = "Es stehen keine Events an";
+"Future Events" = "Zukünftige Events";
+"Past Events" = "Vergangene Events";
+"No Events found" = "Keine Events gefunden";
+"No Location" = "Kein Ort angegeben";
+"News" = "Ankündigungen";
+"Actions" = "Aktionen";
+"Edit" = "Bearbeiten";
+"Please select an action" = "Bitte wähle eine Aktion";
+"New News" = "Neue Ankündigung";
+"Message" = "Nachricht";
+"Create News" = "Ankündigung erstellen";
+"Participation" = "Teilnahme";
+"You can now select who participated" = "Du kannst nun auswählen, wer teilgenommen hat";
+"Please set participation" = "Bitte sage zu oder ab";
+"Login" = "Einloggen";
+"Forgot Password" = "Passwort vergessen";
+"Register" = "Registrieren";
+"Please fill in your email address and we will send you a new Password" = "Bitte gib deine E-Mail Adresse ein. Wir schicken dir dann ein neues Passwort.";
+"Request new Password" = "Neues Passwort anfordern";
+"Join this public team" = "Diesem öffentlichen Team beitreten";
+"Join this private team" = "Diesem privaten Team beitreten";
+"Confirmation email sent" = "Bestätigungsemail versendet";
+"Continue" = "Weiter";
+"You do not have a team yet" = "Du hast noch kein Team";
+"You do not have a team yet. Go ahead and create one using the '+' on the top right." = "Du hast noch kein Team. Erstelle eins indem du oben rechts auf das '+' drückst.";
+"Repeat Password" = "Passwort wiederholen";
+"Done" = "Fertig";
+"Set Attendance" = "Teilnahme setzen";
+"Did attend" = "teilgenommen";
+"Did not attend" = "nicht teilgenommen";
+"Back" = "Zurück";
+"No Description" = "Keine Beschreibung";
+"Please enter your email address" = "Bitte gib deine E-Mail Adresse ein";
+"Requesting new Password" = "Fordere neues Passwort an...";
+"Successfully requested a new password" = "Erfolgreich ein neues Passwort angefordert.";
+"Loading" = "Lade..";
+"Saved" = "Gespeichert";
+"Passwords must match" = "Die Passwörter müssen übereinstimmen";
+"Please fill in this field" = "Bitte fülle dieses Feld aus";
+"Join Team" = "Team beitreten";
+"Do really want to join %s?" = "Möchtest du %s beitreten?";
+"Successfully joined %s" = "Erfolgreich %s beigetreten";
+"Successfully left team %s" = "Du hast das Team %s verlassen";
+"Send reminder" = "Erinnerung senden";
+"Update Event" = "Event aktualisieren";
+
+/*EventCreate*/
+"Please enter a name" = "Wie heißt das Event?";
+
+/*EventCreate*/
+"Please enter a start date" = "Wann startet das Event?";
+
+/*EventCreate*/
+"Please enter an end date" = "Wann endet das Event?";
+
+/*EventCreate*/
+"Please enter a location" = "Wo findet das Event statt?";
+
+/*EventCreate*/
+"End date must be after start date" = "Das Ende muss vor dem Beginn sein";
+"Delete Event" = "Event löschen";
+"Do you really want to delete this event?" = "Möchtest du dieses Event wirklich löschen?";
+"Yes" = "Ja";
+"No" = "Nein";
+"No News" = "Keine Ankündigungen";
+"Delete" = "Löschen";
+"Make Coach" = "Zum Coach machen";
+"This team is not available" = "Dieses Team ist nicht verfügbar";
+"There was an error loading this team" = "Beim Laden des Teams ist ein Fehler aufgetreten";
+"Delete Team" = "Team löschen";
+"Do you really want to delete %s?" = "Möchtest du %s wirklich löschen?";
+"Team deleted" = "Team gelöscht";
+"Edit Team" = "Team bearbeiten";
+"The team's name must be at least 3 characters long" = "Der Teamname muss mindestens 3 Zeichen lang sein";
+"Please enter a team name" = "Bitte gib einen Teamnamen ein";
+"You are now verified" = "Du bist nun verifiziert";
+"Verification failed" = "Verfizierung fehgeschlagen";
+"Error" = "Fehler";
+"Success" = "Erfolg";
+"No images found" = "Keine Bilder gefunden";
+"Participate yes" = "Ich nehme teil";
+"Participate no" = "Ich nehme nicht teil";
+
+/*EventDetail*/
+"to" = "bis";
+"Select Team" = "Team auswählen";
+"Awesome!" = "Super!";
+"You already have teams. Go ahead and select one." = "Du hast bereits Teams. Wähle eins aus.";

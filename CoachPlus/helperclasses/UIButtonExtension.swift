@@ -16,5 +16,8 @@ extension UIButton {
         self.setTitle(localizedTitle, for: .focused)
         self.setTitle(localizedTitle, for: .highlighted)
         self.setTitle(localizedTitle, for: .selected)
+        self.setTitle(localizedTitle, for: .reserved)
+        self.setTitle(localizedTitle, for: .disabled)
+        self.setNeedsDisplay()
     }
 }

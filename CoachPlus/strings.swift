@@ -11,16 +11,24 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 public enum L10n {
+  /// %d Members
+  public static func dMembers(_ p1: Int) -> String {
+    return L10n.tr("MainLocalization", "%d Members", p1)
+  }
   /// %s is in the following Teams
   public static func sIsInTheFollowingTeams(_ p1: UnsafePointer<CChar>) -> String {
     return L10n.tr("MainLocalization", "%s is in the following Teams", p1)
   }
+  /// 1 Member
+  public static let _1Member = L10n.tr("MainLocalization", "1 Member")
   /// Actions
   public static let actions = L10n.tr("MainLocalization", "Actions")
   /// Are you sure that you want to leave %s?
   public static func areYouSureThatYouWantToLeaveTeamS(_ p1: UnsafePointer<CChar>) -> String {
     return L10n.tr("MainLocalization", "Are you sure that you want to leave team %s", p1)
   }
+  /// Awesome!
+  public static let awesome = L10n.tr("MainLocalization", "Awesome!")
   /// Back
   public static let back = L10n.tr("MainLocalization", "Back")
   /// Cancel
@@ -109,10 +117,6 @@ public enum L10n {
   public static let members = L10n.tr("MainLocalization", "Members")
   /// Message
   public static let message = L10n.tr("MainLocalization", "Message")
-  /// %d Members
-  public static func multipleMembers(_ p1: Int) -> String {
-    return L10n.tr("MainLocalization", "Multiple Members", p1)
-  }
   /// New News
   public static let newNews = L10n.tr("MainLocalization", "New News")
   /// New Password
@@ -135,8 +139,6 @@ public enum L10n {
   public static let noNews = L10n.tr("MainLocalization", "No News")
   /// Old Password
   public static let oldPassword = L10n.tr("MainLocalization", "Old Password")
-  /// 1 Member
-  public static let oneMember = L10n.tr("MainLocalization", "One Member")
   /// I will not attend
   public static let participateNo = L10n.tr("MainLocalization", "Participate no")
   /// I will attend
@@ -193,6 +195,8 @@ public enum L10n {
   public static let save = L10n.tr("MainLocalization", "Save")
   /// Saved
   public static let saved = L10n.tr("MainLocalization", "Saved")
+  /// Select Team
+  public static let selectTeam = L10n.tr("MainLocalization", "Select Team")
   /// Send reminder
   public static let sendReminder = L10n.tr("MainLocalization", "Send reminder")
   /// Set Attendance
@@ -227,6 +231,8 @@ public enum L10n {
   public static let thereWasAnErrorLoadingThisTeam = L10n.tr("MainLocalization", "There was an error loading this team")
   /// This team is not available
   public static let thisTeamIsNotAvailable = L10n.tr("MainLocalization", "This team is not available")
+  /// to
+  public static let to = L10n.tr("MainLocalization", "to")
   /// Update Event
   public static let updateEvent = L10n.tr("MainLocalization", "Update Event")
   /// User Settings
@@ -249,6 +255,11 @@ public enum L10n {
   public static let yourTeamIsPrivateAndYouCanInvitePeople = L10n.tr("MainLocalization", "Your team is private and you can invite people")
   /// Your team is public and everyone can join it
   public static let yourTeamIsPublicAndEveryoneCanJoinIt = L10n.tr("MainLocalization", "Your team is public and everyone can join it")
+
+  public enum YouAlreadyHaveTeams {
+    /// You already have teams. Go ahead and select one.
+    public static let goAheadAndSelectOne = L10n.tr("MainLocalization", "You already have teams. Go ahead and select one.")
+  }
 
   public enum YouDoNotHaveATeamYet {
     /// You do not have a team yet. Go ahead and create one using the '+' on the top right.

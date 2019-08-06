@@ -84,9 +84,9 @@ class Event:JSONable, BackJSONable {
     func fromToString() -> String {
         
         if (self.start.compare(.isSameDay(self.end))) {
-            return "\(self.start.toDefaultFormatted()) \("TIME_TO".localize()) \(self.end.timeShort())"
+            return "\(self.start.toDefaultFormatted()) \(L10n.to) \(self.end.timeShort())"
         } else {
-            return "\(self.start.toDefaultFormatted()) \("TIME_TO".localize()) \(self.end.toDefaultFormatted())"
+            return "\(self.start.toDefaultFormatted()) \(L10n.to) \(self.end.toDefaultFormatted())"
         }
         
     }

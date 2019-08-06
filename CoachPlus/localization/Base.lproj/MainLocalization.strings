@@ -6,10 +6,12 @@
 "Teams" = "Teams";
 
 /*1 Member*/
-"One Member" = "1 Member";
+/*Fuzzy*/
+"1 Member" = "1 Member";
 
 /*Multiple Members*/
-"Multiple Members" = "%d Members";
+/*Fuzzy*/
+"%d Members" = "%d Members";
 "Logout" = "Logout";
 "New Team" = "New Team";
 "Team Name" = "Team Name";
@@ -125,3 +127,9 @@
 "No images found" = "No images found";
 "Participate yes" = "I will attend";
 "Participate no" = "I will not attend";
+
+/*EventDetail*/
+"to" = "to";
+"Select Team" = "Select Team";
+"Awesome!" = "Awesome!";
+"You already have teams. Go ahead and select one." = "You already have teams. Go ahead and select one.";

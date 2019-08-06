@@ -29,9 +29,14 @@ class NewNewsViewController: CoachPlusViewController {
     var event:Event?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.messageTf.placeholder = L10n.message
         self.tableHeaderView.title = L10n.newNews
-        self.createBtn.setTitle(L10n.newNews, for: .normal)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.createBtn.setTitleForAllStates(title: L10n.newNews)
     }
     
     func createNews() {

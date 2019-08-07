@@ -714,6 +714,8 @@
 
 /* Begin PBXFileReference section */
 		4707B23222FA265C000A3BD3 /* CoachPlusInfoBeta.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoachPlusInfoBeta.plist; sourceTree = "<group>"; };
+		4707B23422FABA91000A3BD3 /* CoachPlusDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoachPlusDev.entitlements; sourceTree = "<group>"; };
+		4707B23522FABA91000A3BD3 /* CoachPlusBeta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoachPlusBeta.entitlements; sourceTree = "<group>"; };
 		4715265D22590080005262F5 /* ForgotPw.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ForgotPw.storyboard; path = "CoachPlus/app/forgot-pw/ForgotPw.storyboard"; sourceTree = SOURCE_ROOT; };
 		47152662225937F5005262F5 /* ForgotPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwViewController.swift; sourceTree = "<group>"; };
 		47182F4C22329D0900E4FD06 /* UserSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = UserSettings.storyboard; path = app/usersettings/UserSettings.storyboard; sourceTree = "<group>"; };
@@ -729,7 +731,6 @@
 		473483231EC20A2000F60110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = assets/Assets.xcassets; sourceTree = "<group>"; };
 		473483261EC25F6A00F60110 /* JoinTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = JoinTeam.storyboard; path = app/team/JoinTeam.storyboard; sourceTree = "<group>"; };
 		473483291EC25FB500F60110 /* JoinTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinTeamViewController.swift; path = app/team/JoinTeamViewController.swift; sourceTree = "<group>"; };
-		4734832C1EC2698800F60110 /* CoachPlusDev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CoachPlusDev.entitlements; sourceTree = "<group>"; };
 		4734832D1EC26A0700F60110 /* CoachPlusInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoachPlusInfo.plist; sourceTree = "<group>"; };
 		4734832E1EC26A1000F60110 /* CoachPlusInfoDev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoachPlusInfoDev.plist; sourceTree = "<group>"; };
 		473A5F7E1E8A749A002FD833 /* CoachPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1070,8 +1071,9 @@
 				478DE22D1E85366300DCF74A /* helperclasses */,
 				474144CF1E84289F009788E2 /* login */,
 				475682591E81D273008547AF /* CoachPlus.entitlements */,
+				4707B23522FABA91000A3BD3 /* CoachPlusBeta.entitlements */,
+				4707B23422FABA91000A3BD3 /* CoachPlusDev.entitlements */,
 				473BF18E227993FD009C5DDA /* strings.swift */,
-				4734832C1EC2698800F60110 /* CoachPlusDev.entitlements */,
 				473ADF4A227350460055FE0B /* swiftgen.yml */,
 				4749C4FF1E81B7FE0068B0FA /* AppDelegate.swift */,
 				4749C5011E81B7FE0068B0FA /* ViewController.swift */,
@@ -3038,7 +3040,7 @@
 			buildSettings = {
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBeta;
-				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusBeta.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = R6AW526K22;
@@ -3062,7 +3064,7 @@
 			buildSettings = {
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBeta;
-				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusBeta.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;

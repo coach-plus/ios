@@ -225,7 +225,7 @@
 
 /*EventCreate*/
 /*Fuzzy*/
-"End_date_must_be_after_start_date" = "Das Ende muss vor dem Beginn sein";
+"End_date_must_be_after_start_date" = "Das Ende muss nach dem Beginn sein";
 
 /*Fuzzy*/
 "Delete_Event" = "Event löschen";
@@ -296,3 +296,5 @@
 
 /*Fuzzy*/
 "You_already_have_teams_Go_ahead_and_select_one" = "Du hast bereits Teams. Wähle eins aus.";
+"do_you_want_to_delete_the_messsage" = "Willst du die Ankündigung wirklich löschen?";
+"reminder_sent" = "Erinnerung gesendet";

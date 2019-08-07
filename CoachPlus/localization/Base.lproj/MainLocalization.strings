@@ -296,3 +296,5 @@
 
 /*Fuzzy*/
 "You_already_have_teams_Go_ahead_and_select_one" = "You already have teams. Go ahead and select one.";
+"do_you_want_to_delete_the_messsage" = "Do you want to delete the messsage?";
+"reminder_sent" = "Successfully sent a reminder";

@@ -524,7 +524,15 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             
             let url = URL(string: link)!
             
-            let vc = UIActivityViewController(activityItems: [L10n.joinThisPrivateTeam, url], applicationActivities: nil)
+            var text = ""
+            
+            if (self.membership?.team!.isPublic == true) {
+                text = L10n.joinThisPublicTeam
+            } else {
+                text = L10n.joinThisPrivateTeam
+            }
+            
+            let vc = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
             vc.excludedActivityTypes =
                 [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.saveToCameraRoll, UIActivity.ActivityType.postToFlickr,
                  UIActivity.ActivityType.postToVimeo, UIActivity.ActivityType.openInIBooks]

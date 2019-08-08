@@ -57,6 +57,8 @@ public enum L10n {
   public static func doYouReallyWantToDeleteX(_ p1: UnsafePointer<CChar>) -> String {
     return L10n.tr("MainLocalization", "Do_you_really_want_to_delete_x", p1)
   }
+  /// Do you want to delete the messsage?
+  public static let doYouWantToDeleteTheMesssage = L10n.tr("MainLocalization", "do_you_want_to_delete_the_messsage")
   /// Done
   public static let done = L10n.tr("MainLocalization", "Done")
   /// Edit
@@ -175,6 +177,8 @@ public enum L10n {
   public static let publicTeam = L10n.tr("MainLocalization", "Public_Team")
   /// Register
   public static let register = L10n.tr("MainLocalization", "Register")
+  /// Successfully sent a reminder
+  public static let reminderSent = L10n.tr("MainLocalization", "reminder_sent")
   /// Remove from team
   public static let removeFromTeam = L10n.tr("MainLocalization", "Remove_from_team")
   /// Repeat new Password

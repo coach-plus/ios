@@ -1592,6 +1592,11 @@
 					474E3D4A22C5DF6100255CFD = {
 						DevelopmentTeam = R6AW526K22;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -3036,7 +3041,7 @@
 		};
 		474E3DDA22C5DF6100255CFD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */;
+			baseConfigurationReference = 47F1486C22D4C1C5008CBD64 /* Beta.xcconfig */;
 			buildSettings = {
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBeta;

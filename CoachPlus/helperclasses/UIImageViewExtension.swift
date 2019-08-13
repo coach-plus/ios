@@ -19,7 +19,9 @@ extension UIImageView {
     func setTeamHeaderImage(team: Team?) {
         
         let width = UIApplication.shared.keyWindow?.frame.size.width ?? 500.0
-        let placeholder = UIImage.init(icon: .ionicons(.tshirtOutline), size: CGSize(width: width, height: width), textColor: .coachPlusBlue, backgroundColor: .white)
+        let placeholder = UIImage(named: "DefaultTeamImage")!
+            
+            // UIImage.init(icon: .ionicons(.tshirtOutline), size: CGSize(width: width, height: width), textColor: .coachPlusBlue, backgroundColor: .white)
         
         if (team != nil && team?.image != nil) {
             let fullUrl = team!.getTeamImageUrl()
@@ -113,7 +115,7 @@ extension UIImageView {
             color = placeholderColor!
         }
         
-        let placeholder = UIImage.init(icon: .fontAwesomeSolid(.users), size: self.frame.size, textColor: color, backgroundColor: .clear)
+        let placeholder = UIImage(named: "DefaultTeamImage")! // UIImage.init(icon: .fontAwesomeSolid(.users), size: self.frame.size, textColor: color, backgroundColor: .clear)
         
         if (team != nil && team?.image != nil) {
             let fullUrl = team?.getTeamImageUrl()

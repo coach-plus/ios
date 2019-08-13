@@ -72,6 +72,10 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
+        
         if (self.mode == .Edit && self.event == nil) {
             self.mode = .Create
         }

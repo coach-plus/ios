@@ -67,7 +67,7 @@ DEPENDENCIES:
   - RSKImageCropper
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
-  - SkyFloatingLabelTextField
+  - SkyFloatingLabelTextField (~> 3.7.0)
   - SwiftDate
   - SwiftGen (~> 6.0)
   - SwiftIcons
@@ -149,6 +149,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: f8a7774bb9be773a533f51a48236e56660c5e13d
+PODFILE CHECKSUM: e978bea22fdafd5db7bf6affc55efde6f6605f21
 
 COCOAPODS: 1.5.0

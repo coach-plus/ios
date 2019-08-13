@@ -351,3 +351,4 @@
 "The_announcement_was_created_successfully" = "The announcement was created";
 "No_internet_connection" = "Could not connect to the server";
 "Joining_team" = "Joining team..";
+"The_user_is_not_a_coach_of_this_team" = "You are not a member of this team";

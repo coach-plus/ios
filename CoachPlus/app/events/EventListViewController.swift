@@ -96,7 +96,7 @@ class EventListViewController: CoachPlusViewController, UITableViewDelegate, UIT
     }
     
     func loadEvents() {
-        DataHandler.def.getEventsOfTeam(team: (MembershipManager.shared.selectedMembership!.team!)).done({ events in
+        self.loadData(text: nil, promise: DataHandler.def.getEventsOfTeam(team: (MembershipManager.shared.selectedMembership!.team!))).done({ events in
             if (self.selection == .upcoming) {
                 self.events = events.upcoming()
             } else if (self.selection == .past) {

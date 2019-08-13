@@ -351,3 +351,4 @@
 "The_announcement_was_created_successfully" = "Die Ankündigung wurde angelegt";
 "No_internet_connection" = "Die Verbindung zum Server konnte nicht hergestellt werden";
 "Joining_team" = "Trete Team bei..";
+"The_user_is_not_a_coach_of_this_team" = "Du gehörst nicht zu diesem Team";

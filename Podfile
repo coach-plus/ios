@@ -4,7 +4,7 @@ use_frameworks!
 
 def all_pods
   pod 'Locksmith'
-  pod 'SkyFloatingLabelTextField'
+  pod 'SkyFloatingLabelTextField', '~> 3.7.0'
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
   pod 'SwiftyJSON'

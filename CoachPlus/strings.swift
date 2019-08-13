@@ -309,6 +309,8 @@ public enum L10n {
   public static let theUserCouldNotBeFound = L10n.tr("MainLocalization", "The_user_could_not_be_found")
   /// You are already part of this team
   public static let theUserIsAlreadyMemberOfThisTeam = L10n.tr("MainLocalization", "The_user_is_already_member_of_this_team")
+  /// You are not a member of this team
+  public static let theUserIsNotACoachOfThisTeam = L10n.tr("MainLocalization", "The_user_is_not_a_coach_of_this_team")
   /// The user was removed from the team
   public static let theUserWasRemovedUserSuccessfully = L10n.tr("MainLocalization", "The_user_was_removed_user_successfully")
   /// The confirmation link has expired

@@ -67,7 +67,10 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
             containerView.panGestureRecognizer.require(toFail: popGest)
         }
         
-        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(EventsViewController.newEvent)), animated: true)
+        if (self.membership?.isCoach() ?? false) {
+            self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(EventsViewController.newEvent)), animated: true)
+        }
+        
         
         super.viewDidLoad()
         

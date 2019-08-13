@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         } else {
             FlowManager.setHome()
+            NotificationManager.shared.registerForNotifications()
         }
         
         DataHandler.def.getUser().done({user in

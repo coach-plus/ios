@@ -8,7 +8,7 @@ def all_pods
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'MBProgressHUD'
+  pod 'MBProgressHUD', :git => 'https://github.com/ph4r05/MBProgressHUD.git', :branch => 'master'
   pod 'NotificationBannerSwift'
   pod "JWTDecode"
   pod 'Hero'

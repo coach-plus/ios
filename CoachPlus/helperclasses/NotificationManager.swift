@@ -32,7 +32,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     func setTeamVc(teamVc:UIViewController) {
         self.teamVc = teamVc
         UNUserNotificationCenter.current().delegate = self
-        self.registerForNotifications()
     }
     
     func setCurrentVc(currentVc: CoachPlusViewController) {

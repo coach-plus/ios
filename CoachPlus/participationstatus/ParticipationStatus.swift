@@ -27,7 +27,7 @@ class ParticipationStatus: NibDesignable {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func statusTapped(_ sender: Any) {
-        if (MembershipManager.shared.selectedMembership?.isCoach() ?? false) {
+        if (MembershipManager.shared.selectedMembership?.isCoach() ?? false && self.event?.startedInPast() ?? false) {
             self.showActionSheet()
         }
     }

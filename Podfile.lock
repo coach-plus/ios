@@ -59,7 +59,7 @@ DEPENDENCIES:
   - JWTDecode
   - Kingfisher (~> 5.3.1)
   - Locksmith
-  - MBProgressHUD
+  - MBProgressHUD (from `https://github.com/ph4r05/MBProgressHUD.git`, branch `master`)
   - MMDrawerController
   - NibDesignable (from `https://github.com/dzzh/NibDesignable.git`, branch `great-swift4`)
   - NotificationBannerSwift
@@ -88,7 +88,6 @@ SPEC REPOS:
     - Kingfisher
     - Locksmith
     - MarqueeLabel
-    - MBProgressHUD
     - MMDrawerController
     - NotificationBannerSwift
     - PromiseKit
@@ -106,11 +105,17 @@ SPEC REPOS:
     - XLPagerTabStrip
 
 EXTERNAL SOURCES:
+  MBProgressHUD:
+    :branch: master
+    :git: https://github.com/ph4r05/MBProgressHUD.git
   NibDesignable:
     :branch: great-swift4
     :git: https://github.com/dzzh/NibDesignable.git
 
 CHECKOUT OPTIONS:
+  MBProgressHUD:
+    :commit: d2842c91243b777615dc44cadf7c8c57519b197f
+    :git: https://github.com/ph4r05/MBProgressHUD.git
   NibDesignable:
     :commit: d483f63015b6f34670ff8302a75049735cbb2ee0
     :git: https://github.com/dzzh/NibDesignable.git
@@ -126,7 +131,7 @@ SPEC CHECKSUMS:
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
-  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MBProgressHUD: 0f5bb58f04db85da16d8b9e9781df7f88cadd4ec
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   NibDesignable: 6ccf1e54135cb05be0a78f803b9a8d78125a7d6d
   NotificationBannerSwift: 0ebb4b35e18c0515fdfe01b5ebd90c3eb1255e3d
@@ -144,6 +149,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 8ad8b085e75f7e42c79313170553bbcbe881e509
+PODFILE CHECKSUM: f8a7774bb9be773a533f51a48236e56660c5e13d
 
 COCOAPODS: 1.5.0

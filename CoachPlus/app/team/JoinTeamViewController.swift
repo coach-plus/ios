@@ -15,18 +15,20 @@ class JoinTeamViewController: CoachPlusViewController {
         case privateTeam
     }
 
+    @IBOutlet weak var textLbl: UILabel!
+    
     var inviteId:String?
     var mode:TeamType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.textLbl.text = L10n.joiningTeam
         // Do any additional setup after loading the view.
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(self.inviteId!)
         self.joinTeam()
     }
     
@@ -40,10 +42,6 @@ class JoinTeamViewController: CoachPlusViewController {
             self.dismiss(animated: true, completion: nil)
             FlowManager.selectAndOpenTeam(vc: self, teamId: apiResponse.team!.id)
         }).catch({ err in
-            if let apiError = err as? ApiError {
-                DropdownAlert.error(message: apiError.message)
-            }
-            print(err)
             self.dismiss(animated: true, completion: nil)
         })
     }

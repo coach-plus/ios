@@ -21,6 +21,8 @@ public enum L10n {
   public static let awesome = L10n.tr("MainLocalization", "Awesome")
   /// Back
   public static let back = L10n.tr("MainLocalization", "Back")
+  /// Can't find the email? Trigger a new email in the user settings
+  public static let canTFindTheMailTriggerANewEmailInTheUserSettings = L10n.tr("MainLocalization", "Can_t_find_the_mail_trigger_a_new_email_in_the_user_settings")
   /// Cancel
   public static let cancel = L10n.tr("MainLocalization", "Cancel")
   /// Change Password
@@ -63,6 +65,8 @@ public enum L10n {
   public static let done = L10n.tr("MainLocalization", "Done")
   /// Edit
   public static let edit = L10n.tr("MainLocalization", "Edit")
+  /// Edit Event
+  public static let editEvent = L10n.tr("MainLocalization", "Edit_Event")
   /// Edit Team
   public static let editTeam = L10n.tr("MainLocalization", "Edit_Team")
   /// Email
@@ -83,16 +87,26 @@ public enum L10n {
   public static let forgotPassword = L10n.tr("MainLocalization", "Forgot_Password")
   /// Planned Events
   public static let futureEvents = L10n.tr("MainLocalization", "Future_Events")
+  /// Whoops. There was an error on our side
+  public static let internalServerError = L10n.tr("MainLocalization", "Internal_server_error")
+  /// Invite to team
+  public static let inviteToTeam = L10n.tr("MainLocalization", "Invite_to_team")
   /// Join Team
   public static let joinTeam = L10n.tr("MainLocalization", "Join_Team")
   /// Join this private team
   public static let joinThisPrivateTeam = L10n.tr("MainLocalization", "Join_this_private_team")
   /// Join this public team
   public static let joinThisPublicTeam = L10n.tr("MainLocalization", "Join_this_public_team")
+  /// You joined this team
+  public static let joinedTeamSuccessfully = L10n.tr("MainLocalization", "Joined_team_successfully")
+  /// Joining team..
+  public static let joiningTeam = L10n.tr("MainLocalization", "Joining_team")
   /// Lastname
   public static let lastname = L10n.tr("MainLocalization", "Lastname")
   /// Leave Team
   public static let leaveTeam = L10n.tr("MainLocalization", "Leave_Team")
+  /// You left this team
+  public static let leftTeamSuccessfully = L10n.tr("MainLocalization", "Left_team_successfully")
   /// Loading
   public static let loading = L10n.tr("MainLocalization", "Loading")
   /// Location
@@ -105,14 +119,20 @@ public enum L10n {
   public static let makeCoach = L10n.tr("MainLocalization", "Make_Coach")
   /// Make user
   public static let makeUser = L10n.tr("MainLocalization", "Make_user")
+  /// Member
+  public static let member = L10n.tr("MainLocalization", "Member")
   /// Members
   public static let members = L10n.tr("MainLocalization", "Members")
   /// Message
   public static let message = L10n.tr("MainLocalization", "Message")
+  /// Name is required
+  public static let nameIsRequired = L10n.tr("MainLocalization", "Name_is_required")
   /// New News
   public static let newNews = L10n.tr("MainLocalization", "New_News")
   /// New Password
   public static let newPassword = L10n.tr("MainLocalization", "New_Password")
+  /// New passwords do not match
+  public static let newPasswordsDoNotMatch = L10n.tr("MainLocalization", "New_passwords_do_not_match")
   /// New Team
   public static let newTeam = L10n.tr("MainLocalization", "New_Team")
   /// News
@@ -125,12 +145,16 @@ public enum L10n {
   public static let noEventsFound = L10n.tr("MainLocalization", "No_Events_found")
   /// No images found
   public static let noImagesFound = L10n.tr("MainLocalization", "No_images_found")
+  /// Could not connect to the server
+  public static let noInternetConnection = L10n.tr("MainLocalization", "No_internet_connection")
   /// No Location
   public static let noLocation = L10n.tr("MainLocalization", "No_Location")
   /// No News
   public static let noNews = L10n.tr("MainLocalization", "No_News")
   /// Old Password
   public static let oldPassword = L10n.tr("MainLocalization", "Old_Password")
+  /// Old password, new password and repeated password are required
+  public static let oldPasswordNewPasswordAndPasswordRepeatAreRequired = L10n.tr("MainLocalization", "Old_password_new_password_and_password_repeat_are_required")
   /// 1 Member
   public static let oneMember = L10n.tr("MainLocalization", "one_Member")
   /// I will not attend
@@ -151,6 +175,8 @@ public enum L10n {
   public static func playerIsInTheFollowingTeams(_ p1: UnsafePointer<CChar>) -> String {
     return L10n.tr("MainLocalization", "player_is_in_the_following_Teams", p1)
   }
+  /// Please check your emails and verify your email address
+  public static let pleaseCheckYourMailsAndVerifyYourEmailAddress = L10n.tr("MainLocalization", "Please_check_your_mails_and_verify_your_email_address")
   /// Please enter a location
   public static let pleaseEnterALocation = L10n.tr("MainLocalization", "Please_enter_a_location")
   /// Please enter a name
@@ -195,6 +221,14 @@ public enum L10n {
   public static let save = L10n.tr("MainLocalization", "Save")
   /// Saved
   public static let saved = L10n.tr("MainLocalization", "Saved")
+  /// Select beginning date
+  public static let selectBeginningDate = L10n.tr("MainLocalization", "Select_beginning_date")
+  /// Select beginning time
+  public static let selectBeginningTime = L10n.tr("MainLocalization", "Select_beginning_time")
+  /// Select end date
+  public static let selectEndDate = L10n.tr("MainLocalization", "Select_end_date")
+  /// Select end time
+  public static let selectEndTime = L10n.tr("MainLocalization", "Select_end_time")
   /// Select Team
   public static let selectTeam = L10n.tr("MainLocalization", "Select_Team")
   /// Send reminder
@@ -223,8 +257,62 @@ public enum L10n {
   public static let teamName = L10n.tr("MainLocalization", "Team_Name")
   /// Teams
   public static let teams = L10n.tr("MainLocalization", "Teams")
+  /// The announcement was created
+  public static let theAnnouncementWasCreatedSuccessfully = L10n.tr("MainLocalization", "The_announcement_was_created_successfully")
+  /// The announcement was deleted
+  public static let theAnnouncementWasDeletedSuccessfully = L10n.tr("MainLocalization", "The_announcement_was_deleted_successfully")
+  /// The credentials are not correct
+  public static let theCredentialsAreNotCorrect = L10n.tr("MainLocalization", "The_credentials_are_not_correct")
+  /// The email address is required
+  public static let theEmailAddressIsRequired = L10n.tr("MainLocalization", "The_email_address_is_required")
+  /// Your email address is already in use
+  public static let theEmailAddressWasAlreadyRegistered = L10n.tr("MainLocalization", "The_email_address_was_already_registered")
+  /// Your email address is already confirmed
+  public static let theEmailAddressWasAlreadyVerified = L10n.tr("MainLocalization", "The_email_address_was_already_verified")
+  /// The event could not be found
+  public static let theEventCouldNotBeFound = L10n.tr("MainLocalization", "The_event_could_not_be_found")
+  /// The event has already started
+  public static let theEventHasAlreadyStarted = L10n.tr("MainLocalization", "The_event_has_already_started")
+  /// The event has not started yet
+  public static let theEventHasNotStartedYet = L10n.tr("MainLocalization", "The_event_has_not_started_yet")
+  /// The event was created
+  public static let theEventWasCreatedSuccessfully = L10n.tr("MainLocalization", "The_event_was_created_successfully")
+  /// The event was deleted
+  public static let theEventWasDeletedSuccessfully = L10n.tr("MainLocalization", "The_event_was_deleted_successfully")
+  /// The event was updated
+  public static let theEventWasUpdatedSuccessfully = L10n.tr("MainLocalization", "The_event_was_updated_successfully")
+  /// The image is missing
+  public static let theImageIsMissing = L10n.tr("MainLocalization", "The_image_is_missing")
+  /// The last coach cannot leave the team
+  public static let theLastCoachCantLeaveTheTeam = L10n.tr("MainLocalization", "The_last_coach_cant_leave_the_team")
+  /// The membership could not be found
+  public static let theMembershipCouldNotBeFound = L10n.tr("MainLocalization", "The_membership_could_not_be_found")
+  /// The reminder was sent
+  public static let theReminderWasSentSuccessfully = L10n.tr("MainLocalization", "The_reminder_was_sent_successfully")
+  /// The role is invalid
+  public static let theRoleIsInvalid = L10n.tr("MainLocalization", "The_role_is_invalid")
+  /// The role was updated successfully
+  public static let theRoleWasUpdatedSuccessfully = L10n.tr("MainLocalization", "The_role_was_updated_successfully")
+  /// The team already exists
+  public static let theTeamAlreadyExists = L10n.tr("MainLocalization", "The_team_already_exists")
+  /// The team could not be found
+  public static let theTeamCouldNotBeFound = L10n.tr("MainLocalization", "The_team_could_not_be_found")
+  /// The team was deleted
+  public static let theTeamWasDeletedSuccessfully = L10n.tr("MainLocalization", "The_team_was_deleted_successfully")
+  /// The team was updated
+  public static let theTeamWasUpdatedSuccessfully = L10n.tr("MainLocalization", "The_team_was_updated_successfully")
   /// The team's name must be at least 3 characters long
   public static let theTeamsNameMustBeAtLeastThreeCharactersLong = L10n.tr("MainLocalization", "The_teams_name_must_be_at_least_three_characters_long")
+  /// The token is invalid
+  public static let theTokenIsNotValid = L10n.tr("MainLocalization", "The_token_is_not_valid")
+  /// The user could not be found
+  public static let theUserCouldNotBeFound = L10n.tr("MainLocalization", "The_user_could_not_be_found")
+  /// You are already part of this team
+  public static let theUserIsAlreadyMemberOfThisTeam = L10n.tr("MainLocalization", "The_user_is_already_member_of_this_team")
+  /// The user was removed from the team
+  public static let theUserWasRemovedUserSuccessfully = L10n.tr("MainLocalization", "The_user_was_removed_user_successfully")
+  /// The confirmation link has expired
+  public static let theVerificationTokenCouldNotBeFound = L10n.tr("MainLocalization", "The_verification_token_could_not_be_found")
   /// There are no planned events
   public static let thereAreNoPlannedEvents = L10n.tr("MainLocalization", "There_are_no_planned_events")
   /// There was an error loading this team
@@ -233,18 +321,32 @@ public enum L10n {
   public static let thisTeamIsNotAvailable = L10n.tr("MainLocalization", "This_team_is_not_available")
   /// to
   public static let to = L10n.tr("MainLocalization", "to")
+  /// Trying to join team...
+  public static let tryingToJoinTeam = L10n.tr("MainLocalization", "Trying_to_join_team")
+  /// You do not have the required rights to perform this action
+  public static let unauthorized = L10n.tr("MainLocalization", "Unauthorized")
   /// Update Event
   public static let updateEvent = L10n.tr("MainLocalization", "Update_Event")
+  /// Update Profile
+  public static let updateProfile = L10n.tr("MainLocalization", "Update_Profile")
+  /// Update Team
+  public static let updateTeam = L10n.tr("MainLocalization", "Update_Team")
+  /// User Profile was updated successfully
+  public static let userProfileWasUpdatedSuccessfully = L10n.tr("MainLocalization", "User_Profile_was_updated_successfully")
   /// User Settings
   public static let userSettings = L10n.tr("MainLocalization", "User_Settings")
   /// Verification failed
   public static let verificationFailed = L10n.tr("MainLocalization", "Verification_failed")
+  /// Wrong password
+  public static let wrongPassword = L10n.tr("MainLocalization", "Wrong_password")
   /// %d Members
   public static func xMembers(_ p1: Int) -> String {
     return L10n.tr("MainLocalization", "x_Members", p1)
   }
   /// Yes
   public static let yes = L10n.tr("MainLocalization", "Yes")
+  /// You
+  public static let you = L10n.tr("MainLocalization", "You")
   /// You already have teams. Go ahead and select one.
   public static let youAlreadyHaveTeamsGoAheadAndSelectOne = L10n.tr("MainLocalization", "You_already_have_teams_Go_ahead_and_select_one")
   /// You are in the following Teams
@@ -259,6 +361,10 @@ public enum L10n {
   public static let youDoNotHaveATeamYet = L10n.tr("MainLocalization", "You_do_not_have_a_team_yet")
   /// You do not have a team yet. Go ahead and create one using the '+' on the top right.
   public static let youDoNotHaveATeamYetGoAheadAndCreateOneUsingTheOnTheTopRight = L10n.tr("MainLocalization", "You_do_not_have_a_team_yet_Go_ahead_and_create_one_using_the_on_the_top_right")
+  /// Your participation was updated
+  public static let yourParticipationWasUpdatedSuccessfully = L10n.tr("MainLocalization", "Your_participation_was_updated_successfully")
+  /// Your registration was successful
+  public static let yourRegistrationWasSuccessful = L10n.tr("MainLocalization", "Your_registration_was_successful")
   /// Your team is private and you can invite people
   public static let yourTeamIsPrivateAndYouCanInvitePeople = L10n.tr("MainLocalization", "Your_team_is_private_and_you_can_invite_people")
   /// Your team is public and everyone can join it

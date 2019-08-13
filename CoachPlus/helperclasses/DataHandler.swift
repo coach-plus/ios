@@ -72,7 +72,7 @@ class DataHandler {
                             }
                         }
                     case .failure(let error):
-                        p.reject(ApiError(message: "GENERAL_ERROR", statusCode: 0))
+                        p.reject(ApiError(message: L10n.noInternetConnection, statusCode: 0))
                     }
             }
         }

@@ -61,11 +61,14 @@ extension UIViewController {
     }
     
     func handleApiError(apiError: ApiError) {
-        DropdownAlert.error(message: apiError.message)
+        if (apiError.message != "") {
+            let message = NSLocalizedString(apiError.message, comment: "")
+            DropdownAlert.error(message: message)
+        }
     }
     
     func handleGeneralError(error: Error) {
-        DropdownAlert.error(message: error.localizedDescription)
+        DropdownAlert.error(message: L10n.error)
     }
     
 }

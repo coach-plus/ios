@@ -130,6 +130,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
             self.updateDateTimeLabels()
             
             self.deleteBtn.tintColor = UIColor.coachPlusRedColor
+            self.deleteBtn.setTitleForAllStates(title: L10n.deleteEvent)
             self.deleteBtn.setup()
             
             break

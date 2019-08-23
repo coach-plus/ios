@@ -87,6 +87,10 @@ public enum L10n {
   public static let forgotPassword = L10n.tr("MainLocalization", "Forgot_Password")
   /// Planned Events
   public static let futureEvents = L10n.tr("MainLocalization", "Future_Events")
+  /// I agree to the dataprivacy policy
+  public static let iAgreeToTheDataprivacyPolicy = L10n.tr("MainLocalization", "I_agree_to_the_dataprivacy_policy")
+  /// I agree to the terms and conditions
+  public static let iAgreeToTheTermsAndConditions = L10n.tr("MainLocalization", "I_agree_to_the_terms_and_conditions")
   /// Whoops. There was an error on our side
   public static let internalServerError = L10n.tr("MainLocalization", "Internal_server_error")
   /// Invite to team
@@ -363,6 +367,10 @@ public enum L10n {
   public static let youDoNotHaveATeamYet = L10n.tr("MainLocalization", "You_do_not_have_a_team_yet")
   /// You do not have a team yet. Go ahead and create one using the '+' on the top right.
   public static let youDoNotHaveATeamYetGoAheadAndCreateOneUsingTheOnTheTopRight = L10n.tr("MainLocalization", "You_do_not_have_a_team_yet_Go_ahead_and_create_one_using_the_on_the_top_right")
+  /// You have to agree to the dataprivacy policy to use this app.
+  public static let youMustAgreeToTheDataprivacyPolicy = L10n.tr("MainLocalization", "You_must_agree_to_the_dataprivacy_policy")
+  /// You have to agree to the terms and conditions to use this app.
+  public static let youMustAgreeToTheTermsAndConditions = L10n.tr("MainLocalization", "You_must_agree_to_the_terms_and_conditions")
   /// Your participation was updated
   public static let yourParticipationWasUpdatedSuccessfully = L10n.tr("MainLocalization", "Your_participation_was_updated_successfully")
   /// Your registration was successful

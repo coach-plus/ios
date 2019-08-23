@@ -29,7 +29,7 @@ class Authentication {
                 
             }
             
-            let user = User(id: jwtObject.claim(name: "_id").string!, firstname: jwtObject.claim(name: "firstname").string!, lastname: jwtObject.claim(name: "lastname").string!, email: jwtObject.claim(name: "email").string!, image: jwtObject.claim(name: "image").string, emailVerified: false)
+            let user = User(id: jwtObject.claim(name: "_id").string!, firstname: jwtObject.claim(name: "firstname").string!, lastname: jwtObject.claim(name: "lastname").string!, email: jwtObject.claim(name: "email").string!, image: jwtObject.claim(name: "image").string, emailVerified: false, termsAccepted: true, dataPrivacyAccepted: true)
             UserManager.storeUser(user: user)
 
             try Locksmith.saveData(data: [

@@ -10,15 +10,14 @@ import Foundation
 import UIKit
 import ImagePicker
 import RSKImageCropper
+import YPImagePicker
 
 protocol ImageHelperDelegate {
     func imageSelectedAndCropped(image:UIImage)
 }
 
-class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDelegate {
-    
-    
-    
+class ImageHelper: NSObject, RSKImageCropViewControllerDelegate {
+
     var vc:UIViewController
     var delegate: ImageHelperDelegate
     
@@ -27,50 +26,36 @@ class ImageHelper: NSObject, ImagePickerDelegate, RSKImageCropViewControllerDele
         self.delegate = vc as! ImageHelperDelegate
     }
     
-    func showImagePicker() {
-        var config = Configuration()
-        config.doneButtonTitle = L10n.done
-        config.noImagesTitle = L10n.noImagesFound
-        config.recordLocation = false
+    func showImagePicker(vc: UIViewController) {
+        var config = YPImagePickerConfiguration()
         
-        let imagePickerController = ImagePickerController.init(configuration: config)
-        imagePickerController.delegate = self
-        imagePickerController.imageLimit = 1
-        vc.present(imagePickerController, animated: true, completion: nil)
-    }
-    
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        imagePicker.dismiss(animated: true, completion: nil)
-    }
-    
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        //guard images.count > 0 else { return }
-    }
-    
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        config.library.maxNumberOfItems = 1
+        config.screens = [.library, .photo]
+        config.showsPhotoFilters = false
+        config.preferredStatusBarStyle = .lightContent
         
-        if (images.count > 0) {
-            let selectedImage = images[0]
-            var imageCropVC : RSKImageCropViewController!
-            imageCropVC = RSKImageCropViewController(image: selectedImage, cropMode: RSKImageCropMode.square)
-            imageCropVC.delegate = self
-            imagePicker.present(imageCropVC, animated: true, completion: nil)
+        let picker = YPImagePicker(configuration: config)
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                var imageCropVC : RSKImageCropViewController!
+                imageCropVC = RSKImageCropViewController(image: photo.image, cropMode: RSKImageCropMode.square)
+                imageCropVC.delegate = self
+                picker.dismiss(animated: true, completion: {
+                    vc.present(imageCropVC, animated: true, completion: nil)
+                })
+            } else {
+                picker.dismiss(animated: true, completion: nil)
+            }
         }
-    
-        
-        
-        
-        
-        
-    }
-    
-    func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
-        controller.dismiss(animated: true, completion: nil)
+        vc.present(picker, animated: true, completion: nil)
     }
     
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
         self.delegate.imageSelectedAndCropped(image: croppedImage)
-        controller.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        //controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

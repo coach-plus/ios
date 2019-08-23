@@ -103,7 +103,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func showImagePicker() {
         self.imageHelper = ImageHelper(vc: self)
-        self.imageHelper?.showImagePicker()
+        self.imageHelper?.showImagePicker(vc: self)
     }
     
     func displayUser() {

@@ -10,6 +10,8 @@ import UIKit
 import UserNotifications
 import IQKeyboardManagerSwift
 import Hero
+import Sentry
+import YPImagePicker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.shared.enable = true
+        
+        self.setupSentry()
         
         self.setupStyling()
         
@@ -38,36 +42,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }).catch({error in
             print("could not get user")
         })
-        
-        
+
         UNUserNotificationCenter.current().delegate = NotificationManager.shared
-        //NotificationManager.shared
-        
-        /*
-        registerForPushNotifications()
-        
-        // handle notifications
-        
-        
-        
-        // 1
-        if let notification = notificationOption as? [String: AnyObject],
-            let aps = notification["aps"] as? [String: AnyObject] {
-            
-            print(aps)
-            print(notification)
-            
-            // 2
-            /*
-            NewsItem.makeNewsItem(aps)
-            
-            // 3
-            (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
- */
-        }
-        */
         
         return true
+    }
+    
+    func setupSentry() {
+        // Create a Sentry client and start crash handler
+        do {
+            Client.shared = try Client(dsn: "https://4baa82fe6831479993ff4a6b73ec4a59@sentry.io/1533813")
+            try Client.shared?.startCrashHandler()
+        } catch let error {
+            print("\(error)")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -103,6 +91,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //ai.color = UIColor.coachPlusBlue
         
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().backgroundColor = .coachPlusBlue
+        
+        
+        let pickerAppearrance = UINavigationBar.appearance(whenContainedInInstancesOf: [YPImagePicker.self])
+        pickerAppearrance.tintColor = .coachPlusBlue
     }
     
     

@@ -352,3 +352,7 @@
 "No_internet_connection" = "Die Verbindung zum Server konnte nicht hergestellt werden";
 "Joining_team" = "Trete Team bei..";
 "The_user_is_not_a_coach_of_this_team" = "Du gehörst nicht zu diesem Team";
+"I_agree_to_the_terms_and_conditions" = "Ich stimme den Nutzungsbedingungen zu";
+"I_agree_to_the_dataprivacy_policy" = "Ich stimme den Datenschutzbestimmungen zu";
+"You_must_agree_to_the_terms_and_conditions" = "Du musst den Nutzungsbeindungen zustimmen um die App zu benutzen.";
+"You_must_agree_to_the_dataprivacy_policy" = "Du musst den Datenschutzbestimmungen zustimmen um die App zu benutzen.";

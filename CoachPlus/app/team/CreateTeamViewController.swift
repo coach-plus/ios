@@ -53,7 +53,7 @@ class CreateTeamViewController: CoachPlusViewController, ImageHelperDelegate, UI
     let privateIcon = UIImage.init(icon: .fontAwesomeSolid(.lock), size: CreateTeamViewController.publicIconSize, textColor: .coachPlusGrey, backgroundColor: .clear)
     
     @IBAction func selectImageTapped(_ sender: Any) {
-        self.imageHelper?.showImagePicker()
+        self.imageHelper?.showImagePicker(vc: self)
     }
     
     @IBAction func createBtnTapped(_ sender: Any) {

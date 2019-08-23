@@ -35,12 +35,17 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.4):
     - PromiseKit/CorePromise
+  - PryntTrimmerView (3.0.0)
   - RSKImageCropper (2.2.1)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
+  - Sentry (4.3.1):
+    - Sentry/Core (= 4.3.1)
+  - Sentry/Core (4.3.1)
   - SkyFloatingLabelTextField (3.7.0)
   - SnapKit (5.0.0)
+  - SteviaLayout (4.4.4)
   - SwiftDate (6.0.3)
   - SwiftGen (6.1.0)
   - SwiftIcons (2.2.0)
@@ -48,6 +53,9 @@ PODS:
   - SwiftyUserDefaults (4.0.0)
   - TextFieldEffects (1.5.1)
   - XLPagerTabStrip (9.0.0)
+  - YPImagePicker (4.0.0):
+    - PryntTrimmerView (~> 3.0.0)
+    - SteviaLayout (~> 4.4.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -67,6 +75,7 @@ DEPENDENCIES:
   - RSKImageCropper
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
+  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SkyFloatingLabelTextField (~> 3.7.0)
   - SwiftDate
   - SwiftGen (~> 6.0)
@@ -75,6 +84,7 @@ DEPENDENCIES:
   - SwiftyUserDefaults
   - TextFieldEffects
   - XLPagerTabStrip
+  - YPImagePicker
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -91,11 +101,13 @@ SPEC REPOS:
     - MMDrawerController
     - NotificationBannerSwift
     - PromiseKit
+    - PryntTrimmerView
     - RSKImageCropper
     - RxCocoa
     - RxSwift
     - SkyFloatingLabelTextField
     - SnapKit
+    - SteviaLayout
     - SwiftDate
     - SwiftGen
     - SwiftIcons
@@ -103,6 +115,7 @@ SPEC REPOS:
     - SwiftyUserDefaults
     - TextFieldEffects
     - XLPagerTabStrip
+    - YPImagePicker
 
 EXTERNAL SOURCES:
   MBProgressHUD:
@@ -111,6 +124,9 @@ EXTERNAL SOURCES:
   NibDesignable:
     :branch: great-swift4
     :git: https://github.com/dzzh/NibDesignable.git
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 4.3.1
 
 CHECKOUT OPTIONS:
   MBProgressHUD:
@@ -119,6 +135,9 @@ CHECKOUT OPTIONS:
   NibDesignable:
     :commit: d483f63015b6f34670ff8302a75049735cbb2ee0
     :git: https://github.com/dzzh/NibDesignable.git
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 4.3.1
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -136,11 +155,14 @@ SPEC CHECKSUMS:
   NibDesignable: 6ccf1e54135cb05be0a78f803b9a8d78125a7d6d
   NotificationBannerSwift: 0ebb4b35e18c0515fdfe01b5ebd90c3eb1255e3d
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
   RSKImageCropper: 98296ad26b41753f796b6898d015509598f13d97
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SkyFloatingLabelTextField: 4b46db0ab1ccde0919cded29c656e6b4805eda04
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
   SwiftDate: 8d4f14bf1ef68e95094511504856547bf9e3e1a6
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftIcons: e7eb9bf2b475d6bdd8b37c5bdedc6d120aab0829
@@ -148,7 +170,8 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 6a1951df1daa19337862b677dd9a4b9bd4c288cd
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
+  YPImagePicker: 8039f89ad79281545fa868486f32d9bf5d65ede1
 
-PODFILE CHECKSUM: e978bea22fdafd5db7bf6affc55efde6f6605f21
+PODFILE CHECKSUM: 9b714b095d6e05baecf8e321549a41d17532b5ef
 
 COCOAPODS: 1.5.0

@@ -31,6 +31,11 @@ build dev
 fastlane ios setup_keychain
 ```
 
+### ios set_build_number
+```
+fastlane ios set_build_number
+```
+
 ### ios build_beta
 ```
 fastlane ios build_beta

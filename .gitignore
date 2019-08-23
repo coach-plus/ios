@@ -121,3 +121,7 @@ build
 /*.gcno
 
 # End of https://www.gitignore.io/api/swift,objective-c,xcode
+
+dsymsDev
+dsymsBeta
+dsymsProd

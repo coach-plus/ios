@@ -28,9 +28,26 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var signInBtn: OutlineButton!
     
+    @IBOutlet weak var termsToggle: UISwitch!
     
+    @IBOutlet weak var dataPrivacyToggle: UISwitch!
     
+    @IBOutlet weak var termsText: UILabel!
+    
+    @IBOutlet weak var dataPrivacyText: UILabel!
     var hud:MBProgressHUD?
+    
+    @IBOutlet weak var termsButton: UIButton!
+    
+    @IBOutlet weak var dataPrivacyButton: UIButton!
+    
+    @IBAction func termsBtnTapped(_ sender: Any) {
+        self.openWebpage(urlString: CoachPlus.termsUrl)
+    }
+    
+    @IBAction func dataPrivacyBtnTapped(_ sender: Any) {
+        self.openWebpage(urlString: CoachPlus.dataPrivacyUrl)
+    }
     
     @IBAction func signUpTapped(_ sender: Any) {
         self.register()
@@ -51,6 +68,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.passwordLbl.placeholder = L10n.password
         self.repeatPasswordLbl.placeholder = L10n.repeatPassword
         
+        self.termsText.text = L10n.iAgreeToTheTermsAndConditions
+        self.dataPrivacyText.text = L10n.iAgreeToTheDataprivacyPolicy
+        
+        self.termsText.textColor = .white
+        self.dataPrivacyText.textColor = .white
+        
+        self.termsButton.setCoachPlusIcon(fontType: .fontAwesomeSolid(.externalLinkAlt), color: .white, size: 15.0)
+        self.dataPrivacyButton.setCoachPlusIcon(fontType: .fontAwesomeSolid(.externalLinkAlt), color: .white, size: 15.0)
         
 
         // Do any additional setup after loading the view.
@@ -133,18 +158,29 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        let termsAccepted = self.termsToggle.isOn
+        let dataPrivacyAccepted = self.dataPrivacyToggle.isOn
+        
+        if (termsAccepted != true) {
+            DropdownAlert.error(message: L10n.youMustAgreeToTheTermsAndConditions)
+            return
+        }
+        
+        if (dataPrivacyAccepted != true) {
+            DropdownAlert.error(message: L10n.youMustAgreeToTheDataprivacyPolicy)
+            return
+        }
+        
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.mode = MBProgressHUDMode.indeterminate
         hud.label.text = L10n.loading
         hud.label.textColor = UIColor.white
         
-        
-        DataHandler.def.register(firstname: self.firstnameLbl.text!, lastname: self.lastnameLbl.text!, email: self.emailLbl.text!, password: self.passwordLbl.text!).done({ apiResponse in
+        DataHandler.def.register(firstname: self.firstnameLbl.text!, lastname: self.lastnameLbl.text!, email: self.emailLbl.text!, password: self.passwordLbl.text!, termsAccepted: termsAccepted, dataPrivacyAccepted: dataPrivacyAccepted).done({ apiResponse in
             self.showDone(hud: hud)
             self.registerSuccessful()
         }).catch({ err in
             hud.hide(animated: true)
-            //DropdownAlert.error(message: apiResponse.message)
         })
         
     }

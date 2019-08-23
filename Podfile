@@ -28,6 +28,8 @@ def all_pods
   pod 'RxCocoa',    '~> 4.0'
   pod 'Eureka', '~> 4.3.1'
   pod 'SwiftGen', '~> 6.0'
+  pod 'YPImagePicker'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
 end
 
 target 'CoachPlus' do

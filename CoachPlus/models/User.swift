@@ -18,6 +18,8 @@ class User:JSONable, BackJSONable {
         case email = "email"
         case image = "image"
         case emailVerified = "emailVerified"
+        case termsAccepted = "termsAccepted"
+        case dataPrivacyAccepted = "dataPrivacyAccepted"
     }
     
     var id: String
@@ -26,14 +28,18 @@ class User:JSONable, BackJSONable {
     var email: String
     var image: String?
     var emailVerified: Bool?
+    var termsAccepted: Bool?
+    var dataPrivacyAccepted: Bool?
     
-    init(id:String, firstname:String, lastname:String, email:String, image: String?, emailVerified: Bool?) {
+    init(id:String, firstname:String, lastname:String, email:String, image: String?, emailVerified: Bool?, termsAccepted: Bool?, dataPrivacyAccepted: Bool?) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
         self.image = image
         self.emailVerified = emailVerified
+        self.termsAccepted = termsAccepted
+        self.dataPrivacyAccepted = dataPrivacyAccepted
     }
     
     required init(json:JSON) {
@@ -43,6 +49,8 @@ class User:JSONable, BackJSONable {
         self.email = json[Fields.email.rawValue].stringValue
         self.image = json[Fields.image.rawValue].stringValue
         self.emailVerified = json[Fields.emailVerified.rawValue].bool
+        self.termsAccepted = json[Fields.termsAccepted.rawValue].bool
+        self.dataPrivacyAccepted = json[Fields.dataPrivacyAccepted.rawValue].bool
     }
     
     func toJson() -> JSON {
@@ -51,7 +59,9 @@ class User:JSONable, BackJSONable {
             Fields.firstname.rawValue: self.firstname,
             Fields.lastname.rawValue: self.lastname,
             Fields.email.rawValue: self.email,
-            Fields.image.rawValue: self.image]
+            Fields.image.rawValue: self.image,
+            Fields.termsAccepted.rawValue: self.termsAccepted,
+            Fields.dataPrivacyAccepted.rawValue: self.dataPrivacyAccepted]
         return json
     }
     

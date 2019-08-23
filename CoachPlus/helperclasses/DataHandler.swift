@@ -126,13 +126,15 @@ class DataHandler {
     }
     
     
-    func register(firstname:String, lastname:String, email:String, password:String) -> Promise<ApiResponse> {
+    func register(firstname:String, lastname:String, email:String, password:String, termsAccepted: Bool, dataPrivacyAccepted: Bool) -> Promise<ApiResponse> {
         
         let params: Parameters = [
             "firstname":firstname,
             "lastname":lastname,
             "email":email,
-            "password":password
+            "password":password,
+            User.Fields.termsAccepted.rawValue: termsAccepted,
+            User.Fields.dataPrivacyAccepted.rawValue: dataPrivacyAccepted
         ]
         
         return Promise { p in

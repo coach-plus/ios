@@ -74,7 +74,13 @@ extension UIColor {
     
     static var coachPlusBlue:UIColor {
         get {
-            return UIColor(hexString: "#3481b8")
+            return UIColor(named: "CoachPlusBlue")!
+        }
+    }
+    
+    static var coachPlusTeamPublicIndicator:UIColor {
+        get {
+            return UIColor(named: "CoachPlusTeamPublicIndicator")!
         }
     }
     

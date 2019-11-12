@@ -36,7 +36,7 @@ class CoachPlusImageView: NibDesignable {
     func setup() {
         
         detailContainerView.clipsToBounds = true
-        detailContainerView.backgroundColor = .white
+        detailContainerView.backgroundColor = .clear
         
         imageView.layer.cornerRadius = self.frame.width / 2
         imageView.clipsToBounds = true
@@ -60,7 +60,7 @@ class CoachPlusImageView: NibDesignable {
     public func setIsPrivate(isPrivate: Bool) {
         self.setup()
         if (isPrivate) {
-            self.detailImageView.setIcon(icon: .fontAwesomeSolid(.lock), textColor: .coachPlusBlue, backgroundColor: .white, size: self.detailImageView.frame.size)
+            self.detailImageView.setIcon(icon: .fontAwesomeSolid(.lock), textColor: .coachPlusTeamPublicIndicator, backgroundColor: .clear, size: self.detailImageView.frame.size)
             self.detailContainerView.isHidden = false
         } else {
             self.detailContainerView.isHidden = true

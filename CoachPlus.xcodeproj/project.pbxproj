@@ -232,6 +232,11 @@
 		474EEEE62259F960008EAADE /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */; };
 		474EEEE72259FBFC008EAADE /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
 		474EEEE82259FBFC008EAADE /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
+		474F10E6233D39B000297BEB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474F10E5233D39B000297BEB /* Colors.xcassets */; };
+		474F10E7233D39B000297BEB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474F10E5233D39B000297BEB /* Colors.xcassets */; };
+		474F10E8233D39B000297BEB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474F10E5233D39B000297BEB /* Colors.xcassets */; };
+		474F10E9233D39B000297BEB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474F10E5233D39B000297BEB /* Colors.xcassets */; };
+		474F10EA233D39B000297BEB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474F10E5233D39B000297BEB /* Colors.xcassets */; };
 		4756825B1E81D320008547AF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4756825A1E81D320008547AF /* UserNotifications.framework */; };
 		477A27591E8C3775005516ED /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A27581E8C3775005516ED /* InviteResponse.swift */; };
 		477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A27581E8C3775005516ED /* InviteResponse.swift */; };
@@ -757,6 +762,7 @@
 		4749C51F1E81B7FF0068B0FA /* CoachPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachPlusUITests.swift; sourceTree = "<group>"; };
 		4749C5211E81B7FF0068B0FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		474E3DDC22C5DF6100255CFD /* CoachPlusBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlusBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		474F10E5233D39B000297BEB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = assets/Colors.xcassets; sourceTree = "<group>"; };
 		475682591E81D273008547AF /* CoachPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoachPlus.entitlements; sourceTree = "<group>"; };
 		4756825A1E81D320008547AF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		477A27581E8C3775005516ED /* InviteResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteResponse.swift; path = models/InviteResponse.swift; sourceTree = "<group>"; };
@@ -987,6 +993,7 @@
 				61D98DAE20415E1800D4B722 /* localization */,
 				61C51A1C20408FDE009B8BA2 /* fonts */,
 				473483231EC20A2000F60110 /* Assets.xcassets */,
+				474F10E5233D39B000297BEB /* Colors.xcassets */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -1643,6 +1650,7 @@
 				473A5F731E8A749A002FD833 /* Login.storyboard in Resources */,
 				473DCE1B1EC3A6A000A42F51 /* User.storyboard in Resources */,
 				61C51A3320408FF0009B8BA2 /* Roboto-BoldItalic.ttf in Resources */,
+				474F10E6233D39B000297BEB /* Colors.xcassets in Resources */,
 				61C51A2F20408FF0009B8BA2 /* Roboto-ThinItalic.ttf in Resources */,
 				61C51A3020408FF0009B8BA2 /* Roboto-MediumItalic.ttf in Resources */,
 				473A5F741E8A749A002FD833 /* Verification.storyboard in Resources */,
@@ -1699,6 +1707,7 @@
 				61C51A3C20408FFB009B8BA2 /* Roboto-Medium.ttf in Resources */,
 				473DCE1C1EC3A6A000A42F51 /* User.storyboard in Resources */,
 				61C51A4020408FFB009B8BA2 /* Roboto-ThinItalic.ttf in Resources */,
+				474F10E7233D39B000297BEB /* Colors.xcassets in Resources */,
 				474144D11E8428A9009788E2 /* Login.storyboard in Resources */,
 				61A0061F1F346D66003E2651 /* NewsTableViewCell.xib in Resources */,
 				61C51A3F20408FFB009B8BA2 /* Roboto-Thin.ttf in Resources */,
@@ -1755,6 +1764,7 @@
 				47AC1C972269A9E2001057DA /* SeeAllTableViewCell.xib in Resources */,
 				47AC1C9D2269A9EB001057DA /* EventTableViewCell.xib in Resources */,
 				477AF32A22609390004F7F2E /* Roboto-Thin.ttf in Resources */,
+				474F10E9233D39B000297BEB /* Colors.xcassets in Resources */,
 				47AC1CA62269A9FE001057DA /* Team.storyboard in Resources */,
 				477AF357226093B6004F7F2E /* ReusableParticipationHeaderView.xib in Resources */,
 				477AF31622609376004F7F2E /* Verification.storyboard in Resources */,
@@ -1811,6 +1821,7 @@
 				47AC1C992269A9E3001057DA /* SeeAllTableViewCell.xib in Resources */,
 				47AC1C9F2269A9EB001057DA /* EventTableViewCell.xib in Resources */,
 				477AF33722609390004F7F2E /* Roboto-Thin.ttf in Resources */,
+				474F10EA233D39B000297BEB /* Colors.xcassets in Resources */,
 				47AC1CA72269A9FE001057DA /* Team.storyboard in Resources */,
 				477AF363226093B6004F7F2E /* ReusableParticipationHeaderView.xib in Resources */,
 				477AF31822609376004F7F2E /* Verification.storyboard in Resources */,
@@ -1867,6 +1878,7 @@
 				474E3DB322C5DF6100255CFD /* Roboto-Medium.ttf in Resources */,
 				474E3DB422C5DF6100255CFD /* User.storyboard in Resources */,
 				474E3DB522C5DF6100255CFD /* Roboto-ThinItalic.ttf in Resources */,
+				474F10E8233D39B000297BEB /* Colors.xcassets in Resources */,
 				474E3DB622C5DF6100255CFD /* Login.storyboard in Resources */,
 				474E3DB722C5DF6100255CFD /* NewsTableViewCell.xib in Resources */,
 				474E3DB822C5DF6100255CFD /* Roboto-Thin.ttf in Resources */,

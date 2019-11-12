@@ -139,7 +139,7 @@ class CoachPlusNavigationBar: UINavigationBar, NibDesignableProtocol {
     }
     
     func setStyling() {
-        self.barTintColor = UIColor(hexString: "#3381b8")
+        self.barTintColor = .coachPlusBlue
         self.tintColor = UIColor.white
         self.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,

@@ -113,6 +113,8 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         EventManager.shared.eventsChanged.subscribe({ event in
             self.loadData(forceLoadingIndicator: false)
         }).disposed(by: self.disposeBag)
+        
+        NotificationManager.shared.registerForNotifications()
     }
     
     func selectedMembership(membership: Membership?) {

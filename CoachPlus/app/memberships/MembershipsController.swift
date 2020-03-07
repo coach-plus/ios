@@ -80,7 +80,7 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func infoBtnTapped(_ sender: Any) {
-        self.openWebpage(urlString: CoachPlus.aboutUrl)
+        self.showInfoActionSheet()
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
@@ -180,6 +180,44 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
         return attributedString
     }
     
+    func showInfoActionSheet() {
+        
+        let dictionary = Bundle.main.infoDictionary!
+        
+        let appName = dictionary["CFBundleDisplayName"] as? String ?? ""
+        
+        let versionValue = dictionary["CFBundleShortVersionString"] ?? "0"
+        let buildValue = dictionary["CFBundleVersion"] ?? "0"
+        let version = "Version: \(versionValue) (\(buildValue))"
+        
+        let alertController = UIAlertController(title: appName, message: version, preferredStyle: .actionSheet)
+        
+        let legalButton = UIAlertAction(title: L10n.legal, style: .default, handler: { (action) -> Void in
+            self.openWebpage(urlString: CoachPlus.aboutUrl)
+        })
+        
+        let termsOfUseButton = UIAlertAction(title: L10n.termsOfUse, style: .default, handler: { (action) -> Void in
+            self.openWebpage(urlString: CoachPlus.termsUrl)
+        })
+        
+        let dataprivacyButton = UIAlertAction(title: L10n.dataprivacy, style: .default, handler: { (action) -> Void in
+            self.openWebpage(urlString: CoachPlus.dataPrivacyUrl)
+        })
+        
+        let thirdPartyButton = UIAlertAction(title: L10n.thirdPartyLicences, style: .default, handler: { (action) -> Void in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        })
+        
+        let cancelButton = UIAlertAction(title: L10n.cancel, style: .cancel, handler: { (action) -> Void in })
+        
+        alertController.addAction(legalButton)
+        alertController.addAction(dataprivacyButton)
+        alertController.addAction(termsOfUseButton)
+        alertController.addAction(thirdPartyButton)
+        alertController.addAction(cancelButton)
+        
+        self.presentModally(alertController, animated: true, completion: nil)
+    }
     
 
 }

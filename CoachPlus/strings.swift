@@ -37,6 +37,8 @@ public enum L10n {
   public static let createNews = L10n.tr("MainLocalization", "Create_News")
   /// Create Team
   public static let createTeam = L10n.tr("MainLocalization", "Create_Team")
+  /// Data Privacy
+  public static let dataprivacy = L10n.tr("MainLocalization", "Dataprivacy")
   /// Delete
   public static let delete = L10n.tr("MainLocalization", "Delete")
   /// Delete Event
@@ -111,6 +113,8 @@ public enum L10n {
   public static let leaveTeam = L10n.tr("MainLocalization", "Leave_Team")
   /// You left this team
   public static let leftTeamSuccessfully = L10n.tr("MainLocalization", "Left_team_successfully")
+  /// Legal Information
+  public static let legal = L10n.tr("MainLocalization", "Legal")
   /// Loading
   public static let loading = L10n.tr("MainLocalization", "Loading")
   /// Location
@@ -261,6 +265,8 @@ public enum L10n {
   public static let teamName = L10n.tr("MainLocalization", "Team_Name")
   /// Teams
   public static let teams = L10n.tr("MainLocalization", "Teams")
+  /// Terms of Use
+  public static let termsOfUse = L10n.tr("MainLocalization", "Terms_of_Use")
   /// The announcement was created
   public static let theAnnouncementWasCreatedSuccessfully = L10n.tr("MainLocalization", "The_announcement_was_created_successfully")
   /// The announcement was deleted
@@ -323,6 +329,8 @@ public enum L10n {
   public static let thereAreNoPlannedEvents = L10n.tr("MainLocalization", "There_are_no_planned_events")
   /// There was an error loading this team
   public static let thereWasAnErrorLoadingThisTeam = L10n.tr("MainLocalization", "There_was_an_error_loading_this_team")
+  /// 3rd Party Libraries Licenses
+  public static let thirdPartyLicences = L10n.tr("MainLocalization", "Third_party_licences")
   /// This team is not available
   public static let thisTeamIsNotAvailable = L10n.tr("MainLocalization", "This_team_is_not_available")
   /// to

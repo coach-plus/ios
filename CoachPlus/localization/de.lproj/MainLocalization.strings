@@ -71,7 +71,7 @@
 "Repeat_new_Password" = "Neues Passwort wiederholen";
 
 /*Fuzzy*/
-"You_are_not_verified" = "Du bist nun verifiziert";
+"You_are_not_verified" = "Du bist noch nicht verifiziert";
 
 /*Fuzzy*/
 "Resend_E_Mail" = "E-Mail erneut senden";

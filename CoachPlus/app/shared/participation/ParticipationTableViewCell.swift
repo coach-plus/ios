@@ -84,7 +84,7 @@ class ParticipationTableViewCell: UITableViewCell, ParticipationViewDelegate {
         if (event!.hasStarted() &&  (participationItem!.participation == nil || !participationItem!.participation!.statusIsPositive())) {
             self.contentView.backgroundColor = UIColor.coachPlusParticipationWrongColor
         } else {
-            self.contentView.backgroundColor = UIColor.white
+            self.contentView.backgroundColor = UIColor.defaultBackground
         }
     }
     

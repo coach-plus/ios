@@ -331,6 +331,8 @@ class EventDetailViewController: CoachPlusViewController, UITableViewDelegate, U
     }
     
     func sendReminder(event: Event) {
-        self.loadData(text: nil, promise: DataHandler.def.sendReminder(teamId: self.event!.teamId, eventId: self.event!.id))
+        self.loadData(text: nil, promise: DataHandler.def.sendReminder(teamId: self.event!.teamId, eventId: self.event!.id)).done({_ in
+            DropdownAlert.success(message: L10n.theReminderWasSentSuccessfully)
+        })
     }
 }

@@ -14,7 +14,7 @@ This library will help you check [JWT](http://jwt.io/) payload
 
 ## Requirements
 
-- iOS 9+ / macOS 10.11+ / tvOS 9.0+ 
+- iOS 9+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
 - Xcode 10.x
 - Swift 4.x/5.x
 
@@ -25,7 +25,7 @@ This library will help you check [JWT](http://jwt.io/) payload
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-github "auth0/JWTDecode.swift" ~> 2.3
+github "auth0/JWTDecode.swift" ~> 2.4
 ```
 
 Then run `carthage bootstrap`.
@@ -38,12 +38,28 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 
 ```ruby
 use_frameworks!
-pod 'JWTDecode', '~> 2.3'
+pod 'JWTDecode', '~> 2.4'
 ```
 
 Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+
+#### SPM (Xcode 11.2+)
+
+If you are using the Swift Package Manager, open the following menu item in Xcode:
+
+**File > Swift Packages > Add Package Dependency...**
+
+In the **Choose Package Repository** prompt add this url: 
+
+```
+https://github.com/auth0/JWTDecode.swift.git
+```
+
+Then, press **Next** and complete the remaining steps.
+
+> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
 
 ## Usage
 

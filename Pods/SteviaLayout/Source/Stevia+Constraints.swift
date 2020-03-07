@@ -6,6 +6,7 @@
 //  Copyright © 2015 Sacha Durand Saint Omer. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 // MARK: - Shortcut
@@ -35,7 +36,7 @@ public extension UIView {
      - Returns: The NSLayoutConstraint created.
      */
     @discardableResult
-    public func addConstraint(item view1: AnyObject,
+    func addConstraint(item view1: AnyObject,
                               attribute attr1: NSLayoutConstraint.Attribute,
                               relatedBy: NSLayoutConstraint.Relation = .equal,
                               toItem view2: AnyObject? = nil,
@@ -68,7 +69,7 @@ public extension UIView {
  
     - Returns: The NSLayoutConstraint created.
  */
-public func constraint(item view1: AnyObject,
+func constraint(item view1: AnyObject,
                        attribute attr1: NSLayoutConstraint.Attribute,
                        relatedBy: NSLayoutConstraint.Relation = .equal,
                        toItem view2: AnyObject? = nil,
@@ -95,7 +96,7 @@ public extension UIView {
         removeConstraints(userAddedConstraints)
      
 */
-    public var userAddedConstraints: [NSLayoutConstraint] {
+    var userAddedConstraints: [NSLayoutConstraint] {
         return constraints.filter { c in
             guard let cId = c.identifier else { return true }
             return !cId.contains("UIView-Encapsulated-Layout") && !cId.contains("Margin-guide-constraint")
@@ -115,13 +116,13 @@ public extension UIView {
      button.followEdges(image)
      ```
      */
-    public func followEdges(_ otherView: UIView) {
+    func followEdges(_ otherView: UIView) {
         if let spv = superview {
             let cs = [
                 constraint(item: self, attribute: .top, toItem: otherView),
-                constraint(item: self, attribute: .right, toItem: otherView),
+                constraint(item: self, attribute: .trailing, toItem: otherView),
                 constraint(item: self, attribute: .bottom, toItem: otherView),
-                constraint(item: self, attribute: .left, toItem: otherView)
+                constraint(item: self, attribute: .leading, toItem: otherView)
             ]
             spv.addConstraints(cs)
         }
@@ -139,7 +140,7 @@ public extension UIView {
      
      */
     @discardableResult
-    public func heightEqualsWidth() -> UIView {
+    func heightEqualsWidth() -> Self {
         if let spv = superview {
             let c = constraint(item: self, attribute: .height, toItem: self, attribute: .width)
             spv.addConstraint(c)
@@ -148,3 +149,4 @@ public extension UIView {
     }
     
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Sacha Durand Saint Omer. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 @available(iOS 9.0, *)
@@ -33,35 +34,35 @@ public struct SteviaLayoutXAxisAnchor {
 @available(iOS 9.0, *)
 public extension UILayoutGuide {
 
-    public var Top: SteviaLayoutYAxisAnchor {
+    var Top: SteviaLayoutYAxisAnchor {
         return SteviaLayoutYAxisAnchor(anchor: topAnchor)
     }
 
-    public var Bottom: SteviaLayoutYAxisAnchor {
+    var Bottom: SteviaLayoutYAxisAnchor {
         return SteviaLayoutYAxisAnchor(anchor: bottomAnchor)
     }
     
-    public var Left: SteviaLayoutXAxisAnchor {
+    var Left: SteviaLayoutXAxisAnchor {
         return SteviaLayoutXAxisAnchor(anchor: leftAnchor)
     }
     
-    public var Right: SteviaLayoutXAxisAnchor {
+    var Right: SteviaLayoutXAxisAnchor {
         return SteviaLayoutXAxisAnchor(anchor: rightAnchor)
     }
     
-    public var Leading: SteviaLayoutXAxisAnchor {
+    var Leading: SteviaLayoutXAxisAnchor {
         return SteviaLayoutXAxisAnchor(anchor: leadingAnchor)
     }
     
-    public var Trailing: SteviaLayoutXAxisAnchor {
+    var Trailing: SteviaLayoutXAxisAnchor {
         return SteviaLayoutXAxisAnchor(anchor: trailingAnchor)
     }
 
-    public var CenterX: SteviaLayoutXAxisAnchor {
+    var CenterX: SteviaLayoutXAxisAnchor {
         return SteviaLayoutXAxisAnchor(anchor: centerXAnchor)
     }
     
-    public var CenterY: SteviaLayoutYAxisAnchor {
+    var CenterY: SteviaLayoutYAxisAnchor {
         return SteviaLayoutYAxisAnchor(anchor: centerYAnchor)
     }
 }
@@ -78,6 +79,10 @@ public func == (left: SteviaAttribute, right: SteviaLayoutYAxisAnchor) -> NSLayo
     
     if left.attribute == .bottom {
         constraint = left.view.bottomAnchor.constraint(equalTo: right.anchor, constant: right.constant)
+    }
+    
+    if left.attribute == .centerY {
+        constraint = left.view.centerYAnchor.constraint(equalTo: right.anchor, constant: right.constant)
     }
     
     constraint.isActive = true
@@ -104,6 +109,10 @@ public func == (left: SteviaAttribute, right: SteviaLayoutXAxisAnchor) -> NSLayo
     
     if left.attribute == .trailing {
         constraint = left.view.trailingAnchor.constraint(equalTo: right.anchor, constant: right.constant)
+    }
+    
+    if left.attribute == .centerX {
+        constraint = left.view.centerXAnchor.constraint(equalTo: right.anchor, constant: right.constant)
     }
     
     constraint.isActive = true
@@ -141,11 +150,12 @@ public func - (left: SteviaLayoutXAxisAnchor, right: CGFloat) -> SteviaLayoutXAx
 @available(iOS 9.0, *)
 public extension UILayoutSupport {
     
-    public var Top: SteviaLayoutYAxisAnchor {
+    var Top: SteviaLayoutYAxisAnchor {
         return SteviaLayoutYAxisAnchor(anchor: topAnchor)
     }
     
-    public var Bottom: SteviaLayoutYAxisAnchor {
+    var Bottom: SteviaLayoutYAxisAnchor {
         return SteviaLayoutYAxisAnchor(anchor: bottomAnchor)
     }
 }
+#endif

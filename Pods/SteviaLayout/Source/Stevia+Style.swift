@@ -6,6 +6,7 @@
 //  Copyright © 2015 Sacha Durand Saint Omer. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIAppearance {
@@ -36,8 +37,9 @@ public extension UIAppearance {
      
      */
     @discardableResult
-    public func style(_ styleClosure: (Self) -> Void) -> Self {
+    func style(_ styleClosure: (Self) -> Void) -> Self {
         styleClosure(self)
         return self
     }
 }
+#endif

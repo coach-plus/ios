@@ -23,11 +23,11 @@ class UserManager {
     
     static func storeUser(user:User) {
         let userString = user.toJson().rawString()!
-        Defaults[.userJSON] = userString
+        Defaults[\.userJSON] = userString
     }
     
     static func getUser() -> User {
-        let userString = Defaults[.userJSON]
+        let userString = Defaults[\.userJSON]
         return userString.toObject(User.self)
     }
     
@@ -37,5 +37,5 @@ class UserManager {
 }
 
 extension DefaultsKeys {
-    static let userJSON = DefaultsKey<String>("user", defaultValue: "")
+    var userJSON: DefaultsKey<String> { .init("user", defaultValue: "") }
 }

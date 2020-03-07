@@ -30,6 +30,7 @@ def all_pods
   pod 'SwiftGen', '~> 6.0'
   pod 'YPImagePicker'
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
+  pod 'DatePickerDialog', '~> 3.0'
 end
 
 target 'CoachPlus' do
@@ -62,5 +63,14 @@ post_install do |installer|
                 config.build_settings['SWIFT_VERSION'] = '4.0'
             end
         end
+    end
+    
+    require 'fileutils'
+    FileUtils.cp_r('Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-acknowledgements.plist', 'Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+    installer.aggregate_targets.each do |aggregate_target|
+      aggregate_target.xcconfigs.each do |config_name, config_file|
+        xcconfig_path = aggregate_target.xcconfig_path(config_name)
+        config_file.save_as(xcconfig_path)
+      end
     end
 end

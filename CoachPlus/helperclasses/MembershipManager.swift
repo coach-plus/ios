@@ -122,14 +122,14 @@ class MembershipManager {
     
     func storeSelectedMembership(membership:Membership?) {
         if let m = membership {
-            Defaults[.selectedMembershipId] = m.id
+            Defaults[\.selectedMembershipId] = m.id
         } else {
-            Defaults[.selectedMembershipId] = ""
+            Defaults[\.selectedMembershipId] = ""
         }
     }
     
     func getPreviouslySelectedMembership() -> Membership? {
-        let membershipId = Defaults[.selectedMembershipId]
+        let membershipId = Defaults[\.selectedMembershipId]
         guard membershipId != "" else {
             return nil
         }
@@ -163,23 +163,23 @@ class MembershipManager {
     
     func storeMemberships(memberships: [Membership]) {
         self.memberships = memberships
-        Defaults[.membershipJSON] = memberships.toString()
+        Defaults[\.membershipJSON] = memberships.toString()
     }
     
     private func getStoredMemberships() -> [Membership] {
-        self.memberships = Defaults[.membershipJSON].toArray(Membership.self)
+        self.memberships = Defaults[\.membershipJSON].toArray(Membership.self)
         return self.memberships
     }
     
     func clearMemberships() {
-        Defaults[.membershipJSON] = ""
-        Defaults[.selectedMembershipId] = ""
+        Defaults[\.membershipJSON] = ""
+        Defaults[\.selectedMembershipId] = ""
     }
     
 }
 
 
 extension DefaultsKeys {
-    static let membershipJSON = DefaultsKey<String>("teams", defaultValue: "")
-    static let selectedMembershipId = DefaultsKey<String>("selectedMembershipId", defaultValue: "")
+    var membershipJSON: DefaultsKey<String> { .init("teams", defaultValue: "") }
+    var selectedMembershipId: DefaultsKey<String> { .init("selectedMembershipId", defaultValue: "") }
 }

@@ -147,7 +147,6 @@
 		474E3D8222C5DF6100255CFD /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F52223BC46D00E4FD06 /* UIButtonExtension.swift */; };
 		474E3D8322C5DF6100255CFD /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE201EC3BFE500A42F51 /* UIImageViewExtension.swift */; };
 		474E3D8422C5DF6100255CFD /* MailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */; };
-		474E3D8522C5DF6100255CFD /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
 		474E3D8622C5DF6100255CFD /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9CB01EA535D7004AFAC7 /* EventDetailViewController.swift */; };
 		474E3D8722C5DF6100255CFD /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1B62D1E8815F500F80101 /* ApiResponse.swift */; };
 		474E3D8822C5DF6100255CFD /* ForgotPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47152662225937F5005262F5 /* ForgotPwViewController.swift */; };
@@ -302,8 +301,6 @@
 		477AF31B2260937C004F7F2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */; };
 		477AF31C2260937C004F7F2E /* MailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0B1E86C35A00706E6B /* MailSentViewController.swift */; };
 		477AF31D2260937C004F7F2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B9C0D1E86C6B300706E6B /* RegisterViewController.swift */; };
-		477AF31E22609388004F7F2E /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
-		477AF31F22609388004F7F2E /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
 		477AF32022609390004F7F2E /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2620408FEF009B8BA2 /* Roboto-Black.ttf */; };
 		477AF32122609390004F7F2E /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A2820408FF0009B8BA2 /* Roboto-BlackItalic.ttf */; };
 		477AF32222609390004F7F2E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C51A1F20408FEE009B8BA2 /* Roboto-Bold.ttf */; };
@@ -543,6 +540,11 @@
 		47F1487022D4C5C8008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
 		47F1487122D4C6BF008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
 		47F1487222D4C6BF008CBD64 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F1486D22D4C5C8008CBD64 /* Environment.swift */; };
+		47F78C472413CF0300917BA1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47F78C462413CF0300917BA1 /* Settings.bundle */; };
+		47F78C482413CF0300917BA1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47F78C462413CF0300917BA1 /* Settings.bundle */; };
+		47F78C492413CF0300917BA1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47F78C462413CF0300917BA1 /* Settings.bundle */; };
+		47F78C4A2413CF0300917BA1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47F78C462413CF0300917BA1 /* Settings.bundle */; };
+		47F78C4B2413CF0300917BA1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47F78C462413CF0300917BA1 /* Settings.bundle */; };
 		480B31F326F2CCD4E1F1693C /* Pods_CoachPlusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB5815500B66DBED4D57D5E /* Pods_CoachPlusUITests.framework */; };
 		611330DB20DE66CC008D8E70 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
 		611330DC20DE66CC008D8E70 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330D920DE66CC008D8E70 /* EventDetailCell.swift */; };
@@ -550,8 +552,6 @@
 		611330DE20DE66CC008D8E70 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330DA20DE66CC008D8E70 /* EventDetailCell.xib */; };
 		611330E020DE6B9E008D8E70 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330DF20DE6B9E008D8E70 /* SeparatorView.swift */; };
 		611330E120DE6B9E008D8E70 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330DF20DE6B9E008D8E70 /* SeparatorView.swift */; };
-		611330E620DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
-		611330E720DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */; };
 		611330E920DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */; };
 		611330EA20DE9CDA008D8E70 /* ParticipationTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */; };
 		611330EC20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 611330EB20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib */; };
@@ -795,12 +795,12 @@
 		47F1486B22D4C1B5008CBD64 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		47F1486C22D4C1C5008CBD64 /* Beta.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Beta.xcconfig; sourceTree = "<group>"; };
 		47F1486D22D4C5C8008CBD64 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = helperclasses/Environment.swift; sourceTree = "<group>"; };
+		47F78C462413CF0300917BA1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5854C205E291EA13A294BF8C /* Pods-CoachPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		58F64F9A380F6E623435F897 /* Pods-CoachPlusDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.debug.xcconfig"; sourceTree = "<group>"; };
 		611330D920DE66CC008D8E70 /* EventDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDetailCell.swift; path = app/events/cells/EventDetailCell.swift; sourceTree = "<group>"; };
 		611330DA20DE66CC008D8E70 /* EventDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventDetailCell.xib; path = app/events/cells/EventDetailCell.xib; sourceTree = "<group>"; };
 		611330DF20DE6B9E008D8E70 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeparatorView.swift; path = ui/SeparatorView.swift; sourceTree = "<group>"; };
-		611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		611330E820DE9CDA008D8E70 /* ParticipationTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParticipationTableHeaderView.swift; path = ui/tableheader/ParticipationTableHeaderView.swift; sourceTree = "<group>"; };
 		611330EB20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ParticipationTableHeaderView.xib; path = ui/participationview/ParticipationTableHeaderView.xib; sourceTree = "<group>"; };
 		6116F85C1F34B81C00A30B44 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = helperclasses/UserManager.swift; sourceTree = "<group>"; };
@@ -878,8 +878,10 @@
 		61D98DBA2041866B00D4B722 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		61D98DBE204186F100D4B722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		61EB04062039BEDA003C1A17 /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonExtensions.swift; path = helperclasses/ButtonExtensions.swift; sourceTree = "<group>"; };
+		6A6FD8DEF602B9A869CC5A9A /* Pods-CoachPlusBeta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusBeta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta.debug.xcconfig"; sourceTree = "<group>"; };
 		6DA5109076260D00A51E2236 /* Pods-CoachPlusDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev.release.xcconfig"; sourceTree = "<group>"; };
 		6F37F74EC4CBD0B2B2BC02DB /* Pods_CoachPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		889C4DE0CB2A3D03B833A639 /* Pods-CoachPlusBeta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusBeta.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta.release.xcconfig"; sourceTree = "<group>"; };
 		8AB1EF209E890B990B4438DB /* Pods-CoachPlusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoachPlusUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoachPlusUITests/Pods-CoachPlusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		94958EA1B997D35762BF88AF /* Pods_CoachPlusBeta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusBeta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB5815500B66DBED4D57D5E /* Pods_CoachPlusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoachPlusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -950,6 +952,8 @@
 				CC1059DEAD142EFD0DA7E6E5 /* Pods-CoachPlusTests.release.xcconfig */,
 				8AB1EF209E890B990B4438DB /* Pods-CoachPlusUITests.debug.xcconfig */,
 				D796F6785F6B85828255AD57 /* Pods-CoachPlusUITests.release.xcconfig */,
+				6A6FD8DEF602B9A869CC5A9A /* Pods-CoachPlusBeta.debug.xcconfig */,
+				889C4DE0CB2A3D03B833A639 /* Pods-CoachPlusBeta.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1036,6 +1040,7 @@
 		4749C4F31E81B7FE0068B0FA = {
 			isa = PBXGroup;
 			children = (
+				47F78C452413CEA600917BA1 /* Resources */,
 				4749C4FE1E81B7FE0068B0FA /* CoachPlus */,
 				4749C5131E81B7FE0068B0FA /* CoachPlusTests */,
 				4749C51E1E81B7FF0068B0FA /* CoachPlusUITests */,
@@ -1061,7 +1066,6 @@
 			isa = PBXGroup;
 			children = (
 				47F1486722D4C120008CBD64 /* configs */,
-				612E14C91F0F7E1200D19674 /* libs */,
 				4734831E1EC208BA00F60110 /* assets */,
 				47F041F91E8E61DD0020D78E /* ui */,
 				473A5F801E8A7B92002FD833 /* models */,
@@ -1283,6 +1287,14 @@
 			path = configs;
 			sourceTree = "<group>";
 		};
+		47F78C452413CEA600917BA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				47F78C462413CF0300917BA1 /* Settings.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		611330D220DE64E0008D8E70 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1290,14 +1302,6 @@
 				611330DA20DE66CC008D8E70 /* EventDetailCell.xib */,
 			);
 			name = cells;
-			sourceTree = "<group>";
-		};
-		612E14C91F0F7E1200D19674 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				611330E520DE7BC5008D8E70 /* DatePickerDialog.swift */,
-			);
-			path = libs;
 			sourceTree = "<group>";
 		};
 		616616EF1E9F9DE900E8D8D5 /* shared */ = {
@@ -1650,6 +1654,7 @@
 				61A0061E1F346D66003E2651 /* NewsTableViewCell.xib in Resources */,
 				47F041EC1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
 				611330EC20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib in Resources */,
+				47F78C472413CF0300917BA1 /* Settings.bundle in Resources */,
 				61ACB7201EA0D6D600A7A1D2 /* MemberTableViewCell.xib in Resources */,
 				61C51A3420408FF0009B8BA2 /* Roboto-BlackItalic.ttf in Resources */,
 				473483271EC25F6A00F60110 /* JoinTeam.storyboard in Resources */,
@@ -1706,6 +1711,7 @@
 				478DE2321E8537A600DCF74A /* Verification.storyboard in Resources */,
 				61C51A3A20408FFB009B8BA2 /* Roboto-Light.ttf in Resources */,
 				611330ED20DE9CF3008D8E70 /* ParticipationTableHeaderView.xib in Resources */,
+				47F78C482413CF0300917BA1 /* Settings.bundle in Resources */,
 				61C51A3D20408FFB009B8BA2 /* Roboto-MediumItalic.ttf in Resources */,
 				61C51A3E20408FFB009B8BA2 /* Roboto-Regular.ttf in Resources */,
 				47F041ED1E8E59540020D78E /* MembershipTableViewCell.xib in Resources */,
@@ -1762,6 +1768,7 @@
 				47AC1C872269A9D6001057DA /* BannerTableViewCell.xib in Resources */,
 				477AF349226093AA004F7F2E /* TitleView.xib in Resources */,
 				47AC1CB02269AA0E001057DA /* Home.storyboard in Resources */,
+				47F78C4A2413CF0300917BA1 /* Settings.bundle in Resources */,
 				477AF32622609390004F7F2E /* Roboto-LightItalic.ttf in Resources */,
 				477AF32222609390004F7F2E /* Roboto-Bold.ttf in Resources */,
 				477AF355226093B6004F7F2E /* ParticipationTableHeaderView.xib in Resources */,
@@ -1818,6 +1825,7 @@
 				47AC1C892269A9D6001057DA /* BannerTableViewCell.xib in Resources */,
 				477AF34B226093AB004F7F2E /* TitleView.xib in Resources */,
 				47AC1CB22269AA0E001057DA /* Home.storyboard in Resources */,
+				47F78C4B2413CF0300917BA1 /* Settings.bundle in Resources */,
 				477AF33322609390004F7F2E /* Roboto-LightItalic.ttf in Resources */,
 				477AF32F22609390004F7F2E /* Roboto-Bold.ttf in Resources */,
 				477AF361226093B6004F7F2E /* ParticipationTableHeaderView.xib in Resources */,
@@ -1874,6 +1882,7 @@
 				474E3DBA22C5DF6100255CFD /* Verification.storyboard in Resources */,
 				474E3DBB22C5DF6100255CFD /* Roboto-Light.ttf in Resources */,
 				474E3DBC22C5DF6100255CFD /* ParticipationTableHeaderView.xib in Resources */,
+				47F78C492413CF0300917BA1 /* Settings.bundle in Resources */,
 				474E3DBD22C5DF6100255CFD /* Roboto-MediumItalic.ttf in Resources */,
 				474E3DBE22C5DF6100255CFD /* Roboto-Regular.ttf in Resources */,
 				474E3DBF22C5DF6100255CFD /* MembershipTableViewCell.xib in Resources */,
@@ -1965,9 +1974,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -2001,6 +2011,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
@@ -2032,7 +2043,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoachPlus/Pods-CoachPlus-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5E1AEBDE3C65B604D12DFDEB /* [CP] Check Pods Manifest.lock */ = {
@@ -2062,12 +2073,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -2098,11 +2108,10 @@
 				"${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
@@ -2134,7 +2143,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoachPlusBeta/Pods-CoachPlusBeta-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C91B26A814E8B422E648D435 /* [CP] Check Pods Manifest.lock */ = {
@@ -2161,9 +2170,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -2197,6 +2207,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
@@ -2228,7 +2239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoachPlusDev/Pods-CoachPlusDev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DE16B7657A85B2A879081B3A /* [CP] Check Pods Manifest.lock */ = {
@@ -2330,7 +2341,6 @@
 				47182F53223BC46D00E4FD06 /* UIButtonExtension.swift in Sources */,
 				473DCE211EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				473A5F661E8A749A002FD833 /* MailSentViewController.swift in Sources */,
-				611330E620DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
 				61CA9CB11EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				473A5F671E8A749A002FD833 /* ApiResponse.swift in Sources */,
 				47152663225937F5005262F5 /* ForgotPwViewController.swift in Sources */,
@@ -2423,7 +2433,6 @@
 				47182F54223BC46F00E4FD06 /* UIButtonExtension.swift in Sources */,
 				473DCE221EC3BFE500A42F51 /* UIImageViewExtension.swift in Sources */,
 				472B9C0C1E86C35A00706E6B /* MailSentViewController.swift in Sources */,
-				611330E720DE7BC5008D8E70 /* DatePickerDialog.swift in Sources */,
 				61CA9CB21EA535D7004AFAC7 /* EventDetailViewController.swift in Sources */,
 				47B1B62E1E8815F500F80101 /* ApiResponse.swift in Sources */,
 				47152664225937F5005262F5 /* ForgotPwViewController.swift in Sources */,
@@ -2467,7 +2476,6 @@
 				477AF2EB22607812004F7F2E /* DateExtension.swift in Sources */,
 				477AF2F522607812004F7F2E /* ButtonExtensions.swift in Sources */,
 				477AF36F226093BC004F7F2E /* Location.swift in Sources */,
-				477AF31E22609388004F7F2E /* DatePickerDialog.swift in Sources */,
 				477AF2E122607812004F7F2E /* UIColorExtension.swift in Sources */,
 				477AF31422609370004F7F2E /* News.swift in Sources */,
 				477AF36B226093BC004F7F2E /* InviteResponse.swift in Sources */,
@@ -2561,7 +2569,6 @@
 				4749C5201E81B7FF0068B0FA /* CoachPlusUITests.swift in Sources */,
 				477AF30222607812004F7F2E /* ApiResponse.swift in Sources */,
 				477AF377226093BD004F7F2E /* Location.swift in Sources */,
-				477AF31F22609388004F7F2E /* DatePickerDialog.swift in Sources */,
 				477AF30622607812004F7F2E /* UITableViewExtension.swift in Sources */,
 				477AF31522609370004F7F2E /* News.swift in Sources */,
 				477AF373226093BD004F7F2E /* InviteResponse.swift in Sources */,
@@ -2704,7 +2711,6 @@
 				474E3D8222C5DF6100255CFD /* UIButtonExtension.swift in Sources */,
 				474E3D8322C5DF6100255CFD /* UIImageViewExtension.swift in Sources */,
 				474E3D8422C5DF6100255CFD /* MailSentViewController.swift in Sources */,
-				474E3D8522C5DF6100255CFD /* DatePickerDialog.swift in Sources */,
 				474E3D8622C5DF6100255CFD /* EventDetailViewController.swift in Sources */,
 				474E3D8722C5DF6100255CFD /* ApiResponse.swift in Sources */,
 				474E3D8822C5DF6100255CFD /* ForgotPwViewController.swift in Sources */,

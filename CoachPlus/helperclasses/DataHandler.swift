@@ -41,25 +41,29 @@ class DataHandler {
         
         return Promise { p in
         
-            Alamofire.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
+            AF.request(completeUrl, method: method, parameters: params, encoding: encoding, headers: headers)
                 .responseJSON { response in
                     print(response.data!)
                     print("Request: \(response.request)")
                     print("Response: \(response.response)")
                     print("Error: \(response.error)")
-                    print("Timeline: \(response.timeline)")
                     
                     if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                         print("Data: \(utf8Text)")
                     }
                     switch response.result {
                     case .success(let json):
-                        guard (response.result.value != nil) else {
+                        
+                        switch response.result {
+                        case .success(let value):
+                            // do nothing
+                            break
+                        case .failure(let error): break
                             p.reject(ApiError(message: "", statusCode: (response.response?.statusCode)!))
                             return
                         }
                         
-                        let val = JSON(response.result.value!)
+                        let val = JSON(response.value!)
                         
                         let apiResponse = ApiResponse(json: val)
                         if ((response.response?.statusCode)! >= 400) {

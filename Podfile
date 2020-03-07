@@ -24,8 +24,8 @@ def all_pods
   pod 'MMDrawerController'
   pod "PromiseKit"
   pod 'Kingfisher', '~> 5.3.1'
-  pod 'RxSwift',    '~> 4.0'
-  pod 'RxCocoa',    '~> 4.0'
+  pod 'RxSwift',    '~> 5.1.0'
+  pod 'RxCocoa',    '~> 5.1.0'
   pod 'Eureka', '~> 4.3.1'
   pod 'SwiftGen', '~> 6.0'
   pod 'YPImagePicker'

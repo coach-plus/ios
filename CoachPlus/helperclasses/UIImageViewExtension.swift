@@ -74,9 +74,9 @@ extension UIImageView {
             placeholder: placeHolder,
             options: [
                 .processor(processor),
+                .cacheSerializer(FormatIndicatedCacheSerializer.png),
                 .scaleFactor(UIScreen.main.scale),
                 .transition(.fade(1)),
-                .cacheOriginalImage
             ])
         {
             result in

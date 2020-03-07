@@ -250,7 +250,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         let editTeamVc = editTeamNavVc.children[0] as! CreateTeamViewController
         editTeamVc.mode = .Edit
         editTeamVc.team = self.membership?.team
-        self.present(editTeamNavVc, animated: true, completion: nil)
+        self.presentModally(editTeamNavVc, animated: true, completion: nil)
         
         /*
         self.imageHelper = ImageHelper(vc: self)
@@ -516,7 +516,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
     func newEvent() {
         let vc = FlowManager.createEditEventVc(mode: .Create, membership: self.membership, event: nil, delegate: self)
-        self.present(vc, animated: true, completion: nil)
+        self.presentModally(vc, animated: true, completion: nil)
     }
     
     func newMember() {
@@ -536,7 +536,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             vc.excludedActivityTypes =
                 [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.saveToCameraRoll, UIActivity.ActivityType.postToFlickr,
                  UIActivity.ActivityType.postToVimeo, UIActivity.ActivityType.openInIBooks]
-            self.present(vc, animated: true, completion: nil)
+            self.presentModally(vc, animated: true, completion: nil)
             
         }).catch({ err in
             print(err)
@@ -691,7 +691,7 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         switch self.mode {
         case .noTeams:
             let vc = FlowManager.createEditTeamVc()
-            self.present(vc, animated: true, completion: nil)
+            self.presentModally(vc, animated: true, completion: nil)
             break
         case .noTeamSelected:
             FlowManager.openDrawer()

@@ -59,7 +59,7 @@ class UserSettingsViewController: CoachPlusViewController {
         super.viewDidLoad()
         
         self.setup()
-        
+        self.view.backgroundColor = UIColor.defaultBackground        
         
         self.loadData(text: nil, promise: DataHandler.def.getUser()).done({user in
             self.user = user

@@ -95,6 +95,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().backgroundColor = .coachPlusBlue
         
+        UITableViewCell.appearance().backgroundColor = UIColor.defaultBackground
+        
+        UITableView.appearance().backgroundColor = UIColor.defaultBackground
         
         let pickerAppearrance = UINavigationBar.appearance(whenContainedInInstancesOf: [YPImagePicker.self])
         pickerAppearrance.tintColor = .coachPlusBlue

@@ -42,7 +42,7 @@ class CoachPlusViewController: UIViewController, ErrorHandlerDelegate {
             self.membership = MembershipManager.shared.getPreviouslySelectedMembership()
         }
         
-        self.view.backgroundColor = UIColor.coachPlusBlue
+        self.view.backgroundColor = UIColor.defaultBackground
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -120,7 +120,9 @@ class CoachPlusViewController: UIViewController, ErrorHandlerDelegate {
                 p.fulfill(result)
             }).ensure({
                 hud.hide(animated: true)
-            }).catch({err in
+                })
+                
+                .catch({err in
                 self.errorHandler?.handleError(error: err)
                 p.reject(err)
             })

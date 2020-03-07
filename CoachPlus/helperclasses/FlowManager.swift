@@ -105,7 +105,7 @@ class FlowManager {
         
         let vc = storyboard.instantiateInitialViewController()!
         
-        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: completion)
+        UIApplication.shared.keyWindow?.rootViewController?.presentModally(vc, animated: true, completion: completion)
     }
     
     static func goToHome(sourceVc:UIViewController) {
@@ -130,12 +130,12 @@ class FlowManager {
     
     static func presentHome(sourceVc:UIViewController) {
         let vc = drawerVc()
-        sourceVc.present(vc, animated: true, completion: nil)
+        sourceVc.presentModally(vc, animated: true, completion: nil)
     }
     
     static func presentMemberships(sourceVc:UIViewController) {
         let vc = membershipsVc()
-        sourceVc.present(vc, animated: true, completion: nil)
+        sourceVc.presentModally(vc, animated: true, completion: nil)
     }
     
     static func getTeamViewController(sourceVc:UIViewController) {
@@ -149,7 +149,7 @@ class FlowManager {
     
     static func openTeamSelection(vc: UIViewController) {
         let membershipsVc = self.membershipsVc()
-        vc.present(membershipsVc, animated: true, completion: nil)
+        vc.presentModally(membershipsVc, animated: true, completion: nil)
     }
     
     static func openDrawer() {

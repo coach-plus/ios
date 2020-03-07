@@ -80,7 +80,7 @@ class EventDetailCell: UITableViewCell {
             
             let editEventVc = FlowManager.createEditEventVc(mode: .Edit, membership: MembershipManager.shared.selectedMembership, event: self.event, delegate: self.vc as? CreateEventViewControllerDelegate)
             
-            self.vc?.present(editEventVc, animated: true, completion: nil)
+            self.vc?.presentModally(editEventVc, animated: true, completion: nil)
         })
         
         let reminderButton = UIAlertAction(title: L10n.sendReminder, style: .default, handler: { (action) -> Void in
@@ -99,7 +99,7 @@ class EventDetailCell: UITableViewCell {
         
         alertController.addAction(cancelButton)
         
-        self.vc?.present(alertController, animated: true, completion: nil)
+        self.vc?.presentModally(alertController, animated: true, completion: nil)
         
     }
     

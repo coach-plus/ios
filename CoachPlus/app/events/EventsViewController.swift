@@ -21,6 +21,8 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
         
         let storyboard = UIStoryboard(name: "Events", bundle: nil)
         
+        self.view.backgroundColor = UIColor.defaultBackground
+        
         self.upcomingEventsViewController = storyboard.instantiateViewController(withIdentifier: "EventListViewController") as? EventListViewController
         self.pastEventsViewController = storyboard.instantiateViewController(withIdentifier: "EventListViewController") as? EventListViewController
         
@@ -30,16 +32,15 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
         self.upcomingEventsViewController?.events = self.events.upcoming()
         self.pastEventsViewController?.events = self.events.past()
         
-        self.settings.style.buttonBarBackgroundColor = UIColor.white
+        self.settings.style.buttonBarBackgroundColor = UIColor.defaultBackground
         self.settings.style.selectedBarBackgroundColor = UIColor.coachPlusBlue
         
         self.settings.style.buttonBarMinimumLineSpacing = 0
         
-        self.settings.style.buttonBarBackgroundColor = UIColor.white
+        self.settings.style.buttonBarBackgroundColor = UIColor.defaultBackground
         
-        self.settings.style.buttonBarItemTitleColor = UIColor.coachPlusGrey
-        
-        self.settings.style.buttonBarItemBackgroundColor = UIColor.white
+        self.settings.style.buttonBarItemTitleColor = UIColor.defaultText
+        self.settings.style.buttonBarItemBackgroundColor = UIColor.defaultBackground
         
         self.settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 13)
         self.settings.style.buttonBarHeight = 2.0
@@ -48,18 +49,18 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
         self.changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             
-            oldCell?.label.textColor = UIColor.coachPlusGrey
+            oldCell?.label.textColor = UIColor.defaultText
             newCell?.label.textColor = UIColor.coachPlusBlue
             
             if animated {
                 UIView.animate(withDuration: 0.1, animations: { () -> Void in
                     newCell?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                    oldCell?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                    oldCell?.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 })
             }
             else {
                 newCell?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                oldCell?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                oldCell?.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }
         }
         
@@ -82,7 +83,7 @@ class EventsViewController: ButtonBarPagerTabStripViewController {
     
     @objc func newEvent() {
         let vc = FlowManager.createEditEventVc(mode: .Create, membership: self.membership, event: nil, delegate: nil)
-        self.present(vc, animated: true, completion: nil)
+        self.presentModally(vc, animated: true, completion: nil)
     }
 
 }

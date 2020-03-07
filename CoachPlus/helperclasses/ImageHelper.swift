@@ -39,15 +39,16 @@ class ImageHelper: NSObject, RSKImageCropViewControllerDelegate {
             if let photo = items.singlePhoto {
                 var imageCropVC : RSKImageCropViewController!
                 imageCropVC = RSKImageCropViewController(image: photo.image, cropMode: RSKImageCropMode.square)
+                imageCropVC.maskLayerColor = UIColor.clear
                 imageCropVC.delegate = self
                 picker.dismiss(animated: true, completion: {
-                    vc.present(imageCropVC, animated: true, completion: nil)
+                    vc.presentModally(imageCropVC, animated: true, completion: nil)
                 })
             } else {
                 picker.dismiss(animated: true, completion: nil)
             }
         }
-        vc.present(picker, animated: true, completion: nil)
+        vc.presentModally(picker, animated: true, completion: nil)
     }
     
     func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {

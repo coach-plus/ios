@@ -36,6 +36,8 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.defaultBackground
+        
         if (self.heroId != "") {
             self.isHeroEnabled = true
             self.imageV.heroID = "\(self.heroId)/image"
@@ -43,7 +45,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             self.navigationItem.titleView?.heroID = "\(self.heroId)/text"
         }
         
-        self.editImageBtn.setCoachPlusIcon(fontType: .googleMaterialDesign(.modeEdit), color: .coachPlusGrey)
+        self.editImageBtn.setCoachPlusIcon(fontType: .googleMaterialDesign(.modeEdit), color: UIColor.coachPlusBlue)
         
         
         guard self.user != nil else {
@@ -54,8 +56,6 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
             }
             return
         }
-        
-        
         
         self.editImageBtn.isHidden = !UserManager.isSelf(userId: self.user!.id)
         
@@ -85,7 +85,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         if (self.user != nil && UserManager.isSelf(userId: self.user!.id)) {
             let navVc = FlowManager.userSettingsVc()
             let settingsVc = navVc.children[0] as! UserSettingsViewController
-            self.present(navVc, animated: true, completion: nil)
+            self.presentModally(navVc, animated: true, completion: nil)
         }
     }
     
@@ -232,7 +232,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         alertController.addAction(yesButton)
         alertController.addAction(noButton)
         
-        self.present(alertController, animated: true, completion: nil)
+        self.presentModally(alertController, animated: true, completion: nil)
     }
     
     func showLeaveTeamActionSheet(membership: Membership) {
@@ -260,7 +260,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
         alertController.addAction(yesButton)
         alertController.addAction(noButton)
         
-        self.present(alertController, animated: true, completion: nil)
+        self.presentModally(alertController, animated: true, completion: nil)
     }
     
     func showActions(membership: Membership, mode: MembershipTableViewCell.Mode) {

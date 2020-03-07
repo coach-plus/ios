@@ -65,7 +65,7 @@ class UrlHandler {
                     print("vcs")
                     print(rootVc?.isBeingPresented)
                     
-                    rootVc?.present(navVc, animated: true, completion: nil)
+                    rootVc?.presentModally(navVc, animated: true, completion: nil)
                     
                     
                     /*
@@ -74,14 +74,14 @@ class UrlHandler {
                         
                         if let navVc = homeVc.mainViewController as? CoachPlusNavigationViewController {
                             let vc = navVc.childViewControllers[0]
-                            vc.present(joinVc, animated: true, completion: nil)
+                            vc.presentModally(joinVc, animated: true, completion: nil)
                         } else {
-                            homeVc.mainViewController?.present(joinVc, animated: true, completion: nil)
+                            homeVc.mainViewController?.presentModally(joinVc, animated: true, completion: nil)
                         }
                         
                         
                     } else {
-                        rootVc!.present(joinVc, animated: true, completion: nil)
+                        rootVc!.presentModally(joinVc, animated: true, completion: nil)
                     }
                     */
                     
@@ -111,7 +111,7 @@ class UrlHandler {
             
             let rootVc = UIApplication.shared.keyWindow?.rootViewController
             
-            rootVc!.present(verificationVC, animated: true, completion: nil)
+            rootVc!.presentModally(verificationVC, animated: true, completion: nil)
             
             return true
         }

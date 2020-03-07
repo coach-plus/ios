@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,7 +24,7 @@
                         <constraint firstAttribute="height" constant="45" id="lGs-sm-Tae"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" name="tableHeaderText"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyC-r3-HbZ">
@@ -36,14 +34,14 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                     <state key="normal" title="+">
-                        <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" name="tableHeaderButton"/>
                     </state>
                     <connections>
                         <action selector="btnTap:" destination="-1" eventType="touchUpInside" id="Pcs-e5-JSM"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="0.10458583047945205" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" name="tableHeader"/>
             <constraints>
                 <constraint firstItem="VvT-fv-3dY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="7bF-S5-krW"/>
                 <constraint firstAttribute="trailing" secondItem="zyC-r3-HbZ" secondAttribute="trailing" constant="16" id="9bh-qK-TS5"/>
@@ -58,4 +56,15 @@
             <point key="canvasLocation" x="33.5" y="-256.5"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="tableHeader">
+            <color red="0.29019607843137257" green="0.56470588235294117" blue="0.88627450980392153" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tableHeaderButton">
+            <color white="0.60781440781440776" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="tableHeaderText">
+            <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

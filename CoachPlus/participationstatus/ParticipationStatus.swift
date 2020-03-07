@@ -154,7 +154,7 @@ class ParticipationStatus: NibDesignable {
         alertController.addAction(cancelButton)
         
         if let vc = self.delegate as? UIViewController, vc != nil {
-            vc.present(alertController, animated: true, completion: nil)
+            vc.presentModally(alertController, animated: true, completion: nil)
         }
         
         

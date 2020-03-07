@@ -74,7 +74,7 @@ class CreateEventViewController: CoachPlusViewController, UITextViewDelegate {
         
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor.defaultBackground
         
         if (self.mode == .Edit && self.event == nil) {
             self.mode = .Create

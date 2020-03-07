@@ -74,7 +74,7 @@ extension UIColor {
     
     static var coachPlusBlue:UIColor {
         get {
-            return UIColor(hexString: "#3481b8")
+            return UIColor(named: "coachPlusBlue")!
         }
     }
     
@@ -92,7 +92,7 @@ extension UIColor {
     
     static var coachPlusBackgroundColor:UIColor {
         get {
-            return UIColor.white
+            return UIColor.defaultBackground
         }
     }
     
@@ -112,5 +112,8 @@ extension UIColor {
     
     static let leaveTeamRed = UIColor(hexString: "dc3545")
     
-    static let coachPlusLightBlue = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.1)
+    static let coachPlusLightBlue = UIColor(named: "coachPlusLightBlue")!
+    
+    static let defaultBackground = UIColor(named: "defaultBackground")!
+    static let defaultText = UIColor(named: "defaultText")!
 }

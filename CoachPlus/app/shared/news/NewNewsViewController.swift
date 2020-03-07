@@ -30,7 +30,6 @@ class NewNewsViewController: CoachPlusViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         self.messageTf.placeholder = L10n.message
         self.tableHeaderView.title = L10n.newNews
     }

@@ -44,7 +44,8 @@ class MemberTableViewCell: UITableViewCell {
         self.imageV.heroID = "\(heroID)/image"
         self.textLbl.heroID = "\(heroID)/text"
         
-        textLbl.text = membership.user?.fullname
+        self.textLbl.text = membership.user?.fullname
+        self.textLbl.textColor = UIColor.defaultText
         
         self.imageV.imageView.setUserImage(user: membership.user!)
         self.imageV.setIsCoach(isCoach: membership.isCoach())
@@ -99,7 +100,7 @@ class MemberTableViewCell: UITableViewCell {
         alertController.addAction(deleteButton)
         alertController.addAction(cancelButton)
         
-        self.vc?.present(alertController, animated: true, completion: nil)
+        self.vc?.presentModally(alertController, animated: true, completion: nil)
         
     }
     

@@ -162,7 +162,6 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
                 if targetNavVc.children.count > 0, let targetVc = targetNavVc.children[0] as? CreateTeamViewController {
                     targetVc.membershipsController = self
                 }
-                
             }
         }
     }

@@ -20,7 +20,7 @@ class HeaderView: UIView {
     
     init(frame: CGRect, team: Team?) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor.defaultBackground
         
         // The container view is needed to extend the visible area for the image view
         // to include that below the navigation bar. If this container view isn't present
@@ -36,7 +36,7 @@ class HeaderView: UIView {
         
         let imageView: UIImageView = UIImageView.init()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.white
+        imageView.backgroundColor = UIColor.defaultBackground
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         self.imageView = imageView

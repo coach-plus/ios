@@ -145,7 +145,9 @@ class DataHandler {
                 } else {
                     p.reject(ApiError(message: "", statusCode: 999))
                 }
-            }
+            }.catch({ err in
+                p.reject(err)
+            })
         }
     }
     

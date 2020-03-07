@@ -44,6 +44,8 @@ class EventTableViewCell: UITableViewCell {
         self.leftContainer.layer.cornerRadius = 5
         self.leftContainer.clipsToBounds = true
         
+        self.backgroundColor = UIColor.defaultBackground
+        
     }
     
 }

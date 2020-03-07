@@ -52,7 +52,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
                     let alert = UIAlertController(title: "Notification Access", message: "In order to use this application, turn on notification permissions.", preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
                     alert.addAction(alertAction)
-                    self.currentVc?.present(alert , animated: true, completion: nil)
+                    self.currentVc?.presentModally(alert , animated: true, completion: nil)
                     */
                 }
         })

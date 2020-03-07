@@ -12,7 +12,7 @@ import SwiftyJSON
 import MBProgressHUD
 import Alamofire
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: CoachPlusViewController, UITextFieldDelegate {
 
     @IBOutlet weak var backBtn: UIButton!
     
@@ -171,31 +171,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.mode = MBProgressHUDMode.indeterminate
-        hud.label.text = L10n.loading
-        hud.label.textColor = UIColor.white
-        
-        DataHandler.def.register(firstname: self.firstnameLbl.text!, lastname: self.lastnameLbl.text!, email: self.emailLbl.text!, password: self.passwordLbl.text!, termsAccepted: termsAccepted, dataPrivacyAccepted: dataPrivacyAccepted).done({ apiResponse in
-            self.showDone(hud: hud)
+        self.loadData(text: nil, promise: DataHandler.def.register(firstname: self.firstnameLbl.text!, lastname: self.lastnameLbl.text!, email: self.emailLbl.text!, password: self.passwordLbl.text!, termsAccepted: termsAccepted, dataPrivacyAccepted: dataPrivacyAccepted)).done({response in
             self.registerSuccessful()
-        }).catch({ err in
-            hud.hide(animated: true)
         })
-        
-    }
-    
-    func showDone(hud:MBProgressHUD) {
-        
-        let checkLbl = UILabel()
-        checkLbl.setIcon(icon: .fontAwesomeSolid(.check), iconSize: 40)
-        checkLbl.textColor = UIColor.white
-        
-        hud.mode = MBProgressHUDMode.customView
-        hud.customView = checkLbl
-        hud.isSquare = true
-        hud.label.text = L10n.done
-        hud.label.textColor = UIColor.white
         
     }
     

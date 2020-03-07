@@ -17,7 +17,7 @@ extension UIViewController {
     
     func setSeparator(tableView:UITableView, toCheck:[Any]?) {
         if (toCheck != nil && toCheck!.count > 0) {
-            tableView.separatorStyle = .singleLine
+            tableView.separatorStyle = .none
         } else {
             tableView.separatorStyle = .none
         }
@@ -34,7 +34,7 @@ extension UIViewController {
     func openWebpage(urlString:String) {
         let url = URL(string: urlString)!
         let vc = SFSafariViewController(url: url, entersReaderIfAvailable: false)
-        present(vc, animated: true, completion: nil)
+        presentModally(vc, animated: true, completion: nil)
     }
     
     func showConfirmation(title: String, message: String, yes: String, no: String, yesStyle: UIAlertAction.Style, noStyle: UIAlertAction.Style, yesHandler: ((UIAlertAction) -> Void)? = nil, noHandler: ((UIAlertAction) -> Void)? = nil, style: UIAlertController.Style = UIAlertController.Style.actionSheet, showCancelButton: Bool?) {
@@ -57,7 +57,7 @@ extension UIViewController {
             alertController.addAction(cancelButton)
         }
         
-        self.present(alertController, animated: true, completion: nil)
+        self.presentModally(alertController, animated: true, completion: nil)
     }
     
     func handleApiError(apiError: ApiError) {
@@ -69,6 +69,11 @@ extension UIViewController {
     
     func handleGeneralError(error: Error) {
         DropdownAlert.error(message: L10n.error)
+    }
+    
+    func presentModally(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        viewControllerToPresent.modalPresentationStyle = .fullScreen
+        self.present(viewControllerToPresent, animated: animated, completion: completion)
     }
     
 }

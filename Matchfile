@@ -1,4 +1,4 @@
 git_url "git@github.com:Mau04/mathandoro-secret.git"
 
 app_identifier ["com.mathandoro.coachplus", "com.mathandoro.coachplus.dev", "com.mathandoro.coachplus.beta"]
-username "fastlane@mathandoro.com"
+username "mathandoro+fastlane@gmail.com"

@@ -38,8 +38,8 @@ class ImageHelper: NSObject, RSKImageCropViewControllerDelegate {
         picker.didFinishPicking { [unowned picker] items, _ in
             if let photo = items.singlePhoto {
                 var imageCropVC : RSKImageCropViewController!
-                imageCropVC = RSKImageCropViewController(image: photo.image, cropMode: RSKImageCropMode.square)
-                imageCropVC.maskLayerColor = UIColor.clear
+                imageCropVC = RSKImageCropViewController(image: photo.image, cropMode: RSKImageCropMode.circle)
+                imageCropVC.maskLayerColor = UIColor.darkBackground
                 imageCropVC.delegate = self
                 picker.dismiss(animated: true, completion: {
                     vc.presentModally(imageCropVC, animated: true, completion: nil)

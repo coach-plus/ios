@@ -116,4 +116,5 @@ extension UIColor {
     
     static let defaultBackground = UIColor(named: "defaultBackground")!
     static let defaultText = UIColor(named: "defaultText")!
+    static let darkBackground = UIColor(named: "darkBackground")!
 }

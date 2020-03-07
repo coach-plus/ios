@@ -1455,6 +1455,7 @@
 			buildConfigurationList = 473A5F7B1E8A749A002FD833 /* Build configuration list for PBXNativeTarget "CoachPlus" */;
 			buildPhases = (
 				F4AC44971DF51CD2AD1FA57C /* [CP] Check Pods Manifest.lock */,
+				47F78C4C24143A8000917BA1 /* ShellScript */,
 				473A5F591E8A749A002FD833 /* Sources */,
 				473A5F6E1E8A749A002FD833 /* Frameworks */,
 				473A5F711E8A749A002FD833 /* Resources */,
@@ -1952,6 +1953,23 @@
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$PODS_ROOT/SwiftGen/bin/swiftgen\n";
 		};
 		474E3D4C22C5DF6100255CFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$PODS_ROOT/SwiftGen/bin/swiftgen\n";
+		};
+		47F78C4C24143A8000917BA1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

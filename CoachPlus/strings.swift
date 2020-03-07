@@ -365,6 +365,10 @@ public enum L10n {
   public static let youAlreadyHaveTeamsGoAheadAndSelectOne = L10n.tr("MainLocalization", "You_already_have_teams_Go_ahead_and_select_one")
   /// You are in the following Teams
   public static let youAreInTheFollowingTeams = L10n.tr("MainLocalization", "You_are_in_the_following_Teams")
+  /// You are invited to join the %s team on Coach+. Click here to join: %s
+  public static func youAreInvitedToJoinTeam(_ p1: UnsafePointer<CChar>, _ p2: UnsafePointer<CChar>) -> String {
+    return L10n.tr("MainLocalization", "You_are_invited_to_join_team", p1, p2)
+  }
   /// You are not verified
   public static let youAreNotVerified = L10n.tr("MainLocalization", "You_are_not_verified")
   /// You are now verified

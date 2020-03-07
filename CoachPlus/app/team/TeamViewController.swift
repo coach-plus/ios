@@ -524,17 +524,9 @@ class TeamViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     func newMember() {
         DataHandler.def.createInviteLink(team: (self.membership?.team!)!, validDays: nil).done({ link in
             
-            let url = URL(string: link)!
+            let text = L10n.youAreInvitedToJoinTeam(self.membership!.team!.name, link)
             
-            var text = ""
-            
-            if (self.membership?.team!.isPublic == true) {
-                text = L10n.joinThisPublicTeam
-            } else {
-                text = L10n.joinThisPrivateTeam
-            }
-            
-            let vc = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
+            let vc = UIActivityViewController(activityItems: [text], applicationActivities: nil)
             vc.excludedActivityTypes =
                 [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.saveToCameraRoll, UIActivity.ActivityType.postToFlickr,
                  UIActivity.ActivityType.postToVimeo, UIActivity.ActivityType.openInIBooks]

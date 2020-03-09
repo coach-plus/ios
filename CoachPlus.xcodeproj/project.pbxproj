@@ -2847,7 +2847,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlus.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Maurice Breit (AN3U6FNVKH)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2874,7 +2874,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2915,7 +2915,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -2968,7 +2968,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3000,7 +3000,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development: Maurice Breit (AN3U6FNVKH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Maurice Breit (AN3U6FNVKH)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -3027,7 +3027,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoDev.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -3121,7 +3121,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoachPlus/CoachPlusBeta.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Maurice Breit (AN3U6FNVKH)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoBeta.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -3148,7 +3148,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Maurice Breit, Dominik Sergej Finkbeiner, Thomas Jansen, Anton Kharitonov, Roman M (R6AW526K22)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = R6AW526K22;
 				INFOPLIST_FILE = CoachPlus/CoachPlusInfoBeta.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;

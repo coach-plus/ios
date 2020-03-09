@@ -64,7 +64,7 @@ class MemberTableViewCell: UITableViewCell {
     }
     
     func showActions() {
-        let alertController = UIAlertController(title: L10n.actions, message: L10n.pleaseSelectAnAction, preferredStyle: .actionSheet)
+        let alertController = UIAlertController.createCoachPlusAlert(title: L10n.actions, message: L10n.pleaseSelectAnAction, style: nil)
         
         let makeCoach = UIAlertAction(title: L10n.makeCoach, style: .default, handler: { (action) -> Void in
             

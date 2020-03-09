@@ -216,7 +216,8 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func showJoinTeamActionSheet(team: Team) {
-        let alertController = UIAlertController(title: L10n.joinTeam, message: L10n.areYouSureThatYouWantToLeaveTeamName(team.name), preferredStyle: .actionSheet)
+        
+        let alertController = UIAlertController.createCoachPlusAlert(title: L10n.joinTeam, message: L10n.areYouSureThatYouWantToLeaveTeamName(team.name), style: nil)
         
         let yesButton = UIAlertAction(title: L10n.joinTeam.localize(), style: .default, handler: { (action) -> Void in
             
@@ -236,7 +237,7 @@ class UserViewController: CoachPlusViewController, UITableViewDelegate, UITableV
     }
     
     func showLeaveTeamActionSheet(membership: Membership) {
-        let alertController = UIAlertController(title: L10n.leaveTeam, message: L10n.areYouSureThatYouWantToLeaveTeamName(membership.team!.name), preferredStyle: .actionSheet)
+        let alertController = UIAlertController.createCoachPlusAlert(title: L10n.leaveTeam, message: L10n.areYouSureThatYouWantToLeaveTeamName(membership.team!.name), style: nil)
         
         let yesButton = UIAlertAction(title: L10n.leaveTeam, style: .default, handler: { (action) -> Void in
             

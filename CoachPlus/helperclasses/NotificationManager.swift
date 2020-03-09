@@ -44,7 +44,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             completionHandler: { (granted,error) in
                 self.isGrantedAccess = granted
                 if granted {
-                    print("Notifications allowed")
                     self.setUpCategories()
                     self.registerForRemote()
                 } else {

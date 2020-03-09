@@ -190,7 +190,13 @@ class MembershipsController: ViewController, UITableViewDelegate, UITableViewDat
         let buildValue = dictionary["CFBundleVersion"] ?? "0"
         let version = "Version: \(versionValue) (\(buildValue))"
         
-        let alertController = UIAlertController(title: appName, message: version, preferredStyle: .actionSheet)
+        let alertController = UIAlertController.createCoachPlusAlert(title: appName, message: version, style: nil)
+        
+        if let popoverController = alertController.popoverPresentationController {
+          popoverController.sourceView = self.view
+          popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+          popoverController.permittedArrowDirections = []
+        }
         
         let legalButton = UIAlertAction(title: L10n.legal, style: .default, handler: { (action) -> Void in
             self.openWebpage(urlString: CoachPlus.aboutUrl)

@@ -74,7 +74,8 @@ class EventDetailCell: UITableViewCell {
     }
     
     func showActions() {
-        let alertController = UIAlertController(title: L10n.actions, message: L10n.pleaseSelectAnAction, preferredStyle: .actionSheet)
+        
+        let alertController = UIAlertController.createCoachPlusAlert(title: L10n.actions, message: L10n.pleaseSelectAnAction, style: nil)
         
         let editButton = UIAlertAction(title: L10n.edit, style: .default, handler: { (action) -> Void in
             

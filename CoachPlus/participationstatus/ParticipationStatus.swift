@@ -131,7 +131,7 @@ class ParticipationStatus: NibDesignable {
     }
     
     func showActionSheet() {
-        let alertController = UIAlertController(title: L10n.setAttendance, message: L10n.youCanNowSelectWhoParticipated, preferredStyle: .actionSheet)
+        let alertController = UIAlertController.createCoachPlusAlert(title: L10n.setAttendance, message: L10n.youCanNowSelectWhoParticipated, style: nil)
         
         let yesButton = UIAlertAction(title: L10n.didAttend, style: .default, handler: { (action) -> Void in
             self.setDidAttend(didAttend: true)

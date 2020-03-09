@@ -232,6 +232,11 @@
 		474EEEE72259FBFC008EAADE /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
 		474EEEE82259FBFC008EAADE /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A9B9121E85569B00DC8247 /* Register.storyboard */; };
 		4756825B1E81D320008547AF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4756825A1E81D320008547AF /* UserNotifications.framework */; };
+		475F1EAD241671A90011E185 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F1EAC241671A90011E185 /* UIAlertControllerExtension.swift */; };
+		475F1EAE241671A90011E185 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F1EAC241671A90011E185 /* UIAlertControllerExtension.swift */; };
+		475F1EAF241671A90011E185 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F1EAC241671A90011E185 /* UIAlertControllerExtension.swift */; };
+		475F1EB0241671A90011E185 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F1EAC241671A90011E185 /* UIAlertControllerExtension.swift */; };
+		475F1EB1241671A90011E185 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F1EAC241671A90011E185 /* UIAlertControllerExtension.swift */; };
 		477A27591E8C3775005516ED /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A27581E8C3775005516ED /* InviteResponse.swift */; };
 		477A275A1E8C40A3005516ED /* InviteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477A27581E8C3775005516ED /* InviteResponse.swift */; };
 		477AF2C2226077F6004F7F2E /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47182F4F2233F2E700E4FD06 /* UserSettingsViewController.swift */; };
@@ -759,6 +764,7 @@
 		474E3DDC22C5DF6100255CFD /* CoachPlusBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachPlusBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475682591E81D273008547AF /* CoachPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoachPlus.entitlements; sourceTree = "<group>"; };
 		4756825A1E81D320008547AF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		475F1EAC241671A90011E185 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtension.swift; path = helperclasses/UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		477A27581E8C3775005516ED /* InviteResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteResponse.swift; path = models/InviteResponse.swift; sourceTree = "<group>"; };
 		477AF37A22609E07004F7F2E /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorHandler.swift; path = helperclasses/ErrorHandler.swift; sourceTree = "<group>"; };
 		478DE22E1E85367000DCF74A /* UrlHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHandler.swift; sourceTree = "<group>"; };
@@ -1147,6 +1153,7 @@
 				477AF37A22609E07004F7F2E /* ErrorHandler.swift */,
 				473ADF3F22732DD50055FE0B /* EventManager.swift */,
 				47F1486D22D4C5C8008CBD64 /* Environment.swift */,
+				475F1EAC241671A90011E185 /* UIAlertControllerExtension.swift */,
 			);
 			name = helperclasses;
 			sourceTree = "<group>";
@@ -2381,6 +2388,7 @@
 				613A92011F0EF2D900826879 /* EventsViewController.swift in Sources */,
 				473A5F6A1E8A749A002FD833 /* UrlHandler.swift in Sources */,
 				473A5F6B1E8A749A002FD833 /* StringExtension.swift in Sources */,
+				475F1EAD241671A90011E185 /* UIAlertControllerExtension.swift in Sources */,
 				61A006211F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
 				473BF18F227993FD009C5DDA /* strings.swift in Sources */,
 				61D98DA22040BD2600D4B722 /* UIViewExtension.swift in Sources */,
@@ -2473,6 +2481,7 @@
 				613A92021F0EF2D900826879 /* EventsViewController.swift in Sources */,
 				478DE22F1E85367000DCF74A /* UrlHandler.swift in Sources */,
 				472B9C101E86CDE000706E6B /* StringExtension.swift in Sources */,
+				475F1EAE241671A90011E185 /* UIAlertControllerExtension.swift in Sources */,
 				61A006221F347C6E003E2651 /* UITextViewExtension.swift in Sources */,
 				473BF190227993FD009C5DDA /* strings.swift in Sources */,
 				61D98DA32040BD2600D4B722 /* UIViewExtension.swift in Sources */,
@@ -2549,6 +2558,7 @@
 				47AC1C8D2269A9DA001057DA /* NewNewsViewController.swift in Sources */,
 				477AF2E322607812004F7F2E /* StringExtension.swift in Sources */,
 				477AF36C226093BC004F7F2E /* Event.swift in Sources */,
+				475F1EB0241671A90011E185 /* UIAlertControllerExtension.swift in Sources */,
 				47AC1C722269A9CD001057DA /* EventDetailCell.swift in Sources */,
 				477AF2EE22607812004F7F2E /* CoachPlusNavigationViewController.swift in Sources */,
 				477AF2EF22607812004F7F2E /* UIApplicationExtension.swift in Sources */,
@@ -2642,6 +2652,7 @@
 				47AC1C912269A9DA001057DA /* NewNewsViewController.swift in Sources */,
 				477AF30822607812004F7F2E /* CoachPlusNavigationViewController.swift in Sources */,
 				477AF374226093BD004F7F2E /* Event.swift in Sources */,
+				475F1EB1241671A90011E185 /* UIAlertControllerExtension.swift in Sources */,
 				47AC1C742269A9CD001057DA /* EventDetailCell.swift in Sources */,
 				477AF30722607812004F7F2E /* UIViewControllerExtension.swift in Sources */,
 				477AF30B22607812004F7F2E /* UITextViewExtension.swift in Sources */,
@@ -2751,6 +2762,7 @@
 				474E3D9322C5DF6100255CFD /* EventsViewController.swift in Sources */,
 				474E3D9422C5DF6100255CFD /* UrlHandler.swift in Sources */,
 				474E3D9522C5DF6100255CFD /* StringExtension.swift in Sources */,
+				475F1EAF241671A90011E185 /* UIAlertControllerExtension.swift in Sources */,
 				474E3D9622C5DF6100255CFD /* UITextViewExtension.swift in Sources */,
 				474E3D9722C5DF6100255CFD /* strings.swift in Sources */,
 				474E3D9822C5DF6100255CFD /* UIViewExtension.swift in Sources */,

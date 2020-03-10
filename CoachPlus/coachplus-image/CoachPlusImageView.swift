@@ -36,17 +36,17 @@ class CoachPlusImageView: NibDesignable {
     func setup() {
         
         detailContainerView.clipsToBounds = true
-        detailContainerView.backgroundColor = nil
+        detailContainerView.backgroundColor = .white
+        detailContainerView.layer.cornerRadius = detailContainerView.frame.width / 2
         
         imageView.layer.cornerRadius = self.frame.width / 2
         imageView.clipsToBounds = true
         imageView.backgroundColor = nil
         imageView.superview?.backgroundColor = nil
         
-        /*
         detailContainerView.layer.borderColor = UIColor.coachPlusBlue.cgColor
         detailContainerView.layer.borderWidth = 1.0
-         */
+        
     }
     
     public func setIsCoach(isCoach: Bool) {
